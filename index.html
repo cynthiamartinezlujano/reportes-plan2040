@@ -545,12 +545,15 @@ class Component extends DCLogic {
       fg:(P[k]||{}).fg||"#C1124A", desc:desc[k],
     }));
   }
-  embedSrc(url){
+  embedSrc(url, thumb){
     if(!url) return url;
     if(!/app\.powerbi\.com/i.test(url)) return url; // HTML interno u otra fuente: no tocar
     let u = url;
-    if(!/[?&]filterPaneEnabled=/.test(u)) u += "&filterPaneEnabled=false";
-    if(!/[?&]navContentPaneEnabled=/.test(u)) u += "&navContentPaneEnabled=false";
+    if(thumb){
+      // miniatura: ocultar paneles para que se vea limpia
+      if(!/[?&]filterPaneEnabled=/.test(u)) u += "&filterPaneEnabled=false";
+      if(!/[?&]navContentPaneEnabled=/.test(u)) u += "&navContentPaneEnabled=false";
+    }
     return u;
   }
   pinfo(k){
@@ -760,7 +763,7 @@ class Component extends DCLogic {
       isHtml: isHtml,
       thumbEl: (isHtml && r.embedUrl)
         ? React.createElement("div",{style:{position:"absolute",inset:0,overflow:"hidden",background:"#fff"}}, [
-            React.createElement("iframe",{key:"f",title:r.title,src:this.embedSrc(r.embedUrl),scrolling:"no",tabIndex:-1,"aria-hidden":"true",style:{position:"absolute",top:0,left:0,width:"1140px",height:"900px",border:0,transform:"scale(0.32)",transformOrigin:"top left",pointerEvents:"none"}}),
+            React.createElement("iframe",{key:"f",title:r.title,src:this.embedSrc(r.embedUrl,true),scrolling:"no",tabIndex:-1,"aria-hidden":"true",style:{position:"absolute",top:0,left:0,width:"1140px",height:"900px",border:0,transform:"scale(0.32)",transformOrigin:"top left",pointerEvents:"none"}}),
             React.createElement("div",{key:"hint",style:{position:"absolute",bottom:8,right:8,display:"inline-flex",alignItems:"center",gap:5,background:"rgba(20,20,20,.72)",color:"#fff",borderRadius:8,padding:"4px 9px",font:"700 10.5px var(--font-sans)"}}, [this.icon("expand",12,"#fff"), "Clic para ampliar"]),
           ])
         : this.thumbEl(r.thumb, p),
