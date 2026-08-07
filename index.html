@@ -84,7 +84,7 @@
       <sc-if value="{{ isMobileV }}" hint-placeholder-val="{{ false }}"><button onClick="{{ openMenu }}" title="Menú" style="width:42px;height:42px;flex:none;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-body);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ menuIcon }}</button></sc-if>
       <div style="position:relative;flex:1;max-width:520px">
         <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-faint);display:flex">{{ searchIcon }}</span>
-        <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Buscar reportes, indicadores, diagnósticos…" style="width:100%;height:42px;border:1px solid var(--border-subtle);border-radius:999px;padding:0 16px 0 42px;font:400 14.5px var(--font-sans);background:var(--ink-50);outline:none;color:var(--text-body)" style-focus="{{ searchFocus }}" />
+        <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Buscar reportes, indicadores, diagnósticos…" style="width:100%;height:42px;border:1px solid var(--border-subtle);border-radius:999px;padding:0 16px 0 42px;font:400 14.5px var(--font-sans);background:var(--ink-50);outline:none;color:var(--text-body)" style-focus="{{ searchFocus }}">
       </div>
       <div style="flex:1"></div>
       <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><button title="Notificaciones" style="width:42px;height:42px;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative" style-hover="{{ iconBtnHover }}">{{ bellIcon }}<span style="position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:var(--brand);border:2px solid #fff"></span></button></sc-if>
@@ -129,8 +129,8 @@
             </div>
           </section>
 
-          <section>
-            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px">
+          <section style="border-top:1px solid var(--border-subtle);padding-top:28px">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;margin-bottom:16px">
               <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">Filtra por pilar</h2>
               <span style="font:400 13px var(--font-sans);color:var(--text-muted)">Identifica huecos y enfoca estrategias</span>
             </div>
@@ -144,7 +144,7 @@
             </div>
           </section>
 
-          <section>
+          <section style="border-top:1px solid var(--border-subtle);padding-top:28px">
             <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 16px">Actualizados recientemente</h2>
             <div style="{{ gridStyle }}">
               <sc-for list="{{ recientes }}" as="r" hint-placeholder-count="4">
@@ -169,7 +169,7 @@
       <!-- SELECTOR DE PILARES -->
       <sc-if value="{{ isPillars }}" hint-placeholder-val="{{ false }}">
         <div style="max-width:1180px">
-          <a onClick="{{ goCoordinadores }}" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-sans);color:var(--text-muted);cursor:pointer;margin-bottom:14px">← Recursos para coordinadores</a>
+          <a onClick="{{ goCoordinadores }}" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-sans);color:var(--text-muted);cursor:pointer;margin-bottom:14px">← Recursos para coordinaciones</a>
           <h1 style="font:800 27px var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 6px">Reportes por pilar</h1>
           <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0 0 26px;max-width:60ch">Cada pilar es un color del Plan. Entra a un pilar para ver sus reportes e identificar dónde hay que enfocar las estrategias.</p>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:18px">
@@ -317,9 +317,9 @@
                 <div style="display:grid;grid-template-columns:1.6fr 1.8fr 1.2fr .8fr 44px;min-width:660px;gap:12px;padding:11px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
                   <span style="display:flex;align-items:center;gap:10px;min-width:0">
                     <span style="width:34px;height:34px;border-radius:50%;background:var(--educacion-100);color:var(--brand-strong);font:800 12.5px var(--font-sans);display:flex;align-items:center;justify-content:center;flex:none">{{ u.initials }}</span>
-                    <input value="{{ u.name }}" onInput="{{ u.setName }}" placeholder="Nombre completo" style="flex:1;min-width:0;height:34px;border:1px solid transparent;border-radius:9px;padding:0 8px;font:700 13.5px var(--font-sans);color:var(--text-strong);background:transparent;outline:none" style-focus="{{ searchFocus }}" />
+                    <input value="{{ u.name }}" onInput="{{ u.setName }}" placeholder="Nombre completo" style="flex:1;min-width:0;height:34px;border:1px solid transparent;border-radius:9px;padding:0 8px;font:700 13.5px var(--font-sans);color:var(--text-strong);background:transparent;outline:none" style-focus="{{ searchFocus }}">
                   </span>
-                  <input value="{{ u.email }}" onInput="{{ u.setEmail }}" placeholder="correo@plan-2040.org" style="height:34px;border:1px solid transparent;border-radius:9px;padding:0 8px;font:400 13px var(--font-sans);color:var(--text-muted);background:transparent;outline:none" style-focus="{{ searchFocus }}" />
+                  <input value="{{ u.email }}" onInput="{{ u.setEmail }}" placeholder="correo@plan-2040.org" style="height:34px;border:1px solid transparent;border-radius:9px;padding:0 8px;font:400 13px var(--font-sans);color:var(--text-muted);background:transparent;outline:none" style-focus="{{ searchFocus }}">
                   <select value="{{ u.role }}" onChange="{{ u.setRole }}" style="height:36px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 8px;font:600 12.5px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
                     <option value="Administrador">Administrador</option>
                     <option value="Coordinación">Coordinación</option>
@@ -342,9 +342,9 @@
               <sc-for list="{{ permRows }}" as="pr" hint-placeholder-count="6">
                 <div style="display:grid;grid-template-columns:2.6fr 1fr 1fr 1fr;min-width:620px;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
                   <span style="display:flex;align-items:center;gap:8px;font:700 13.5px/1.35 var(--font-sans);color:var(--text-strong)">{{ pr.title }}<sc-if value="{{ pr.sensitive }}" hint-placeholder-val="{{ false }}"><span style="font:700 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;flex:none">Sensible</span></sc-if></span>
-                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.guia }}" onChange="{{ pr.tGuia }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" /></span>
-                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.coord }}" onChange="{{ pr.tCoord }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" /></span>
-                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.dir }}" onChange="{{ pr.tDir }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" /></span>
+                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.guia }}" onChange="{{ pr.tGuia }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer"></span>
+                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.coord }}" onChange="{{ pr.tCoord }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer"></span>
+                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.dir }}" onChange="{{ pr.tDir }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer"></span>
                 </div>
               </sc-for>
             </div>
@@ -357,8 +357,8 @@
                 <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:flex-start">
                   <span style="width:44px;height:44px;border-radius:12px;background:{{ c.tint }};color:{{ c.fg }};display:flex;align-items:center;justify-content:center;flex:none">{{ c.iconEl }}</span>
                   <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
-                    <input value="{{ c.label }}" onInput="{{ c.setLabel }}" style="width:100%;height:36px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 10px;font:800 14.5px var(--font-sans);color:var(--text-strong);background:#fff;outline:none" style-focus="{{ searchFocus }}" />
-                    <input value="{{ c.desc }}" onInput="{{ c.setDesc }}" style="width:100%;height:34px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 10px;font:400 12.5px var(--font-sans);color:var(--text-muted);background:#fff;outline:none" style-focus="{{ searchFocus }}" />
+                    <input value="{{ c.label }}" onInput="{{ c.setLabel }}" style="width:100%;height:36px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 10px;font:800 14.5px var(--font-sans);color:var(--text-strong);background:#fff;outline:none" style-focus="{{ searchFocus }}">
+                    <input value="{{ c.desc }}" onInput="{{ c.setDesc }}" style="width:100%;height:34px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 10px;font:400 12.5px var(--font-sans);color:var(--text-muted);background:#fff;outline:none" style-focus="{{ searchFocus }}">
                     <span style="font:600 11.5px var(--font-sans);color:var(--text-faint)">{{ c.count }}</span>
                   </div>
                 </div>
@@ -449,9 +449,9 @@
         <button onClick="{{ closeEditor }}" style="width:36px;height:36px;border:1px solid var(--border-subtle);border-radius:10px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ xIcon }}</button>
       </div>
       <div class="dr-scroll" style="flex:1;overflow:auto;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
-        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Título</label><input value="{{ draft.title }}" onInput="{{ dTitle }}" placeholder="Nombre del reporte" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
+        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Título</label><input value="{{ draft.title }}" onInput="{{ dTitle }}" placeholder="Nombre del reporte" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}"></div>
         <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Descripción</label><textarea value="{{ draft.desc }}" onInput="{{ dDesc }}" rows="3" placeholder="Qué muestra y para quién es" style="width:100%;border:1px solid var(--border-default);border-radius:11px;padding:10px 14px;font:400 14px/1.5 var(--font-sans);color:var(--text-body);background:#fff;outline:none;resize:vertical" style-focus="{{ searchFocus }}"></textarea></div>
-        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Enlace (Power BI o SharePoint)</label><input value="{{ draft.embedUrl }}" onInput="{{ dUrl }}" placeholder="https://app.powerbi.com/… o link de SharePoint" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 13px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
+        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Enlace (Power BI o SharePoint)</label><input value="{{ draft.embedUrl }}" onInput="{{ dUrl }}" placeholder="https://app.powerbi.com/… o link de SharePoint" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 13px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}"></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Fuente</label><select value="{{ draft.source }}" onChange="{{ dSource }}" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 10px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
             <option value="powerbi">Power BI</option><option value="html">Página HTML</option><option value="sharepoint">SharePoint (link con sesión)</option>
@@ -468,12 +468,31 @@
             <sc-for list="{{ pillarOptions }}" as="o" hint-placeholder-count="6"><option value="{{ o.id }}">{{ o.label }}</option></sc-for>
           </select></div>
         </div>
-        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Responsable</label><input value="{{ draft.owner }}" onInput="{{ dOwner }}" placeholder="p. ej. Dirección" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font:600 13.5px var(--font-sans);color:var(--text-body)"><input type="checkbox" checked="{{ draft.sensitive }}" onChange="{{ dSens }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" />Datos sensibles (acceso restringido)</label>
+        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Responsable</label><input value="{{ draft.owner }}" onInput="{{ dOwner }}" placeholder="p. ej. Dirección" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}"></div>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font:600 13.5px var(--font-sans);color:var(--text-body)"><input type="checkbox" checked="{{ draft.sensitive }}" onChange="{{ dSens }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer">Datos sensibles (acceso restringido)</label>
       </div>
       <div style="flex:none;padding:16px 24px;border-top:1px solid var(--border-subtle);display:flex;gap:10px">
         <button onClick="{{ saveDraft }}" style="flex:1;height:46px;border:0;border-radius:999px;background:var(--brand);color:#fff;font:700 14.5px var(--font-sans);cursor:pointer;transition:background .18s" style-hover="{{ loginHover }}">Guardar</button>
         <button onClick="{{ closeEditor }}" style="height:46px;padding:0 22px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 14px var(--font-sans);cursor:pointer" style-hover="{{ iconBtnHover }}">Cancelar</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- SOLICITAR REPORTE -->
+  <sc-if value="{{ showRequest }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeRequest }}" style="position:fixed;inset:0;background:rgba(20,20,20,.45);animation:scrimIn .2s ease;z-index:55"></div>
+    <div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(480px,94vw);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.25);z-index:56;animation:popIn .22s ease;padding:26px 26px 22px">
+      <h2 style="font:800 20px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 6px">Solicitar un reporte</h2>
+      <p style="font:400 13.5px/1.5 var(--font-sans);color:var(--text-muted);margin:0 0 18px">Cuéntanos qué necesitas. Al enviar se abre tu correo con la solicitud lista para mandarla a la administración del directorio.</p>
+      <label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Tu nombre</label>
+      <input value="{{ reqName }}" onInput="{{ setReqName }}" placeholder="Nombre y apellido" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none;margin-bottom:14px" style-focus="{{ searchFocus }}">
+      <label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">¿Qué reporte necesitas?</label>
+      <textarea value="{{ reqText }}" onInput="{{ setReqText }}" rows="3" placeholder="p. ej. Vacunación por comunidad, corte mensual" style="width:100%;border:1px solid var(--border-default);border-radius:11px;padding:10px 14px;font:400 14px/1.5 var(--font-sans);color:var(--text-body);background:#fff;outline:none;resize:vertical;margin-bottom:14px" style-focus="{{ searchFocus }}"></textarea>
+      <label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">¿Para qué lo usarás? (opcional)</label>
+      <textarea value="{{ reqWhy }}" onInput="{{ setReqWhy }}" rows="2" style="width:100%;border:1px solid var(--border-default);border-radius:11px;padding:10px 14px;font:400 14px/1.5 var(--font-sans);color:var(--text-body);background:#fff;outline:none;resize:vertical" style-focus="{{ searchFocus }}"></textarea>
+      <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+        <button onClick="{{ sendRequest }}" style="flex:1;min-width:180px;height:46px;border:0;border-radius:999px;background:var(--brand);color:#fff;font:700 14.5px var(--font-sans);cursor:pointer;transition:background .18s" style-hover="{{ loginHover }}">Enviar por correo</button>
+        <button onClick="{{ closeRequest }}" style="height:46px;padding:0 22px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 14px var(--font-sans);cursor:pointer" style-hover="{{ iconBtnHover }}">Cancelar</button>
       </div>
     </div>
   </sc-if>
@@ -511,6 +530,7 @@ class Component extends DCLogic {
       group: null,
       expanded: {},
       mobile: false, menuOpen: false,
+      showRequest: false, reqName: "", reqText: "", reqWhy: "",
       adminTab: "reportes",
       reports: null,
       editing: null, draft: null,
@@ -567,19 +587,22 @@ class Component extends DCLogic {
     return u;
   }
   pinfo(k){
+    if(k==="ninguno") return {key:"ninguno",label:"Sin pilar",color:"var(--ink-200)",tint:"var(--ink-100)",tintStrong:"var(--ink-200)",fg:"var(--text-muted)",desc:"Reporte general, sin pilar específico"};
     if(k==="todos") return {key:"todos",label:"Todos los pilares",color:"var(--brand)",tint:"var(--educacion-50)",tintStrong:"var(--educacion-100)",fg:"var(--brand-strong)",desc:"Transversal a los cinco pilares"};
     return this.PILLARS.find(p=>p.key===k) || this.PILLARS[0];
   }
 
   get CATS(){
     return [
-      {id:"recurrentes", label:"Reportes recurrentes", desc:"Seguimiento semanal y mensual de la operación.", icon:"calendar", pillar:"juventud"},
+      {id:"recurrentes", label:"Reportes recurrentes", desc:"Seguimiento semanal y mensual de indicadores.", icon:"calendar", pillar:"juventud"},
       {id:"anuales",     label:"Informes anuales", desc:"Resultados anuales e impacto del Plan.", icon:"trend", pillar:"educacion"},
       {id:"benchmark",   label:"Benchmark", desc:"Estadísticas comparativas y comparativas entre comunidades.", icon:"bars", pillar:"economia"},
       {id:"guias",       label:"Recursos para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"list", pillar:"salud"},
       {id:"pilares",     label:"Reportes por pilar", desc:"Identifica huecos y enfoca estrategias por pilar.", icon:"layers", pillar:"espiritu"},
       {id:"analisis",    label:"Análisis y diagnósticos", desc:"Estudios a fondo de temas clave del Plan.", icon:"flask", pillar:"economia"},
-      {id:"operativos",  label:"Reportes operativos", desc:"Seguimiento de la operación diaria para coordinación.", icon:"clipboard", pillar:"salud"},
+      {id:"operativos",  label:"Operación", desc:"Seguimiento de la operación diaria para coordinación.", icon:"clipboard", pillar:"salud"},
+      {id:"acompanamiento", label:"Acompañamiento", desc:"Visitas, seguimiento y cercanía con las familias.", icon:"calendar", pillar:"juventud"},
+      {id:"formacion",   label:"Formación", desc:"Formación para padres, guías y jóvenes: participación y avance.", icon:"list", pillar:"educacion"},
     ].map(c=> Object.assign({}, c, (this.state && this.state.catOv && this.state.catOv[c.id]) || {}));
   }
   catInfo(id){ return this.CATS.find(c=>c.id===id) || this.CATS[0]; }
@@ -589,27 +612,31 @@ class Component extends DCLogic {
       {id:"home", type:"home", label:"Inicio", icon:"home"},
       {id:"recurrentes", type:"cat", label:"Reportes recurrentes", icon:"calendar"},
       {id:"guias", type:"cat", label:"Recursos para guías", icon:"list"},
-      {id:"coordinadores", type:"group", label:"Recursos para coordinadores", icon:"layers", children:["pilares","operativos"]},
+      {id:"coordinadores", type:"group", label:"Recursos para coordinaciones", icon:"layers", children:["pilares","operativos","acompanamiento","formacion"]},
       {id:"estrategia", type:"group", label:"Estrategia", icon:"trend", children:["anuales","benchmark","analisis"]},
     ];
   }
   get GROUPS(){
     return {
-      coordinadores: {label:"Recursos para coordinadores", desc:"Herramientas y reportes por pilar para que cada coordinación identifique huecos y enfoque sus estrategias.", icon:"layers", pillar:"espiritu", children:["pilares","operativos"]},
-      estrategia: {label:"Estrategia", desc:"Mirada de largo plazo del Plan: resultados anuales, estadísticas comparativas, benchmark y diagnósticos a fondo.", icon:"trend", pillar:"educacion", children:["anuales","benchmark","analisis"]},
+      coordinadores: {label:"Recursos para coordinaciones", desc:"Herramientas y reportes por pilar para que cada coordinación identifique huecos y enfoque sus estrategias.", icon:"layers", pillar:"espiritu", children:["pilares","operativos","acompanamiento","formacion"]},
+      estrategia: {label:"Estrategia", desc:"Resultados anuales, estadísticas comparativas, benchmark y diagnósticos a fondo.", icon:"trend", pillar:"educacion", children:["anuales","benchmark","analisis"]},
     };
   }
-  childParent = { anuales:"estrategia", benchmark:"estrategia", analisis:"estrategia", pilares:"coordinadores", operativos:"coordinadores" };
+  childParent = { anuales:"estrategia", benchmark:"estrategia", analisis:"estrategia", pilares:"coordinadores", operativos:"coordinadores", acompanamiento:"coordinadores", formacion:"coordinadores" };
 
   get REPORTS(){ return (this.state && this.state.reports) || this.BASE_REPORTS; }
   get BASE_REPORTS(){
     return [
-      {id:"r21", title:"Estatus de Indicadores de los niños acompañados", desc:"Tablero con el estatus de indicadores de los niños acompañados y las listas del mes para consulta de las guías.", pillar:"todos", cat:"guias", freq:"semanal", access:"embed", sensitive:false, days:1, thumb:"kpi", owner:"Coordinación de campo", pageName:"fdbf95ac33fbf3f2471b", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=46568245-e6be-4f60-9f44-eb56fc660ecd&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
+      {id:"r21", title:"Estatus de Indicadores de los niños acompañados", desc:"Tablero con el estatus de indicadores de los niños acompañados y las listas del mes para consulta de las guías.", pillar:"ninguno", cat:"guias", freq:"semanal", access:"embed", sensitive:false, days:1, thumb:"kpi", owner:"Coordinación de campo", pageName:"fdbf95ac33fbf3f2471b", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=46568245-e6be-4f60-9f44-eb56fc660ecd&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
       {id:"r22", title:"Reporte Mensual", desc:"Construcción general de reportes del mes con el panorama integral del Plan.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", sensitive:false, days:3, thumb:"line", owner:"Dirección", pageName:"15dc1893abd8d9477a0a", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=494b1e2f-6d3e-4859-b841-604465575075&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
-      {id:"r27", title:"One Page · Indicadores por Pilar", desc:"Resumen ejecutivo de una página con los indicadores por pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"kpi", thumbUrl:"miniaturas/one-page-indicadores.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=30708db3-3c64-4776-aa84-ecc87195bfa3"},
-      {id:"r28", title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=c25619fa-4ffd-4645-8ccb-8784db292ef4"},
-      {id:"r29", title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=5b72e576-818f-4f4b-b74e-a9b76aea1197"},
-      {id:"r30", title:"Generador de Listados por Guía", desc:"Genera las listas de consulta por guía para el acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"guias", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/generador-listados.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d21622d1-b328-4b0d-943a-d7da92a57174"},
+      {id:"r27", title:"One Page · Indicadores por Pilar", desc:"Resumen ejecutivo de una página con los indicadores por pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"kpi", thumbUrl:"miniaturas/one-page-indicadores.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=30708db3-3c64-4776-aa84-ecc87195bfa3"},
+      {id:"r28", title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=c25619fa-4ffd-4645-8ccb-8784db292ef4"},
+      {id:"r29", title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=5b72e576-818f-4f4b-b74e-a9b76aea1197"},
+      {id:"r30", title:"Generador de Listados por Guía", desc:"Genera las listas de consulta por guía para el acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"guias", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/generador-listados.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d21622d1-b328-4b0d-943a-d7da92a57174"},
+      {id:"r31", title:"Formación · Reporte mensual", desc:"Temas formativos registrados en las visitas: formación por familia, por edad, temas y pilares. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"formacion", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"line", thumbUrl:"miniaturas/formacion-mensual.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=2ddb7946-42c2-459c-adb3-fccb030f09c2"},
+      {id:"r32", title:"Periodicidad de Visitas — Ejercicio de simulación", desc:"Simulación de la periodicidad de visitas por zona y grupo: cuántas visitas al mes según el esquema. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"bars", thumbUrl:"miniaturas/periodicidad-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=e84c687e-881a-46bd-96e0-a7fa540480de"},
+      {id:"r33", title:"Acompañamiento a Embarazadas", desc:"Seguimiento de mamás embarazadas y postparto: control prenatal, riesgo y familias P2040. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"acompanamiento", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/acompanamiento-embarazadas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=75c480d5-8652-4d06-affb-8493792b0084"},
+      {id:"r34", title:"Dashboard de Nutrición (prueba)", desc:"Estado nutricional de los niños: recuperados, casos críticos a canalizar y anemia, por comunidad. Se muestra desde SharePoint con tu sesión institucional.", pillar:"salud", cat:"pilar", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"donut", thumbUrl:"miniaturas/nutricion.png", owner:"Coordinación de salud", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=92ed6d59-035a-4e70-85b8-dfbd99bdf7b3"},
     ];
   }
 
@@ -752,6 +779,18 @@ class Component extends DCLogic {
   delUser(id){ this.setState(s=>({users:s.users.filter(u=>u.id!==id)})); }
   setCat(id,k){ return (ev)=> { const v=ev.target.value; this.setState(s=>({catOv:{...s.catOv,[id]:{...(s.catOv[id]||{}),[k]:v}}})); }; }
   markDone(id){ this.setState(s=>({requests:s.requests.map(q=>q.id===id? {...q,status:"atendida"} : q)})); }
+
+  REQUEST_EMAIL = "cynthia.martinez@qualfon.com"; // correo que recibe las solicitudes
+  sendRequest(){
+    const s=this.state; if(!(s.reqText||"").trim()) return;
+    const nl="%0D%0A";
+    const body = encodeURIComponent("Solicitud desde el Directorio de reportes Plan 20·40")+nl+nl
+      +encodeURIComponent("Nombre: "+(s.reqName.trim()||"(sin nombre)"))+nl
+      +encodeURIComponent("Reporte solicitado: "+s.reqText.trim())+nl
+      +(s.reqWhy.trim()? encodeURIComponent("Para qué: "+s.reqWhy.trim())+nl : "");
+    window.location.href = "mailto:"+this.REQUEST_EMAIL+"?subject="+encodeURIComponent("Solicitud de reporte · Plan 20·40")+"&body="+body;
+    this.setState(st=>({showRequest:false, reqName:"", reqText:"", reqWhy:"", requests:[{id:"q"+Date.now(), text:st.reqText.trim(), user:st.reqName.trim()||"Visitante", days:0, status:"pendiente"}, ...st.requests]}));
+  }
 
   // ---- derived ----
   computeList(){
@@ -1022,7 +1061,7 @@ class Component extends DCLogic {
       done:()=>this.markDone(q.id),
     }));
     const catOptions = [...this.CATS.filter(c=>c.id!=="pilares").map(c=>({id:c.id,label:c.label})), {id:"pilar",label:"Reportes por pilar"}];
-    const pillarOptions = [{id:"todos",label:"Todos los pilares"}, ...this.PILLARS.map(p=>({id:p.key,label:p.label}))];
+    const pillarOptions = [{id:"ninguno",label:"Sin pilar"}, {id:"todos",label:"Todos los pilares"}, ...this.PILLARS.map(p=>({id:p.key,label:p.label}))];
 
     return {
       showLogin: !s.loggedIn,
@@ -1089,7 +1128,14 @@ class Component extends DCLogic {
       closeReport: ()=>this.closeReport(),
       cta: ()=>{ if(!sel) return; if(sel.hasEmbed){ sel.maximize(); } else if(sel.openUrl){ window.open(sel.openUrl,"_blank","noopener"); } },
       openMaxUrl: ()=>{ if(mx && mx.openUrl) window.open(mx.openUrl,"_blank","noopener"); },
-      goHelp: ()=>{},
+      goHelp: ()=>this.setState({showRequest:true}),
+      showRequest: !!s.showRequest,
+      closeRequest: ()=>this.setState({showRequest:false}),
+      reqName: s.reqName, reqText: s.reqText, reqWhy: s.reqWhy,
+      setReqName: (e)=>this.setState({reqName:e.target.value}),
+      setReqText: (e)=>this.setState({reqText:e.target.value}),
+      setReqWhy: (e)=>this.setState({reqWhy:e.target.value}),
+      sendRequest: ()=>this.sendRequest(),
       loginHover:{background:"var(--brand-ink)"},
       searchFocus:{borderColor:"var(--brand)",background:"#fff"},
     };
