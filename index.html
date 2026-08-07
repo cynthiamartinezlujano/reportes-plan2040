@@ -716,7 +716,13 @@ class Component extends DCLogic {
   openPillar(k){ this.setState({view:"list",pillar:k,category:null,pillarFilter:null,query:"",expanded:{coordinadores:true}}); }
   openReport(id){ this.setState({selectedId:id}); }
   closeReport(){ this.setState({selectedId:null}); }
-  maximize(id){ this.setState({maximizedId:id}); }
+  esMovil(){ return window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window; }
+  maximize(id){
+    // en móvil el iframe de SharePoint no puede usar la sesión (cookies de terceros bloqueadas): abrir en pestaña propia
+    const r = this.REPORTS.find(x=>x.id===id);
+    if(r && r.source==="sharepoint" && r.embedUrl && this.esMovil()){ window.open(r.embedUrl,"_blank","noopener"); return; }
+    this.setState({maximizedId:id});
+  }
   closeMax(){ this.setState({maximizedId:null}); }
   onSearch(ev){ this.setState({query:ev.target.value}); }
   setPillarFilter(k){ this.setState(s=>({pillarFilter: s.pillarFilter===k? null : k})); }
@@ -920,7 +926,7 @@ class Component extends DCLogic {
     let sel=null;
     const sr = this.REPORTS.find(r=>r.id===s.selectedId);
     if(sr){
-      const p=this.pinfo(sr.pillar); const isEmbed=sr.access==="embed"; const isHtml=sr.source==="html"; const isExt=sr.source==="sharepoint" && !/embed\.aspx/i.test(sr.embedUrl||"");
+      const p=this.pinfo(sr.pillar); const isEmbed=sr.access==="embed"; const isHtml=sr.source==="html"; const isExt=sr.source==="sharepoint" && (this.esMovil() || !/embed\.aspx/i.test(sr.embedUrl||""));
       sel = {
         title:sr.title, desc:sr.desc, sensitive:sr.sensitive,
         srcBadge: sr.source==="sharepoint"? "S" : (isHtml? "H" : "P"),
