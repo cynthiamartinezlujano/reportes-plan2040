@@ -1,0 +1,53 @@
+/* ============================================================
+   Plan 20·40 — Spacing, radius, shadow, motion tokens
+   ============================================================ */
+:root {
+  /* Spacing scale (4px base) */
+  --space-0:  0;
+  --space-1:  0.25rem;  /* 4 */
+  --space-2:  0.5rem;   /* 8 */
+  --space-3:  0.75rem;  /* 12 */
+  --space-4:  1rem;     /* 16 */
+  --space-5:  1.25rem;  /* 20 */
+  --space-6:  1.5rem;   /* 24 */
+  --space-8:  2rem;     /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+  --space-20: 5rem;     /* 80 */
+  --space-24: 6rem;     /* 96 */
+
+  /* Radii — the brand leans round & friendly (pill values, soft cards) */
+  --radius-xs:  6px;
+  --radius-sm:  10px;
+  --radius-md:  14px;   /* default cards / inputs */
+  --radius-lg:  20px;   /* feature cards */
+  --radius-xl:  28px;   /* hero panels */
+  --radius-2xl: 36px;
+  --radius-pill:999px;  /* tags, value badges, buttons */
+  --radius-circle: 50%;
+
+  /* Shadows — soft, low-contrast, warm-neutral. No harsh drop shadows. */
+  --shadow-xs: 0 1px 2px rgba(20,20,20,0.05);
+  --shadow-sm: 0 1px 3px rgba(20,20,20,0.06), 0 1px 2px rgba(20,20,20,0.04);
+  --shadow-md: 0 4px 14px rgba(20,20,20,0.07), 0 2px 4px rgba(20,20,20,0.04);
+  --shadow-lg: 0 12px 32px rgba(20,20,20,0.10), 0 4px 8px rgba(20,20,20,0.05);
+  --shadow-brand: 0 10px 26px rgba(232,25,87,0.22);
+
+  /* Borders */
+  --border-width: 1px;
+  --border-width-strong: 2px;
+
+  /* Motion — gentle, optimistic. Ease-out for entrances; quick on press. */
+  --ease-out:   cubic-bezier(0.22, 0.61, 0.36, 1);   /* @kind other */
+  --ease-in-out:cubic-bezier(0.65, 0, 0.35, 1);      /* @kind other */
+  --ease-spring:cubic-bezier(0.34, 1.56, 0.64, 1);   /* @kind other */
+  --dur-fast:   120ms;                               /* @kind other */
+  --dur-base:   220ms;                               /* @kind other */
+  --dur-slow:   380ms;                               /* @kind other */
+
+  /* Layout */
+  --container:   1200px;
+  --container-narrow: 760px;
+  --gutter:      var(--space-6);
+}

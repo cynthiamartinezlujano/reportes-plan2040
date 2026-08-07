@@ -1,0 +1,20 @@
+/* ============================================================
+   Plan 20·40 — Webfonts
+   Sora (variable) — single typeface, all weights.
+   ============================================================ */
+@font-face {
+  font-family: "Sora";
+  src: url("../assets/fonts/Sora-Variable.ttf") format("truetype-variations"),
+       url("../assets/fonts/Sora-Variable.ttf") format("truetype");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("../assets/fonts/Sora-VariableItalic.ttf") format("truetype-variations"),
+       url("../assets/fonts/Sora-VariableItalic.ttf") format("truetype");
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+}

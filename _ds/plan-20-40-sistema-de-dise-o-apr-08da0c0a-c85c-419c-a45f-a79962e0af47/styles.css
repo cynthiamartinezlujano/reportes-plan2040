@@ -1,0 +1,10 @@
+/* ============================================================
+   Plan 20·40 — Design System · global entry point
+   Consumers link THIS file. It only @imports; no rules live here.
+   ============================================================ */
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/base.css";
+@import "components/components.css";

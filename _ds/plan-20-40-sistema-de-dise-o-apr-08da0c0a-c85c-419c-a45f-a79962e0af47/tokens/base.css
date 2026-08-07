@@ -1,0 +1,63 @@
+/* ============================================================
+   Plan 20·40 — Base element styles & a few utilities
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: var(--body-weight);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  margin: 0;
+}
+
+p { margin: 0; text-wrap: pretty; }
+a { color: var(--text-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+::selection { background: var(--educacion-100); color: var(--brand-strong); }
+
+/* Display helpers — the two brand voices */
+.p2040-display {
+  font-weight: var(--weight-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-strong);
+}
+.p2040-display--light {
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-snug);
+}
+
+/* Eyebrow / micro-cap label */
+.p2040-eyebrow {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

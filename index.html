@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+  <link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/components/components.css">
+  <link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/styles.css">
+  <script src="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/_ds_bundle.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased}
+    ::selection{background:var(--educacion-100)}
+    .dr-scroll::-webkit-scrollbar{width:10px;height:10px}
+    .dr-scroll::-webkit-scrollbar-thumb{background:var(--ink-200);border-radius:8px;border:3px solid var(--bg-app)}
+    @keyframes drwIn{from{transform:translateX(24px);opacity:.4}to{transform:none;opacity:1}}
+    @keyframes scrimIn{from{opacity:0}to{opacity:1}}
+    @keyframes popIn{from{transform:translateY(6px);opacity:0}to{transform:none;opacity:1}}
+  </style>
+</helmet>
+
+<sc-if value="{{ showLogin }}" hint-placeholder-val="{{ false }}">
+  <div style="display:flex;height:100vh;width:100%;overflow:hidden">
+    <div style="flex:1.05;background:var(--brand);color:#fff;padding:56px 60px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden">
+      <div style="position:absolute;right:-90px;bottom:-110px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.08)"></div>
+      <div style="position:absolute;right:90px;top:-70px;width:230px;height:230px;border-radius:50%;background:rgba(255,255,255,.06)"></div>
+      <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Logo" tone="white" height="40" hint-size="170px,44px"></x-import>
+      <div style="position:relative">
+        <div style="font:700 13px/1 var(--font-sans);letter-spacing:.16em;text-transform:uppercase;opacity:.8;margin-bottom:18px">Centro de reportes</div>
+        <h1 style="font:800 42px/1.08 var(--font-sans);letter-spacing:-0.02em;margin:0 0 16px;max-width:13ch">Todos nuestros datos, en un solo lugar</h1>
+        <p style="font:400 17px/1.55 var(--font-sans);opacity:.9;margin:0;max-width:34ch">Acompañamos a las familias con información clara. Consulta reportes, indicadores y diagnósticos del Plan 20·40.</p>
+      </div>
+      <div style="position:relative;font:400 13px/1.5 var(--font-sans);opacity:.75">Consejo para el Desarrollo Integral de Cuatrociénegas (CODICC)</div>
+    </div>
+    <div style="flex:1;background:#fff;display:flex;align-items:center;justify-content:center;padding:40px">
+      <div style="width:100%;max-width:360px">
+        <h2 style="font:800 26px/1.1 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 6px">Inicia sesión</h2>
+        <p style="font:400 15px/1.5 var(--font-sans);color:var(--text-muted);margin:0 0 28px">Acceso para el equipo y las guías del Plan 20·40.</p>
+        <label style="display:block;font:600 13px var(--font-sans);color:var(--text-body);margin:0 0 7px">Correo institucional</label>
+        <input value="maria.guzman@plan-2040.org" readonly style="width:100%;height:46px;border:1px solid var(--border-default);border-radius:12px;padding:0 14px;font:400 15px var(--font-sans);color:var(--text-body);background:var(--ink-50);margin-bottom:18px;outline:none" />
+        <label style="display:block;font:600 13px var(--font-sans);color:var(--text-body);margin:0 0 7px">Contraseña</label>
+        <input type="password" value="000000000" readonly style="width:100%;height:46px;border:1px solid var(--border-default);border-radius:12px;padding:0 14px;font:400 15px var(--font-sans);background:var(--ink-50);margin-bottom:24px;outline:none" />
+        <button onClick="{{ doLogin }}" style="width:100%;height:48px;border:0;border-radius:999px;background:var(--brand);color:#fff;font:700 15px var(--font-sans);cursor:pointer;transition:background .18s" style-hover="{{ loginHover }}">Entrar</button>
+        <p style="font:400 12.5px/1.5 var(--font-sans);color:var(--text-faint);margin:18px 0 0;text-align:center">El acceso a cada reporte respeta los permisos de tu cuenta.</p>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ showApp }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;height:100vh;width:100%;overflow:hidden;background:var(--bg-app)">
+
+  <aside style="width:268px;flex:none;background:#fff;border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;padding:20px 16px 16px">
+    <div style="padding:4px 8px 18px;cursor:pointer" onClick="{{ goHome }}">
+      <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Logo" tone="color" height="32" hint-size="150px,38px"></x-import>
+    </div>
+    <div style="font:600 11px var(--font-sans);letter-spacing:.13em;text-transform:uppercase;color:var(--text-faint);padding:6px 10px 8px">Navegación</div>
+    <nav class="dr-scroll" style="display:flex;flex-direction:column;gap:3px;overflow:auto;flex:1;margin:0 -4px;padding:0 4px">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+        <a onClick="{{ n.go }}" style="{{ n.style }}" style-hover="{{ n.hoverStyle }}">
+          <span style="{{ n.iconWrap }}">{{ n.iconEl }}</span>
+          <span style="flex:1;font:600 14px var(--font-sans);letter-spacing:-0.01em">{{ n.label }}</span>
+          <sc-if value="{{ n.showCount }}" hint-placeholder-val="{{ true }}"><span style="{{ n.countStyle }}">{{ n.count }}</span></sc-if>
+          <sc-if value="{{ n.isGroup }}" hint-placeholder-val="{{ false }}">{{ n.chevronEl }}</sc-if>
+        </a>
+      </sc-for>
+    </nav>
+    <div style="margin-top:12px;border-top:1px solid var(--border-subtle);padding-top:12px">
+      <div style="font:700 13px var(--font-sans);color:var(--text-strong)">Plan 20·40</div>
+      <div style="font:400 12px var(--font-sans);color:var(--text-muted)">Cuatro Ciénegas</div>
+    </div>
+  </aside>
+
+  <main style="flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0">
+    <header style="height:66px;flex:none;border-bottom:1px solid var(--border-subtle);background:#fff;display:flex;align-items:center;gap:16px;padding:0 28px">
+      <div style="position:relative;flex:1;max-width:520px">
+        <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-faint);display:flex">{{ searchIcon }}</span>
+        <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Buscar reportes, indicadores, diagnósticos…" style="width:100%;height:42px;border:1px solid var(--border-subtle);border-radius:999px;padding:0 16px 0 42px;font:400 14.5px var(--font-sans);background:var(--ink-50);outline:none;color:var(--text-body)" style-focus="{{ searchFocus }}" />
+      </div>
+      <div style="flex:1"></div>
+      <button title="Notificaciones" style="width:42px;height:42px;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative" style-hover="{{ iconBtnHover }}">{{ bellIcon }}<span style="position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:var(--brand);border:2px solid #fff"></span></button>
+      <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" onClick="{{ goHelp }}" hint-size="150px,42px">+ Solicitar reporte</x-import>
+    </header>
+
+    <div class="dr-scroll" style="flex:1;overflow:auto;padding:30px 32px 60px">
+
+      <!-- INICIO -->
+      <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:32px;max-width:1180px">
+          <section style="background:var(--brand);border-radius:22px;padding:34px 38px;color:#fff;position:relative;overflow:hidden">
+            <div style="position:absolute;right:-60px;bottom:-90px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)"></div>
+            <div style="position:relative;max-width:62%">
+              <div style="font:700 12px var(--font-sans);letter-spacing:.15em;text-transform:uppercase;opacity:.82;margin-bottom:12px">Plan 20·40 · Centro de reportes</div>
+              <h1 style="font:800 32px/1.12 var(--font-sans);letter-spacing:-0.02em;margin:0 0 12px">Hola 👋 esto es lo que sigue</h1>
+              <p style="font:400 16px/1.55 var(--font-sans);opacity:.92;margin:0">Encuentra y abre cualquier reporte del Plan en segundos. Filtra por pilar para detectar huecos y enfocar estrategias.</p>
+            </div>
+            <div style="position:relative;display:flex;gap:30px;margin-top:24px">
+              <div><div style="font:800 30px/1 var(--font-sans);letter-spacing:-0.02em">{{ totalReports }}</div><div style="font:400 13px var(--font-sans);opacity:.85;margin-top:4px">reportes disponibles</div></div>
+              <div style="width:1px;background:rgba(255,255,255,.25)"></div>
+              <div><div style="font:800 30px/1 var(--font-sans);letter-spacing:-0.02em">5</div><div style="font:400 13px var(--font-sans);opacity:.85;margin-top:4px">pilares de trabajo</div></div>
+              <div style="width:1px;background:rgba(255,255,255,.25)"></div>
+              <div><div style="font:800 30px/1 var(--font-sans);letter-spacing:-0.02em">2</div><div style="font:400 13px var(--font-sans);opacity:.85;margin-top:4px">comunidades</div></div>
+            </div>
+          </section>
+
+          <section>
+            <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 4px">Categorías</h2>
+            <p style="font:400 14px var(--font-sans);color:var(--text-muted);margin:0 0 18px">Explora los reportes organizados por su uso.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px">
+              <sc-for list="{{ categories }}" as="c" hint-placeholder-count="5">
+                <div onClick="{{ c.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-top:4px solid {{ c.color }};border-radius:16px;padding:22px;cursor:pointer;display:flex;gap:16px;align-items:flex-start;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
+                  <span style="width:50px;height:50px;border-radius:14px;background:{{ c.tint }};color:{{ c.fg }};display:flex;align-items:center;justify-content:center;flex:none">{{ c.iconEl }}</span>
+                  <div style="flex:1;min-width:0">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><h3 style="font:800 16.5px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">{{ c.label }}</h3></div>
+                    <p style="font:400 13.5px/1.5 var(--font-sans);color:var(--text-muted);margin:0 0 10px">{{ c.desc }}</p>
+                    <span style="font:600 12.5px var(--font-sans);color:{{ c.fg }}">{{ c.meta }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <section>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px">
+              <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">Filtra por pilar</h2>
+              <span style="font:400 13px var(--font-sans);color:var(--text-muted)">Identifica huecos y enfoca estrategias</span>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="5">
+                <div onClick="{{ p.open }}" role="button" style="flex:1;min-width:170px;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:12px;transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
+                  <div style="display:flex;align-items:center;justify-content:space-between"><x-import component-from-global-scope="Plan2040DesignSystem_08da0c.PillarIcon" pillar="{{ p.key }}" size="md" hint-size="48px,48px"></x-import><span style="font:800 22px var(--font-sans);color:{{ p.color }};letter-spacing:-0.02em">{{ p.count }}</span></div>
+                  <div><div style="font:700 14px var(--font-sans);color:var(--text-strong);line-height:1.25">{{ p.label }}</div><div style="font:400 12px var(--font-sans);color:var(--text-muted);margin-top:2px">{{ p.countLabel }}</div></div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <section>
+            <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 16px">Actualizados recientemente</h2>
+            <div style="{{ gridStyle }}">
+              <sc-for list="{{ recientes }}" as="r" hint-placeholder-count="4">
+                <div onClick="{{ r.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
+                  <sc-if value="{{ showThumbs }}" hint-placeholder-val="{{ true }}">
+                    <div style="position:relative;height:128px;flex:none">{{ r.thumbEl }}
+                      <sc-if value="{{ r.sensitive }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:10px;right:10px;background:rgba(20,20,20,.62);color:#fff;border-radius:8px;padding:4px 8px;font:600 10.5px var(--font-sans);display:flex;align-items:center;gap:4px">{{ lockIconSm }} Privado</span></sc-if>
+                    </div>
+                  </sc-if>
+                  <div style="padding:14px 16px 15px;display:flex;flex-direction:column;gap:8px;flex:1">
+                    <span style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px var(--font-sans);color:{{ r.fg }};align-self:flex-start"><span style="width:9px;height:9px;border-radius:50%;background:{{ r.color }}"></span>{{ r.pillarLabel }}</span>
+                    <h3 style="font:700 15.5px/1.3 var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">{{ r.title }}</h3>
+                    <div style="margin-top:auto;display:flex;align-items:center;gap:8px;font:500 12px var(--font-sans);color:var(--text-muted)"><span>{{ r.freqLabel }}</span><span style="opacity:.5">·</span><span>{{ r.updatedLabel }}</span></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <!-- SELECTOR DE PILARES -->
+      <sc-if value="{{ isPillars }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:1180px">
+          <a onClick="{{ goCoordinadores }}" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-sans);color:var(--text-muted);cursor:pointer;margin-bottom:14px">← Recursos para coordinadores</a>
+          <h1 style="font:800 27px var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 6px">Reportes por pilar</h1>
+          <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0 0 26px;max-width:60ch">Cada pilar es un color del Plan. Entra a un pilar para ver sus reportes e identificar dónde hay que enfocar las estrategias.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px">
+            <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="5">
+              <div onClick="{{ p.open }}" role="button" style="background:{{ p.tint }};border:1px solid {{ p.tintStrong }};border-radius:18px;padding:24px;cursor:pointer;display:flex;flex-direction:column;gap:16px;transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.PillarIcon" pillar="{{ p.key }}" size="lg" hint-size="64px,64px"></x-import>
+                  <span style="font:800 34px var(--font-sans);color:{{ p.color }};letter-spacing:-0.03em">{{ p.count }}</span>
+                </div>
+                <div><h3 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 4px">{{ p.label }}</h3><p style="font:400 13.5px/1.5 var(--font-sans);color:{{ p.fg }};margin:0;opacity:.85">{{ p.desc }}</p></div>
+                <span style="font:600 13px var(--font-sans);color:{{ p.fg }}">Ver reportes →</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- GRUPO (landing con sub-apartados) -->
+      <sc-if value="{{ isGroup }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:1180px">
+          <a onClick="{{ goHome }}" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-sans);color:var(--text-muted);cursor:pointer;margin-bottom:14px">← Inicio</a>
+          <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:24px">
+            <span style="width:54px;height:54px;border-radius:15px;background:{{ groupTint }};color:{{ groupFg }};display:flex;align-items:center;justify-content:center;flex:none">{{ groupIconEl }}</span>
+            <div style="flex:1">
+              <h1 style="font:800 27px var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 4px">{{ groupTitle }}</h1>
+              <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0;max-width:62ch">{{ groupDesc }}</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px">
+            <sc-for list="{{ groupChildren }}" as="c" hint-placeholder-count="2">
+              <div onClick="{{ c.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-top:4px solid {{ c.color }};border-radius:16px;padding:22px;cursor:pointer;display:flex;gap:16px;align-items:flex-start;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
+                <span style="width:50px;height:50px;border-radius:14px;background:{{ c.tint }};color:{{ c.fg }};display:flex;align-items:center;justify-content:center;flex:none">{{ c.iconEl }}</span>
+                <div style="flex:1;min-width:0">
+                  <h3 style="font:800 16.5px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 5px">{{ c.label }}</h3>
+                  <p style="font:400 13.5px/1.5 var(--font-sans);color:var(--text-muted);margin:0 0 10px">{{ c.desc }}</p>
+                  <span style="font:600 12.5px var(--font-sans);color:{{ c.fg }}">{{ c.meta }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- LISTADO -->
+      <sc-if value="{{ isList }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:1180px">
+          <a onClick="{{ listBack }}" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-sans);color:var(--text-muted);cursor:pointer;margin-bottom:14px">{{ listBackLabel }}</a>
+          <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:22px">
+            <span style="width:54px;height:54px;border-radius:15px;background:{{ listTint }};color:{{ listFg }};display:flex;align-items:center;justify-content:center;flex:none">{{ listIconEl }}</span>
+            <div style="flex:1">
+              <h1 style="font:800 27px var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 4px">{{ listTitle }}</h1>
+              <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0">{{ listDesc }}</p>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:22px">
+            <span style="font:600 12px var(--font-sans);color:var(--text-faint);margin-right:2px">Pilar:</span>
+            <button onClick="{{ clearPillarFilter }}" style="{{ allFilterStyle }}">Todos</button>
+            <sc-for list="{{ pillarFilters }}" as="pf" hint-placeholder-count="5">
+              <button onClick="{{ pf.toggle }}" style="{{ pf.style }}"><span style="width:9px;height:9px;border-radius:50%;background:{{ pf.color }}"></span>{{ pf.label }}</button>
+            </sc-for>
+          </div>
+
+          <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+            <div style="{{ gridStyle }}">
+              <sc-for list="{{ filteredReports }}" as="r" hint-placeholder-count="6">
+                <div onClick="{{ r.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
+                  <sc-if value="{{ showThumbs }}" hint-placeholder-val="{{ true }}">
+                    <div style="position:relative;height:138px;flex:none">{{ r.thumbEl }}
+                      <span style="position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:{{ r.fg }};border-radius:8px;padding:4px 9px;font:700 10.5px var(--font-sans);display:inline-flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:{{ r.color }}"></span>{{ r.pillarLabel }}</span>
+                      <sc-if value="{{ r.sensitive }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:10px;right:10px;background:rgba(20,20,20,.62);color:#fff;border-radius:8px;padding:4px 8px;font:600 10.5px var(--font-sans);display:flex;align-items:center;gap:4px">{{ lockIconSm }} Privado</span></sc-if>
+                    </div>
+                  </sc-if>
+                  <div style="padding:15px 17px 16px;display:flex;flex-direction:column;gap:9px;flex:1">
+                    <h3 style="font:700 16px/1.3 var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">{{ r.title }}</h3>
+                    <p style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin:0">{{ r.desc }}</p>
+                    <div style="margin-top:auto;padding-top:8px;display:flex;align-items:center;gap:8px;font:500 12px var(--font-sans);color:var(--text-muted);flex-wrap:wrap">
+                      <span style="display:inline-flex;align-items:center;gap:5px;background:var(--ink-100);border-radius:7px;padding:3px 8px">{{ r.freqLabel }}</span>
+                      <span style="display:inline-flex;align-items:center;gap:5px;color:{{ r.accessColor }}">{{ r.accessIconEl }}{{ r.accessLabel }}</span>
+                      <span style="margin-left:auto;color:var(--text-faint)">{{ r.updatedLabel }}</span>
+                    </div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center;padding:70px 20px;color:var(--text-muted)">
+              <div style="font:800 18px var(--font-sans);color:var(--text-strong);margin-bottom:6px">Sin resultados</div>
+              <p style="font:400 14px var(--font-sans);margin:0">No encontramos reportes con esos filtros. Prueba quitar el filtro de pilar o cambiar la búsqueda.</p>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- ADMINISTRACIÓN -->
+      <sc-if value="{{ isAdmin }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:1180px">
+          <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:10px">
+            <span style="width:54px;height:54px;border-radius:15px;background:var(--educacion-50);color:var(--brand-strong);display:flex;align-items:center;justify-content:center;flex:none">{{ shieldIconLg }}</span>
+            <div style="flex:1">
+              <h1 style="font:800 27px var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 4px">Administración</h1>
+              <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0">Gestiona los reportes, usuarios, permisos y apartados del directorio.</p>
+            </div>
+            <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" onClick="{{ newReport }}" hint-size="150px,42px">+ Nuevo reporte</x-import>
+          </div>
+          <p style="font:400 12.5px/1.5 var(--font-sans);color:var(--text-faint);margin:0 0 16px">Prototipo: los cambios se aplican en esta sesión. Al programar la página, se conectarían al sistema de usuarios y permisos real.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px">
+            <sc-for list="{{ adminTabs }}" as="t" hint-placeholder-count="5">
+              <button onClick="{{ t.go }}" style="{{ t.style }}">{{ t.label }}</button>
+            </sc-for>
+          </div>
+
+          <sc-if value="{{ adminRep }}" hint-placeholder-val="{{ true }}">
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden">
+              <div style="display:grid;grid-template-columns:2.4fr 1.3fr 1.1fr .9fr .8fr .6fr 150px;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
+                <span>Reporte</span><span>Apartado</span><span>Pilar</span><span>Frecuencia</span><span>Fuente</span><span>Sensible</span><span></span>
+              </div>
+              <sc-for list="{{ adminReports }}" as="r" hint-placeholder-count="6">
+                <div style="display:grid;grid-template-columns:2.4fr 1.3fr 1.1fr .9fr .8fr .6fr 150px;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
+                  <span style="font:700 13.5px/1.35 var(--font-sans);color:var(--text-strong)">{{ r.title }}</span>
+                  <span style="font:500 12.5px var(--font-sans);color:var(--text-muted)">{{ r.catLabel }}</span>
+                  <span style="display:inline-flex;align-items:center;gap:6px;font:600 12px var(--font-sans);color:var(--text-body)"><span style="width:8px;height:8px;border-radius:50%;background:{{ r.color }};flex:none"></span>{{ r.pillarLabel }}</span>
+                  <span style="font:500 12.5px var(--font-sans);color:var(--text-muted)">{{ r.freqLabel }}</span>
+                  <span style="font:600 11.5px var(--font-sans);color:var(--text-body);background:var(--ink-100);border-radius:7px;padding:3px 8px;justify-self:start">{{ r.srcLabel }}</span>
+                  <span style="font:700 12.5px var(--font-sans);color:{{ r.sensColor }}">{{ r.sensLabel }}</span>
+                  <span style="display:flex;gap:7px;justify-content:flex-end">
+                    <button onClick="{{ r.edit }}" style="height:32px;padding:0 14px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 12.5px var(--font-sans);cursor:pointer" style-hover="{{ iconBtnHover }}">Editar</button>
+                    <button onClick="{{ r.del }}" title="Eliminar" style="width:32px;height:32px;border:1px solid var(--border-subtle);border-radius:9px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ trashIcon }}</button>
+                  </span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ adminUsr }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+              <button onClick="{{ addUser }}" style="height:38px;padding:0 18px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 13px var(--font-sans);cursor:pointer" style-hover="{{ iconBtnHover }}">+ Invitar usuario</button>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden">
+              <div style="display:grid;grid-template-columns:1.6fr 1.8fr 1.2fr .8fr 44px;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
+                <span>Nombre</span><span>Correo</span><span>Rol</span><span>Estado</span><span></span>
+              </div>
+              <sc-for list="{{ adminUsers }}" as="u" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:1.6fr 1.8fr 1.2fr .8fr 44px;gap:12px;padding:11px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
+                  <span style="display:flex;align-items:center;gap:10px;min-width:0">
+                    <span style="width:34px;height:34px;border-radius:50%;background:var(--educacion-100);color:var(--brand-strong);font:800 12.5px var(--font-sans);display:flex;align-items:center;justify-content:center;flex:none">{{ u.initials }}</span>
+                    <input value="{{ u.name }}" onInput="{{ u.setName }}" placeholder="Nombre completo" style="flex:1;min-width:0;height:34px;border:1px solid transparent;border-radius:9px;padding:0 8px;font:700 13.5px var(--font-sans);color:var(--text-strong);background:transparent;outline:none" style-focus="{{ searchFocus }}" />
+                  </span>
+                  <input value="{{ u.email }}" onInput="{{ u.setEmail }}" placeholder="correo@plan-2040.org" style="height:34px;border:1px solid transparent;border-radius:9px;padding:0 8px;font:400 13px var(--font-sans);color:var(--text-muted);background:transparent;outline:none" style-focus="{{ searchFocus }}" />
+                  <select value="{{ u.role }}" onChange="{{ u.setRole }}" style="height:36px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 8px;font:600 12.5px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Coordinación">Coordinación</option>
+                    <option value="Guía">Guía</option>
+                    <option value="Dirección">Dirección</option>
+                  </select>
+                  <button onClick="{{ u.toggle }}" style="{{ u.stateStyle }}">{{ u.stateLabel }}</button>
+                  <button onClick="{{ u.del }}" title="Quitar acceso" style="width:32px;height:32px;border:1px solid var(--border-subtle);border-radius:9px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ trashIcon }}</button>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ adminPerm }}" hint-placeholder-val="{{ false }}">
+            <p style="font:400 13.5px var(--font-sans);color:var(--text-muted);margin:0 0 12px">Marca qué roles pueden ver cada reporte. El rol Administrador siempre tiene acceso. Los reportes sensibles inician sin acceso para guías.</p>
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden">
+              <div style="display:grid;grid-template-columns:2.6fr 1fr 1fr 1fr;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
+                <span>Reporte</span><span style="text-align:center">Guía</span><span style="text-align:center">Coordinación</span><span style="text-align:center">Dirección</span>
+              </div>
+              <sc-for list="{{ permRows }}" as="pr" hint-placeholder-count="6">
+                <div style="display:grid;grid-template-columns:2.6fr 1fr 1fr 1fr;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
+                  <span style="display:flex;align-items:center;gap:8px;font:700 13.5px/1.35 var(--font-sans);color:var(--text-strong)">{{ pr.title }}<sc-if value="{{ pr.sensitive }}" hint-placeholder-val="{{ false }}"><span style="font:700 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;flex:none">Sensible</span></sc-if></span>
+                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.guia }}" onChange="{{ pr.tGuia }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" /></span>
+                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.coord }}" onChange="{{ pr.tCoord }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" /></span>
+                  <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.dir }}" onChange="{{ pr.tDir }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" /></span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ adminCats }}" hint-placeholder-val="{{ false }}">
+            <p style="font:400 13.5px var(--font-sans);color:var(--text-muted);margin:0 0 14px">Edita el nombre y la descripción de cada apartado; los cambios se reflejan en la navegación y en el inicio.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px">
+              <sc-for list="{{ adminCatRows }}" as="c" hint-placeholder-count="6">
+                <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:flex-start">
+                  <span style="width:44px;height:44px;border-radius:12px;background:{{ c.tint }};color:{{ c.fg }};display:flex;align-items:center;justify-content:center;flex:none">{{ c.iconEl }}</span>
+                  <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                    <input value="{{ c.label }}" onInput="{{ c.setLabel }}" style="width:100%;height:36px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 10px;font:800 14.5px var(--font-sans);color:var(--text-strong);background:#fff;outline:none" style-focus="{{ searchFocus }}" />
+                    <input value="{{ c.desc }}" onInput="{{ c.setDesc }}" style="width:100%;height:34px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 10px;font:400 12.5px var(--font-sans);color:var(--text-muted);background:#fff;outline:none" style-focus="{{ searchFocus }}" />
+                    <span style="font:600 11.5px var(--font-sans);color:var(--text-faint)">{{ c.count }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ adminReq }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+              <sc-for list="{{ adminRequests }}" as="q" hint-placeholder-count="2">
+                <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:14px">
+                  <div style="flex:1;min-width:0">
+                    <div style="font:700 14.5px var(--font-sans);color:var(--text-strong);margin-bottom:3px">{{ q.text }}</div>
+                    <div style="font:400 12.5px var(--font-sans);color:var(--text-muted)">{{ q.meta }}</div>
+                  </div>
+                  <span style="{{ q.statusStyle }}">{{ q.statusLabel }}</span>
+                  <sc-if value="{{ q.pending }}" hint-placeholder-val="{{ false }}">
+                    <button onClick="{{ q.done }}" style="height:34px;padding:0 15px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 12.5px var(--font-sans);cursor:pointer" style-hover="{{ iconBtnHover }}">Marcar atendida</button>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+    </div>
+  </main>
+
+  <!-- DETALLE / EMBED -->
+  <sc-if value="{{ selected }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeReport }}" style="position:fixed;inset:0;background:rgba(20,20,20,.45);animation:scrimIn .2s ease;z-index:40"></div>
+    <div style="position:fixed;top:0;right:0;height:100vh;width:min(560px,92vw);background:var(--bg-app);box-shadow:-12px 0 40px rgba(0,0,0,.18);z-index:41;display:flex;flex-direction:column;animation:drwIn .26s cubic-bezier(.2,.8,.2,1)">
+      <div style="flex:none;padding:18px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border-subtle);background:#fff">
+        <span style="display:inline-flex;align-items:center;gap:6px;font:700 12px var(--font-sans);color:{{ sel.fg }}"><span style="width:10px;height:10px;border-radius:50%;background:{{ sel.color }}"></span>{{ sel.pillarLabel }}</span>
+        <div style="flex:1"></div>
+        <button onClick="{{ closeReport }}" style="width:36px;height:36px;border:1px solid var(--border-subtle);border-radius:10px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ xIcon }}</button>
+      </div>
+      <div class="dr-scroll" style="flex:1;overflow:auto;padding:22px">
+        <h2 style="font:800 22px/1.2 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 8px">{{ sel.title }}</h2>
+        <p style="font:400 14.5px/1.6 var(--font-sans);color:var(--text-body);margin:0 0 20px">{{ sel.desc }}</p>
+
+        <div style="border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;background:#fff;margin-bottom:20px">
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border-subtle);background:var(--ink-50)">
+            <span style="width:18px;height:18px;border-radius:5px;background:var(--pillar-juventud);display:flex;align-items:center;justify-content:center;font:800 11px var(--font-sans);color:#5c4500">P</span>
+            <span style="font:600 12.5px var(--font-sans);color:var(--text-muted)">Power BI · Plan 20·40</span>
+            <span style="flex:1"></span>
+            <span style="font:500 11px var(--font-sans);color:var(--text-faint)">{{ sel.embedNote }}</span>
+          </div>
+          <div style="position:relative;height:300px;background:var(--ink-100)">{{ sel.embedEl }}
+            <sc-if value="{{ sel.hasEmbed }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ sel.maximize }}" title="Ver en grande" style="position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(20,20,20,.72);color:#fff;border:0;border-radius:9px;padding:7px 11px;font:700 11.5px var(--font-sans);cursor:pointer">{{ expandIcon }} Ampliar</button>
+            </sc-if>
+            <sc-if value="{{ sel.showLockOverlay }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;background:rgba(20,20,20,.5);backdrop-filter:blur(2px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;text-align:center;padding:20px">
+                <span style="display:flex">{{ lockIconLg }}</span>
+                <div style="font:700 14px var(--font-sans)">Reporte con datos sensibles</div>
+                <div style="font:400 12.5px/1.5 var(--font-sans);opacity:.9;max-width:30ch">Se mostrará tras validar tu sesión y permisos en Power BI.</div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px">
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Frecuencia</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.freqLabel }}</div></div>
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Actualizado</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.updatedLabel }}</div></div>
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Responsable</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.owner }}</div></div>
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Acceso</div><div style="font:700 14px var(--font-sans);color:{{ sel.accessColor }};display:flex;align-items:center;gap:6px">{{ sel.accessIconEl }}{{ sel.accessLabel }}</div></div>
+        </div>
+
+        <div style="display:flex;gap:10px">
+          <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" block="{{ true }}" onClick="{{ cta }}" hint-size="100%,46px">{{ sel.ctaLabel }}</x-import>
+        </div>
+        <sc-if value="{{ sel.hasEmbed }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ openMaxUrl }}" style="margin-top:10px;width:100%;height:44px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 14px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px" style-hover="{{ iconBtnHover }}">{{ extIcon }} {{ sel.openLabel }}</button>
+        </sc-if>
+        <p style="font:400 12px/1.5 var(--font-sans);color:var(--text-faint);margin:14px 0 0;display:flex;gap:7px;align-items:flex-start">{{ infoIcon }}<span>{{ sel.accessHelp }}</span></p>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- EDITOR DE REPORTE (admin) -->
+  <sc-if value="{{ showEditor }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeEditor }}" style="position:fixed;inset:0;background:rgba(20,20,20,.45);animation:scrimIn .2s ease;z-index:50"></div>
+    <div style="position:fixed;top:0;right:0;height:100vh;width:min(480px,92vw);background:#fff;box-shadow:-12px 0 40px rgba(0,0,0,.18);z-index:51;display:flex;flex-direction:column;animation:drwIn .26s cubic-bezier(.2,.8,.2,1)">
+      <div style="flex:none;padding:18px 24px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border-subtle)">
+        <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0;flex:1">{{ editorTitle }}</h2>
+        <button onClick="{{ closeEditor }}" style="width:36px;height:36px;border:1px solid var(--border-subtle);border-radius:10px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ xIcon }}</button>
+      </div>
+      <div class="dr-scroll" style="flex:1;overflow:auto;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
+        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Título</label><input value="{{ draft.title }}" onInput="{{ dTitle }}" placeholder="Nombre del reporte" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
+        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Descripción</label><textarea value="{{ draft.desc }}" onInput="{{ dDesc }}" rows="3" placeholder="Qué muestra y para quién es" style="width:100%;border:1px solid var(--border-default);border-radius:11px;padding:10px 14px;font:400 14px/1.5 var(--font-sans);color:var(--text-body);background:#fff;outline:none;resize:vertical" style-focus="{{ searchFocus }}"></textarea></div>
+        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Enlace (Power BI o archivo HTML)</label><input value="{{ draft.embedUrl }}" onInput="{{ dUrl }}" placeholder="https://app.powerbi.com/… o reportes-html/archivo.html" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 13px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Fuente</label><select value="{{ draft.source }}" onChange="{{ dSource }}" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 10px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
+            <option value="powerbi">Power BI</option><option value="html">Página HTML</option>
+          </select></div>
+          <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Frecuencia</label><select value="{{ draft.freq }}" onChange="{{ dFreq }}" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 10px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
+            <option value="semanal">Semanal</option><option value="mensual">Mensual</option><option value="anual">Anual</option><option value="continuo">Permanente</option>
+          </select></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Apartado</label><select value="{{ draft.cat }}" onChange="{{ dCat }}" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 10px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
+            <sc-for list="{{ catOptions }}" as="o" hint-placeholder-count="6"><option value="{{ o.id }}">{{ o.label }}</option></sc-for>
+          </select></div>
+          <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Pilar</label><select value="{{ draft.pillar }}" onChange="{{ dPillar }}" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 10px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
+            <sc-for list="{{ pillarOptions }}" as="o" hint-placeholder-count="6"><option value="{{ o.id }}">{{ o.label }}</option></sc-for>
+          </select></div>
+        </div>
+        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Responsable</label><input value="{{ draft.owner }}" onInput="{{ dOwner }}" placeholder="p. ej. Dirección" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font:600 13.5px var(--font-sans);color:var(--text-body)"><input type="checkbox" checked="{{ draft.sensitive }}" onChange="{{ dSens }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" />Datos sensibles (acceso restringido)</label>
+      </div>
+      <div style="flex:none;padding:16px 24px;border-top:1px solid var(--border-subtle);display:flex;gap:10px">
+        <button onClick="{{ saveDraft }}" style="flex:1;height:46px;border:0;border-radius:999px;background:var(--brand);color:#fff;font:700 14.5px var(--font-sans);cursor:pointer;transition:background .18s" style-hover="{{ loginHover }}">Guardar</button>
+        <button onClick="{{ closeEditor }}" style="height:46px;padding:0 22px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 14px var(--font-sans);cursor:pointer" style-hover="{{ iconBtnHover }}">Cancelar</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- VISOR PANTALLA COMPLETA -->
+  <sc-if value="{{ showMax }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:rgba(20,20,20,.78);z-index:60;display:flex;flex-direction:column;animation:scrimIn .2s ease;padding:28px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;color:#fff">
+        <span style="display:inline-flex;align-items:center;gap:8px;font:700 14px var(--font-sans)"><span style="width:11px;height:11px;border-radius:50%;background:{{ mx.color }}"></span>{{ mx.title }}</span>
+        <span style="font:500 12.5px var(--font-sans);opacity:.7">{{ mx.pillarLabel }}</span>
+        <div style="flex:1"></div>
+        <button onClick="{{ openMaxUrl }}" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;padding:9px 14px;font:600 13px var(--font-sans);cursor:pointer">{{ extIcon }} {{ mx.openLabel }}</button>
+        <button onClick="{{ closeMax }}" style="display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--text-strong);border:0;border-radius:10px;padding:9px 16px;font:700 13px var(--font-sans);cursor:pointer">{{ xIcon }} Cerrar</button>
+      </div>
+      <div style="flex:1;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)">{{ mx.frameEl }}</div>
+    </div>
+  </sc-if>
+
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:840},&quot;requireLogin&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Acceso&quot;},&quot;showThumbnails&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Vista&quot;},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;comfortable&quot;,&quot;compact&quot;],&quot;default&quot;:&quot;comfortable&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vista&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = {
+      loggedIn: !(props && props.requireLogin),
+      view: "home",        // home | pillars | list
+      category: null,
+      pillar: null,        // pillar view key
+      pillarFilter: null,  // chip filter inside a list
+      query: "",
+      selectedId: null,
+      maximizedId: null,
+      group: null,
+      expanded: {},
+      adminTab: "reportes",
+      reports: null,
+      editing: null, draft: null,
+      perms: {}, catOv: {},
+      users: [
+        {id:"u1",name:"María Guzmán",email:"maria.guzman@plan-2040.org",role:"Administrador",active:true},
+        {id:"u2",name:"Luis Hernández",email:"luis.hernandez@plan-2040.org",role:"Coordinación",active:true},
+        {id:"u3",name:"Ana Torres",email:"ana.torres@plan-2040.org",role:"Guía",active:true},
+        {id:"u4",name:"José Ramírez",email:"jose.ramirez@plan-2040.org",role:"Guía",active:true},
+        {id:"u5",name:"Carmen Silva",email:"carmen.silva@plan-2040.org",role:"Dirección",active:true},
+      ],
+      requests: [
+        {id:"q1",text:"Reporte de vacunación por comunidad",user:"Ana Torres",days:2,status:"pendiente"},
+        {id:"q2",text:"Histórico de visitas 2025 por guía",user:"Luis Hernández",days:6,status:"atendida"},
+      ],
+    };
+  }
+
+  // ---- static data ----
+  get PILLARS(){
+    const P = (window.Plan2040DesignSystem_08da0c||{}).PILLARS || {};
+    const desc = {
+      educacion:"Aprendizaje, cobertura y rezago escolar",
+      salud:"Salud, nutrición y vacunación",
+      juventud:"Participación juvenil y vida familiar",
+      espiritu:"Acompañamiento y formación espiritual",
+      economia:"Ingreso, ahorro y economía del hogar",
+    };
+    return ["educacion","salud","juventud","espiritu","economia"].map(k=>({
+      key:k, label:(P[k]||{}).label||k, color:(P[k]||{}).color||"#E81957",
+      tint:(P[k]||{}).tint||"#FDE7EE", tintStrong:(P[k]||{}).tintStrong||"#FBC9D8",
+      fg:(P[k]||{}).fg||"#C1124A", desc:desc[k],
+    }));
+  }
+  embedSrc(url){
+    if(!url) return url;
+    if(!/app\.powerbi\.com/i.test(url)) return url; // HTML interno u otra fuente: no tocar
+    let u = url;
+    if(!/[?&]filterPaneEnabled=/.test(u)) u += "&filterPaneEnabled=false";
+    if(!/[?&]navContentPaneEnabled=/.test(u)) u += "&navContentPaneEnabled=false";
+    return u;
+  }
+  pinfo(k){
+    if(k==="todos") return {key:"todos",label:"Todos los pilares",color:"var(--brand)",tint:"var(--educacion-50)",tintStrong:"var(--educacion-100)",fg:"var(--brand-strong)",desc:"Transversal a los cinco pilares"};
+    return this.PILLARS.find(p=>p.key===k) || this.PILLARS[0];
+  }
+
+  get CATS(){
+    return [
+      {id:"recurrentes", label:"Reportes recurrentes", desc:"Seguimiento semanal y mensual de la operación.", icon:"calendar", pillar:"juventud"},
+      {id:"anuales",     label:"Informes anuales", desc:"Resultados anuales e impacto del Plan.", icon:"trend", pillar:"educacion"},
+      {id:"benchmark",   label:"Benchmark", desc:"Estadísticas comparativas y comparativas entre comunidades.", icon:"bars", pillar:"economia"},
+      {id:"guias",       label:"Recursos para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"list", pillar:"salud"},
+      {id:"pilares",     label:"Reportes por pilar", desc:"Identifica huecos y enfoca estrategias por pilar.", icon:"layers", pillar:"espiritu"},
+      {id:"analisis",    label:"Análisis y diagnósticos", desc:"Estudios a fondo de temas clave del Plan.", icon:"flask", pillar:"economia"},
+      {id:"operativos",  label:"Reportes operativos", desc:"Seguimiento de la operación diaria para coordinación.", icon:"clipboard", pillar:"salud"},
+    ].map(c=> Object.assign({}, c, (this.state && this.state.catOv && this.state.catOv[c.id]) || {}));
+  }
+  catInfo(id){ return this.CATS.find(c=>c.id===id) || this.CATS[0]; }
+
+  get NAV(){
+    return [
+      {id:"home", type:"home", label:"Inicio", icon:"home"},
+      {id:"recurrentes", type:"cat", label:"Reportes recurrentes", icon:"calendar"},
+      {id:"guias", type:"cat", label:"Recursos para guías", icon:"list"},
+      {id:"coordinadores", type:"group", label:"Recursos para coordinadores", icon:"layers", children:["pilares","operativos"]},
+      {id:"estrategia", type:"group", label:"Estrategia", icon:"trend", children:["anuales","benchmark","analisis"]},
+    ];
+  }
+  get GROUPS(){
+    return {
+      coordinadores: {label:"Recursos para coordinadores", desc:"Herramientas y reportes por pilar para que cada coordinación identifique huecos y enfoque sus estrategias.", icon:"layers", pillar:"espiritu", children:["pilares","operativos"]},
+      estrategia: {label:"Estrategia", desc:"Mirada de largo plazo del Plan: resultados anuales, estadísticas comparativas, benchmark y diagnósticos a fondo.", icon:"trend", pillar:"educacion", children:["anuales","benchmark","analisis"]},
+    };
+  }
+  childParent = { anuales:"estrategia", benchmark:"estrategia", analisis:"estrategia", pilares:"coordinadores", operativos:"coordinadores" };
+
+  get REPORTS(){ return (this.state && this.state.reports) || this.BASE_REPORTS; }
+  get BASE_REPORTS(){
+    return [
+      {id:"r21", title:"Estatus de Indicadores de los niños acompañados", desc:"Tablero con el estatus de indicadores de los niños acompañados y las listas del mes para consulta de las guías.", pillar:"todos", cat:"guias", freq:"semanal", access:"embed", sensitive:false, days:1, thumb:"kpi", owner:"Coordinación de campo", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=46568245-e6be-4f60-9f44-eb56fc660ecd&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
+      {id:"r22", title:"Reporte Mensual", desc:"Construcción general de reportes del mes con el panorama integral del Plan.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", sensitive:false, days:3, thumb:"line", owner:"Dirección", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=494b1e2f-6d3e-4859-b841-604465575075&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
+
+    ];
+  }
+
+  // ---- helpers ----
+  icon(name, size, color){
+    const e = React.createElement;
+    const P = {
+      home:["M3 10.7 12 3l9 7.7","M5 9.5V21h5v-6h4v6h5V9.5"],
+      calendar:["M5 6a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1Z","M5 9.5h14","M9 3v4M15 3v4"],
+      trend:["M3 16.5 9 10l4 4 8-8","M15 6h6v6"],
+      list:["M8 6h13M8 12h13M8 18h13","M3.6 6h.01M3.6 12h.01M3.6 18h.01"],
+      layers:["M12 3 3 8l9 5 9-5-9-5Z","M3 12.5l9 5 9-5","M3 16.7l9 5 9-5"],
+      flask:["M9 3h6","M10 3v6l-5.5 9.5A1.6 1.6 0 0 0 6 21h12a1.6 1.6 0 0 0 1.5-2.5L14 9V3","M7.5 15h9"],
+      search:["M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z","M20 20l-3.2-3.2"],
+      lock:["M6 10.5h12a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8.5a1 1 0 0 1 1-1Z","M8 10.5V8a4 4 0 0 1 8 0v2.5"],
+      external:["M14 4h6v6","M20 4l-9 9","M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"],
+      embed:["M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z","M3 9h18","M7 7h.01"],
+      bell:["M6 9.5a6 6 0 0 1 12 0c0 4.5 2 5.5 2 5.5H4s2-1 2-5.5Z","M10 19.5a2 2 0 0 0 4 0"],
+      x:["M6 6l12 12M18 6 6 18"],
+      info:["M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z","M12 11v5","M12 8h.01"],
+      logout:["M15 4h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3","M10 12h9","M16 9l3 3-3 3"],
+      expand:["M4 9V4h5","M20 9V4h-5","M4 15v5h5","M20 15v5h-5"],
+      clipboard:["M9 4.5h6a1 1 0 0 1 1 1V6H8v-.5a1 1 0 0 1 1-1Z","M8 6H6.5a1 1 0 0 0-1 1V20a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H16","M9 11h6M9 15h6"],
+      bars:["M5 21V11","M12 21V4","M19 21V14"],
+      chevron:["M9 6l6 6-6 6"],
+      shield:["M12 3l8 3v6c0 4.8-3.4 7.9-8 9-4.6-1.1-8-4.2-8-9V6l8-3Z","M9 12l2 2 4-4"],
+      trash:["M4 7h16","M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2","M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13","M10 11v6M14 11v6"],
+    };
+    const ds = P[name] || P.home;
+    return e("svg",{width:size||20,height:size||20,viewBox:"0 0 24 24",fill:"none",stroke:color||"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"},
+      ds.map((d,i)=>e("path",{key:i,d})));
+  }
+
+  thumbEl(type, p){
+    const e = React.createElement;
+    const box = (kids)=> e("div",{style:{position:"absolute",inset:0,background:p.tint,display:"flex",alignItems:"center",justifyContent:"center",padding:16,boxSizing:"border-box",overflow:"hidden"}}, kids);
+    if(type==="bars"){
+      const hs=[44,66,34,74,52,84];
+      return box(e("svg",{viewBox:"0 0 150 80",width:"82%",style:{overflow:"visible"}},
+        hs.map((h,i)=> e("rect",{key:i,x:i*24+6,y:80-h*0.82,width:15,height:h*0.82,rx:3.5,fill:i%2? p.color : p.tintStrong}))));
+    }
+    if(type==="line"){
+      return box(e("svg",{viewBox:"0 0 150 80",width:"86%"},[
+        e("polyline",{key:"g",points:"4,64 30,56 56,59 82,48 108,52 146,42",fill:"none",stroke:p.tintStrong,strokeWidth:3.5,strokeLinecap:"round",strokeLinejoin:"round"}),
+        e("polyline",{key:"l",points:"4,58 30,42 56,49 82,26 108,33 146,12",fill:"none",stroke:p.color,strokeWidth:3.5,strokeLinecap:"round",strokeLinejoin:"round"}),
+        ...[[4,58],[30,42],[82,26],[146,12]].map((pt,i)=> e("circle",{key:"d"+i,cx:pt[0],cy:pt[1],r:3.6,fill:p.color})),
+      ]));
+    }
+    if(type==="donut"){
+      const r=24, c=2*Math.PI*r;
+      return box(e("div",{style:{display:"flex",gap:16,alignItems:"center"}},[
+        e("svg",{key:"d",width:76,height:76,viewBox:"0 0 76 76"},[
+          e("circle",{key:"b",cx:38,cy:38,r,fill:"none",stroke:p.tintStrong,strokeWidth:12}),
+          e("circle",{key:"f",cx:38,cy:38,r,fill:"none",stroke:p.color,strokeWidth:12,strokeDasharray:(c*0.68)+" "+c,strokeLinecap:"round",transform:"rotate(-90 38 38)"}),
+        ]),
+        e("div",{key:"k",style:{display:"flex",flexDirection:"column",gap:8}},[
+          e("div",{key:1,style:{height:9,width:54,background:p.color,borderRadius:5}}),
+          e("div",{key:2,style:{height:9,width:38,background:p.tintStrong,borderRadius:5}}),
+          e("div",{key:3,style:{height:9,width:46,background:p.tintStrong,borderRadius:5}}),
+        ]),
+      ]));
+    }
+    if(type==="kpi"){
+      const vals=["91%","+350","2.0k"];
+      return box(e("div",{style:{display:"flex",gap:11,width:"100%",maxWidth:300}}, vals.map((v,i)=>
+        e("div",{key:i,style:{flex:1,background:"#fff",borderRadius:11,padding:"11px 9px",boxShadow:"0 1px 3px rgba(0,0,0,.07)"}},[
+          e("div",{key:"n",style:{font:"800 19px var(--font-sans)",color:p.color,letterSpacing:"-0.03em"}},v),
+          e("div",{key:"b",style:{height:6,width:"72%",background:p.tintStrong,borderRadius:3,marginTop:7}}),
+        ]))));
+    }
+    // map
+    return box(e("div",{style:{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:7,width:"84%"}},
+      Array.from({length:28},(_,i)=> e("div",{key:i,style:{aspectRatio:"1",borderRadius:"50%",background:(i*5%7<3)? p.color : p.tintStrong}}))));
+  }
+
+  updatedLabel(d){
+    if(d<=0) return "Hoy";
+    if(d===1) return "Ayer";
+    if(d<7) return "Hace "+d+" días";
+    if(d<14) return "Hace 1 semana";
+    if(d<31) return "Hace "+Math.round(d/7)+" semanas";
+    return "Hace "+Math.round(d/30)+" mes"+(Math.round(d/30)>1?"es":"");
+  }
+  freqLabel(f){ return ({semanal:"Semanal",mensual:"Mensual",anual:"Anual",continuo:"Permanente"})[f]||f; }
+
+  // ---- actions ----
+  doLogin(){ this.setState({loggedIn:true}); }
+  doLogout(){ this.setState({loggedIn:false, selectedId:null}); }
+  goHome(){ this.setState({view:"home",category:null,pillar:null,pillarFilter:null,query:"",selectedId:null,group:null,expanded:{}}); }
+  openGroup(id){ this.setState({view:"group",group:id,category:null,pillar:null,pillarFilter:null,query:"",expanded:{[id]:true}}); }
+  toggleGroup(id){
+    this.setState(s=>({ expanded: { ...s.expanded, [id]: !s.expanded[id] } }));
+  }
+  openCategory(id){
+    const gp = this.childParent[id];
+    this.setState({
+      view: id==="pilares"? "pillars":"list",
+      category: id==="pilares"? null : id,
+      pillar:null, pillarFilter:null, query:"",
+      expanded: gp? {[gp]:true} : {},
+    });
+  }
+  openPillar(k){ this.setState({view:"list",pillar:k,category:null,pillarFilter:null,query:"",expanded:{coordinadores:true}}); }
+  openReport(id){ this.setState({selectedId:id}); }
+  closeReport(){ this.setState({selectedId:null}); }
+  maximize(id){ this.setState({maximizedId:id}); }
+  closeMax(){ this.setState({maximizedId:null}); }
+  onSearch(ev){ this.setState({query:ev.target.value}); }
+  setPillarFilter(k){ this.setState(s=>({pillarFilter: s.pillarFilter===k? null : k})); }
+
+  // ---- admin ----
+  openAdmin(){ this.setState({view:"admin",category:null,pillar:null,pillarFilter:null,query:"",group:null,expanded:{},selectedId:null}); }
+  startNew(){ this.setState({adminTab:"reportes",editing:"new",draft:{title:"",desc:"",embedUrl:"",source:"powerbi",cat:"recurrentes",pillar:"todos",freq:"mensual",owner:"",sensitive:false}}); }
+  startEdit(id){
+    const r=this.REPORTS.find(x=>x.id===id); if(!r) return;
+    this.setState({editing:id,draft:{title:r.title,desc:r.desc,embedUrl:r.embedUrl||"",source:r.source==="html"?"html":"powerbi",cat:r.cat,pillar:r.pillar,freq:r.freq,owner:r.owner||"",sensitive:!!r.sensitive}});
+  }
+  closeEditor(){ this.setState({editing:null,draft:null}); }
+  setDraft(k){ return (ev)=>{ const t=ev&&ev.target; const v=t? (t.type==="checkbox"? t.checked : t.value) : ev; this.setState(s=>({draft:{...s.draft,[k]:v}})); }; }
+  saveDraft(){
+    const d=this.state.draft; if(!d || !d.title.trim()) return;
+    const patch={title:d.title.trim(),desc:d.desc,embedUrl:d.embedUrl.trim()||undefined,source:d.source==="html"?"html":undefined,cat:d.cat,pillar:d.pillar,freq:d.freq,owner:d.owner||"Dirección",sensitive:!!d.sensitive,access:"embed"};
+    const cur=this.REPORTS.slice();
+    if(this.state.editing==="new"){ cur.unshift({id:"r"+Date.now(),days:0,thumb:"kpi",...patch}); }
+    else { const i=cur.findIndex(r=>r.id===this.state.editing); if(i>=0) cur[i]={...cur[i],...patch}; }
+    this.setState({reports:cur,editing:null,draft:null});
+  }
+  delReport(id){ this.setState({reports:this.REPORTS.filter(r=>r.id!==id)}); }
+  permFor(r,role){ const o=this.state.perms[r.id]; if(o && (role in o)) return o[role]; return role==="guia"? !r.sensitive : true; }
+  togglePerm(r,role){ const v=!this.permFor(r,role); this.setState(s=>({perms:{...s.perms,[r.id]:{...(s.perms[r.id]||{}),[role]:v}}})); }
+  setUser(id,k,v){ this.setState(s=>({users:s.users.map(u=>u.id===id? {...u,[k]:v} : u)})); }
+  addUser(){ this.setState(s=>({adminTab:"usuarios",users:[...s.users,{id:"u"+Date.now(),name:"",email:"",role:"Guía",active:true}]})); }
+  delUser(id){ this.setState(s=>({users:s.users.filter(u=>u.id!==id)})); }
+  setCat(id,k){ return (ev)=> { const v=ev.target.value; this.setState(s=>({catOv:{...s.catOv,[id]:{...(s.catOv[id]||{}),[k]:v}}})); }; }
+  markDone(id){ this.setState(s=>({requests:s.requests.map(q=>q.id===id? {...q,status:"atendida"} : q)})); }
+
+  // ---- derived ----
+  computeList(){
+    const q = (this.state.query||"").trim().toLowerCase();
+    let list = this.REPORTS;
+    let mode = "search";
+    if(q){
+      list = list.filter(r=> (r.title+" "+r.desc).toLowerCase().includes(q));
+    } else if(this.state.pillar){
+      mode = "pillar"; list = list.filter(r=> r.pillar===this.state.pillar);
+    } else if(this.state.category){
+      mode = "category"; list = list.filter(r=> r.cat===this.state.category);
+    }
+    if(this.state.pillarFilter){ list = list.filter(r=> r.pillar===this.state.pillarFilter || r.pillar==="todos"); }
+    return {list, mode};
+  }
+
+  decorate(r){
+    const p = this.pinfo(r.pillar);
+    const isEmbed = r.access==="embed";
+    const isHtml = r.source==="html";
+    return {
+      id:r.id, title:r.title, desc:r.desc, sensitive:r.sensitive,
+      color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg, pillarLabel:p.label,
+      freqLabel:this.freqLabel(r.freq), updatedLabel:this.updatedLabel(r.days),
+      accessLabel: isHtml? "Interactivo" : (isEmbed? "Incrustado" : "Power BI"),
+      accessColor: isEmbed? p.fg : "var(--text-muted)",
+      accessIconEl: this.icon(isEmbed?"embed":"external",14, isEmbed?p.color:"var(--text-muted)"),
+      isHtml: isHtml,
+      thumbEl: (isHtml && r.embedUrl)
+        ? React.createElement("div",{style:{position:"absolute",inset:0,overflow:"hidden",background:"#fff"}}, [
+            React.createElement("iframe",{key:"f",title:r.title,src:this.embedSrc(r.embedUrl),scrolling:"no",tabIndex:-1,"aria-hidden":"true",style:{position:"absolute",top:0,left:0,width:"1140px",height:"900px",border:0,transform:"scale(0.32)",transformOrigin:"top left",pointerEvents:"none"}}),
+            React.createElement("div",{key:"hint",style:{position:"absolute",bottom:8,right:8,display:"inline-flex",alignItems:"center",gap:5,background:"rgba(20,20,20,.72)",color:"#fff",borderRadius:8,padding:"4px 9px",font:"700 10.5px var(--font-sans)"}}, [this.icon("expand",12,"#fff"), "Clic para ampliar"]),
+          ])
+        : this.thumbEl(r.thumb, p),
+      open: isHtml? ()=> this.maximize(r.id) : ()=> this.openReport(r.id),
+    };
+  }
+
+  renderVals(){
+    const s = this.state;
+    const showThumbs = this.props.showThumbnails !== false;
+    const dense = this.props.density === "compact";
+    const gridStyle = "display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:"+(dense?"14px":"20px");
+
+    const cardHover = {transform:"translateY(-3px)",boxShadow:"0 10px 26px rgba(20,20,20,.10)"};
+    const iconBtnHover = {background:"var(--ink-100)",color:"var(--text-body)"};
+
+    // nav (con grupos y sub-apartados)
+    const countFor = (id)=> id==="pilares"? this.REPORTS.filter(r=>r.cat==="pilar").length : this.REPORTS.filter(r=>r.cat===id).length;
+    const isActive = (id,type)=>{
+      if(s.query.trim()) return false;
+      if(type==="home") return s.view==="home";
+      if(type==="admin") return s.view==="admin";
+      if(type==="group") return s.view==="group" && s.group===id;
+      if(id==="pilares") return s.view==="pillars";
+      return s.view==="list" && s.category===id;
+    };
+    const makeRow = (n, active, depth)=> ({
+      label:n.label,
+      iconEl:this.icon(n.icon, depth?16:18, active? "#fff":"var(--text-muted)"),
+      iconWrap:"width:"+(depth?26:30)+"px;height:"+(depth?26:30)+"px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;background:"+(active?"var(--brand)":(depth?"var(--ink-100)":"transparent")),
+      style:"display:flex;align-items:center;gap:10px;padding:8px 10px 8px "+(depth?"18px":"10px")+";border-radius:11px;cursor:pointer;text-decoration:none;color:"+(active?"var(--text-strong)":(depth?"var(--text-muted)":"var(--text-body)"))+";background:"+(active?"var(--educacion-50)":"transparent"),
+      hoverStyle: active? {} : {background:"var(--ink-100)"},
+      showCount: n.type==="cat" || n.id==="pilares",
+      count: n.id==="pilares"? "5" : (n.type==="cat"? countFor(n.id) : ""),
+      countStyle:"font:700 11px var(--font-sans);color:"+(active?"var(--brand-strong)":"var(--text-faint)")+";background:"+(active?"#fff":"var(--ink-100)")+";border-radius:7px;padding:2px 7px;min-width:22px;text-align:center",
+      isGroup: n.type==="group",
+      chevronEl: n.type==="group"
+        ? React.createElement("button",{
+            onClick:(ev)=>{ ev.stopPropagation(); this.toggleGroup(n.id); },
+            title: n._open? "Contraer" : "Expandir",
+            style:{display:"flex",alignItems:"center",justifyContent:"center",width:26,height:26,border:0,borderRadius:8,background:"transparent",cursor:"pointer",color:"var(--text-faint)",padding:0,transition:"transform .18s ease",transform:(n._open?"rotate(90deg)":"none")},
+          }, this.icon("chevron",15,"currentColor"))
+        : null,
+      go: (n.type==="home")? ()=>this.goHome() : (n.type==="group")? ()=>this.openGroup(n.id) : ()=>this.openCategory(n.id),
+    });
+    const navItems = [];
+    this.NAV.forEach(n=>{
+      const open = n.type==="group" ? !!s.expanded[n.id] : false;
+      navItems.push(makeRow({ ...n, _open:open }, isActive(n.id,n.type), 0));
+      if(n.type==="group" && n.children && open){
+        n.children.forEach(cid=>{
+          const cdef = cid==="pilares"
+            ? {id:"pilares", type:"pillars", label:"Reportes por pilar", icon:"layers"}
+            : (()=>{ const c=this.catInfo(cid); return {id:cid, type:"cat", label:c.label, icon:c.icon}; })();
+          navItems.push(makeRow(cdef, isActive(cdef.id,cdef.type), 1));
+        });
+      }
+    });
+    const adminRow = makeRow({id:"__admin",type:"admin",label:"Administración",icon:"shield"}, !s.query.trim() && s.view==="admin", 0);
+    adminRow.go = ()=>this.openAdmin();
+    adminRow.showCount = false;
+    adminRow.style += ";margin-top:10px";
+    navItems.push(adminRow);
+
+    // home data — tarjetas de nivel superior
+    const categories = this.NAV.filter(n=>n.type!=="home").map(n=>{
+      if(n.type==="group"){
+        const g=this.GROUPS[n.id]; const p=this.pinfo(g.pillar); const nch=g.children.length;
+        return { label:g.label, desc:g.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(g.icon,24,p.fg),
+          meta:(nch+" apartado"+(nch>1?"s":"")+" →"), open:()=>this.openGroup(n.id) };
+      }
+      const c=this.catInfo(n.id); const p=this.pinfo(c.pillar);
+      return { label:c.label, desc:c.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(c.icon,24,p.fg),
+        meta:(countFor(n.id)+" reportes →"), open:()=>this.openCategory(n.id) };
+    });
+    const pillars = this.PILLARS.map(p=>{ const cnt=this.REPORTS.filter(r=>r.pillar===p.key).length; return {
+      key:p.key, label:p.label, desc:p.desc, color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg,
+      count:cnt, countLabel: cnt+" reportes", open: ()=> this.openPillar(p.key),
+    };});
+    const recientes = this.REPORTS.slice().sort((a,b)=>a.days-b.days).slice(0,4).map(r=>this.decorate(r));
+
+    // list
+    const {list, mode} = this.computeList();
+    let listTitle="", listDesc="", listIconEl=null, listTint="var(--educacion-50)", listFg="var(--brand-strong)";
+    if(s.query && s.query.trim()){
+      listTitle="Resultados de búsqueda"; listDesc='Para "'+s.query.trim()+'" · '+list.length+" reporte(s)";
+      listIconEl=this.icon("search",26,"var(--brand-strong)");
+    } else if(mode==="pillar"){
+      const p=this.pinfo(s.pillar); listTitle=p.label; listDesc="Reportes del pilar · "+p.desc;
+      listTint=p.tint; listFg=p.fg; listIconEl=this.icon("layers",26,p.fg);
+    } else if(mode==="category"){
+      const c=this.catInfo(s.category); const p=this.pinfo(c.pillar);
+      listTitle=c.label; listDesc=c.desc; listTint=p.tint; listFg=p.fg; listIconEl=this.icon(c.icon,26,p.fg);
+    }
+    const filteredReports = list.map(r=>this.decorate(r));
+
+    // list back link (breadcrumb)
+    let listBack=()=>this.goHome(), listBackLabel="← Inicio";
+    if(!s.query.trim()){
+      if(mode==="category" && this.childParent[s.category]){
+        const gp=this.childParent[s.category]; listBack=()=>this.openGroup(gp); listBackLabel="← "+this.GROUPS[gp].label;
+      } else if(mode==="pillar"){
+        listBack=()=>this.openCategory("pilares"); listBackLabel="← Reportes por pilar";
+      }
+    }
+
+    // group landing
+    let groupTitle="",groupDesc="",groupIconEl=null,groupTint="var(--educacion-50)",groupFg="var(--brand-strong)",groupChildren=[];
+    if(s.view==="group" && !s.query.trim()){
+      const g=this.GROUPS[s.group];
+      if(g){
+        const gp=this.pinfo(g.pillar);
+        groupTitle=g.label; groupDesc=g.desc; groupTint=gp.tint; groupFg=gp.fg; groupIconEl=this.icon(g.icon,26,gp.fg);
+        groupChildren = g.children.map(cid=>{
+          if(cid==="pilares"){ const p=this.pinfo("espiritu");
+            return {label:"Reportes por pilar", desc:"Identifica huecos y enfoca estrategias por pilar.", color:p.color,tint:p.tint,fg:p.fg, iconEl:this.icon("layers",24,p.fg), meta:"5 pilares →", open:()=>this.openCategory("pilares")}; }
+          const c=this.catInfo(cid); const p=this.pinfo(c.pillar);
+          return {label:c.label, desc:c.desc, color:p.color,tint:p.tint,fg:p.fg, iconEl:this.icon(c.icon,24,p.fg), meta:(countFor(cid)+" reportes →"), open:()=>this.openCategory(cid)};
+        });
+      }
+    }
+
+    // pillar filter chips
+    const chipBase = "display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:7px 13px;font:600 12.5px var(--font-sans);cursor:pointer;border:1px solid var(--border-subtle);background:#fff;color:var(--text-body)";
+    const chipActive = (p)=> "display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:7px 13px;font:600 12.5px var(--font-sans);cursor:pointer;border:1px solid "+p.color+";background:"+p.tint+";color:"+p.fg;
+    const pillarFilters = this.PILLARS.map(p=>({
+      label:p.label, color:p.color,
+      style: s.pillarFilter===p.key? chipActive(p) : chipBase,
+      toggle: ()=> this.setPillarFilter(p.key),
+    }));
+    const allFilterStyle = (!s.pillarFilter)
+      ? "border-radius:999px;padding:7px 14px;font:700 12.5px var(--font-sans);cursor:pointer;border:1px solid var(--brand);background:var(--brand);color:#fff"
+      : "border-radius:999px;padding:7px 14px;font:600 12.5px var(--font-sans);cursor:pointer;border:1px solid var(--border-subtle);background:#fff;color:var(--text-body)";
+
+    // selected
+    let sel=null;
+    const sr = this.REPORTS.find(r=>r.id===s.selectedId);
+    if(sr){
+      const p=this.pinfo(sr.pillar); const isEmbed=sr.access==="embed"; const isHtml=sr.source==="html";
+      sel = {
+        title:sr.title, desc:sr.desc, sensitive:sr.sensitive,
+        color:p.color, fg:p.fg, pillarLabel:p.label,
+        freqLabel:this.freqLabel(sr.freq), updatedLabel:this.updatedLabel(sr.days), owner:sr.owner,
+        accessLabel: isHtml? "Página interactiva (HTML)" : (isEmbed? "Incrustado (embed seguro)" : "Enlace a Power BI"),
+        accessColor: isEmbed? p.fg : "var(--text-body)",
+        accessIconEl: this.icon(isEmbed?"embed":"external",15, isEmbed?p.color:"var(--text-body)"),
+        embedEl: sr.embedUrl
+          ? React.createElement("iframe",{title:sr.title,src:this.embedSrc(sr.embedUrl),style:{position:"absolute",inset:0,width:"100%",height:"100%",border:0},allowFullScreen:true})
+          : this.thumbEl(sr.thumb, p),
+        showLockOverlay: sr.sensitive && !sr.embedUrl,
+        openUrl: sr.embedUrl || null,
+        hasEmbed: !!sr.embedUrl,
+        isHtml: isHtml,
+        openLabel: isHtml? "Abrir en pestaña nueva" : "Abrir en Power BI",
+        maximize: ()=> this.maximize(sr.id),
+        embedNote: sr.embedUrl? (isHtml? "Interactivo" : "En vivo") : (isEmbed? "Vista incrustada" : "Vista previa"),
+        ctaLabel: sr.embedUrl? "Ver en grande aquí" : (isEmbed? "Ver reporte incrustado" : "Abrir en Power BI"),
+        accessHelp: isHtml
+          ? "Es una página interactiva incrustada en el directorio; sus datos están integrados en el archivo, así que cuando se actualice la base hay que volver a generar y reemplazar el HTML."
+          : (isEmbed
+          ? "Este reporte se muestra dentro del directorio mediante inserción segura; Power BI valida tu sesión y permisos antes de mostrarlo."
+          : "Este reporte se abre en Power BI. Necesitas iniciar sesión con tu cuenta institucional para verlo."),
+      };
+    }
+
+    // maximized full-screen viewer
+    let mx=null;
+    const mr = this.REPORTS.find(r=>r.id===s.maximizedId);
+    if(mr){
+      const p=this.pinfo(mr.pillar);
+      mx = {
+        title:mr.title, pillarLabel:p.label, color:p.color, fg:p.fg,
+        openUrl: mr.embedUrl || null,
+        openLabel: mr.source==="html"? "Abrir en pestaña nueva" : "Abrir en Power BI",
+        frameEl: mr.embedUrl
+          ? React.createElement("iframe",{title:mr.title,src:this.embedSrc(mr.embedUrl),style:{width:"100%",height:"100%",border:0,display:"block"},allowFullScreen:true})
+          : React.createElement("div",{style:{position:"relative",width:"100%",height:"100%"}}, this.thumbEl(mr.thumb,p)),
+      };
+    }
+
+    // admin
+    const isAdminView = !s.query.trim() && s.view==="admin";
+    const pendCount = s.requests.filter(q=>q.status==="pendiente").length;
+    const tabOn = "border-radius:999px;padding:8px 16px;font:700 13px var(--font-sans);cursor:pointer;border:1px solid var(--brand);background:var(--brand);color:#fff";
+    const tabOff = "border-radius:999px;padding:8px 16px;font:600 13px var(--font-sans);cursor:pointer;border:1px solid var(--border-subtle);background:#fff;color:var(--text-body)";
+    const adminTabs = [["reportes","Reportes"],["usuarios","Usuarios"],["permisos","Permisos"],["categorias","Apartados"],["solicitudes","Solicitudes"]].map(t=>({
+      label: (t[0]==="solicitudes" && pendCount)? t[1]+" · "+pendCount : t[1],
+      style: s.adminTab===t[0]? tabOn : tabOff,
+      go: ()=>this.setState({adminTab:t[0]}),
+    }));
+    const adminReports = this.REPORTS.map(r=>{ const p=this.pinfo(r.pillar); const c=this.catInfo(r.cat==="pilar"?"pilares":r.cat); return {
+      title:r.title, catLabel:c.label, pillarLabel:p.label, color:p.color, freqLabel:this.freqLabel(r.freq),
+      srcLabel: r.source==="html"? "HTML" : (r.embedUrl? "Power BI" : "Pendiente"),
+      sensLabel: r.sensitive? "Sí" : "No", sensColor: r.sensitive? "var(--brand-strong)" : "var(--text-faint)",
+      edit: ()=>this.startEdit(r.id), del: ()=>this.delReport(r.id),
+    };});
+    const adminUsers = s.users.map(u=>({
+      initials: ((u.name||"?").trim().split(/\s+/).map(x=>x[0]).slice(0,2).join("")||"?").toUpperCase(),
+      name:u.name, email:u.email, role:u.role,
+      setName:(e)=>this.setUser(u.id,"name",e.target.value),
+      setEmail:(e)=>this.setUser(u.id,"email",e.target.value),
+      setRole:(e)=>this.setUser(u.id,"role",e.target.value),
+      toggle:()=>this.setUser(u.id,"active",!u.active),
+      stateLabel: u.active? "Activo" : "Inactivo",
+      stateStyle: u.active
+        ? "border-radius:999px;padding:5px 12px;font:700 11.5px var(--font-sans);cursor:pointer;border:1px solid var(--educacion-100);background:var(--educacion-50);color:var(--brand-strong)"
+        : "border-radius:999px;padding:5px 12px;font:600 11.5px var(--font-sans);cursor:pointer;border:1px solid var(--border-subtle);background:var(--ink-100);color:var(--text-faint)",
+      del:()=>this.delUser(u.id),
+    }));
+    const permRows = this.REPORTS.map(r=>({
+      title:r.title, sensitive:r.sensitive,
+      guia:this.permFor(r,"guia"), coord:this.permFor(r,"coord"), dir:this.permFor(r,"dir"),
+      tGuia:()=>this.togglePerm(r,"guia"), tCoord:()=>this.togglePerm(r,"coord"), tDir:()=>this.togglePerm(r,"dir"),
+    }));
+    const adminCatRows = this.CATS.map(c=>{ const p=this.pinfo(c.pillar); const cnt = c.id==="pilares"? this.REPORTS.filter(r=>r.cat==="pilar").length : this.REPORTS.filter(r=>r.cat===c.id).length; return {
+      label:c.label, desc:c.desc, tint:p.tint, fg:p.fg, iconEl:this.icon(c.icon,22,p.fg), count:cnt+" reporte"+(cnt===1?"":"s"),
+      setLabel:this.setCat(c.id,"label"), setDesc:this.setCat(c.id,"desc"),
+    };});
+    const adminRequests = s.requests.map(q=>({
+      text:q.text, meta:q.user+" · "+this.updatedLabel(q.days),
+      pending:q.status==="pendiente",
+      statusLabel:q.status==="pendiente"? "Pendiente" : "Atendida",
+      statusStyle:q.status==="pendiente"
+        ? "border-radius:999px;padding:4px 11px;font:700 11.5px var(--font-sans);background:var(--educacion-50);color:var(--brand-strong)"
+        : "border-radius:999px;padding:4px 11px;font:600 11.5px var(--font-sans);background:var(--ink-100);color:var(--text-faint)",
+      done:()=>this.markDone(q.id),
+    }));
+    const catOptions = [...this.CATS.filter(c=>c.id!=="pilares").map(c=>({id:c.id,label:c.label})), {id:"pilar",label:"Reportes por pilar"}];
+    const pillarOptions = [{id:"todos",label:"Todos los pilares"}, ...this.PILLARS.map(p=>({id:p.key,label:p.label}))];
+
+    return {
+      showLogin: !s.loggedIn,
+      showApp: s.loggedIn,
+      isHome: !s.query.trim() && s.view==="home",
+      isPillars: !s.query.trim() && s.view==="pillars",
+      isGroup: !s.query.trim() && s.view==="group",
+      isList: !!(s.query.trim()) || s.view==="list",
+      hasResults: filteredReports.length>0,
+      noResults: filteredReports.length===0,
+      query: s.query,
+      totalReports: this.REPORTS.length,
+      showThumbs, gridStyle, cardHover, iconBtnHover,
+      navItems, categories, pillars, recientes,
+      filteredReports, listTitle, listDesc, listIconEl, listTint, listFg, listBack, listBackLabel,
+      groupTitle, groupDesc, groupIconEl, groupTint, groupFg, groupChildren,
+      goCoordinadores: ()=>this.openGroup("coordinadores"),
+      pillarFilters, allFilterStyle, clearPillarFilter: ()=> this.setState({pillarFilter:null}),
+      selected: !!sel, sel,
+      showMax: !!mx, mx,
+      isAdmin: isAdminView,
+      adminTabs, adminReports, adminUsers, permRows, adminCatRows, adminRequests,
+      adminRep: s.adminTab==="reportes", adminUsr: s.adminTab==="usuarios", adminPerm: s.adminTab==="permisos", adminCats: s.adminTab==="categorias", adminReq: s.adminTab==="solicitudes",
+      newReport: ()=>this.startNew(), addUser: ()=>this.addUser(),
+      showEditor: !!s.editing, draft: s.draft||{}, editorTitle: s.editing==="new"? "Nuevo reporte" : "Editar reporte",
+      dTitle:this.setDraft("title"), dDesc:this.setDraft("desc"), dUrl:this.setDraft("embedUrl"), dSource:this.setDraft("source"), dCat:this.setDraft("cat"), dPillar:this.setDraft("pillar"), dFreq:this.setDraft("freq"), dOwner:this.setDraft("owner"), dSens:this.setDraft("sensitive"),
+      saveDraft: ()=>this.saveDraft(), closeEditor: ()=>this.closeEditor(),
+      catOptions, pillarOptions,
+      shieldIconLg:this.icon("shield",26,"var(--brand-strong)"),
+      trashIcon:this.icon("trash",15,"currentColor"),
+      closeMax: ()=>this.closeMax(),
+      // icons & handlers
+      searchIcon:this.icon("search",18,"var(--text-faint)"),
+      bellIcon:this.icon("bell",20),
+      logoutIcon:this.icon("logout",17),
+      lockIconSm:this.icon("lock",12,"#fff"),
+      lockIconLg:this.icon("lock",30,"#fff"),
+      xIcon:this.icon("x",16),
+      infoIcon:this.icon("info",15,"var(--text-faint)"),
+      expandIcon:this.icon("expand",14,"#fff"),
+      extIcon:this.icon("external",15,"currentColor"),
+      doLogin: ()=>this.doLogin(),
+      doLogout: ()=>this.doLogout(),
+      goHome: ()=>this.goHome(),
+      onSearch: (e)=>this.onSearch(e),
+      closeReport: ()=>this.closeReport(),
+      cta: ()=>{ if(!sel) return; if(sel.hasEmbed){ sel.maximize(); } else if(sel.openUrl){ window.open(sel.openUrl,"_blank","noopener"); } },
+      openMaxUrl: ()=>{ if(mx && mx.openUrl) window.open(mx.openUrl,"_blank","noopener"); },
+      goHelp: ()=>{},
+      loginHover:{background:"var(--brand-ink)"},
+      searchFocus:{borderColor:"var(--brand)",background:"#fff"},
+    };
+  }
+}
+</script>
+</body>
+</html>

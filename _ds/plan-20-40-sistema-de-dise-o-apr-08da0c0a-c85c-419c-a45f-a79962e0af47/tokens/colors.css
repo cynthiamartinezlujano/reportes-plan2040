@@ -1,0 +1,94 @@
+/* ============================================================
+   Plan 20·40 — Color tokens
+   Five-pillar institutional palette (Manual de Identidad, pp.11–15)
+   ============================================================ */
+:root {
+  /* ---- Brand pillar colors (primary palette) ---- */
+  --pillar-educacion: #E81957;   /* Educación  — the hero magenta */
+  --pillar-salud:     #F5823C;   /* Salud       */
+  --pillar-juventud:  #FDB813;   /* Juventud y Familia */
+  --pillar-espiritu:  #7DBBEF;   /* Espiritualidad */
+  --pillar-economia:  #C592D4;   /* Economía Familiar */
+
+  /* Brand hero = Educación magenta */
+  --brand:        var(--pillar-educacion);
+  --brand-ink:    #C1124A;       /* pressed / darker magenta */
+  --brand-strong: #B10F42;
+
+  /* ---- Pillar soft tints (surfaces / chips) ---- */
+  --educacion-50: #FDE7EE;
+  --educacion-100:#FBC9D8;
+  --salud-50:     #FDEFE3;
+  --salud-100:    #FBD9C0;
+  --juventud-50:  #FFF6DE;
+  --juventud-100: #FDE9AE;
+  --espiritu-50:  #EAF4FD;
+  --espiritu-100: #D2E8FA;
+  --economia-50:  #F6ECF9;
+  --economia-100: #EAD3F1;
+
+  /* ---- Neutrals / ink ---- */
+  --ink-900: #141414;   /* logotype black / display */
+  --ink-800: #262626;
+  --ink-700: #3D3D3D;
+  --ink-600: #5C5C5C;
+  --ink-500: #7A7A7A;   /* muted captions */
+  --ink-400: #9E9E9E;
+  --ink-300: #C8C8C8;
+  --ink-200: #E4E4E4;
+  --ink-150: #EDEDED;
+  --ink-100: #F4F3F2;   /* warm off-white surface */
+  --ink-50:  #FAF9F8;
+  --white:   #FFFFFF;
+
+  /* ---- Extended illustration palette (pp.15) — illustrations only ---- */
+  --ilo-coral:   #E8506B;
+  --ilo-canario: #F1CE7B;
+  --ilo-celeste: #CCEDFF;
+  --ilo-lila:    #CAA8CC;
+  --ilo-cafe:    #491412;
+  --ilo-marino:  #092C58;
+  --ilo-olivo:   #586E31;
+  --ilo-musgo:   #758D3A;
+  --ilo-acero:   #B9B9B9;
+  --ilo-perla:   #D6D6D6;
+  --ilo-piel-1:  #FFA471;
+  --ilo-piel-2:  #7C4A36;
+  --ilo-piel-3:  #C1734C;
+  --ilo-piel-4:  #EFBBA3;
+  --ilo-piel-5:  #DD9063;
+
+  /* ---- Semantic / status ---- */
+  --success:     #4F9D69;
+  --success-50:  #E8F4EC;
+  --warning:     #E89A2B;
+  --warning-50:  #FCF1DD;
+  --danger:      #D8323F;
+  --danger-50:   #FBE6E7;
+  --info:        var(--pillar-espiritu);
+  --info-50:     var(--espiritu-50);
+
+  /* ============================================================
+     Semantic aliases — reference these in components, not the raw values
+     ============================================================ */
+  --bg-app:        var(--ink-100);
+  --bg-canvas:     var(--white);
+  --surface-card:  var(--white);
+  --surface-sunken:var(--ink-50);
+  --surface-inset: var(--ink-100);
+
+  --text-strong:   var(--ink-900);
+  --text-body:     var(--ink-800);
+  --text-muted:    var(--ink-500);
+  --text-faint:    var(--ink-400);
+  --text-on-brand: var(--white);
+  --text-link:     var(--brand);
+
+  --border-subtle: var(--ink-200);
+  --border-default:var(--ink-300);
+  --border-strong: var(--ink-900);
+
+  --accent:        var(--brand);
+  --accent-hover:  var(--brand-ink);
+  --focus-ring:    color-mix(in srgb, var(--brand) 45%, transparent);
+}
