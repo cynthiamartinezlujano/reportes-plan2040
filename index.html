@@ -24,34 +24,31 @@
     .dr-scroll::-webkit-scrollbar{width:10px;height:10px}
     .dr-scroll::-webkit-scrollbar-thumb{background:var(--ink-200);border-radius:8px;border:3px solid var(--bg-app)}
     @keyframes drwIn{from{transform:translateX(24px);opacity:.4}to{transform:none;opacity:1}}
+    @keyframes menuIn{from{transform:translateX(-100%)}to{transform:none}}
     @keyframes scrimIn{from{opacity:0}to{opacity:1}}
     @keyframes popIn{from{transform:translateY(6px);opacity:0}to{transform:none;opacity:1}}
   </style>
 </helmet>
 
 <sc-if value="{{ showLogin }}" hint-placeholder-val="{{ false }}">
-  <div style="display:flex;height:100vh;width:100%;overflow:hidden">
-    <div style="flex:1.05;background:var(--brand);color:#fff;padding:56px 60px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden">
+  <div style="display:flex;flex-wrap:wrap;min-height:100vh;width:100%;overflow:auto;background:#fff">
+    <div style="flex:1.05 1 360px;background:var(--brand);color:#fff;padding:clamp(28px,5vw,56px) clamp(22px,5vw,60px);display:flex;flex-direction:column;justify-content:space-between;gap:36px;position:relative;overflow:hidden">
       <div style="position:absolute;right:-90px;bottom:-110px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.08)"></div>
       <div style="position:absolute;right:90px;top:-70px;width:230px;height:230px;border-radius:50%;background:rgba(255,255,255,.06)"></div>
       <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Logo" tone="white" height="40" hint-size="170px,44px"></x-import>
       <div style="position:relative">
         <div style="font:700 13px/1 var(--font-sans);letter-spacing:.16em;text-transform:uppercase;opacity:.8;margin-bottom:18px">Centro de reportes</div>
-        <h1 style="font:800 42px/1.08 var(--font-sans);letter-spacing:-0.02em;margin:0 0 16px;max-width:13ch">Todos nuestros datos, en un solo lugar</h1>
+        <h1 style="font:800 clamp(27px,4.2vw,42px)/1.1 var(--font-sans);letter-spacing:-0.02em;margin:0 0 16px;max-width:15ch">Todos nuestros datos, en un solo lugar</h1>
         <p style="font:400 17px/1.55 var(--font-sans);opacity:.9;margin:0;max-width:34ch">Acompañamos a las familias con información clara. Consulta reportes, indicadores y diagnósticos del Plan 20·40.</p>
       </div>
       <div style="position:relative;font:400 13px/1.5 var(--font-sans);opacity:.75">Consejo para el Desarrollo Integral de Cuatrociénegas (CODICC)</div>
     </div>
-    <div style="flex:1;background:#fff;display:flex;align-items:center;justify-content:center;padding:40px">
+    <div style="flex:1 1 320px;background:#fff;display:flex;align-items:center;justify-content:center;padding:clamp(26px,5vw,40px) clamp(20px,5vw,40px)">
       <div style="width:100%;max-width:360px">
-        <h2 style="font:800 26px/1.1 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 6px">Inicia sesión</h2>
-        <p style="font:400 15px/1.5 var(--font-sans);color:var(--text-muted);margin:0 0 28px">Acceso para el equipo y las guías del Plan 20·40.</p>
-        <label style="display:block;font:600 13px var(--font-sans);color:var(--text-body);margin:0 0 7px">Correo institucional</label>
-        <input value="maria.guzman@plan-2040.org" readonly style="width:100%;height:46px;border:1px solid var(--border-default);border-radius:12px;padding:0 14px;font:400 15px var(--font-sans);color:var(--text-body);background:var(--ink-50);margin-bottom:18px;outline:none" />
-        <label style="display:block;font:600 13px var(--font-sans);color:var(--text-body);margin:0 0 7px">Contraseña</label>
-        <input type="password" value="000000000" readonly style="width:100%;height:46px;border:1px solid var(--border-default);border-radius:12px;padding:0 14px;font:400 15px var(--font-sans);background:var(--ink-50);margin-bottom:24px;outline:none" />
-        <button onClick="{{ doLogin }}" style="width:100%;height:48px;border:0;border-radius:999px;background:var(--brand);color:#fff;font:700 15px var(--font-sans);cursor:pointer;transition:background .18s" style-hover="{{ loginHover }}">Entrar</button>
-        <p style="font:400 12.5px/1.5 var(--font-sans);color:var(--text-faint);margin:18px 0 0;text-align:center">El acceso a cada reporte respeta los permisos de tu cuenta.</p>
+        <h2 style="font:800 26px/1.1 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 6px">Te damos la bienvenida</h2>
+        <p style="font:400 15px/1.55 var(--font-sans);color:var(--text-muted);margin:0 0 28px">Aquí encuentras los reportes e indicadores del Plan 20·40, organizados y listos para consultar.</p>
+        <button onClick="{{ doLogin }}" style="width:100%;height:48px;border:0;border-radius:999px;background:var(--brand);color:#fff;font:700 15px var(--font-sans);cursor:pointer;transition:background .18s" style-hover="{{ loginHover }}">Comenzar</button>
+        <p style="font:400 12.5px/1.5 var(--font-sans);color:var(--text-faint);margin:18px 0 0;text-align:center">Los reportes de Power BI piden tu sesión de Microsoft y respetan los permisos de tu cuenta.</p>
       </div>
     </div>
   </div>
@@ -60,7 +57,8 @@
 <sc-if value="{{ showApp }}" hint-placeholder-val="{{ true }}">
 <div style="display:flex;height:100vh;width:100%;overflow:hidden;background:var(--bg-app)">
 
-  <aside style="width:268px;flex:none;background:#fff;border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;padding:20px 16px 16px">
+  <sc-if value="{{ showMenuScrim }}" hint-placeholder-val="{{ false }}"><div onClick="{{ closeMenu }}" style="position:fixed;inset:0;background:rgba(20,20,20,.45);animation:scrimIn .2s ease;z-index:44"></div></sc-if>
+  <aside style="{{ sidebarStyle }}">
     <div style="padding:4px 8px 18px;cursor:pointer" onClick="{{ goHome }}">
       <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Logo" tone="color" height="32" hint-size="150px,38px"></x-import>
     </div>
@@ -75,36 +73,37 @@
         </a>
       </sc-for>
     </nav>
-    <div style="margin-top:12px;border-top:1px solid var(--border-subtle);padding-top:12px">
-      <div style="font:700 13px var(--font-sans);color:var(--text-strong)">Plan 20·40</div>
+    <div style="margin-top:12px;border-top:1px solid var(--border-subtle);padding:14px 8px 0">
+      <div style="font:700 13.5px var(--font-sans);color:var(--text-strong)">Plan 20·40</div>
       <div style="font:400 12px var(--font-sans);color:var(--text-muted)">Cuatro Ciénegas</div>
     </div>
   </aside>
 
   <main style="flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0">
-    <header style="height:66px;flex:none;border-bottom:1px solid var(--border-subtle);background:#fff;display:flex;align-items:center;gap:16px;padding:0 28px">
+    <header style="{{ headerStyle }}">
+      <sc-if value="{{ isMobileV }}" hint-placeholder-val="{{ false }}"><button onClick="{{ openMenu }}" title="Menú" style="width:42px;height:42px;flex:none;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-body);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ menuIcon }}</button></sc-if>
       <div style="position:relative;flex:1;max-width:520px">
         <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-faint);display:flex">{{ searchIcon }}</span>
         <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Buscar reportes, indicadores, diagnósticos…" style="width:100%;height:42px;border:1px solid var(--border-subtle);border-radius:999px;padding:0 16px 0 42px;font:400 14.5px var(--font-sans);background:var(--ink-50);outline:none;color:var(--text-body)" style-focus="{{ searchFocus }}" />
       </div>
       <div style="flex:1"></div>
-      <button title="Notificaciones" style="width:42px;height:42px;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative" style-hover="{{ iconBtnHover }}">{{ bellIcon }}<span style="position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:var(--brand);border:2px solid #fff"></span></button>
+      <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><button title="Notificaciones" style="width:42px;height:42px;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative" style-hover="{{ iconBtnHover }}">{{ bellIcon }}<span style="position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:var(--brand);border:2px solid #fff"></span></button></sc-if>
       <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" onClick="{{ goHelp }}" hint-size="150px,42px">+ Solicitar reporte</x-import>
     </header>
 
-    <div class="dr-scroll" style="flex:1;overflow:auto;padding:30px 32px 60px">
+    <div class="dr-scroll" style="{{ contentStyle }}">
 
       <!-- INICIO -->
       <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:32px;max-width:1180px">
-          <section style="background:var(--brand);border-radius:22px;padding:34px 38px;color:#fff;position:relative;overflow:hidden">
+          <section style="{{ heroStyle }}">
             <div style="position:absolute;right:-60px;bottom:-90px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)"></div>
-            <div style="position:relative;max-width:62%">
+            <div style="{{ heroTextStyle }}">
               <div style="font:700 12px var(--font-sans);letter-spacing:.15em;text-transform:uppercase;opacity:.82;margin-bottom:12px">Plan 20·40 · Centro de reportes</div>
-              <h1 style="font:800 32px/1.12 var(--font-sans);letter-spacing:-0.02em;margin:0 0 12px">Hola 👋 esto es lo que sigue</h1>
+              <h1 style="{{ heroTitleStyle }}">Hola 👋 esto es lo que sigue</h1>
               <p style="font:400 16px/1.55 var(--font-sans);opacity:.92;margin:0">Encuentra y abre cualquier reporte del Plan en segundos. Filtra por pilar para detectar huecos y enfocar estrategias.</p>
             </div>
-            <div style="position:relative;display:flex;gap:30px;margin-top:24px">
+            <div style="{{ statsRowStyle }}">
               <div><div style="font:800 30px/1 var(--font-sans);letter-spacing:-0.02em">{{ totalReports }}</div><div style="font:400 13px var(--font-sans);opacity:.85;margin-top:4px">reportes disponibles</div></div>
               <div style="width:1px;background:rgba(255,255,255,.25)"></div>
               <div><div style="font:800 30px/1 var(--font-sans);letter-spacing:-0.02em">5</div><div style="font:400 13px var(--font-sans);opacity:.85;margin-top:4px">pilares de trabajo</div></div>
@@ -116,7 +115,7 @@
           <section>
             <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 4px">Categorías</h2>
             <p style="font:400 14px var(--font-sans);color:var(--text-muted);margin:0 0 18px">Explora los reportes organizados por su uso.</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:18px">
               <sc-for list="{{ categories }}" as="c" hint-placeholder-count="5">
                 <div onClick="{{ c.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-top:4px solid {{ c.color }};border-radius:16px;padding:22px;cursor:pointer;display:flex;gap:16px;align-items:flex-start;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
                   <span style="width:50px;height:50px;border-radius:14px;background:{{ c.tint }};color:{{ c.fg }};display:flex;align-items:center;justify-content:center;flex:none">{{ c.iconEl }}</span>
@@ -173,7 +172,7 @@
           <a onClick="{{ goCoordinadores }}" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-sans);color:var(--text-muted);cursor:pointer;margin-bottom:14px">← Recursos para coordinadores</a>
           <h1 style="font:800 27px var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 6px">Reportes por pilar</h1>
           <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0 0 26px;max-width:60ch">Cada pilar es un color del Plan. Entra a un pilar para ver sus reportes e identificar dónde hay que enfocar las estrategias.</p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:18px">
             <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="5">
               <div onClick="{{ p.open }}" role="button" style="background:{{ p.tint }};border:1px solid {{ p.tintStrong }};border-radius:18px;padding:24px;cursor:pointer;display:flex;flex-direction:column;gap:16px;transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
                 <div style="display:flex;align-items:center;justify-content:space-between">
@@ -199,7 +198,7 @@
               <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0;max-width:62ch">{{ groupDesc }}</p>
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:18px">
             <sc-for list="{{ groupChildren }}" as="c" hint-placeholder-count="2">
               <div onClick="{{ c.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-top:4px solid {{ c.color }};border-radius:16px;padding:22px;cursor:pointer;display:flex;gap:16px;align-items:flex-start;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
                 <span style="width:50px;height:50px;border-radius:14px;background:{{ c.tint }};color:{{ c.fg }};display:flex;align-items:center;justify-content:center;flex:none">{{ c.iconEl }}</span>
@@ -285,12 +284,12 @@
           </div>
 
           <sc-if value="{{ adminRep }}" hint-placeholder-val="{{ true }}">
-            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden">
-              <div style="display:grid;grid-template-columns:2.4fr 1.3fr 1.1fr .9fr .8fr .6fr 150px;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow-x:auto">
+              <div style="display:grid;grid-template-columns:2.4fr 1.3fr 1.1fr .9fr .8fr .6fr 150px;min-width:820px;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
                 <span>Reporte</span><span>Apartado</span><span>Pilar</span><span>Frecuencia</span><span>Fuente</span><span>Sensible</span><span></span>
               </div>
               <sc-for list="{{ adminReports }}" as="r" hint-placeholder-count="6">
-                <div style="display:grid;grid-template-columns:2.4fr 1.3fr 1.1fr .9fr .8fr .6fr 150px;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
+                <div style="display:grid;grid-template-columns:2.4fr 1.3fr 1.1fr .9fr .8fr .6fr 150px;min-width:820px;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
                   <span style="font:700 13.5px/1.35 var(--font-sans);color:var(--text-strong)">{{ r.title }}</span>
                   <span style="font:500 12.5px var(--font-sans);color:var(--text-muted)">{{ r.catLabel }}</span>
                   <span style="display:inline-flex;align-items:center;gap:6px;font:600 12px var(--font-sans);color:var(--text-body)"><span style="width:8px;height:8px;border-radius:50%;background:{{ r.color }};flex:none"></span>{{ r.pillarLabel }}</span>
@@ -310,12 +309,12 @@
             <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
               <button onClick="{{ addUser }}" style="height:38px;padding:0 18px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 13px var(--font-sans);cursor:pointer" style-hover="{{ iconBtnHover }}">+ Invitar usuario</button>
             </div>
-            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden">
-              <div style="display:grid;grid-template-columns:1.6fr 1.8fr 1.2fr .8fr 44px;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow-x:auto">
+              <div style="display:grid;grid-template-columns:1.6fr 1.8fr 1.2fr .8fr 44px;min-width:660px;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
                 <span>Nombre</span><span>Correo</span><span>Rol</span><span>Estado</span><span></span>
               </div>
               <sc-for list="{{ adminUsers }}" as="u" hint-placeholder-count="5">
-                <div style="display:grid;grid-template-columns:1.6fr 1.8fr 1.2fr .8fr 44px;gap:12px;padding:11px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
+                <div style="display:grid;grid-template-columns:1.6fr 1.8fr 1.2fr .8fr 44px;min-width:660px;gap:12px;padding:11px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
                   <span style="display:flex;align-items:center;gap:10px;min-width:0">
                     <span style="width:34px;height:34px;border-radius:50%;background:var(--educacion-100);color:var(--brand-strong);font:800 12.5px var(--font-sans);display:flex;align-items:center;justify-content:center;flex:none">{{ u.initials }}</span>
                     <input value="{{ u.name }}" onInput="{{ u.setName }}" placeholder="Nombre completo" style="flex:1;min-width:0;height:34px;border:1px solid transparent;border-radius:9px;padding:0 8px;font:700 13.5px var(--font-sans);color:var(--text-strong);background:transparent;outline:none" style-focus="{{ searchFocus }}" />
@@ -336,12 +335,12 @@
 
           <sc-if value="{{ adminPerm }}" hint-placeholder-val="{{ false }}">
             <p style="font:400 13.5px var(--font-sans);color:var(--text-muted);margin:0 0 12px">Marca qué roles pueden ver cada reporte. El rol Administrador siempre tiene acceso. Los reportes sensibles inician sin acceso para guías.</p>
-            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden">
-              <div style="display:grid;grid-template-columns:2.6fr 1fr 1fr 1fr;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow-x:auto">
+              <div style="display:grid;grid-template-columns:2.6fr 1fr 1fr 1fr;min-width:620px;gap:12px;padding:12px 18px;background:var(--ink-50);border-bottom:1px solid var(--border-subtle);font:700 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)">
                 <span>Reporte</span><span style="text-align:center">Guía</span><span style="text-align:center">Coordinación</span><span style="text-align:center">Dirección</span>
               </div>
               <sc-for list="{{ permRows }}" as="pr" hint-placeholder-count="6">
-                <div style="display:grid;grid-template-columns:2.6fr 1fr 1fr 1fr;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
+                <div style="display:grid;grid-template-columns:2.6fr 1fr 1fr 1fr;min-width:620px;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-subtle);align-items:center">
                   <span style="display:flex;align-items:center;gap:8px;font:700 13.5px/1.35 var(--font-sans);color:var(--text-strong)">{{ pr.title }}<sc-if value="{{ pr.sensitive }}" hint-placeholder-val="{{ false }}"><span style="font:700 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;flex:none">Sensible</span></sc-if></span>
                   <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.guia }}" onChange="{{ pr.tGuia }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" /></span>
                   <span style="display:flex;justify-content:center"><input type="checkbox" checked="{{ pr.coord }}" onChange="{{ pr.tCoord }}" style="width:17px;height:17px;accent-color:var(--brand);cursor:pointer" /></span>
@@ -353,7 +352,7 @@
 
           <sc-if value="{{ adminCats }}" hint-placeholder-val="{{ false }}">
             <p style="font:400 13.5px var(--font-sans);color:var(--text-muted);margin:0 0 14px">Edita el nombre y la descripción de cada apartado; los cambios se reflejan en la navegación y en el inicio.</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:16px">
               <sc-for list="{{ adminCatRows }}" as="c" hint-placeholder-count="6">
                 <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:flex-start">
                   <span style="width:44px;height:44px;border-radius:12px;background:{{ c.tint }};color:{{ c.fg }};display:flex;align-items:center;justify-content:center;flex:none">{{ c.iconEl }}</span>
@@ -392,7 +391,7 @@
   <!-- DETALLE / EMBED -->
   <sc-if value="{{ selected }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ closeReport }}" style="position:fixed;inset:0;background:rgba(20,20,20,.45);animation:scrimIn .2s ease;z-index:40"></div>
-    <div style="position:fixed;top:0;right:0;height:100vh;width:min(560px,92vw);background:var(--bg-app);box-shadow:-12px 0 40px rgba(0,0,0,.18);z-index:41;display:flex;flex-direction:column;animation:drwIn .26s cubic-bezier(.2,.8,.2,1)">
+    <div style="{{ drawerStyle }}">
       <div style="flex:none;padding:18px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border-subtle);background:#fff">
         <span style="display:inline-flex;align-items:center;gap:6px;font:700 12px var(--font-sans);color:{{ sel.fg }}"><span style="width:10px;height:10px;border-radius:50%;background:{{ sel.color }}"></span>{{ sel.pillarLabel }}</span>
         <div style="flex:1"></div>
@@ -452,10 +451,10 @@
       <div class="dr-scroll" style="flex:1;overflow:auto;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
         <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Título</label><input value="{{ draft.title }}" onInput="{{ dTitle }}" placeholder="Nombre del reporte" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
         <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Descripción</label><textarea value="{{ draft.desc }}" onInput="{{ dDesc }}" rows="3" placeholder="Qué muestra y para quién es" style="width:100%;border:1px solid var(--border-default);border-radius:11px;padding:10px 14px;font:400 14px/1.5 var(--font-sans);color:var(--text-body);background:#fff;outline:none;resize:vertical" style-focus="{{ searchFocus }}"></textarea></div>
-        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Enlace (Power BI o archivo HTML)</label><input value="{{ draft.embedUrl }}" onInput="{{ dUrl }}" placeholder="https://app.powerbi.com/… o reportes-html/archivo.html" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 13px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
+        <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Enlace (Power BI o SharePoint)</label><input value="{{ draft.embedUrl }}" onInput="{{ dUrl }}" placeholder="https://app.powerbi.com/… o link de SharePoint" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 13px var(--font-sans);color:var(--text-body);background:#fff;outline:none" style-focus="{{ searchFocus }}" /></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Fuente</label><select value="{{ draft.source }}" onChange="{{ dSource }}" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 10px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
-            <option value="powerbi">Power BI</option><option value="html">Página HTML</option>
+            <option value="powerbi">Power BI</option><option value="html">Página HTML</option><option value="sharepoint">SharePoint (link con sesión)</option>
           </select></div>
           <div><label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Frecuencia</label><select value="{{ draft.freq }}" onChange="{{ dFreq }}" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 10px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
             <option value="semanal">Semanal</option><option value="mensual">Mensual</option><option value="anual">Anual</option><option value="continuo">Permanente</option>
@@ -481,15 +480,15 @@
 
   <!-- VISOR PANTALLA COMPLETA -->
   <sc-if value="{{ showMax }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed;inset:0;background:rgba(20,20,20,.78);z-index:60;display:flex;flex-direction:column;animation:scrimIn .2s ease;padding:28px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;color:#fff">
+    <div style="{{ maxWrapStyle }}">
+      <div style="{{ maxHeadStyle }}">
         <span style="display:inline-flex;align-items:center;gap:8px;font:700 14px var(--font-sans)"><span style="width:11px;height:11px;border-radius:50%;background:{{ mx.color }}"></span>{{ mx.title }}</span>
         <span style="font:500 12.5px var(--font-sans);opacity:.7">{{ mx.pillarLabel }}</span>
         <div style="flex:1"></div>
         <button onClick="{{ openMaxUrl }}" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;padding:9px 14px;font:600 13px var(--font-sans);cursor:pointer">{{ extIcon }} {{ mx.openLabel }}</button>
         <button onClick="{{ closeMax }}" style="display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--text-strong);border:0;border-radius:10px;padding:9px 16px;font:700 13px var(--font-sans);cursor:pointer">{{ xIcon }} Cerrar</button>
       </div>
-      <div style="flex:1;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)">{{ mx.frameEl }}</div>
+      <div style="{{ maxFrameStyle }}">{{ mx.frameEl }}</div>
     </div>
   </sc-if>
 
@@ -511,6 +510,7 @@ class Component extends DCLogic {
       maximizedId: null,
       group: null,
       expanded: {},
+      mobile: false, menuOpen: false,
       adminTab: "reportes",
       reports: null,
       editing: null, draft: null,
@@ -527,6 +527,17 @@ class Component extends DCLogic {
         {id:"q2",text:"Histórico de visitas 2025 por guía",user:"Luis Hernández",days:6,status:"atendida"},
       ],
     };
+  }
+
+  componentDidMount(){
+    this._mq = window.matchMedia("(max-width: 760px)");
+    this._mqH = ()=> this.setState({mobile: this._mq.matches, menuOpen: false});
+    this._mqH();
+    if(this._mq.addEventListener) this._mq.addEventListener("change", this._mqH); else this._mq.addListener(this._mqH);
+  }
+  componentWillUnmount(){
+    if(!this._mq) return;
+    if(this._mq.removeEventListener) this._mq.removeEventListener("change", this._mqH); else this._mq.removeListener(this._mqH);
   }
 
   // ---- static data ----
@@ -547,13 +558,11 @@ class Component extends DCLogic {
   }
   embedSrc(url, thumb){
     if(!url) return url;
-    if(!/app\.powerbi\.com/i.test(url)) return url; // HTML interno u otra fuente: no tocar
+    if(!/app\.powerbi\.com/i.test(url)) return url;
+    if(!thumb) return url; // visor grande: con pestañas de páginas y panel de filtros de Power BI
     let u = url;
-    if(thumb){
-      // miniatura: ocultar paneles para que se vea limpia
-      if(!/[?&]filterPaneEnabled=/.test(u)) u += "&filterPaneEnabled=false";
-      if(!/[?&]navContentPaneEnabled=/.test(u)) u += "&navContentPaneEnabled=false";
-    }
+    if(!/[?&]filterPaneEnabled=/.test(u)) u += "&filterPaneEnabled=false";
+    if(!/[?&]navContentPaneEnabled=/.test(u)) u += "&navContentPaneEnabled=false";
     return u;
   }
   pinfo(k){
@@ -596,7 +605,9 @@ class Component extends DCLogic {
     return [
       {id:"r21", title:"Estatus de Indicadores de los niños acompañados", desc:"Tablero con el estatus de indicadores de los niños acompañados y las listas del mes para consulta de las guías.", pillar:"todos", cat:"guias", freq:"semanal", access:"embed", sensitive:false, days:1, thumb:"kpi", owner:"Coordinación de campo", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=46568245-e6be-4f60-9f44-eb56fc660ecd&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
       {id:"r22", title:"Reporte Mensual", desc:"Construcción general de reportes del mes con el panorama integral del Plan.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", sensitive:false, days:3, thumb:"line", owner:"Dirección", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=494b1e2f-6d3e-4859-b841-604465575075&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
-
+      {id:"r27", title:"One Page · Indicadores por Pilar", desc:"Resumen ejecutivo de una página con los indicadores por pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"kpi", thumbUrl:"miniaturas/one-page-indicadores.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/:u:/p/cynthia_martinez/IQCzjXAwZDx2R6qE7Mhxlb-jAWZLTsxbp9hwVMl_W2BBVQM?e=7lf0PC"},
+      {id:"r28", title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/:u:/p/cynthia_martinez/IQD6GVbC_U9FRozLh4TbKS70AfGeF-JhbisYDndzRS9ZM7M?e=zFSULy"},
+      {id:"r29", title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/:u:/p/cynthia_martinez/IQB25XJbj4FLT7dOqbdq6hGXAV49dKwxJA6WCEEGxuFp9uc?e=g7I85h"},
     ];
   }
 
@@ -616,6 +627,7 @@ class Component extends DCLogic {
       embed:["M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z","M3 9h18","M7 7h.01"],
       bell:["M6 9.5a6 6 0 0 1 12 0c0 4.5 2 5.5 2 5.5H4s2-1 2-5.5Z","M10 19.5a2 2 0 0 0 4 0"],
       x:["M6 6l12 12M18 6 6 18"],
+      menu:["M4 6h16","M4 12h16","M4 18h16"],
       info:["M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z","M12 11v5","M12 8h.01"],
       logout:["M15 4h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3","M10 12h9","M16 9l3 3-3 3"],
       expand:["M4 9V4h5","M20 9V4h-5","M4 15v5h5","M20 15v5h-5"],
@@ -712,13 +724,13 @@ class Component extends DCLogic {
   startNew(){ this.setState({adminTab:"reportes",editing:"new",draft:{title:"",desc:"",embedUrl:"",source:"powerbi",cat:"recurrentes",pillar:"todos",freq:"mensual",owner:"",sensitive:false}}); }
   startEdit(id){
     const r=this.REPORTS.find(x=>x.id===id); if(!r) return;
-    this.setState({editing:id,draft:{title:r.title,desc:r.desc,embedUrl:r.embedUrl||"",source:r.source==="html"?"html":"powerbi",cat:r.cat,pillar:r.pillar,freq:r.freq,owner:r.owner||"",sensitive:!!r.sensitive}});
+    this.setState({editing:id,draft:{title:r.title,desc:r.desc,embedUrl:r.embedUrl||"",source:r.source||"powerbi",cat:r.cat,pillar:r.pillar,freq:r.freq,owner:r.owner||"",sensitive:!!r.sensitive}});
   }
   closeEditor(){ this.setState({editing:null,draft:null}); }
   setDraft(k){ return (ev)=>{ const t=ev&&ev.target; const v=t? (t.type==="checkbox"? t.checked : t.value) : ev; this.setState(s=>({draft:{...s.draft,[k]:v}})); }; }
   saveDraft(){
     const d=this.state.draft; if(!d || !d.title.trim()) return;
-    const patch={title:d.title.trim(),desc:d.desc,embedUrl:d.embedUrl.trim()||undefined,source:d.source==="html"?"html":undefined,cat:d.cat,pillar:d.pillar,freq:d.freq,owner:d.owner||"Dirección",sensitive:!!d.sensitive,access:"embed"};
+    const patch={title:d.title.trim(),desc:d.desc,embedUrl:d.embedUrl.trim()||undefined,source:(d.source==="html"||d.source==="sharepoint")? d.source : undefined,cat:d.cat,pillar:d.pillar,freq:d.freq,owner:d.owner||"Dirección",sensitive:!!d.sensitive,access:"embed"};
     const cur=this.REPORTS.slice();
     if(this.state.editing==="new"){ cur.unshift({id:"r"+Date.now(),days:0,thumb:"kpi",...patch}); }
     else { const i=cur.findIndex(r=>r.id===this.state.editing); if(i>=0) cur[i]={...cur[i],...patch}; }
@@ -741,7 +753,7 @@ class Component extends DCLogic {
     if(q){
       list = list.filter(r=> (r.title+" "+r.desc).toLowerCase().includes(q));
     } else if(this.state.pillar){
-      mode = "pillar"; list = list.filter(r=> r.pillar===this.state.pillar);
+      mode = "pillar"; list = list.filter(r=> r.pillar===this.state.pillar || r.pillar==="todos");
     } else if(this.state.category){
       mode = "category"; list = list.filter(r=> r.cat===this.state.category);
     }
@@ -753,15 +765,18 @@ class Component extends DCLogic {
     const p = this.pinfo(r.pillar);
     const isEmbed = r.access==="embed";
     const isHtml = r.source==="html";
+    const isExt = r.source==="sharepoint";
     return {
       id:r.id, title:r.title, desc:r.desc, sensitive:r.sensitive,
       color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg, pillarLabel:p.label,
       freqLabel:this.freqLabel(r.freq), updatedLabel:this.updatedLabel(r.days),
-      accessLabel: isHtml? "Interactivo" : (isEmbed? "Incrustado" : "Power BI"),
+      accessLabel: isExt? "SharePoint" : (isHtml? "Interactivo" : (isEmbed? "Incrustado" : "Power BI")),
       accessColor: isEmbed? p.fg : "var(--text-muted)",
-      accessIconEl: this.icon(isEmbed?"embed":"external",14, isEmbed?p.color:"var(--text-muted)"),
+      accessIconEl: this.icon((isEmbed&&!isExt)?"embed":"external",14, isEmbed?p.color:"var(--text-muted)"),
       isHtml: isHtml,
-      thumbEl: (isHtml && r.embedUrl)
+      thumbEl: r.thumbUrl
+        ? React.createElement("img",{src:r.thumbUrl,alt:r.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
+        : (r.embedUrl && !isExt)
         ? React.createElement("div",{style:{position:"absolute",inset:0,overflow:"hidden",background:"#fff"}}, [
             React.createElement("iframe",{key:"f",title:r.title,src:this.embedSrc(r.embedUrl,true),scrolling:"no",tabIndex:-1,"aria-hidden":"true",style:{position:"absolute",top:0,left:0,width:"1140px",height:"900px",border:0,transform:"scale(0.32)",transformOrigin:"top left",pointerEvents:"none"}}),
             React.createElement("div",{key:"hint",style:{position:"absolute",bottom:8,right:8,display:"inline-flex",alignItems:"center",gap:5,background:"rgba(20,20,20,.72)",color:"#fff",borderRadius:8,padding:"4px 9px",font:"700 10.5px var(--font-sans)"}}, [this.icon("expand",12,"#fff"), "Clic para ampliar"]),
@@ -775,13 +790,14 @@ class Component extends DCLogic {
     const s = this.state;
     const showThumbs = this.props.showThumbnails !== false;
     const dense = this.props.density === "compact";
-    const gridStyle = "display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:"+(dense?"14px":"20px");
+    const mob = !!s.mobile;
+    const gridStyle = "display:grid;grid-template-columns:"+(mob?"1fr":"repeat(auto-fill,minmax(min(290px,100%),1fr))")+";gap:"+(dense?"14px":"20px");
 
     const cardHover = {transform:"translateY(-3px)",boxShadow:"0 10px 26px rgba(20,20,20,.10)"};
     const iconBtnHover = {background:"var(--ink-100)",color:"var(--text-body)"};
 
     // nav (con grupos y sub-apartados)
-    const countFor = (id)=> id==="pilares"? this.REPORTS.filter(r=>r.cat==="pilar").length : this.REPORTS.filter(r=>r.cat===id).length;
+    const countFor = (id)=> id==="pilares"? this.REPORTS.length : this.REPORTS.filter(r=>r.cat===id).length;
     const isActive = (id,type)=>{
       if(s.query.trim()) return false;
       if(type==="home") return s.view==="home";
@@ -797,7 +813,7 @@ class Component extends DCLogic {
       style:"display:flex;align-items:center;gap:10px;padding:8px 10px 8px "+(depth?"18px":"10px")+";border-radius:11px;cursor:pointer;text-decoration:none;color:"+(active?"var(--text-strong)":(depth?"var(--text-muted)":"var(--text-body)"))+";background:"+(active?"var(--educacion-50)":"transparent"),
       hoverStyle: active? {} : {background:"var(--ink-100)"},
       showCount: n.type==="cat" || n.id==="pilares",
-      count: n.id==="pilares"? "5" : (n.type==="cat"? countFor(n.id) : ""),
+      count: (n.type==="cat" || n.id==="pilares")? countFor(n.id) : "",
       countStyle:"font:700 11px var(--font-sans);color:"+(active?"var(--brand-strong)":"var(--text-faint)")+";background:"+(active?"#fff":"var(--ink-100)")+";border-radius:7px;padding:2px 7px;min-width:22px;text-align:center",
       isGroup: n.type==="group",
       chevronEl: n.type==="group"
@@ -807,7 +823,7 @@ class Component extends DCLogic {
             style:{display:"flex",alignItems:"center",justifyContent:"center",width:26,height:26,border:0,borderRadius:8,background:"transparent",cursor:"pointer",color:"var(--text-faint)",padding:0,transition:"transform .18s ease",transform:(n._open?"rotate(90deg)":"none")},
           }, this.icon("chevron",15,"currentColor"))
         : null,
-      go: (n.type==="home")? ()=>this.goHome() : (n.type==="group")? ()=>this.openGroup(n.id) : ()=>this.openCategory(n.id),
+      go: ()=>{ this.setState({menuOpen:false}); if(n.type==="home") this.goHome(); else if(n.type==="group") this.openGroup(n.id); else this.openCategory(n.id); },
     });
     const navItems = [];
     this.NAV.forEach(n=>{
@@ -823,7 +839,7 @@ class Component extends DCLogic {
       }
     });
     const adminRow = makeRow({id:"__admin",type:"admin",label:"Administración",icon:"shield"}, !s.query.trim() && s.view==="admin", 0);
-    adminRow.go = ()=>this.openAdmin();
+    adminRow.go = ()=>{ this.setState({menuOpen:false}); this.openAdmin(); };
     adminRow.showCount = false;
     adminRow.style += ";margin-top:10px";
     navItems.push(adminRow);
@@ -839,7 +855,7 @@ class Component extends DCLogic {
       return { label:c.label, desc:c.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(c.icon,24,p.fg),
         meta:(countFor(n.id)+" reportes →"), open:()=>this.openCategory(n.id) };
     });
-    const pillars = this.PILLARS.map(p=>{ const cnt=this.REPORTS.filter(r=>r.pillar===p.key).length; return {
+    const pillars = this.PILLARS.map(p=>{ const cnt=this.REPORTS.filter(r=>r.pillar===p.key||r.pillar==="todos").length; return {
       key:p.key, label:p.label, desc:p.desc, color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg,
       count:cnt, countLabel: cnt+" reportes", open: ()=> this.openPillar(p.key),
     };});
@@ -879,7 +895,7 @@ class Component extends DCLogic {
         groupTitle=g.label; groupDesc=g.desc; groupTint=gp.tint; groupFg=gp.fg; groupIconEl=this.icon(g.icon,26,gp.fg);
         groupChildren = g.children.map(cid=>{
           if(cid==="pilares"){ const p=this.pinfo("espiritu");
-            return {label:"Reportes por pilar", desc:"Identifica huecos y enfoca estrategias por pilar.", color:p.color,tint:p.tint,fg:p.fg, iconEl:this.icon("layers",24,p.fg), meta:"5 pilares →", open:()=>this.openCategory("pilares")}; }
+            return {label:"Reportes por pilar", desc:"Identifica huecos y enfoca estrategias por pilar.", color:p.color,tint:p.tint,fg:p.fg, iconEl:this.icon("layers",24,p.fg), meta:countFor("pilares")+" reportes →", open:()=>this.openCategory("pilares")}; }
           const c=this.catInfo(cid); const p=this.pinfo(c.pillar);
           return {label:c.label, desc:c.desc, color:p.color,tint:p.tint,fg:p.fg, iconEl:this.icon(c.icon,24,p.fg), meta:(countFor(cid)+" reportes →"), open:()=>this.openCategory(cid)};
         });
@@ -902,26 +918,30 @@ class Component extends DCLogic {
     let sel=null;
     const sr = this.REPORTS.find(r=>r.id===s.selectedId);
     if(sr){
-      const p=this.pinfo(sr.pillar); const isEmbed=sr.access==="embed"; const isHtml=sr.source==="html";
+      const p=this.pinfo(sr.pillar); const isEmbed=sr.access==="embed"; const isHtml=sr.source==="html"; const isExt=sr.source==="sharepoint";
       sel = {
         title:sr.title, desc:sr.desc, sensitive:sr.sensitive,
         color:p.color, fg:p.fg, pillarLabel:p.label,
         freqLabel:this.freqLabel(sr.freq), updatedLabel:this.updatedLabel(sr.days), owner:sr.owner,
-        accessLabel: isHtml? "Página interactiva (HTML)" : (isEmbed? "Incrustado (embed seguro)" : "Enlace a Power BI"),
+        accessLabel: isExt? "SharePoint (sesión institucional)" : (isHtml? "Página interactiva (HTML)" : (isEmbed? "Incrustado (embed seguro)" : "Enlace a Power BI")),
         accessColor: isEmbed? p.fg : "var(--text-body)",
         accessIconEl: this.icon(isEmbed?"embed":"external",15, isEmbed?p.color:"var(--text-body)"),
-        embedEl: sr.embedUrl
-          ? React.createElement("iframe",{title:sr.title,src:this.embedSrc(sr.embedUrl),style:{position:"absolute",inset:0,width:"100%",height:"100%",border:0},allowFullScreen:true})
-          : this.thumbEl(sr.thumb, p),
+        embedEl: (sr.embedUrl && !isExt)
+          ? React.createElement("iframe",{title:sr.title,src:this.embedSrc(sr.embedUrl,true),style:{position:"absolute",inset:0,width:"100%",height:"100%",border:0},allowFullScreen:true})
+          : (sr.thumbUrl
+            ? React.createElement("img",{src:sr.thumbUrl,alt:sr.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
+            : this.thumbEl(sr.thumb, p)),
         showLockOverlay: sr.sensitive && !sr.embedUrl,
         openUrl: sr.embedUrl || null,
-        hasEmbed: !!sr.embedUrl,
+        hasEmbed: !!sr.embedUrl && !isExt,
         isHtml: isHtml,
-        openLabel: isHtml? "Abrir en pestaña nueva" : "Abrir en Power BI",
+        openLabel: isExt? "Abrir en SharePoint" : (isHtml? "Abrir en pestaña nueva" : "Abrir en Power BI"),
         maximize: ()=> this.maximize(sr.id),
-        embedNote: sr.embedUrl? (isHtml? "Interactivo" : "En vivo") : (isEmbed? "Vista incrustada" : "Vista previa"),
-        ctaLabel: sr.embedUrl? "Ver en grande aquí" : (isEmbed? "Ver reporte incrustado" : "Abrir en Power BI"),
-        accessHelp: isHtml
+        embedNote: isExt? "Abre con tu sesión" : (sr.embedUrl? (isHtml? "Interactivo" : "En vivo") : (isEmbed? "Vista incrustada" : "Vista previa")),
+        ctaLabel: isExt? "Abrir en SharePoint" : (sr.embedUrl? "Ver en grande aquí" : (isEmbed? "Ver reporte incrustado" : "Abrir en Power BI")),
+        accessHelp: isExt
+          ? "Este reporte vive en SharePoint. Al abrirlo, SharePoint pide iniciar sesión con el correo institucional y solo lo ve quien tiene el archivo compartido."
+          : isHtml
           ? "Es una página interactiva incrustada en el directorio; sus datos están integrados en el archivo, así que cuando se actualice la base hay que volver a generar y reemplazar el HTML."
           : (isEmbed
           ? "Este reporte se muestra dentro del directorio mediante inserción segura; Power BI valida tu sesión y permisos antes de mostrarlo."
@@ -939,7 +959,7 @@ class Component extends DCLogic {
         openUrl: mr.embedUrl || null,
         openLabel: mr.source==="html"? "Abrir en pestaña nueva" : "Abrir en Power BI",
         frameEl: mr.embedUrl
-          ? React.createElement("iframe",{title:mr.title,src:this.embedSrc(mr.embedUrl),style:{width:"100%",height:"100%",border:0,display:"block"},allowFullScreen:true})
+          ? React.createElement("iframe",{title:mr.title,src:this.embedSrc(mr.embedUrl,false),style:{width:"100%",height:"100%",border:0,display:"block"},allowFullScreen:true})
           : React.createElement("div",{style:{position:"relative",width:"100%",height:"100%"}}, this.thumbEl(mr.thumb,p)),
       };
     }
@@ -956,7 +976,7 @@ class Component extends DCLogic {
     }));
     const adminReports = this.REPORTS.map(r=>{ const p=this.pinfo(r.pillar); const c=this.catInfo(r.cat==="pilar"?"pilares":r.cat); return {
       title:r.title, catLabel:c.label, pillarLabel:p.label, color:p.color, freqLabel:this.freqLabel(r.freq),
-      srcLabel: r.source==="html"? "HTML" : (r.embedUrl? "Power BI" : "Pendiente"),
+      srcLabel: r.source==="sharepoint"? "SharePoint" : (r.source==="html"? "HTML" : (r.embedUrl? "Power BI" : "Pendiente")),
       sensLabel: r.sensitive? "Sí" : "No", sensColor: r.sensitive? "var(--brand-strong)" : "var(--text-faint)",
       edit: ()=>this.startEdit(r.id), del: ()=>this.delReport(r.id),
     };});
@@ -978,7 +998,7 @@ class Component extends DCLogic {
       guia:this.permFor(r,"guia"), coord:this.permFor(r,"coord"), dir:this.permFor(r,"dir"),
       tGuia:()=>this.togglePerm(r,"guia"), tCoord:()=>this.togglePerm(r,"coord"), tDir:()=>this.togglePerm(r,"dir"),
     }));
-    const adminCatRows = this.CATS.map(c=>{ const p=this.pinfo(c.pillar); const cnt = c.id==="pilares"? this.REPORTS.filter(r=>r.cat==="pilar").length : this.REPORTS.filter(r=>r.cat===c.id).length; return {
+    const adminCatRows = this.CATS.map(c=>{ const p=this.pinfo(c.pillar); const cnt = c.id==="pilares"? this.REPORTS.length : this.REPORTS.filter(r=>r.cat===c.id).length; return {
       label:c.label, desc:c.desc, tint:p.tint, fg:p.fg, iconEl:this.icon(c.icon,22,p.fg), count:cnt+" reporte"+(cnt===1?"":"s"),
       setLabel:this.setCat(c.id,"label"), setDesc:this.setCat(c.id,"desc"),
     };});
@@ -1006,6 +1026,26 @@ class Component extends DCLogic {
       query: s.query,
       totalReports: this.REPORTS.length,
       showThumbs, gridStyle, cardHover, iconBtnHover,
+      isMobileV: mob, notMobileV: !mob,
+      showMenuScrim: mob && !!s.menuOpen,
+      sidebarStyle: mob
+        ? (s.menuOpen
+          ? "position:fixed;top:0;left:0;bottom:0;width:288px;max-width:86vw;background:#fff;border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;padding:20px 16px 16px;z-index:45;box-shadow:12px 0 40px rgba(0,0,0,.22);animation:menuIn .22s ease"
+          : "display:none")
+        : "width:268px;flex:none;background:#fff;border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;padding:20px 16px 16px",
+      openMenu: ()=>this.setState({menuOpen:true}),
+      closeMenu: ()=>this.setState({menuOpen:false}),
+      menuIcon: this.icon("menu",20),
+      headerStyle: "height:"+(mob?"58px":"66px")+";flex:none;border-bottom:1px solid var(--border-subtle);background:#fff;display:flex;align-items:center;gap:"+(mob?"10px":"16px")+";padding:0 "+(mob?"12px":"28px"),
+      contentStyle: "flex:1;overflow:auto;padding:"+(mob?"18px 14px 50px":"30px 32px 60px"),
+      heroStyle: "background:var(--brand);border-radius:"+(mob?"18px":"22px")+";padding:"+(mob?"24px 20px 26px":"34px 38px")+";color:#fff;position:relative;overflow:hidden",
+      heroTextStyle: "position:relative;max-width:"+(mob?"100%":"62%"),
+      heroTitleStyle: "font:800 "+(mob?"25px":"32px")+"/1.15 var(--font-sans);letter-spacing:-0.02em;margin:0 0 12px",
+      statsRowStyle: "position:relative;display:flex;flex-wrap:wrap;gap:"+(mob?"14px 18px":"30px")+";margin-top:"+(mob?"20px":"24px"),
+      drawerStyle: "position:fixed;top:0;right:0;height:100vh;width:"+(mob?"100vw":"min(560px,92vw)")+";background:var(--bg-app);box-shadow:-12px 0 40px rgba(0,0,0,.18);z-index:41;display:flex;flex-direction:column;animation:drwIn .26s cubic-bezier(.2,.8,.2,1)",
+      maxWrapStyle: "position:fixed;inset:0;background:rgba(20,20,20,.78);z-index:60;display:flex;flex-direction:column;animation:scrimIn .2s ease;padding:"+(mob?"0":"28px"),
+      maxHeadStyle: "display:flex;align-items:center;flex-wrap:wrap;gap:"+(mob?"8px 10px":"12px")+";margin-bottom:"+(mob?"0":"16px")+";color:#fff;padding:"+(mob?"10px 12px":"0"),
+      maxFrameStyle: "flex:1;background:#fff;border-radius:"+(mob?"0":"14px")+";overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)",
       navItems, categories, pillars, recientes,
       filteredReports, listTitle, listDesc, listIconEl, listTint, listFg, listBack, listBackLabel,
       groupTitle, groupDesc, groupIconEl, groupTint, groupFg, groupChildren,
@@ -1027,7 +1067,6 @@ class Component extends DCLogic {
       // icons & handlers
       searchIcon:this.icon("search",18,"var(--text-faint)"),
       bellIcon:this.icon("bell",20),
-      logoutIcon:this.icon("logout",17),
       lockIconSm:this.icon("lock",12,"#fff"),
       lockIconLg:this.icon("lock",30,"#fff"),
       xIcon:this.icon("x",16),
@@ -1035,7 +1074,6 @@ class Component extends DCLogic {
       expandIcon:this.icon("expand",14,"#fff"),
       extIcon:this.icon("external",15,"currentColor"),
       doLogin: ()=>this.doLogin(),
-      doLogout: ()=>this.doLogout(),
       goHome: ()=>this.goHome(),
       onSearch: (e)=>this.onSearch(e),
       closeReport: ()=>this.closeReport(),
