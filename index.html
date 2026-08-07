@@ -403,8 +403,8 @@
 
         <div style="border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;background:#fff;margin-bottom:20px">
           <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border-subtle);background:var(--ink-50)">
-            <span style="width:18px;height:18px;border-radius:5px;background:var(--pillar-juventud);display:flex;align-items:center;justify-content:center;font:800 11px var(--font-sans);color:#5c4500">P</span>
-            <span style="font:600 12.5px var(--font-sans);color:var(--text-muted)">Power BI · Plan 20·40</span>
+            <span style="width:18px;height:18px;border-radius:5px;background:var(--pillar-juventud);display:flex;align-items:center;justify-content:center;font:800 11px var(--font-sans);color:#5c4500">{{ sel.srcBadge }}</span>
+            <span style="font:600 12.5px var(--font-sans);color:var(--text-muted)">{{ sel.srcLine }}</span>
             <span style="flex:1"></span>
             <span style="font:500 11px var(--font-sans);color:var(--text-faint)">{{ sel.embedNote }}</span>
           </div>
@@ -556,11 +556,12 @@ class Component extends DCLogic {
       fg:(P[k]||{}).fg||"#C1124A", desc:desc[k],
     }));
   }
-  embedSrc(url, thumb){
+  embedSrc(url, thumb, pageName){
     if(!url) return url;
     if(!/app\.powerbi\.com/i.test(url)) return url;
     if(!thumb) return url; // visor grande: con pestañas de páginas y panel de filtros de Power BI
     let u = url;
+    if(pageName && !/[?&]pageName=/.test(u)) u += "&pageName="+pageName;
     if(!/[?&]filterPaneEnabled=/.test(u)) u += "&filterPaneEnabled=false";
     if(!/[?&]navContentPaneEnabled=/.test(u)) u += "&navContentPaneEnabled=false";
     return u;
@@ -603,11 +604,12 @@ class Component extends DCLogic {
   get REPORTS(){ return (this.state && this.state.reports) || this.BASE_REPORTS; }
   get BASE_REPORTS(){
     return [
-      {id:"r21", title:"Estatus de Indicadores de los niños acompañados", desc:"Tablero con el estatus de indicadores de los niños acompañados y las listas del mes para consulta de las guías.", pillar:"todos", cat:"guias", freq:"semanal", access:"embed", sensitive:false, days:1, thumb:"kpi", owner:"Coordinación de campo", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=46568245-e6be-4f60-9f44-eb56fc660ecd&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
-      {id:"r22", title:"Reporte Mensual", desc:"Construcción general de reportes del mes con el panorama integral del Plan.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", sensitive:false, days:3, thumb:"line", owner:"Dirección", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=494b1e2f-6d3e-4859-b841-604465575075&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
-      {id:"r27", title:"One Page · Indicadores por Pilar", desc:"Resumen ejecutivo de una página con los indicadores por pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"kpi", thumbUrl:"miniaturas/one-page-indicadores.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/:u:/p/cynthia_martinez/IQCzjXAwZDx2R6qE7Mhxlb-jAWZLTsxbp9hwVMl_W2BBVQM?e=7lf0PC"},
-      {id:"r28", title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/:u:/p/cynthia_martinez/IQD6GVbC_U9FRozLh4TbKS70AfGeF-JhbisYDndzRS9ZM7M?e=zFSULy"},
-      {id:"r29", title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/:u:/p/cynthia_martinez/IQB25XJbj4FLT7dOqbdq6hGXAV49dKwxJA6WCEEGxuFp9uc?e=g7I85h"},
+      {id:"r21", title:"Estatus de Indicadores de los niños acompañados", desc:"Tablero con el estatus de indicadores de los niños acompañados y las listas del mes para consulta de las guías.", pillar:"todos", cat:"guias", freq:"semanal", access:"embed", sensitive:false, days:1, thumb:"kpi", owner:"Coordinación de campo", pageName:"fdbf95ac33fbf3f2471b", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=46568245-e6be-4f60-9f44-eb56fc660ecd&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
+      {id:"r22", title:"Reporte Mensual", desc:"Construcción general de reportes del mes con el panorama integral del Plan.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", sensitive:false, days:3, thumb:"line", owner:"Dirección", pageName:"15dc1893abd8d9477a0a", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=494b1e2f-6d3e-4859-b841-604465575075&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
+      {id:"r27", title:"One Page · Indicadores por Pilar", desc:"Resumen ejecutivo de una página con los indicadores por pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"kpi", thumbUrl:"miniaturas/one-page-indicadores.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=30708db3-3c64-4776-aa84-ecc87195bfa3"},
+      {id:"r28", title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=c25619fa-4ffd-4645-8ccb-8784db292ef4"},
+      {id:"r29", title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=5b72e576-818f-4f4b-b74e-a9b76aea1197"},
+      {id:"r30", title:"Generador de Listados por Guía", desc:"Genera las listas de consulta por guía para el acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"guias", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/generador-listados.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d21622d1-b328-4b0d-943a-d7da92a57174"},
     ];
   }
 
@@ -765,7 +767,7 @@ class Component extends DCLogic {
     const p = this.pinfo(r.pillar);
     const isEmbed = r.access==="embed";
     const isHtml = r.source==="html";
-    const isExt = r.source==="sharepoint";
+    const isExt = r.source==="sharepoint" && !/embed\.aspx/i.test(r.embedUrl||"");
     return {
       id:r.id, title:r.title, desc:r.desc, sensitive:r.sensitive,
       color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg, pillarLabel:p.label,
@@ -778,7 +780,7 @@ class Component extends DCLogic {
         ? React.createElement("img",{src:r.thumbUrl,alt:r.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
         : (r.embedUrl && !isExt)
         ? React.createElement("div",{style:{position:"absolute",inset:0,overflow:"hidden",background:"#fff"}}, [
-            React.createElement("iframe",{key:"f",title:r.title,src:this.embedSrc(r.embedUrl,true),scrolling:"no",tabIndex:-1,"aria-hidden":"true",style:{position:"absolute",top:0,left:0,width:"1140px",height:"900px",border:0,transform:"scale(0.32)",transformOrigin:"top left",pointerEvents:"none"}}),
+            React.createElement("iframe",{key:"f",title:r.title,src:this.embedSrc(r.embedUrl,true,r.pageName),scrolling:"no",tabIndex:-1,"aria-hidden":"true",style:{position:"absolute",top:0,left:0,width:"1140px",height:"900px",border:0,transform:"scale(0.32)",transformOrigin:"top left",pointerEvents:"none"}}),
             React.createElement("div",{key:"hint",style:{position:"absolute",bottom:8,right:8,display:"inline-flex",alignItems:"center",gap:5,background:"rgba(20,20,20,.72)",color:"#fff",borderRadius:8,padding:"4px 9px",font:"700 10.5px var(--font-sans)"}}, [this.icon("expand",12,"#fff"), "Clic para ampliar"]),
           ])
         : this.thumbEl(r.thumb, p),
@@ -918,16 +920,18 @@ class Component extends DCLogic {
     let sel=null;
     const sr = this.REPORTS.find(r=>r.id===s.selectedId);
     if(sr){
-      const p=this.pinfo(sr.pillar); const isEmbed=sr.access==="embed"; const isHtml=sr.source==="html"; const isExt=sr.source==="sharepoint";
+      const p=this.pinfo(sr.pillar); const isEmbed=sr.access==="embed"; const isHtml=sr.source==="html"; const isExt=sr.source==="sharepoint" && !/embed\.aspx/i.test(sr.embedUrl||"");
       sel = {
         title:sr.title, desc:sr.desc, sensitive:sr.sensitive,
+        srcBadge: sr.source==="sharepoint"? "S" : (isHtml? "H" : "P"),
+        srcLine: (sr.source==="sharepoint"? "SharePoint" : (isHtml? "Página HTML" : "Power BI"))+" · Plan 20·40",
         color:p.color, fg:p.fg, pillarLabel:p.label,
         freqLabel:this.freqLabel(sr.freq), updatedLabel:this.updatedLabel(sr.days), owner:sr.owner,
         accessLabel: isExt? "SharePoint (sesión institucional)" : (isHtml? "Página interactiva (HTML)" : (isEmbed? "Incrustado (embed seguro)" : "Enlace a Power BI")),
         accessColor: isEmbed? p.fg : "var(--text-body)",
         accessIconEl: this.icon(isEmbed?"embed":"external",15, isEmbed?p.color:"var(--text-body)"),
         embedEl: (sr.embedUrl && !isExt)
-          ? React.createElement("iframe",{title:sr.title,src:this.embedSrc(sr.embedUrl,true),style:{position:"absolute",inset:0,width:"100%",height:"100%",border:0},allowFullScreen:true})
+          ? React.createElement("iframe",{title:sr.title,src:this.embedSrc(sr.embedUrl,true,sr.pageName),style:{position:"absolute",inset:0,width:"100%",height:"100%",border:0},allowFullScreen:true})
           : (sr.thumbUrl
             ? React.createElement("img",{src:sr.thumbUrl,alt:sr.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
             : this.thumbEl(sr.thumb, p)),
@@ -935,7 +939,7 @@ class Component extends DCLogic {
         openUrl: sr.embedUrl || null,
         hasEmbed: !!sr.embedUrl && !isExt,
         isHtml: isHtml,
-        openLabel: isExt? "Abrir en SharePoint" : (isHtml? "Abrir en pestaña nueva" : "Abrir en Power BI"),
+        openLabel: (isExt || sr.source==="sharepoint")? "Abrir en SharePoint" : (isHtml? "Abrir en pestaña nueva" : "Abrir en Power BI"),
         maximize: ()=> this.maximize(sr.id),
         embedNote: isExt? "Abre con tu sesión" : (sr.embedUrl? (isHtml? "Interactivo" : "En vivo") : (isEmbed? "Vista incrustada" : "Vista previa")),
         ctaLabel: isExt? "Abrir en SharePoint" : (sr.embedUrl? "Ver en grande aquí" : (isEmbed? "Ver reporte incrustado" : "Abrir en Power BI")),
@@ -944,7 +948,7 @@ class Component extends DCLogic {
           : isHtml
           ? "Es una página interactiva incrustada en el directorio; sus datos están integrados en el archivo, así que cuando se actualice la base hay que volver a generar y reemplazar el HTML."
           : (isEmbed
-          ? "Este reporte se muestra dentro del directorio mediante inserción segura; Power BI valida tu sesión y permisos antes de mostrarlo."
+          ? "Este reporte se muestra dentro del directorio mediante inserción segura; Power BI o SharePoint valida tu sesión y permisos antes de mostrarlo."
           : "Este reporte se abre en Power BI. Necesitas iniciar sesión con tu cuenta institucional para verlo."),
       };
     }
@@ -957,7 +961,7 @@ class Component extends DCLogic {
       mx = {
         title:mr.title, pillarLabel:p.label, color:p.color, fg:p.fg,
         openUrl: mr.embedUrl || null,
-        openLabel: mr.source==="html"? "Abrir en pestaña nueva" : "Abrir en Power BI",
+        openLabel: mr.source==="sharepoint"? "Abrir en SharePoint" : (mr.source==="html"? "Abrir en pestaña nueva" : "Abrir en Power BI"),
         frameEl: mr.embedUrl
           ? React.createElement("iframe",{title:mr.title,src:this.embedSrc(mr.embedUrl,false),style:{width:"100%",height:"100%",border:0,display:"block"},allowFullScreen:true})
           : React.createElement("div",{style:{position:"relative",width:"100%",height:"100%"}}, this.thumbEl(mr.thumb,p)),
