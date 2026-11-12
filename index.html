@@ -922,11 +922,8 @@ class Component extends DCLogic {
         });
       }
     });
-    const adminRow = makeRow({id:"__admin",type:"admin",label:"Administración",icon:"shield"}, !s.query.trim() && s.view==="admin", 0);
-    adminRow.go = ()=>{ this.setState({menuOpen:false}); this.openAdmin(); };
-    adminRow.showCount = false;
-    adminRow.style += ";margin-top:10px";
-    navItems.push(adminRow);
+    // Administración retirada del menú (era prototipo: usuarios y permisos de muestra);
+    // la vista sigue en el código por si algún día se conecta a usuarios reales.
 
     // home data — tarjetas de nivel superior (solo apartados con contenido)
     const categories = [];
