@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./fechas.js"></script>
 </head>
 <body>
 <x-dc>
@@ -111,10 +112,6 @@
                 <span style="background:#FFF6DE;color:#A87400;font:800 10.5px var(--font-sans);padding:3px 9px;border-radius:999px">{{ totalReports }} reportes</span>
                 <span style="background:#FFF6DE;color:#A87400;font:800 10.5px var(--font-sans);padding:3px 9px;border-radius:999px">5 pilares</span>
                 <span style="background:#FFF6DE;color:#A87400;font:800 10.5px var(--font-sans);padding:3px 9px;border-radius:999px">2 comunidades</span>
-              </div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:2px">
-                <button onClick="{{ heroCta }}" style="border:none;cursor:pointer;background:var(--brand);color:#fff;font:800 12px var(--font-sans);padding:9px 16px;border-radius:999px;font-family:inherit" style-hover="{{ loginHover }}">{{ heroCtaLabel }}</button>
-                <button onClick="{{ heroCta2 }}" style="border:1.5px solid rgba(20,20,20,.14);cursor:pointer;background:#fff;color:#141414;font:700 11.5px var(--font-sans);padding:8px 14px;border-radius:999px;font-family:inherit">Ver por pilar</button>
               </div>
             </div>
             <img src="assets/ilu/familia-abrazo.png" alt="" style="{{ heroIluStyle }}">
@@ -237,7 +234,7 @@
                     <p style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin:0">{{ r.desc }}</p>
                     <div style="margin-top:auto;padding-top:8px;display:flex;align-items:center;gap:8px;font:500 12px var(--font-sans);color:var(--text-muted);flex-wrap:wrap">
                       <span style="display:inline-flex;align-items:center;gap:5px;background:var(--ink-100);border-radius:7px;padding:3px 8px">{{ r.freqLabel }}</span>
-                      <span style="display:inline-flex;align-items:center;gap:5px;color:{{ r.accessColor }}">{{ r.accessIconEl }}{{ r.accessLabel }}</span>
+                      <span style="display:inline-flex;align-items:center;gap:5px;color:var(--text-muted)">{{ r.updatedLabel }}</span>
                       <span style="margin-left:auto;color:var(--text-faint)">{{ r.owner }}</span>
                     </div>
                   </div>
@@ -755,6 +752,21 @@ class Component extends DCLogic {
   roleInfo(id){ return this.ROLES_DIR.find(r=>r.id===id)||null; }
   openRole(){ this.setState({view:"list",roleList:true,category:null,pillar:null,pillarFilter:null,query:"",group:null,expanded:{}}); }
   schedLabel(f){ return ({semanal:"Se actualiza cada semana",mensual:"Se actualiza cada mes",anual:"Se actualiza cada año",continuo:"Siempre al día"})[f]||""; }
+  relUpdated(id){
+    // fecha real de generación del archivo (fechas.js, escrito por actualizar_fechas.py)
+    const iso = (window.P2040_FECHAS||{})[id]; if(!iso) return null;
+    const t = new Date(iso); if(isNaN(t.getTime())) return null;
+    const min = Math.round((Date.now()-t.getTime())/60000);
+    if(min < 1) return "Actualizado justo ahora";
+    if(min < 60) return "Actualizado hace "+min+" min";
+    const h = Math.round(min/60);
+    if(h < 24) return "Actualizado hace "+h+" h";
+    const d = Math.round(h/24);
+    if(d === 1) return "Actualizado ayer";
+    if(d < 15) return "Actualizado hace "+d+" días";
+    const M=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+    return "Actualizado el "+t.getDate()+" "+M[t.getMonth()]+(t.getFullYear()!==(new Date()).getFullYear()? " "+t.getFullYear() : "");
+  }
   toggleGroup(id){
     this.setState(s=>({ expanded: { ...s.expanded, [id]: !s.expanded[id] } }));
   }
@@ -847,7 +859,7 @@ class Component extends DCLogic {
     return {
       id:r.id, title:r.title, desc:r.desc, sensitive:r.sensitive,
       color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg, pillarLabel:p.label,
-      freqLabel:this.freqLabel(r.freq), updatedLabel:this.schedLabel(r.freq), owner:r.owner||"",
+      freqLabel:this.freqLabel(r.freq), updatedLabel:this.relUpdated(r.id) || this.schedLabel(r.freq), owner:r.owner||"",
       accessLabel: isExt? "SharePoint" : (isHtml? "Interactivo" : (isEmbed? "Incrustado" : "Power BI")),
       accessColor: isEmbed? p.fg : "var(--text-muted)",
       accessIconEl: this.icon((isEmbed&&!isExt)?"embed":"external",14, isEmbed?p.color:"var(--text-muted)"),
@@ -1037,7 +1049,7 @@ class Component extends DCLogic {
         srcBadge: sr.source==="sharepoint"? "S" : (isHtml? "H" : "P"),
         srcLine: (sr.source==="sharepoint"? "SharePoint" : (isHtml? "Página HTML" : "Power BI"))+" · Plan 20·40",
         color:p.color, fg:p.fg, pillarLabel:p.label,
-        freqLabel:this.freqLabel(sr.freq), updatedLabel:this.schedLabel(sr.freq), owner:sr.owner,
+        freqLabel:this.freqLabel(sr.freq), updatedLabel:this.relUpdated(sr.id) || this.schedLabel(sr.freq), owner:sr.owner,
         accessLabel: isExt? "SharePoint (sesión institucional)" : (isHtml? "Página interactiva (HTML)" : (isEmbed? "Incrustado (embed seguro)" : "Enlace a Power BI")),
         accessColor: isEmbed? p.fg : "var(--text-body)",
         accessIconEl: this.icon(isEmbed?"embed":"external",15, isEmbed?p.color:"var(--text-body)"),
