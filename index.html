@@ -752,6 +752,12 @@ class Component extends DCLogic {
   roleInfo(id){ return this.ROLES_DIR.find(r=>r.id===id)||null; }
   openRole(){ this.setState({view:"list",roleList:true,category:null,pillar:null,pillarFilter:null,query:"",group:null,expanded:{}}); }
   schedLabel(f){ return ({semanal:"Se actualiza cada semana",mensual:"Se actualiza cada mes",anual:"Se actualiza cada año",continuo:"Siempre al día"})[f]||""; }
+  thumbSrc(r){
+    // la fecha como versión rompe la caché del navegador cuando la miniatura se regenera
+    if(!r.thumbUrl) return r.thumbUrl;
+    const v = (window.P2040_FECHAS||{})[r.id];
+    return v? r.thumbUrl+"?v="+encodeURIComponent(v) : r.thumbUrl;
+  }
   relUpdated(id){
     // fecha real de generación del archivo (fechas.js, escrito por actualizar_fechas.py)
     const iso = (window.P2040_FECHAS||{})[id]; if(!iso) return null;
@@ -865,7 +871,7 @@ class Component extends DCLogic {
       accessIconEl: this.icon((isEmbed&&!isExt)?"embed":"external",14, isEmbed?p.color:"var(--text-muted)"),
       isHtml: isHtml,
       thumbEl: r.thumbUrl
-        ? React.createElement("img",{src:r.thumbUrl,alt:r.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
+        ? React.createElement("img",{src:this.thumbSrc(r),alt:r.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
         : (r.embedUrl && !isExt)
         ? React.createElement("div",{style:{position:"absolute",inset:0,overflow:"hidden",background:"#fff"}}, [
             React.createElement("iframe",{key:"f",title:r.title,src:this.embedSrc(r.embedUrl,true,r.pageName),scrolling:"no",tabIndex:-1,"aria-hidden":"true",style:{position:"absolute",top:0,left:0,width:"1140px",height:"900px",border:0,transform:"scale(0.32)",transformOrigin:"top left",pointerEvents:"none"}}),
@@ -1056,7 +1062,7 @@ class Component extends DCLogic {
         embedEl: (sr.embedUrl && !isExt)
           ? React.createElement("iframe",{title:sr.title,src:this.embedSrc(sr.embedUrl,true,sr.pageName),style:{position:"absolute",inset:0,width:"100%",height:"100%",border:0},allowFullScreen:true})
           : (sr.thumbUrl
-            ? React.createElement("img",{src:sr.thumbUrl,alt:sr.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
+            ? React.createElement("img",{src:this.thumbSrc(sr),alt:sr.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
             : this.thumbEl(sr.thumb, p)),
         showLockOverlay: sr.sensitive && !sr.embedUrl,
         openUrl: sr.embedUrl || null,
