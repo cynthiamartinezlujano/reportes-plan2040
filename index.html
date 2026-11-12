@@ -87,7 +87,6 @@
         <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Buscar reportes, indicadores, diagnósticos…" style="width:100%;height:42px;border:1px solid var(--border-subtle);border-radius:999px;padding:0 16px 0 42px;font:400 14.5px var(--font-sans);background:var(--ink-50);outline:none;color:var(--text-body)" style-focus="{{ searchFocus }}">
       </div>
       <div style="flex:1"></div>
-      <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goHome }}" title="Cambiar mi rol" style="height:42px;border:1px solid var(--border-subtle);border-radius:999px;background:#fff;color:var(--text-body);cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:0 14px 0 10px;font:700 12.5px var(--font-sans)" style-hover="{{ iconBtnHover }}">{{ roleChipIcon }}<span>{{ roleChipLabel }}</span></button></sc-if>
       <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><button title="Notificaciones" style="width:42px;height:42px;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative" style-hover="{{ iconBtnHover }}">{{ bellIcon }}<span style="position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:var(--brand);border:2px solid #fff"></span></button></sc-if>
       <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" onClick="{{ goHelp }}" hint-size="150px,42px">+ Solicitar reporte</x-import>
     </header>
@@ -121,42 +120,7 @@
             <img src="assets/ilu/familia-abrazo.png" alt="" style="{{ heroIluStyle }}">
           </section>
 
-          <section style="background:#fff;border:1px solid var(--border-subtle);border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap">
-            <div style="min-width:0;flex:1 1 240px">
-              <div style="font:800 15px var(--font-sans);color:var(--text-strong)">{{ rolePrompt }}</div>
-              <div style="font:400 12.5px var(--font-sans);color:var(--text-muted);margin-top:2px">Ordenamos el inicio según lo que más usas. Puedes cambiarlo cuando quieras.</div>
-            </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <sc-for list="{{ roleChips }}" as="rc" hint-placeholder-count="4">
-                <button onClick="{{ rc.pick }}" style="{{ rc.style }}">{{ rc.iconEl }}{{ rc.label }}</button>
-              </sc-for>
-            </div>
-          </section>
-
           <section>
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;margin-bottom:16px">
-              <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">{{ featTitle }}</h2>
-              <sc-if value="{{ hasRole }}" hint-placeholder-val="{{ false }}"><a onClick="{{ heroCta }}" style="font:600 13px var(--font-sans);color:var(--brand-strong);cursor:pointer">Ver todos →</a></sc-if>
-            </div>
-            <div style="{{ gridStyle }}">
-              <sc-for list="{{ recientes }}" as="r" hint-placeholder-count="4">
-                <div onClick="{{ r.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
-                  <sc-if value="{{ showThumbs }}" hint-placeholder-val="{{ true }}">
-                    <div style="position:relative;height:128px;flex:none">{{ r.thumbEl }}
-                      <sc-if value="{{ r.sensitive }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:10px;right:10px;background:rgba(20,20,20,.62);color:#fff;border-radius:8px;padding:4px 8px;font:600 10.5px var(--font-sans);display:flex;align-items:center;gap:4px">{{ lockIconSm }} Privado</span></sc-if>
-                    </div>
-                  </sc-if>
-                  <div style="padding:14px 16px 15px;display:flex;flex-direction:column;gap:8px;flex:1">
-                    <span style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px var(--font-sans);color:{{ r.fg }};align-self:flex-start"><span style="width:9px;height:9px;border-radius:50%;background:{{ r.color }}"></span>{{ r.pillarLabel }}</span>
-                    <h3 style="font:700 15.5px/1.3 var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">{{ r.title }}</h3>
-                    <div style="margin-top:auto;display:flex;align-items:center;gap:8px;font:500 12px var(--font-sans);color:var(--text-muted)"><span>{{ r.owner }}</span><span style="opacity:.5">·</span><span>{{ r.updatedLabel }}</span></div>
-                  </div>
-                </div>
-              </sc-for>
-            </div>
-          </section>
-
-          <section style="border-top:1px solid var(--border-subtle);padding-top:28px">
             <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 4px">Apartados</h2>
             <p style="font:400 14px var(--font-sans);color:var(--text-muted);margin:0 0 18px">Explora los reportes organizados por su uso.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:18px">
@@ -863,7 +827,7 @@ class Component extends DCLogic {
     if(q){
       list = list.filter(r=> (r.title+" "+r.desc).toLowerCase().includes(q));
     } else if(this.state.roleList){
-      mode = "role"; if(this.state.rol) list = list.filter(r=> (r.roles||[]).indexOf(this.state.rol)>=0);
+      mode = "role"; // listado completo (el selector de rol se retiró mientras no haya usuarios identificados)
     } else if(this.state.pillar){
       mode = "pillar"; list = list.filter(r=> r.pillar===this.state.pillar);
     } else if(this.state.category){
@@ -986,7 +950,7 @@ class Component extends DCLogic {
       count:cnt, countLabel: cnt+" reportes", open: ()=> this.openPillar(p.key),
     };});
     // hero + rol
-    const rol = s.rol;
+    const rol = null; // selector de rol retirado: aún no hay usuarios identificados
     const rInfo = rol? this.roleInfo(rol) : null;
     const now = new Date();
     const dias=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
@@ -1195,7 +1159,7 @@ class Component extends DCLogic {
       heroIluStyle: mob? "display:none" : "width:150px;height:auto;object-fit:contain;position:relative",
       hoyL, saludo, fraseDia,
       heroCardTitle: rInfo? ("Reportes para ti · "+rInfo.label) : "Todo el Plan en un solo lugar",
-      heroCardSub: rInfo? rInfo.desc : "Elige tu rol aquí abajo y te mostramos primero lo tuyo.",
+      heroCardSub: rInfo? rInfo.desc : "Explora por apartado, por pilar o con el buscador.",
       heroCtaLabel: rInfo? "Ver mis reportes →" : "Ver todos los reportes →",
       heroCta: ()=>this.openRole(),
       heroCta2: ()=>this.openCategory("pilares"),
