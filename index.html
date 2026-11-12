@@ -637,9 +637,9 @@ class Component extends DCLogic {
     return [
       {id:"reuniones",   label:"Reuniones de seguimiento", desc:"Los reportes que se revisan en las reuniones: semanal y mensual.", icon:"spot:message", pillar:"juventud"},
       {id:"recurrentes", label:"Panorama del Plan", desc:"El pulso general del Plan: resumen ejecutivo, metas y padrón.", icon:"spot:stars", pillar:"educacion"},
-      {id:"operativos",  label:"Operación", desc:"Seguimiento de la operación del visiteo: desempeño de las guías por día y semana.", icon:"clock", pillar:"salud"},
-      {id:"planes",      label:"Plan de visitas por mes", desc:"El plan operativo de cada mes por guía: familias a visitar y pendientes.", icon:"calendar", pillar:"salud"},
-      {id:"herramientas", label:"Herramientas", desc:"Herramientas de apoyo para el visiteo, como los listados por guía.", icon:"settings", pillar:"salud"},
+      {id:"operativos",  label:"Operación", desc:"Seguimiento de la operación del visiteo: desempeño de las guías por día y semana.", icon:"spot:clock", pillar:"salud"},
+      {id:"planes",      label:"Plan de visitas por mes", desc:"El plan operativo de cada mes por guía: familias a visitar y pendientes.", icon:"spot:document", pillar:"salud"},
+      {id:"herramientas", label:"Herramientas", desc:"Herramientas de apoyo para el visiteo, como los listados por guía.", icon:"spot:stars", pillar:"salud"},
       {id:"acompanamiento", label:"Acompañamiento", desc:"Cercanía con las familias: embarazadas y formación en las visitas.", icon:"spot:family", pillar:"juventud"},
       {id:"guias",       label:"Para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"spot:book", pillar:"espiritu"},
       {id:"pilares",     label:"Reportes por pilar", desc:"Los reportes especializados de cada pilar; identifica huecos.", icon:"spot:rainbow", pillar:"economia"},
@@ -961,7 +961,7 @@ class Component extends DCLogic {
       if(s.query.trim()) return false;
       if(type==="home") return s.view==="home";
       if(type==="admin") return s.view==="admin";
-      if(type==="group") return s.view==="group" && s.group===id;
+      if(type==="group") return (s.view==="group" && s.group===id) || (s.view==="list" && !!s.category && this.childParent[s.category]===id);
       if(id==="pilares") return s.view==="pillars";
       return s.view==="list" && s.category===id;
     };
@@ -974,7 +974,7 @@ class Component extends DCLogic {
       showCount: n.type==="cat" || n.id==="pilares" || n.type==="group",
       count: n.type==="group"? (n.children||[]).reduce((t,cid)=> t+countFor(cid), 0) : ((n.type==="cat" || n.id==="pilares")? countFor(n.id) : ""),
       countStyle:"font:700 11px var(--font-sans);color:"+(active?"var(--brand-strong)":"var(--text-faint)")+";background:"+(active?"#fff":"var(--ink-100)")+";border-radius:7px;padding:2px 7px;min-width:22px;text-align:center",
-      isGroup: n.type==="group",
+      isGroup: false, // sin chevron: el grupo abre su página, no se expande
       chevronEl: n.type==="group"
         ? React.createElement("button",{
             onClick:(ev)=>{ ev.stopPropagation(); this.toggleGroup(n.id); },
@@ -993,16 +993,8 @@ class Component extends DCLogic {
         if(!kids.length) return;
         n = { ...n, children: kids };
       }
-      const open = n.type==="group" ? !!s.expanded[n.id] : false;
-      navItems.push(makeRow({ ...n, _open:open }, isActive(n.id,n.type), 0));
-      if(n.type==="group" && n.children && open){
-        n.children.forEach(cid=>{
-          const cdef = cid==="pilares"
-            ? {id:"pilares", type:"pillars", label:"Reportes por pilar", icon:"layers"}
-            : (()=>{ const c=this.catInfo(cid); return {id:cid, type:"cat", label:c.label, icon:c.icon}; })();
-          navItems.push(makeRow(cdef, isActive(cdef.id,cdef.type), 1));
-        });
-      }
+      // los grupos no se expanden en el menú: abren su página con los cuadrantes
+      navItems.push(makeRow(n, isActive(n.id,n.type), 0));
     });
     // Administración retirada del menú (era prototipo: usuarios y permisos de muestra);
     // la vista sigue en el código por si algún día se conecta a usuarios reales.
