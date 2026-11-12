@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía del Directorio de reportes · Plan 20·40</title>
+<link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.55}
+  .wrap{max-width:880px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:30px 30px 28px;margin-bottom:28px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);max-width:18ch}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.65);max-width:52ch}
+  .hero .cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--brand);color:#fff;font:800 14px var(--font-sans);padding:13px 22px;border-radius:999px;text-decoration:none}
+  .hero .cta:hover{background:var(--brand-ink)}
+  .hero img.ilu{position:absolute;right:26px;bottom:-6px;width:170px;height:auto;object-fit:contain}
+  .hero img.spark{position:absolute;top:16px;right:210px;width:26px;transform:rotate(-14deg)}
+  h2{font:800 20px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:38px 0 6px;display:flex;align-items:center;gap:10px}
+  h2 img{width:26px;height:26px;object-fit:contain}
+  .sub{font:400 14px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  ol.pasos{margin:0;padding:0;list-style:none;counter-reset:paso;display:flex;flex-direction:column;gap:12px}
+  ol.pasos li{counter-increment:paso;display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px 16px}
+  ol.pasos li::before{content:counter(paso);flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  ol.pasos b{color:var(--text-strong)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:14px}
+  .ap{background:#fff;border:1px solid var(--border-subtle);border-top:4px solid var(--ap-color,var(--brand));border-radius:14px;padding:16px}
+  .ap img{width:30px;height:30px;object-fit:contain;margin-bottom:8px}
+  .ap h3{margin:0 0 4px;font:800 15px var(--font-sans);color:var(--text-strong)}
+  .ap p{margin:0;font:400 12.5px/1.55 var(--font-sans);color:var(--text-muted)}
+  ul.datos{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  ul.datos li{display:flex;gap:9px;font:400 14px/1.55 var(--font-sans)}
+  ul.datos li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--brand);margin-top:7px}
+  ul.datos b{color:var(--text-strong)}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);color:var(--text-body);margin-top:14px}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  @media (max-width:640px){ .hero img.ilu,.hero img.spark{display:none} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} .wrap{padding-top:10px} h2{break-after:avoid} .ap,.card,ol.pasos li{break-inside:avoid} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Directorio de reportes · Guía de uso</span>
+  </header>
+
+  <section class="hero">
+    <img class="spark" src="assets/spot/stars.png" alt="">
+    <div class="mini">Todos nuestros datos, en un solo lugar</div>
+    <h1>Así se usa el Directorio de reportes</h1>
+    <p>El directorio reúne los reportes del Plan 20·40 —semanal, mensual, visitas, salud y más— en una sola página que funciona en computadora y celular, sin instalar nada.</p>
+    <a class="cta" href="https://cynthiamartinezlujano.github.io/reportes-plan2040/">Abrir el directorio →</a>
+    <img class="ilu" src="assets/ilu/familia-abrazo.png" alt="">
+  </section>
+
+  <h2><img src="assets/spot/paper-plane.png" alt="">Cómo abrir un reporte</h2>
+  <p class="sub">Tres pasos, la primera vez con tu sesión institucional.</p>
+  <ol class="pasos">
+    <li><div><b>Entra al directorio</b> con el botón de arriba (guárdalo en favoritos). Verás los apartados y el buscador.</div></li>
+    <li><div><b>Da clic en la tarjeta</b> del reporte que necesitas. Se abre un panel con su vista previa, su frecuencia y su fecha de actualización.</div></li>
+    <li><div><b>Elige "Ver en grande aquí" o "Abrir en SharePoint"</b>. La primera vez te pedirá iniciar sesión con tu correo institucional, y después recordará tu sesión.</div></li>
+  </ol>
+  <div class="nota"><b>En celular o Safari</b>, los reportes se abren en una pestaña propia (ahí la sesión funciona mejor). <b>"Privado"</b> significa que el reporte solo lo ve quien tiene acceso: si alguno te pide permiso, avísanos para compartírtelo.</div>
+
+  <h2><img src="assets/spot/rainbow.png" alt="">Qué hay en cada apartado</h2>
+  <p class="sub">El menú de la izquierda (o el botón ☰ en celular) organiza los reportes por su uso.</p>
+  <div class="grid">
+    <div class="ap" style="--ap-color:#FDB813"><img src="assets/spot/message.png" alt=""><h3>Reuniones de seguimiento</h3><p>Lo que se revisa en las juntas: el <b>Reporte Semanal</b> (avance de la semana) y el <b>Reporte Mensual</b> (panorama integral mes por mes).</p></div>
+    <div class="ap" style="--ap-color:#E81957"><img src="assets/spot/stars.png" alt=""><h3>Panorama del Plan</h3><p>El pulso general: One Page de indicadores por pilar, Tablero de metas, Altas y Bajas del padrón y Descargas de Maestros.</p></div>
+    <div class="ap" style="--ap-color:#F5823C"><img src="assets/spot/paper-plane.png" alt=""><h3>Visitas</h3><p>Todo el visiteo en tres bloques: <b>Operación</b> (desempeño de guías), <b>Plan de visitas por mes</b> y <b>Herramientas</b> (generador de listados).</p></div>
+    <div class="ap" style="--ap-color:#FDB813"><img src="assets/spot/family.png" alt=""><h3>Acompañamiento</h3><p>Cercanía con las familias: Acompañamiento a Embarazadas y el reporte mensual de Formación.</p></div>
+    <div class="ap" style="--ap-color:#7DBBEF"><img src="assets/spot/book.png" alt=""><h3>Para guías</h3><p>Datos de consulta para el día a día, como Pendientes por Niño.</p></div>
+    <div class="ap" style="--ap-color:#C592D4"><img src="assets/spot/rainbow.png" alt=""><h3>Reportes por pilar</h3><p>Los reportes especializados de cada pilar. Un pilar en cero señala un hueco por cubrir; hoy Salud concentra nutrición, cartillas y vacunas.</p></div>
+    <div class="ap" style="--ap-color:#141414"><img src="assets/spot/document.png" alt=""><h3>Análisis y diagnósticos</h3><p>Estudios a fondo, como el histórico de Situaciones Críticas (archivo cifrado: pide su contraseña al abrirlo).</p></div>
+  </div>
+
+  <h2><img src="assets/spot/clock.png" alt="">Lo que te dicen las tarjetas</h2>
+  <ul class="datos" style="margin-top:10px">
+    <li><div><b>"Actualizado hace 2 h / ayer / el 5 oct"</b> — la fecha real en que se generó ese reporte, no un estimado.</div></li>
+    <li><div><b>Semanal / Mensual / Permanente</b> — cada cuándo se actualiza.</div></li>
+    <li><div><b>Buscador</b> (arriba) — escribe cualquier palabra ("vacunas", "embarazadas") y filtra al instante.</div></li>
+    <li><div><b>Ordenar por</b> — más recientes, nombre o frecuencia, dentro de cada apartado.</div></li>
+    <li><div><b>Vista de tarjetas o de lista</b> — con los dos botones a la derecha de cada listado; tu elección se recuerda.</div></li>
+  </ul>
+
+  <h2><img src="assets/spot/megaphone.png" alt="">¿Falta un reporte o algo no abre?</h2>
+  <div class="card">
+    <p style="margin:0;font:400 14px/1.6 var(--font-sans)">Usa el botón <b>"+ Solicitar reporte"</b> (arriba a la derecha del directorio): abre un correo con tu solicitud lista para enviar. Y si un reporte te pide permiso de SharePoint, responde a este correo para compartírtelo.</p>
+  </div>
+
+  <footer>Plan 20·40 · Consejo para el Desarrollo Integral de Cuatrociénegas (CODICC) · Esta guía vive en el propio directorio: <span style="color:var(--text-muted)">cynthiamartinezlujano.github.io/reportes-plan2040/guia.html</span></footer>
+
+</div>
+</body>
+</html>
