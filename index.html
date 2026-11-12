@@ -217,9 +217,37 @@
             <sc-for list="{{ pillarFilters }}" as="pf" hint-placeholder-count="5">
               <button onClick="{{ pf.toggle }}" style="{{ pf.style }}"><span style="width:9px;height:9px;border-radius:50%;background:{{ pf.color }}"></span>{{ pf.label }}</button>
             </sc-for>
+            <span style="flex:1"></span>
+            <span style="display:inline-flex;gap:6px">
+              <button onClick="{{ setVistaTarjetas }}" title="Vista de tarjetas" style="{{ vtGridStyle }}">{{ gridIcon }}</button>
+              <button onClick="{{ setVistaLista }}" title="Vista de lista" style="{{ vtRowsStyle }}">{{ listRowsIcon }}</button>
+            </span>
           </div>
 
           <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+            <sc-if value="{{ listRows }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden">
+                <sc-for list="{{ filteredReports }}" as="r" hint-placeholder-count="6">
+                  <div onClick="{{ r.open }}" role="button" style="display:flex;align-items:center;gap:14px;padding:13px 18px;border-bottom:1px solid var(--border-subtle);cursor:pointer;transition:background .15s" style-hover="{{ rowHover }}">
+                    <span style="width:10px;height:10px;border-radius:50%;background:{{ r.color }};flex:none"></span>
+                    <div style="flex:1;min-width:0">
+                      <div style="display:flex;align-items:center;gap:8px;min-width:0">
+                        <h3 style="font:700 14.5px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.title }}</h3>
+                        <sc-if value="{{ r.sensitive }}" hint-placeholder-val="{{ false }}"><span style="flex:none;display:inline-flex;align-items:center;gap:4px;background:var(--ink-100);color:var(--text-muted);border-radius:6px;padding:2px 7px;font:700 10px var(--font-sans)">Privado</span></sc-if>
+                      </div>
+                      <div style="font:400 12.5px var(--font-sans);color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.desc }}</div>
+                    </div>
+                    <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}">
+                      <span style="flex:none;font:500 12px var(--font-sans);color:var(--text-muted);background:var(--ink-100);border-radius:7px;padding:3px 8px">{{ r.freqLabel }}</span>
+                      <span style="flex:none;font:500 12px var(--font-sans);color:var(--text-muted)">{{ r.updatedLabel }}</span>
+                      <span style="flex:none;font:500 12px var(--font-sans);color:var(--text-faint)">{{ r.owner }}</span>
+                    </sc-if>
+                    {{ rowChevron }}
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ listCards }}" hint-placeholder-val="{{ true }}">
             <div style="{{ gridStyle }}">
               <sc-for list="{{ filteredReports }}" as="r" hint-placeholder-count="6">
                 <div onClick="{{ r.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
@@ -241,6 +269,7 @@
                 </div>
               </sc-for>
             </div>
+            </sc-if>
           </sc-if>
           <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
             <div style="text-align:center;padding:70px 20px;color:var(--text-muted)">
@@ -511,6 +540,7 @@ class Component extends DCLogic {
       rol: rolGuardado,    // guia | coord | salud | direccion | null
       roleList: false,
       view: "home",        // home | pillars | list
+      vista: (function(){ try { return window.localStorage.getItem("p2040_dir_vista") || "tarjetas"; } catch(e){ return "tarjetas"; } })(),
       category: null,
       pillar: null,        // pillar view key
       pillarFilter: null,  // chip filter inside a list
@@ -604,14 +634,15 @@ class Component extends DCLogic {
   get CATS(){
     return [
       {id:"reuniones",   label:"Reuniones de seguimiento", desc:"Los reportes que se revisan en las reuniones: semanal y mensual.", icon:"calendar", pillar:"juventud"},
-      {id:"recurrentes", label:"Panorama del Plan", desc:"El pulso general del Plan: resumen ejecutivo, metas y padrón.", icon:"trend", pillar:"educacion"},
-      {id:"operativos",  label:"Visitas", desc:"La operación del visiteo: desempeño y listados por guía.", icon:"clipboard", pillar:"salud"},
-      {id:"planes",      label:"Plan de visitas por mes", desc:"El plan operativo de cada mes por guía: familias a visitar y pendientes.", icon:"list", pillar:"salud"},
-      {id:"acompanamiento", label:"Acompañamiento", desc:"Cercanía con las familias: embarazadas y formación en las visitas.", icon:"calendar", pillar:"juventud"},
-      {id:"guias",       label:"Para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"list", pillar:"espiritu"},
+      {id:"recurrentes", label:"Panorama del Plan", desc:"El pulso general del Plan: resumen ejecutivo, metas y padrón.", icon:"chart", pillar:"educacion"},
+      {id:"operativos",  label:"Operación", desc:"Seguimiento de la operación del visiteo: desempeño de las guías por día y semana.", icon:"clock", pillar:"salud"},
+      {id:"planes",      label:"Plan de visitas por mes", desc:"El plan operativo de cada mes por guía: familias a visitar y pendientes.", icon:"calendar", pillar:"salud"},
+      {id:"herramientas", label:"Herramientas", desc:"Herramientas de apoyo para el visiteo, como los listados por guía.", icon:"settings", pillar:"salud"},
+      {id:"acompanamiento", label:"Acompañamiento", desc:"Cercanía con las familias: embarazadas y formación en las visitas.", icon:"hands", pillar:"juventud"},
+      {id:"guias",       label:"Para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"users", pillar:"espiritu"},
       {id:"pilares",     label:"Reportes por pilar", desc:"Los reportes especializados de cada pilar; identifica huecos.", icon:"layers", pillar:"economia"},
-      {id:"anuales",     label:"Informes anuales", desc:"Resultados anuales e impacto del Plan.", icon:"trend", pillar:"educacion"},
-      {id:"analisis",    label:"Análisis y diagnósticos", desc:"Estudios a fondo de temas clave del Plan.", icon:"flask", pillar:"economia"},
+      {id:"anuales",     label:"Informes anuales", desc:"Resultados anuales e impacto del Plan.", icon:"chart", pillar:"educacion"},
+      {id:"analisis",    label:"Análisis y diagnósticos", desc:"Estudios a fondo de temas clave del Plan.", icon:"search", pillar:"economia"},
       {id:"formacion",   label:"Formación", desc:"Formación para padres, guías y jóvenes: participación y avance.", icon:"list", pillar:"educacion"},
       {id:"benchmark",   label:"Benchmark", desc:"Estadísticas comparativas entre comunidades.", icon:"bars", pillar:"economia"},
     ].map(c=> Object.assign({}, c, (this.state && this.state.catOv && this.state.catOv[c.id]) || {}));
@@ -622,19 +653,22 @@ class Component extends DCLogic {
     return [
       {id:"home", type:"home", label:"Inicio", icon:"home"},
       {id:"reuniones", type:"cat", label:"Reuniones de seguimiento", icon:"calendar"},
-      {id:"recurrentes", type:"cat", label:"Panorama del Plan", icon:"trend"},
-      {id:"operativos", type:"cat", label:"Visitas", icon:"clipboard"},
-      {id:"planes", type:"cat", label:"Plan de visitas por mes", icon:"list"},
-      {id:"acompanamiento", type:"cat", label:"Acompañamiento", icon:"calendar"},
-      {id:"guias", type:"cat", label:"Para guías", icon:"list"},
+      {id:"recurrentes", type:"cat", label:"Panorama del Plan", icon:"chart"},
+      {id:"visitas", type:"group", label:"Visitas", icon:"pin", children:["operativos","planes","herramientas"]},
+      {id:"acompanamiento", type:"cat", label:"Acompañamiento", icon:"hands"},
+      {id:"guias", type:"cat", label:"Para guías", icon:"users"},
       {id:"pilares", type:"cat", label:"Reportes por pilar", icon:"layers"},
       {id:"formacion", type:"cat", label:"Formación", icon:"list"},
-      {id:"analisis", type:"cat", label:"Análisis y diagnósticos", icon:"flask"},
-      {id:"anuales", type:"cat", label:"Informes anuales", icon:"trend"},
+      {id:"analisis", type:"cat", label:"Análisis y diagnósticos", icon:"search"},
+      {id:"anuales", type:"cat", label:"Informes anuales", icon:"chart"},
     ];
   }
-  get GROUPS(){ return {}; }
-  childParent = {};
+  get GROUPS(){
+    return {
+      visitas: {label:"Visitas", desc:"Todo el visiteo en un lugar: la operación, el plan de cada mes y las herramientas de apoyo.", icon:"pin", pillar:"salud", children:["operativos","planes","herramientas"]},
+    };
+  }
+  childParent = { operativos:"visitas", planes:"visitas", herramientas:"visitas" };
 
   get REPORTS(){ return (this.state && this.state.reports) || this.BASE_REPORTS; }
   get BASE_REPORTS(){
@@ -642,7 +676,7 @@ class Component extends DCLogic {
       {id:"r27", roles:["direccion"], title:"One Page · Indicadores por Pilar", desc:"Resumen ejecutivo de una página con los indicadores por pilar, siempre con el mes en curso al último corte. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"kpi", thumbUrl:"miniaturas/one-page-indicadores.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=eeb242b5-8cd7-475e-8991-1bf701400d27"},
       {id:"r28", roles:["coord","direccion"], title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=c25619fa-4ffd-4645-8ccb-8784db292ef4"},
       {id:"r29", roles:["direccion","coord"], title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=5b72e576-818f-4f4b-b74e-a9b76aea1197"},
-      {id:"r30", roles:["guia","coord"], title:"Generador de Listados por Guía", desc:"Genera las listas de consulta por guía para el acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/generador-listados.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d21622d1-b328-4b0d-943a-d7da92a57174"},
+      {id:"r30", roles:["guia","coord"], title:"Generador de Listados por Guía", desc:"Genera las listas de consulta por guía para el acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"herramientas", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/generador-listados.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d21622d1-b328-4b0d-943a-d7da92a57174"},
       {id:"r31", roles:["direccion","coord"], title:"Formación · Reporte mensual", desc:"Temas formativos registrados en las visitas: formación por familia, por edad, temas y pilares. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"acompanamiento", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"line", thumbUrl:"miniaturas/formacion-mensual.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=2ddb7946-42c2-459c-adb3-fccb030f09c2"},
       {id:"r33", roles:["coord","salud"], title:"Acompañamiento a Embarazadas", desc:"Seguimiento de mamás embarazadas y postparto: control prenatal, riesgo y familias P2040. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"acompanamiento", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/acompanamiento-embarazadas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=75c480d5-8652-4d06-affb-8493792b0084"},
       {id:"r35", roles:["direccion","coord"], title:"Altas y Bajas de niños P2040", desc:"Movimiento mensual del padrón: altas, bajas y activos al corte, comparado contra el cierre del mes anterior. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/altas-bajas.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d1fa85fa-1b61-43c4-a30d-151322d8ee45"},
@@ -663,6 +697,10 @@ class Component extends DCLogic {
   // ---- helpers ----
   icon(name, size, color){
     const e = React.createElement;
+    // Íconos oficiales del sistema de diseño (PIcons) cuando existen
+    const DSI = window.PIcons || {};
+    const dsName = ({home:"home", calendar:"calendar", chart:"chart", pin:"pin", users:"users", hands:"hands", heart:"heart", clock:"clock", settings:"settings", sparkle:"sparkle", search:"search", bell:"bell", logout:"logout"})[name];
+    if(dsName && DSI[dsName]) return e(DSI[dsName], {size:size||20, color:color||"currentColor"});
     const P = {
       home:["M3 10.7 12 3l9 7.7","M5 9.5V21h5v-6h4v6h5V9.5"],
       calendar:["M5 6a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1Z","M5 9.5h14","M9 3v4M15 3v4"],
@@ -685,6 +723,7 @@ class Component extends DCLogic {
       chevron:["M9 6l6 6-6 6"],
       shield:["M12 3l8 3v6c0 4.8-3.4 7.9-8 9-4.6-1.1-8-4.2-8-9V6l8-3Z","M9 12l2 2 4-4"],
       trash:["M4 7h16","M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2","M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13","M10 11v6M14 11v6"],
+      grid:["M4 4h7v7H4Z","M13 4h7v7h-7Z","M4 13h7v7H4Z","M13 13h7v7h-7Z"],
     };
     const ds = P[name] || P.home;
     return e("svg",{width:size||20,height:size||20,viewBox:"0 0 24 24",fill:"none",stroke:color||"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"},
@@ -803,6 +842,10 @@ class Component extends DCLogic {
   }
   closeMax(){ this.setState({maximizedId:null}); }
   onSearch(ev){ this.setState({query:ev.target.value}); }
+  setVista(v){ try{ window.localStorage.setItem("p2040_dir_vista", v); }catch(e){} this.setState({vista:v}); }
+  vtBtn(active){
+    return "width:34px;height:34px;border-radius:9px;border:1px solid "+(active?"var(--brand)":"var(--border-subtle)")+";background:"+(active?"var(--educacion-50)":"#fff")+";color:"+(active?"var(--brand-strong)":"var(--text-muted)")+";cursor:pointer;display:inline-flex;align-items:center;justify-content:center";
+  }
   setPillarFilter(k){ this.setState(s=>({pillarFilter: s.pillarFilter===k? null : k})); }
 
   // ---- admin ----
@@ -913,8 +956,8 @@ class Component extends DCLogic {
       iconWrap:"width:"+(depth?26:30)+"px;height:"+(depth?26:30)+"px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;background:"+(active?"var(--brand)":(depth?"var(--ink-100)":"transparent")),
       style:"display:flex;align-items:center;gap:10px;padding:8px 10px 8px "+(depth?"18px":"10px")+";border-radius:11px;cursor:pointer;text-decoration:none;color:"+(active?"var(--text-strong)":(depth?"var(--text-muted)":"var(--text-body)"))+";background:"+(active?"var(--educacion-50)":"transparent"),
       hoverStyle: active? {} : {background:"var(--ink-100)"},
-      showCount: n.type==="cat" || n.id==="pilares",
-      count: (n.type==="cat" || n.id==="pilares")? countFor(n.id) : "",
+      showCount: n.type==="cat" || n.id==="pilares" || n.type==="group",
+      count: n.type==="group"? (n.children||[]).reduce((t,cid)=> t+countFor(cid), 0) : ((n.type==="cat" || n.id==="pilares")? countFor(n.id) : ""),
       countStyle:"font:700 11px var(--font-sans);color:"+(active?"var(--brand-strong)":"var(--text-faint)")+";background:"+(active?"#fff":"var(--ink-100)")+";border-radius:7px;padding:2px 7px;min-width:22px;text-align:center",
       isGroup: n.type==="group",
       chevronEl: n.type==="group"
@@ -958,7 +1001,7 @@ class Component extends DCLogic {
         if(!kids.length) return;
         const p=this.pinfo(g.pillar);
         categories.push({ label:g.label, desc:g.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(g.icon,24,p.fg),
-          meta:(kids.length+" apartado"+(kids.length>1?"s":"")+" →"), open:()=>this.openGroup(n.id) });
+          meta:(kids.reduce((t,cid)=> t+countFor(cid), 0)+" reportes · "+kids.length+" apartado"+(kids.length>1?"s":"")+" →"), open:()=>this.openGroup(n.id) });
         return;
       }
       if(countFor(n.id)===0) return;
@@ -1198,6 +1241,14 @@ class Component extends DCLogic {
       filteredReports, listTitle, listDesc, listIconEl, listTint, listFg, listBack, listBackLabel,
       groupTitle, groupDesc, groupIconEl, groupTint, groupFg, groupChildren,
       pillarFilters, allFilterStyle, clearPillarFilter: ()=> this.setState({pillarFilter:null}),
+      listRows: s.vista==="lista", listCards: s.vista!=="lista",
+      setVistaTarjetas: ()=> this.setVista("tarjetas"),
+      setVistaLista: ()=> this.setVista("lista"),
+      vtGridStyle: this.vtBtn(s.vista!=="lista"), vtRowsStyle: this.vtBtn(s.vista==="lista"),
+      gridIcon: this.icon("grid",16,"currentColor"),
+      listRowsIcon: this.icon("list",16,"currentColor"),
+      rowHover: {background:"var(--ink-50)"},
+      rowChevron: this.icon("chevron",16,"var(--text-faint)"),
       selected: !!sel, sel,
       showMax: !!mx, mx,
       isAdmin: isAdminView,
