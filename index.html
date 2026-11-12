@@ -194,9 +194,9 @@
       <!-- SELECTOR DE PILARES -->
       <sc-if value="{{ isPillars }}" hint-placeholder-val="{{ false }}">
         <div style="max-width:1180px">
-          <a onClick="{{ goCoordinadores }}" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-sans);color:var(--text-muted);cursor:pointer;margin-bottom:14px">← Recursos para coordinaciones</a>
+          <a onClick="{{ goHome }}" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-sans);color:var(--text-muted);cursor:pointer;margin-bottom:14px">← Inicio</a>
           <h1 style="font:800 27px var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 6px">Reportes por pilar</h1>
-          <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0 0 26px;max-width:60ch">Cada pilar es un color del Plan. Entra a un pilar para ver sus reportes e identificar dónde hay que enfocar las estrategias.</p>
+          <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0 0 26px;max-width:60ch">Cada pilar es un color del Plan. Aquí solo se cuentan los reportes especializados de cada pilar: un pilar en cero es un hueco por atender.</p>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:18px">
             <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="5">
               <div onClick="{{ p.open }}" role="button" style="background:{{ p.tint }};border:1px solid {{ p.tintStrong }};border-radius:18px;padding:24px;cursor:pointer;display:flex;flex-direction:column;gap:16px;transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
@@ -642,15 +642,15 @@ class Component extends DCLogic {
 
   get CATS(){
     return [
-      {id:"recurrentes", label:"Reportes recurrentes", desc:"Seguimiento semanal y mensual de indicadores.", icon:"calendar", pillar:"juventud"},
+      {id:"recurrentes", label:"Panorama del Plan", desc:"El pulso general del Plan: avance mensual, semanal, metas y padrón.", icon:"trend", pillar:"educacion"},
+      {id:"operativos",  label:"Visitas", desc:"La operación del visiteo: desempeño, periodicidad y capacidad.", icon:"clipboard", pillar:"salud"},
+      {id:"acompanamiento", label:"Acompañamiento", desc:"Cercanía con las familias: embarazadas y formación en las visitas.", icon:"calendar", pillar:"juventud"},
+      {id:"guias",       label:"Para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"list", pillar:"espiritu"},
+      {id:"pilares",     label:"Reportes por pilar", desc:"Los reportes especializados de cada pilar; identifica huecos.", icon:"layers", pillar:"economia"},
       {id:"anuales",     label:"Informes anuales", desc:"Resultados anuales e impacto del Plan.", icon:"trend", pillar:"educacion"},
-      {id:"benchmark",   label:"Benchmark", desc:"Estadísticas comparativas y comparativas entre comunidades.", icon:"bars", pillar:"economia"},
-      {id:"guias",       label:"Recursos para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"list", pillar:"salud"},
-      {id:"pilares",     label:"Reportes por pilar", desc:"Identifica huecos y enfoca estrategias por pilar.", icon:"layers", pillar:"espiritu"},
       {id:"analisis",    label:"Análisis y diagnósticos", desc:"Estudios a fondo de temas clave del Plan.", icon:"flask", pillar:"economia"},
-      {id:"operativos",  label:"Operación", desc:"Seguimiento de la operación diaria para coordinación.", icon:"clipboard", pillar:"salud"},
-      {id:"acompanamiento", label:"Acompañamiento", desc:"Visitas, seguimiento y cercanía con las familias.", icon:"calendar", pillar:"juventud"},
       {id:"formacion",   label:"Formación", desc:"Formación para padres, guías y jóvenes: participación y avance.", icon:"list", pillar:"educacion"},
+      {id:"benchmark",   label:"Benchmark", desc:"Estadísticas comparativas entre comunidades.", icon:"bars", pillar:"economia"},
     ].map(c=> Object.assign({}, c, (this.state && this.state.catOv && this.state.catOv[c.id]) || {}));
   }
   catInfo(id){ return this.CATS.find(c=>c.id===id) || this.CATS[0]; }
@@ -658,19 +658,18 @@ class Component extends DCLogic {
   get NAV(){
     return [
       {id:"home", type:"home", label:"Inicio", icon:"home"},
-      {id:"recurrentes", type:"cat", label:"Reportes recurrentes", icon:"calendar"},
-      {id:"guias", type:"cat", label:"Recursos para guías", icon:"list"},
-      {id:"coordinadores", type:"group", label:"Recursos para coordinaciones", icon:"layers", children:["pilares","operativos","acompanamiento","formacion"]},
-      {id:"estrategia", type:"group", label:"Estrategia", icon:"trend", children:["anuales","benchmark","analisis"]},
+      {id:"recurrentes", type:"cat", label:"Panorama del Plan", icon:"trend"},
+      {id:"operativos", type:"cat", label:"Visitas", icon:"clipboard"},
+      {id:"acompanamiento", type:"cat", label:"Acompañamiento", icon:"calendar"},
+      {id:"guias", type:"cat", label:"Para guías", icon:"list"},
+      {id:"pilares", type:"cat", label:"Reportes por pilar", icon:"layers"},
+      {id:"formacion", type:"cat", label:"Formación", icon:"list"},
+      {id:"analisis", type:"cat", label:"Análisis y diagnósticos", icon:"flask"},
+      {id:"anuales", type:"cat", label:"Informes anuales", icon:"trend"},
     ];
   }
-  get GROUPS(){
-    return {
-      coordinadores: {label:"Recursos para coordinaciones", desc:"Herramientas y reportes por pilar para que cada coordinación identifique huecos y enfoque sus estrategias.", icon:"layers", pillar:"espiritu", children:["pilares","operativos","acompanamiento","formacion"]},
-      estrategia: {label:"Estrategia", desc:"Resultados anuales, estadísticas comparativas, benchmark y diagnósticos a fondo.", icon:"trend", pillar:"educacion", children:["anuales","benchmark","analisis"]},
-    };
-  }
-  childParent = { anuales:"estrategia", benchmark:"estrategia", analisis:"estrategia", pilares:"coordinadores", operativos:"coordinadores", acompanamiento:"coordinadores", formacion:"coordinadores" };
+  get GROUPS(){ return {}; }
+  childParent = {};
 
   get REPORTS(){ return (this.state && this.state.reports) || this.BASE_REPORTS; }
   get BASE_REPORTS(){
@@ -681,7 +680,7 @@ class Component extends DCLogic {
       {id:"r28", roles:["coord","direccion"], title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=c25619fa-4ffd-4645-8ccb-8784db292ef4"},
       {id:"r29", roles:["direccion","coord"], title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=5b72e576-818f-4f4b-b74e-a9b76aea1197"},
       {id:"r30", roles:["guia","coord"], title:"Generador de Listados por Guía", desc:"Genera las listas de consulta por guía para el acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"guias", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/generador-listados.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d21622d1-b328-4b0d-943a-d7da92a57174"},
-      {id:"r31", roles:["direccion","coord"], title:"Formación · Reporte mensual", desc:"Temas formativos registrados en las visitas: formación por familia, por edad, temas y pilares. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"formacion", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"line", thumbUrl:"miniaturas/formacion-mensual.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=2ddb7946-42c2-459c-adb3-fccb030f09c2"},
+      {id:"r31", roles:["direccion","coord"], title:"Formación · Reporte mensual", desc:"Temas formativos registrados en las visitas: formación por familia, por edad, temas y pilares. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"acompanamiento", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"line", thumbUrl:"miniaturas/formacion-mensual.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=2ddb7946-42c2-459c-adb3-fccb030f09c2"},
       {id:"r32", roles:["coord"], title:"Periodicidad de Visitas — Ejercicio de simulación", desc:"Simulación de la periodicidad de visitas por zona y grupo: cuántas visitas al mes según el esquema. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"bars", thumbUrl:"miniaturas/periodicidad-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=e84c687e-881a-46bd-96e0-a7fa540480de"},
       {id:"r33", roles:["coord","salud"], title:"Acompañamiento a Embarazadas", desc:"Seguimiento de mamás embarazadas y postparto: control prenatal, riesgo y familias P2040. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"acompanamiento", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/acompanamiento-embarazadas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=75c480d5-8652-4d06-affb-8493792b0084"},
       {id:"r34", roles:["salud","coord"], title:"Dashboard de Nutrición (prueba)", desc:"Estado nutricional de los niños: recuperados, casos críticos a canalizar y anemia, por comunidad. Se muestra desde SharePoint con tu sesión institucional.", pillar:"salud", cat:"pilar", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"donut", thumbUrl:"miniaturas/nutricion.png", owner:"Coordinación de salud", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=92ed6d59-035a-4e70-85b8-dfbd99bdf7b3"},
@@ -869,11 +868,11 @@ class Component extends DCLogic {
     } else if(this.state.roleList){
       mode = "role"; if(this.state.rol) list = list.filter(r=> (r.roles||[]).indexOf(this.state.rol)>=0);
     } else if(this.state.pillar){
-      mode = "pillar"; list = list.filter(r=> r.pillar===this.state.pillar || r.pillar==="todos");
+      mode = "pillar"; list = list.filter(r=> r.pillar===this.state.pillar);
     } else if(this.state.category){
       mode = "category"; list = list.filter(r=> r.cat===this.state.category);
     }
-    if(this.state.pillarFilter){ list = list.filter(r=> r.pillar===this.state.pillarFilter || r.pillar==="todos"); }
+    if(this.state.pillarFilter){ list = list.filter(r=> r.pillar===this.state.pillarFilter); }
     return {list, mode};
   }
 
@@ -913,7 +912,8 @@ class Component extends DCLogic {
     const iconBtnHover = {background:"var(--ink-100)",color:"var(--text-body)"};
 
     // nav (con grupos y sub-apartados)
-    const countFor = (id)=> id==="pilares"? this.REPORTS.length : this.REPORTS.filter(r=>r.cat===id).length;
+    const PIL_KEYS=["educacion","salud","juventud","espiritu","economia"];
+    const countFor = (id)=> id==="pilares"? this.REPORTS.filter(r=>PIL_KEYS.indexOf(r.pillar)>=0).length : this.REPORTS.filter(r=>r.cat===id).length;
     const isActive = (id,type)=>{
       if(s.query.trim()) return false;
       if(type==="home") return s.view==="home";
@@ -984,7 +984,7 @@ class Component extends DCLogic {
       categories.push({ label:c.label, desc:c.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(c.icon,24,p.fg),
         meta:(countFor(n.id)+" reportes →"), open:()=>this.openCategory(n.id) });
     });
-    const pillars = this.PILLARS.map(p=>{ const cnt=this.REPORTS.filter(r=>r.pillar===p.key||r.pillar==="todos").length; return {
+    const pillars = this.PILLARS.map(p=>{ const cnt=this.REPORTS.filter(r=>r.pillar===p.key).length; return {
       key:p.key, label:p.label, desc:p.desc, color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg,
       count:cnt, countLabel: cnt+" reportes", open: ()=> this.openPillar(p.key),
     };});
@@ -1153,7 +1153,7 @@ class Component extends DCLogic {
       guia:this.permFor(r,"guia"), coord:this.permFor(r,"coord"), dir:this.permFor(r,"dir"),
       tGuia:()=>this.togglePerm(r,"guia"), tCoord:()=>this.togglePerm(r,"coord"), tDir:()=>this.togglePerm(r,"dir"),
     }));
-    const adminCatRows = this.CATS.map(c=>{ const p=this.pinfo(c.pillar); const cnt = c.id==="pilares"? this.REPORTS.length : this.REPORTS.filter(r=>r.cat===c.id).length; return {
+    const adminCatRows = this.CATS.map(c=>{ const p=this.pinfo(c.pillar); const cnt = countFor(c.id); return {
       label:c.label, desc:c.desc, tint:p.tint, fg:p.fg, iconEl:this.icon(c.icon,22,p.fg), count:cnt+" reporte"+(cnt===1?"":"s"),
       setLabel:this.setCat(c.id,"label"), setDesc:this.setCat(c.id,"desc"),
     };});
@@ -1215,7 +1215,6 @@ class Component extends DCLogic {
       navItems, categories, pillars, recientes,
       filteredReports, listTitle, listDesc, listIconEl, listTint, listFg, listBack, listBackLabel,
       groupTitle, groupDesc, groupIconEl, groupTint, groupFg, groupChildren,
-      goCoordinadores: ()=>this.openGroup("coordinadores"),
       pillarFilters, allFilterStyle, clearPillarFilter: ()=> this.setState({pillarFilter:null}),
       selected: !!sel, sel,
       showMax: !!mx, mx,
