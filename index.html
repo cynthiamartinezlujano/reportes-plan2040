@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reportes Plan 20·40</title>
+<title>Portal de Reportes · Plan 20·40</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="assets/app/icon-180.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/app/icon-512.png">
@@ -83,7 +83,7 @@
     <div style="margin-top:12px;border-top:1px solid var(--border-subtle);padding:14px 8px 0">
       <div style="font:700 13.5px var(--font-sans);color:var(--text-strong)">Plan 20·40</div>
       <div style="font:400 12px var(--font-sans);color:var(--text-muted)">Cuatro Ciénegas</div>
-      <a href="guia.html" style="display:inline-block;margin-top:8px;font:600 12px var(--font-sans);color:var(--brand-strong);text-decoration:none">¿Cómo se usa el directorio? →</a>
+      <a href="guia.html" style="display:inline-block;margin-top:8px;font:600 12px var(--font-sans);color:var(--brand-strong);text-decoration:none">¿Cómo se usa el portal? →</a>
     </div>
   </aside>
 
@@ -295,7 +295,7 @@
             <span style="width:54px;height:54px;border-radius:15px;background:var(--educacion-50);color:var(--brand-strong);display:flex;align-items:center;justify-content:center;flex:none">{{ shieldIconLg }}</span>
             <div style="flex:1">
               <h1 style="font:800 27px var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 4px">Administración</h1>
-              <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0">Gestiona los reportes, usuarios, permisos y apartados del directorio.</p>
+              <p style="font:400 15px var(--font-sans);color:var(--text-muted);margin:0">Gestiona los reportes, usuarios, permisos y apartados del portal.</p>
             </div>
             <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" onClick="{{ newReport }}" hint-size="150px,42px">+ Nuevo reporte</x-import>
           </div>
@@ -506,7 +506,7 @@
     <div onClick="{{ closeRequest }}" style="position:fixed;inset:0;background:rgba(20,20,20,.45);animation:scrimIn .2s ease;z-index:55"></div>
     <div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(480px,94vw);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.25);z-index:56;animation:popIn .22s ease;padding:26px 26px 22px">
       <h2 style="font:800 20px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 6px">Solicitar un reporte</h2>
-      <p style="font:400 13.5px/1.5 var(--font-sans);color:var(--text-muted);margin:0 0 18px">Cuéntanos qué necesitas. Al enviar se abre tu correo con la solicitud lista para mandarla a la administración del directorio.</p>
+      <p style="font:400 13.5px/1.5 var(--font-sans);color:var(--text-muted);margin:0 0 18px">Cuéntanos qué necesitas. Al enviar se abre tu correo con la solicitud lista para mandarla a la administración del portal.</p>
       <label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">Tu nombre</label>
       <input value="{{ reqName }}" onInput="{{ setReqName }}" placeholder="Nombre y apellido" style="width:100%;height:44px;border:1px solid var(--border-default);border-radius:11px;padding:0 14px;font:400 14px var(--font-sans);color:var(--text-body);background:#fff;outline:none;margin-bottom:14px" style-focus="{{ searchFocus }}">
       <label style="display:block;font:600 12.5px var(--font-sans);color:var(--text-body);margin:0 0 6px">¿Qué reporte necesitas?</label>
@@ -893,7 +893,7 @@ class Component extends DCLogic {
   sendRequest(){
     const s=this.state; if(!(s.reqText||"").trim()) return;
     const nl="%0D%0A";
-    const body = encodeURIComponent("Solicitud desde el Directorio de reportes Plan 20·40")+nl+nl
+    const body = encodeURIComponent("Solicitud desde el Portal de Reportes Plan 20·40")+nl+nl
       +encodeURIComponent("Nombre: "+(s.reqName.trim()||"(sin nombre)"))+nl
       +encodeURIComponent("Reporte solicitado: "+s.reqText.trim())+nl
       +(s.reqWhy.trim()? encodeURIComponent("Para qué: "+s.reqWhy.trim())+nl : "");
@@ -1057,7 +1057,7 @@ class Component extends DCLogic {
       listIconEl=this.icon("search",26,"var(--brand-strong)");
     } else if(mode==="role"){
       listTitle = rInfo? ("Para ti · "+rInfo.label) : "Todos los reportes";
-      listDesc = rInfo? rInfo.desc : "Todos los reportes del directorio, en un solo listado.";
+      listDesc = rInfo? rInfo.desc : "Todos los reportes del portal, en un solo listado.";
       listIconEl=this.icon("list",26,"var(--brand-strong)");
     } else if(mode==="pillar"){
       const p=this.pinfo(s.pillar); listTitle=p.label; listDesc="Reportes del pilar · "+p.desc;
@@ -1136,9 +1136,9 @@ class Component extends DCLogic {
         accessHelp: isExt
           ? "Este reporte vive en SharePoint. Al abrirlo, SharePoint pide iniciar sesión con el correo institucional y solo lo ve quien tiene el archivo compartido."
           : isHtml
-          ? "Es una página interactiva incrustada en el directorio; sus datos están integrados en el archivo, así que cuando se actualice la base hay que volver a generar y reemplazar el HTML."
+          ? "Es una página interactiva incrustada en el portal; sus datos están integrados en el archivo, así que cuando se actualice la base hay que volver a generar y reemplazar el HTML."
           : (isEmbed
-          ? "Este reporte se muestra dentro del directorio mediante inserción segura; Power BI o SharePoint valida tu sesión y permisos antes de mostrarlo."
+          ? "Este reporte se muestra dentro del portal mediante inserción segura; Power BI o SharePoint valida tu sesión y permisos antes de mostrarlo."
           : "Este reporte se abre en Power BI. Necesitas iniciar sesión con tu cuenta institucional para verlo."),
       };
     }
