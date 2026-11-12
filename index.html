@@ -635,16 +635,16 @@ class Component extends DCLogic {
 
   get CATS(){
     return [
-      {id:"reuniones",   label:"Reuniones de seguimiento", desc:"Los reportes que se revisan en las reuniones: semanal y mensual.", icon:"calendar", pillar:"juventud"},
-      {id:"recurrentes", label:"Panorama del Plan", desc:"El pulso general del Plan: resumen ejecutivo, metas y padrón.", icon:"chart", pillar:"educacion"},
+      {id:"reuniones",   label:"Reuniones de seguimiento", desc:"Los reportes que se revisan en las reuniones: semanal y mensual.", icon:"spot:message", pillar:"juventud"},
+      {id:"recurrentes", label:"Panorama del Plan", desc:"El pulso general del Plan: resumen ejecutivo, metas y padrón.", icon:"spot:stars", pillar:"educacion"},
       {id:"operativos",  label:"Operación", desc:"Seguimiento de la operación del visiteo: desempeño de las guías por día y semana.", icon:"clock", pillar:"salud"},
       {id:"planes",      label:"Plan de visitas por mes", desc:"El plan operativo de cada mes por guía: familias a visitar y pendientes.", icon:"calendar", pillar:"salud"},
       {id:"herramientas", label:"Herramientas", desc:"Herramientas de apoyo para el visiteo, como los listados por guía.", icon:"settings", pillar:"salud"},
-      {id:"acompanamiento", label:"Acompañamiento", desc:"Cercanía con las familias: embarazadas y formación en las visitas.", icon:"hands", pillar:"juventud"},
-      {id:"guias",       label:"Para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"users", pillar:"espiritu"},
-      {id:"pilares",     label:"Reportes por pilar", desc:"Los reportes especializados de cada pilar; identifica huecos.", icon:"layers", pillar:"economia"},
-      {id:"anuales",     label:"Informes anuales", desc:"Resultados anuales e impacto del Plan.", icon:"chart", pillar:"educacion"},
-      {id:"analisis",    label:"Análisis y diagnósticos", desc:"Estudios a fondo de temas clave del Plan.", icon:"search", pillar:"economia"},
+      {id:"acompanamiento", label:"Acompañamiento", desc:"Cercanía con las familias: embarazadas y formación en las visitas.", icon:"spot:family", pillar:"juventud"},
+      {id:"guias",       label:"Para guías", desc:"Listas y datos de consulta para el acompañamiento.", icon:"spot:book", pillar:"espiritu"},
+      {id:"pilares",     label:"Reportes por pilar", desc:"Los reportes especializados de cada pilar; identifica huecos.", icon:"spot:rainbow", pillar:"economia"},
+      {id:"anuales",     label:"Informes anuales", desc:"Resultados anuales e impacto del Plan.", icon:"spot:graduation-cap", pillar:"educacion"},
+      {id:"analisis",    label:"Análisis y diagnósticos", desc:"Estudios a fondo de temas clave del Plan.", icon:"spot:document", pillar:"economia"},
       {id:"formacion",   label:"Formación", desc:"Formación para padres, guías y jóvenes: participación y avance.", icon:"list", pillar:"educacion"},
       {id:"benchmark",   label:"Benchmark", desc:"Estadísticas comparativas entre comunidades.", icon:"bars", pillar:"economia"},
     ].map(c=> Object.assign({}, c, (this.state && this.state.catOv && this.state.catOv[c.id]) || {}));
@@ -653,21 +653,21 @@ class Component extends DCLogic {
 
   get NAV(){
     return [
-      {id:"home", type:"home", label:"Inicio", icon:"home"},
-      {id:"reuniones", type:"cat", label:"Reuniones de seguimiento", icon:"calendar"},
-      {id:"recurrentes", type:"cat", label:"Panorama del Plan", icon:"chart"},
-      {id:"visitas", type:"group", label:"Visitas", icon:"pin", children:["operativos","planes","herramientas"]},
-      {id:"acompanamiento", type:"cat", label:"Acompañamiento", icon:"hands"},
-      {id:"guias", type:"cat", label:"Para guías", icon:"users"},
-      {id:"pilares", type:"cat", label:"Reportes por pilar", icon:"layers"},
+      {id:"home", type:"home", label:"Inicio", icon:"spot:house"},
+      {id:"reuniones", type:"cat", label:"Reuniones de seguimiento", icon:"spot:message"},
+      {id:"recurrentes", type:"cat", label:"Panorama del Plan", icon:"spot:stars"},
+      {id:"visitas", type:"group", label:"Visitas", icon:"spot:paper-plane", children:["operativos","planes","herramientas"]},
+      {id:"acompanamiento", type:"cat", label:"Acompañamiento", icon:"spot:family"},
+      {id:"guias", type:"cat", label:"Para guías", icon:"spot:book"},
+      {id:"pilares", type:"cat", label:"Reportes por pilar", icon:"spot:rainbow"},
       {id:"formacion", type:"cat", label:"Formación", icon:"list"},
-      {id:"analisis", type:"cat", label:"Análisis y diagnósticos", icon:"search"},
-      {id:"anuales", type:"cat", label:"Informes anuales", icon:"chart"},
+      {id:"analisis", type:"cat", label:"Análisis y diagnósticos", icon:"spot:document"},
+      {id:"anuales", type:"cat", label:"Informes anuales", icon:"spot:graduation-cap"},
     ];
   }
   get GROUPS(){
     return {
-      visitas: {label:"Visitas", desc:"Todo el visiteo en un lugar: la operación, el plan de cada mes y las herramientas de apoyo.", icon:"pin", pillar:"salud", children:["operativos","planes","herramientas"]},
+      visitas: {label:"Visitas", desc:"Todo el visiteo en un lugar: la operación, el plan de cada mes y las herramientas de apoyo.", icon:"spot:paper-plane", pillar:"salud", children:["operativos","planes","herramientas"]},
     };
   }
   childParent = { operativos:"visitas", planes:"visitas", herramientas:"visitas" };
@@ -699,6 +699,11 @@ class Component extends DCLogic {
   // ---- helpers ----
   icon(name, size, color){
     const e = React.createElement;
+    // Spot icons ilustrados del Plan ("spot:<nombre>" → assets/spot/<nombre>.png)
+    if(name && name.indexOf("spot:")===0){
+      const px = Math.round((size||20)*1.2);
+      return e("img",{src:"assets/spot/"+name.slice(5)+".png",alt:"",style:{width:px,height:px,objectFit:"contain",display:"block"}});
+    }
     // Íconos oficiales del sistema de diseño (PIcons) cuando existen
     const DSI = window.PIcons || {};
     const dsName = ({home:"home", calendar:"calendar", chart:"chart", pin:"pin", users:"users", hands:"hands", heart:"heart", clock:"clock", settings:"settings", sparkle:"sparkle", search:"search", bell:"bell", logout:"logout"})[name];
@@ -963,7 +968,7 @@ class Component extends DCLogic {
     const makeRow = (n, active, depth)=> ({
       label:n.label,
       iconEl:this.icon(n.icon, depth?16:18, active? "#fff":"var(--text-muted)"),
-      iconWrap:"width:"+(depth?26:30)+"px;height:"+(depth?26:30)+"px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;background:"+(active?"var(--brand)":(depth?"var(--ink-100)":"transparent")),
+      iconWrap:"width:"+(depth?26:30)+"px;height:"+(depth?26:30)+"px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;background:"+(((n.icon||"").indexOf("spot:")===0)? (active?"#fff":"transparent") : (active?"var(--brand)":(depth?"var(--ink-100)":"transparent"))),
       style:"display:flex;align-items:center;gap:10px;padding:8px 10px 8px "+(depth?"18px":"10px")+";border-radius:11px;cursor:pointer;text-decoration:none;color:"+(active?"var(--text-strong)":(depth?"var(--text-muted)":"var(--text-body)"))+";background:"+(active?"var(--educacion-50)":"transparent"),
       hoverStyle: active? {} : {background:"var(--ink-100)"},
       showCount: n.type==="cat" || n.id==="pilares" || n.type==="group",
