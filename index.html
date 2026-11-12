@@ -87,6 +87,7 @@
         <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Buscar reportes, indicadores, diagnósticos…" style="width:100%;height:42px;border:1px solid var(--border-subtle);border-radius:999px;padding:0 16px 0 42px;font:400 14.5px var(--font-sans);background:var(--ink-50);outline:none;color:var(--text-body)" style-focus="{{ searchFocus }}">
       </div>
       <div style="flex:1"></div>
+      <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goHome }}" title="Cambiar mi rol" style="height:42px;border:1px solid var(--border-subtle);border-radius:999px;background:#fff;color:var(--text-body);cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:0 14px 0 10px;font:700 12.5px var(--font-sans)" style-hover="{{ iconBtnHover }}">{{ roleChipIcon }}<span>{{ roleChipLabel }}</span></button></sc-if>
       <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><button title="Notificaciones" style="width:42px;height:42px;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative" style-hover="{{ iconBtnHover }}">{{ bellIcon }}<span style="position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:var(--brand);border:2px solid #fff"></span></button></sc-if>
       <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" onClick="{{ goHelp }}" hint-size="150px,42px">+ Solicitar reporte</x-import>
     </header>
@@ -97,23 +98,66 @@
       <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:32px;max-width:1180px">
           <section style="{{ heroStyle }}">
-            <div style="position:absolute;right:-60px;bottom:-90px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)"></div>
-            <div style="{{ heroTextStyle }}">
-              <div style="font:700 12px var(--font-sans);letter-spacing:.15em;text-transform:uppercase;opacity:.82;margin-bottom:12px">Plan 20·40 · Centro de reportes</div>
-              <h1 style="{{ heroTitleStyle }}">Hola 👋 esto es lo que sigue</h1>
-              <p style="font:400 16px/1.55 var(--font-sans);opacity:.92;margin:0">Encuentra y abre cualquier reporte del Plan en segundos. Filtra por pilar para detectar huecos y enfocar estrategias.</p>
+            <img src="assets/spot/stars.png" alt="" style="position:absolute;top:14px;right:150px;width:28px;height:28px;object-fit:contain;transform:rotate(-14deg);pointer-events:none">
+            <div style="min-width:0;position:relative">
+              <div style="font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:4px">{{ hoyL }}</div>
+              <h1 style="{{ heroTitleStyle }}">{{ saludo }}</h1>
+              <div style="font:400 13.5px/1.5 var(--font-sans);color:rgba(20,20,20,.6);margin-top:4px">Encuentra y abre cualquier reporte del Plan en segundos.</div>
+              <div style="font:700 14.5px/1.4 var(--font-sans);font-style:italic;color:#A87400;margin-top:10px;text-wrap:pretty">«{{ fraseDia }}»</div>
             </div>
-            <div style="{{ statsRowStyle }}">
-              <div><div style="font:800 30px/1 var(--font-sans);letter-spacing:-0.02em">{{ totalReports }}</div><div style="font:400 13px var(--font-sans);opacity:.85;margin-top:4px">reportes disponibles</div></div>
-              <div style="width:1px;background:rgba(255,255,255,.25)"></div>
-              <div><div style="font:800 30px/1 var(--font-sans);letter-spacing:-0.02em">5</div><div style="font:400 13px var(--font-sans);opacity:.85;margin-top:4px">pilares de trabajo</div></div>
-              <div style="width:1px;background:rgba(255,255,255,.25)"></div>
-              <div><div style="font:800 30px/1 var(--font-sans);letter-spacing:-0.02em">2</div><div style="font:400 13px var(--font-sans);opacity:.85;margin-top:4px">comunidades</div></div>
+            <div style="background:#fff;border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:9px;box-shadow:0 1px 3px rgba(20,20,20,.05);min-width:0;position:relative">
+              <div style="font:800 14.5px/1.25 var(--font-sans);color:var(--text-strong);text-wrap:pretty">{{ heroCardTitle }}</div>
+              <div style="font:400 12.5px/1.5 var(--font-sans);color:rgba(20,20,20,.6)">{{ heroCardSub }}</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <span style="background:#FFF6DE;color:#A87400;font:800 10.5px var(--font-sans);padding:3px 9px;border-radius:999px">{{ totalReports }} reportes</span>
+                <span style="background:#FFF6DE;color:#A87400;font:800 10.5px var(--font-sans);padding:3px 9px;border-radius:999px">5 pilares</span>
+                <span style="background:#FFF6DE;color:#A87400;font:800 10.5px var(--font-sans);padding:3px 9px;border-radius:999px">2 comunidades</span>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:2px">
+                <button onClick="{{ heroCta }}" style="border:none;cursor:pointer;background:var(--brand);color:#fff;font:800 12px var(--font-sans);padding:9px 16px;border-radius:999px;font-family:inherit" style-hover="{{ loginHover }}">{{ heroCtaLabel }}</button>
+                <button onClick="{{ heroCta2 }}" style="border:1.5px solid rgba(20,20,20,.14);cursor:pointer;background:#fff;color:#141414;font:700 11.5px var(--font-sans);padding:8px 14px;border-radius:999px;font-family:inherit">Ver por pilar</button>
+              </div>
+            </div>
+            <img src="assets/ilu/familia-abrazo.png" alt="" style="{{ heroIluStyle }}">
+          </section>
+
+          <section style="background:#fff;border:1px solid var(--border-subtle);border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap">
+            <div style="min-width:0;flex:1 1 240px">
+              <div style="font:800 15px var(--font-sans);color:var(--text-strong)">{{ rolePrompt }}</div>
+              <div style="font:400 12.5px var(--font-sans);color:var(--text-muted);margin-top:2px">Ordenamos el inicio según lo que más usas. Puedes cambiarlo cuando quieras.</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-for list="{{ roleChips }}" as="rc" hint-placeholder-count="4">
+                <button onClick="{{ rc.pick }}" style="{{ rc.style }}">{{ rc.iconEl }}{{ rc.label }}</button>
+              </sc-for>
             </div>
           </section>
 
           <section>
-            <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 4px">Categorías</h2>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;margin-bottom:16px">
+              <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">{{ featTitle }}</h2>
+              <sc-if value="{{ hasRole }}" hint-placeholder-val="{{ false }}"><a onClick="{{ heroCta }}" style="font:600 13px var(--font-sans);color:var(--brand-strong);cursor:pointer">Ver todos →</a></sc-if>
+            </div>
+            <div style="{{ gridStyle }}">
+              <sc-for list="{{ recientes }}" as="r" hint-placeholder-count="4">
+                <div onClick="{{ r.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
+                  <sc-if value="{{ showThumbs }}" hint-placeholder-val="{{ true }}">
+                    <div style="position:relative;height:128px;flex:none">{{ r.thumbEl }}
+                      <sc-if value="{{ r.sensitive }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:10px;right:10px;background:rgba(20,20,20,.62);color:#fff;border-radius:8px;padding:4px 8px;font:600 10.5px var(--font-sans);display:flex;align-items:center;gap:4px">{{ lockIconSm }} Privado</span></sc-if>
+                    </div>
+                  </sc-if>
+                  <div style="padding:14px 16px 15px;display:flex;flex-direction:column;gap:8px;flex:1">
+                    <span style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px var(--font-sans);color:{{ r.fg }};align-self:flex-start"><span style="width:9px;height:9px;border-radius:50%;background:{{ r.color }}"></span>{{ r.pillarLabel }}</span>
+                    <h3 style="font:700 15.5px/1.3 var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">{{ r.title }}</h3>
+                    <div style="margin-top:auto;display:flex;align-items:center;gap:8px;font:500 12px var(--font-sans);color:var(--text-muted)"><span>{{ r.owner }}</span><span style="opacity:.5">·</span><span>{{ r.updatedLabel }}</span></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <section style="border-top:1px solid var(--border-subtle);padding-top:28px">
+            <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 4px">Apartados</h2>
             <p style="font:400 14px var(--font-sans);color:var(--text-muted);margin:0 0 18px">Explora los reportes organizados por su uso.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:18px">
               <sc-for list="{{ categories }}" as="c" hint-placeholder-count="5">
@@ -144,25 +188,6 @@
             </div>
           </section>
 
-          <section style="border-top:1px solid var(--border-subtle);padding-top:28px">
-            <h2 style="font:800 19px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0 0 16px">Actualizados recientemente</h2>
-            <div style="{{ gridStyle }}">
-              <sc-for list="{{ recientes }}" as="r" hint-placeholder-count="4">
-                <div onClick="{{ r.open }}" role="button" style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s,box-shadow .18s" style-hover="{{ cardHover }}">
-                  <sc-if value="{{ showThumbs }}" hint-placeholder-val="{{ true }}">
-                    <div style="position:relative;height:128px;flex:none">{{ r.thumbEl }}
-                      <sc-if value="{{ r.sensitive }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:10px;right:10px;background:rgba(20,20,20,.62);color:#fff;border-radius:8px;padding:4px 8px;font:600 10.5px var(--font-sans);display:flex;align-items:center;gap:4px">{{ lockIconSm }} Privado</span></sc-if>
-                    </div>
-                  </sc-if>
-                  <div style="padding:14px 16px 15px;display:flex;flex-direction:column;gap:8px;flex:1">
-                    <span style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px var(--font-sans);color:{{ r.fg }};align-self:flex-start"><span style="width:9px;height:9px;border-radius:50%;background:{{ r.color }}"></span>{{ r.pillarLabel }}</span>
-                    <h3 style="font:700 15.5px/1.3 var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:0">{{ r.title }}</h3>
-                    <div style="margin-top:auto;display:flex;align-items:center;gap:8px;font:500 12px var(--font-sans);color:var(--text-muted)"><span>{{ r.freqLabel }}</span><span style="opacity:.5">·</span><span>{{ r.updatedLabel }}</span></div>
-                  </div>
-                </div>
-              </sc-for>
-            </div>
-          </section>
         </div>
       </sc-if>
 
@@ -249,7 +274,7 @@
                     <div style="margin-top:auto;padding-top:8px;display:flex;align-items:center;gap:8px;font:500 12px var(--font-sans);color:var(--text-muted);flex-wrap:wrap">
                       <span style="display:inline-flex;align-items:center;gap:5px;background:var(--ink-100);border-radius:7px;padding:3px 8px">{{ r.freqLabel }}</span>
                       <span style="display:inline-flex;align-items:center;gap:5px;color:{{ r.accessColor }}">{{ r.accessIconEl }}{{ r.accessLabel }}</span>
-                      <span style="margin-left:auto;color:var(--text-faint)">{{ r.updatedLabel }}</span>
+                      <span style="margin-left:auto;color:var(--text-faint)">{{ r.owner }}</span>
                     </div>
                   </div>
                 </div>
@@ -424,7 +449,7 @@
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px">
           <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Frecuencia</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.freqLabel }}</div></div>
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Actualizado</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.updatedLabel }}</div></div>
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Actualización</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.updatedLabel }}</div></div>
           <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Responsable</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.owner }}</div></div>
           <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Acceso</div><div style="font:700 14px var(--font-sans);color:{{ sel.accessColor }};display:flex;align-items:center;gap:6px">{{ sel.accessIconEl }}{{ sel.accessLabel }}</div></div>
         </div>
@@ -514,12 +539,16 @@
 </div>
 </sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:840},&quot;requireLogin&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Acceso&quot;},&quot;showThumbnails&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Vista&quot;},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;comfortable&quot;,&quot;compact&quot;],&quot;default&quot;:&quot;comfortable&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vista&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:840},&quot;requireLogin&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Acceso&quot;},&quot;showThumbnails&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Vista&quot;},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;comfortable&quot;,&quot;compact&quot;],&quot;default&quot;:&quot;comfortable&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vista&quot;}}">
 class Component extends DCLogic {
   constructor(props){
     super(props);
+    let rolGuardado = null;
+    try { rolGuardado = window.localStorage.getItem("p2040_dir_rol") || null; } catch(e){}
     this.state = {
       loggedIn: !(props && props.requireLogin),
+      rol: rolGuardado,    // guia | coord | salud | direccion | null
+      roleList: false,
       view: "home",        // home | pillars | list
       category: null,
       pillar: null,        // pillar view key
@@ -561,6 +590,25 @@ class Component extends DCLogic {
   }
 
   // ---- static data ----
+  get ROLES_DIR(){
+    return [
+      {id:"guia",      label:"Soy guía",               spot:"assets/spot/house.png",          desc:"Listas, plan de visitas y pendientes para el acompañamiento."},
+      {id:"coord",     label:"Coordinación de campo",  spot:"assets/spot/megaphone.png",      desc:"Operación de visitas, periodicidad y acompañamiento."},
+      {id:"salud",     label:"Salud y nutrición",      spot:"assets/spot/heart-pulse.png",    desc:"Nutrición, cartillas y vacunación."},
+      {id:"direccion", label:"Dirección y estrategia", spot:"assets/spot/graduation-cap.png", desc:"Panorama integral, metas y resultados del Plan."},
+    ];
+  }
+  get FRASES(){
+    return [
+      "Hoy también soñamos en grande.",
+      "Cada dato cuenta una historia de una familia.",
+      "Lo que se mide con cariño, mejora.",
+      "Paso a paso, hogar por hogar.",
+      "La información clara acerca a las personas.",
+      "Mirar los datos es otra forma de acompañar.",
+      "Juntos construimos el 20·40.",
+    ];
+  }
   get PILLARS(){
     const P = (window.Plan2040DesignSystem_08da0c||{}).PILLARS || {};
     const desc = {
@@ -627,19 +675,25 @@ class Component extends DCLogic {
   get REPORTS(){ return (this.state && this.state.reports) || this.BASE_REPORTS; }
   get BASE_REPORTS(){
     return [
-      {id:"r21", title:"Estatus de Indicadores de los niños acompañados", desc:"Tablero con el estatus de indicadores de los niños acompañados y las listas del mes para consulta de las guías.", pillar:"ninguno", cat:"guias", freq:"semanal", access:"embed", sensitive:false, days:1, thumb:"kpi", owner:"Coordinación de campo", pageName:"fdbf95ac33fbf3f2471b", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=46568245-e6be-4f60-9f44-eb56fc660ecd&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
-      {id:"r22", title:"Reporte Mensual", desc:"Construcción general de reportes del mes con el panorama integral del Plan.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", sensitive:false, days:3, thumb:"line", owner:"Dirección", pageName:"15dc1893abd8d9477a0a", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=494b1e2f-6d3e-4859-b841-604465575075&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
-      {id:"r27", title:"One Page · Indicadores por Pilar", desc:"Resumen ejecutivo de una página con los indicadores por pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"kpi", thumbUrl:"miniaturas/one-page-indicadores.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=30708db3-3c64-4776-aa84-ecc87195bfa3"},
-      {id:"r28", title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=c25619fa-4ffd-4645-8ccb-8784db292ef4"},
-      {id:"r29", title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=5b72e576-818f-4f4b-b74e-a9b76aea1197"},
-      {id:"r30", title:"Generador de Listados por Guía", desc:"Genera las listas de consulta por guía para el acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"guias", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/generador-listados.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d21622d1-b328-4b0d-943a-d7da92a57174"},
-      {id:"r31", title:"Formación · Reporte mensual", desc:"Temas formativos registrados en las visitas: formación por familia, por edad, temas y pilares. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"formacion", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"line", thumbUrl:"miniaturas/formacion-mensual.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=2ddb7946-42c2-459c-adb3-fccb030f09c2"},
-      {id:"r32", title:"Periodicidad de Visitas — Ejercicio de simulación", desc:"Simulación de la periodicidad de visitas por zona y grupo: cuántas visitas al mes según el esquema. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"bars", thumbUrl:"miniaturas/periodicidad-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=e84c687e-881a-46bd-96e0-a7fa540480de"},
-      {id:"r33", title:"Acompañamiento a Embarazadas", desc:"Seguimiento de mamás embarazadas y postparto: control prenatal, riesgo y familias P2040. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"acompanamiento", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/acompanamiento-embarazadas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=75c480d5-8652-4d06-affb-8493792b0084"},
-      {id:"r34", title:"Dashboard de Nutrición (prueba)", desc:"Estado nutricional de los niños: recuperados, casos críticos a canalizar y anemia, por comunidad. Se muestra desde SharePoint con tu sesión institucional.", pillar:"salud", cat:"pilar", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"donut", thumbUrl:"miniaturas/nutricion.png", owner:"Coordinación de salud", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=92ed6d59-035a-4e70-85b8-dfbd99bdf7b3"},
-      {id:"r35", title:"Altas y Bajas de niños P2040", desc:"Movimiento mensual del padrón: altas, bajas y activos al corte, comparado contra el cierre del mes anterior. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/altas-bajas.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d1fa85fa-1b61-43c4-a30d-151322d8ee45"},
-      {id:"r36", title:"Cartillas de Vacunación · Independencia", desc:"Cartillas subidas por mes: pendientes de carga, por actualizar y correcciones de captura. Se muestra desde SharePoint con tu sesión institucional.", pillar:"salud", cat:"pilar", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/cartillas-vacunacion.png", owner:"Coordinación de salud", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=808b4aa7-897a-47d4-b964-5c86db0d12a0"},
-      {id:"r37", title:"Plan de Visitas del Mes", desc:"Plan operativo mensual por guía: familias a visitar, convocatorias grupales y pendientes del mes. Se actualiza el día 1. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"guias", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/plan-del-mes.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=1098130a-8d7c-4a6b-8840-f20a7b81e0d4"},
+      {id:"r21", roles:["guia","coord","direccion"], title:"Estatus de Indicadores de los niños acompañados", desc:"Tablero con el estatus de indicadores de los niños acompañados y las listas del mes para consulta de las guías.", pillar:"ninguno", cat:"guias", freq:"semanal", access:"embed", sensitive:false, days:1, thumb:"kpi", owner:"Coordinación de campo", pageName:"fdbf95ac33fbf3f2471b", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=46568245-e6be-4f60-9f44-eb56fc660ecd&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
+      {id:"r22", roles:["direccion","coord"], title:"Reporte Mensual", desc:"Construcción general de reportes del mes con el panorama integral del Plan.", pillar:"todos", cat:"recurrentes", freq:"mensual", access:"embed", sensitive:false, days:3, thumb:"line", owner:"Dirección", pageName:"15dc1893abd8d9477a0a", embedUrl:"https://app.powerbi.com/reportEmbed?reportId=494b1e2f-6d3e-4859-b841-604465575075&autoAuth=true&ctid=5e3f0773-dc5d-4e40-83d6-f2e42e50db50"},
+      {id:"r27", roles:["direccion"], title:"One Page · Indicadores por Pilar", desc:"Resumen ejecutivo de una página con los indicadores por pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"kpi", thumbUrl:"miniaturas/one-page-indicadores.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=30708db3-3c64-4776-aa84-ecc87195bfa3"},
+      {id:"r28", roles:["coord","direccion"], title:"Desempeño de Visitas", desc:"Comportamiento de las guías: visitas por día, semana y comparativa entre comunidades. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/desempeno-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=c25619fa-4ffd-4645-8ccb-8784db292ef4"},
+      {id:"r29", roles:["direccion","coord"], title:"Tablero de metas alcanzadas", desc:"Porcentaje de niños que cumplen cada meta, por comunidad y pilar. Se abre desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:2, thumb:"bars", thumbUrl:"miniaturas/tablero-estatus.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=5b72e576-818f-4f4b-b74e-a9b76aea1197"},
+      {id:"r30", roles:["guia","coord"], title:"Generador de Listados por Guía", desc:"Genera las listas de consulta por guía para el acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"guias", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/generador-listados.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d21622d1-b328-4b0d-943a-d7da92a57174"},
+      {id:"r31", roles:["direccion","coord"], title:"Formación · Reporte mensual", desc:"Temas formativos registrados en las visitas: formación por familia, por edad, temas y pilares. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"formacion", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"line", thumbUrl:"miniaturas/formacion-mensual.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=2ddb7946-42c2-459c-adb3-fccb030f09c2"},
+      {id:"r32", roles:["coord"], title:"Periodicidad de Visitas — Ejercicio de simulación", desc:"Simulación de la periodicidad de visitas por zona y grupo: cuántas visitas al mes según el esquema. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"bars", thumbUrl:"miniaturas/periodicidad-visitas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=e84c687e-881a-46bd-96e0-a7fa540480de"},
+      {id:"r33", roles:["coord","salud"], title:"Acompañamiento a Embarazadas", desc:"Seguimiento de mamás embarazadas y postparto: control prenatal, riesgo y familias P2040. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"acompanamiento", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/acompanamiento-embarazadas.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=75c480d5-8652-4d06-affb-8493792b0084"},
+      {id:"r34", roles:["salud","coord"], title:"Dashboard de Nutrición (prueba)", desc:"Estado nutricional de los niños: recuperados, casos críticos a canalizar y anemia, por comunidad. Se muestra desde SharePoint con tu sesión institucional.", pillar:"salud", cat:"pilar", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"donut", thumbUrl:"miniaturas/nutricion.png", owner:"Coordinación de salud", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=92ed6d59-035a-4e70-85b8-dfbd99bdf7b3"},
+      {id:"r35", roles:["direccion","coord"], title:"Altas y Bajas de niños P2040", desc:"Movimiento mensual del padrón: altas, bajas y activos al corte, comparado contra el cierre del mes anterior. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"recurrentes", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/altas-bajas.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=d1fa85fa-1b61-43c4-a30d-151322d8ee45"},
+      {id:"r36", roles:["salud"], title:"Cartillas de Vacunación · Independencia", desc:"Cartillas subidas por mes: pendientes de carga, por actualizar y correcciones de captura. Se muestra desde SharePoint con tu sesión institucional.", pillar:"salud", cat:"pilar", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/cartillas-vacunacion.png", owner:"Coordinación de salud", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=808b4aa7-897a-47d4-b964-5c86db0d12a0"},
+      {id:"r37", roles:["guia","coord"], title:"Plan de Visitas del Mes", desc:"Plan operativo mensual por guía: familias a visitar, convocatorias grupales y pendientes del mes. Se actualiza el día 1. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"guias", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/plan-del-mes.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=1098130a-8d7c-4a6b-8840-f20a7b81e0d4"},
+      {id:"r38", roles:["direccion","coord"], title:"Reporte Semanal", desc:"Avance semana a semana del mes en curso comparado contra el cierre del mes anterior. Se muestra desde SharePoint con tu sesión institucional.", pillar:"todos", cat:"recurrentes", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"line", thumbUrl:"miniaturas/reporte-semanal.png", owner:"Dirección", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=5c79e164-e0f0-4f83-b36e-9ce08f3798ef"},
+      {id:"r39", roles:["coord","direccion"], title:"Capacidad de Visiteo", desc:"Proyección de la capacidad de visitas por guía y comunidad: cuántos hogares alcanza el equipo con el ritmo actual. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"bars", thumbUrl:"miniaturas/capacidad-visiteo.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=da6fb88e-0bde-478b-a752-0583140aa4bb"},
+      {id:"r40", roles:["salud","coord"], title:"Seguimiento Nutricional · Independencia", desc:"Seguimiento nutricional de la comunidad Independencia: medición completa vs MUAC por niño. Se muestra desde SharePoint con tu sesión institucional.", pillar:"salud", cat:"pilar", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"donut", thumbUrl:"miniaturas/seguimiento-nutricional.png", owner:"Coordinación de salud", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=81989a59-dc3e-4174-badf-b728201a4a0d"},
+      {id:"r41", roles:["salud"], title:"Vacunas vs Lineamientos 2026", desc:"Comparativo del esquema de vacunación contra los lineamientos 2026 (preliminar). Se muestra desde SharePoint con tu sesión institucional.", pillar:"salud", cat:"pilar", freq:"mensual", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"kpi", thumbUrl:"miniaturas/vacunas-lineamientos.png", owner:"Coordinación de salud", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=127b5865-0e55-48bb-abb9-3a944b890739"},
+      {id:"r42", roles:["guia","coord"], title:"Pendientes por Niño", desc:"Archivos e indicadores pendientes por niño, para cerrar capturas del acompañamiento. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"guias", freq:"continuo", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/pendientes-nino.png", owner:"Coordinación de campo", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=65eb5216-4bd5-4c9b-98e1-e5e0991fcde7"},
+      {id:"r43", roles:["coord","direccion"], title:"Descargas de Maestros", desc:"Portal de descarga de los maestros de datos del Plan: personas, visitas e indicadores. Se muestra desde SharePoint con tu sesión institucional.", pillar:"ninguno", cat:"operativos", freq:"semanal", access:"embed", source:"sharepoint", sensitive:true, days:0, thumb:"list", thumbUrl:"miniaturas/descargas-maestros.png", owner:"Análisis", embedUrl:"https://qualfon-my.sharepoint.com/personal/cynthia_martinez_qualfon_com/_layouts/15/embed.aspx?UniqueId=acd4299e-cf71-47a6-8e0e-792412ae68ad"},
     ];
   }
 
@@ -729,8 +783,16 @@ class Component extends DCLogic {
   // ---- actions ----
   doLogin(){ this.setState({loggedIn:true}); }
   doLogout(){ this.setState({loggedIn:false, selectedId:null}); }
-  goHome(){ this.setState({view:"home",category:null,pillar:null,pillarFilter:null,query:"",selectedId:null,group:null,expanded:{}}); }
-  openGroup(id){ this.setState({view:"group",group:id,category:null,pillar:null,pillarFilter:null,query:"",expanded:{[id]:true}}); }
+  goHome(){ this.setState({view:"home",category:null,pillar:null,pillarFilter:null,query:"",selectedId:null,group:null,expanded:{},roleList:false}); }
+  openGroup(id){ this.setState({view:"group",group:id,category:null,pillar:null,pillarFilter:null,query:"",expanded:{[id]:true},roleList:false}); }
+  pickRole(id){
+    const v = this.state.rol===id? null : id;
+    try{ if(v) window.localStorage.setItem("p2040_dir_rol",v); else window.localStorage.removeItem("p2040_dir_rol"); }catch(e){}
+    this.setState({rol:v});
+  }
+  roleInfo(id){ return this.ROLES_DIR.find(r=>r.id===id)||null; }
+  openRole(){ this.setState({view:"list",roleList:true,category:null,pillar:null,pillarFilter:null,query:"",group:null,expanded:{}}); }
+  schedLabel(f){ return ({semanal:"Se actualiza cada semana",mensual:"Se actualiza cada mes",anual:"Se actualiza cada año",continuo:"Siempre al día"})[f]||""; }
   toggleGroup(id){
     this.setState(s=>({ expanded: { ...s.expanded, [id]: !s.expanded[id] } }));
   }
@@ -739,11 +801,11 @@ class Component extends DCLogic {
     this.setState({
       view: id==="pilares"? "pillars":"list",
       category: id==="pilares"? null : id,
-      pillar:null, pillarFilter:null, query:"",
+      pillar:null, pillarFilter:null, query:"", roleList:false,
       expanded: gp? {[gp]:true} : {},
     });
   }
-  openPillar(k){ this.setState({view:"list",pillar:k,category:null,pillarFilter:null,query:"",expanded:{coordinadores:true}}); }
+  openPillar(k){ this.setState({view:"list",pillar:k,category:null,pillarFilter:null,query:"",expanded:{coordinadores:true},roleList:false}); }
   openReport(id){ this.setState({selectedId:id}); }
   closeReport(){ this.setState({selectedId:null}); }
   esMovil(){ return window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window; }
@@ -758,7 +820,7 @@ class Component extends DCLogic {
   setPillarFilter(k){ this.setState(s=>({pillarFilter: s.pillarFilter===k? null : k})); }
 
   // ---- admin ----
-  openAdmin(){ this.setState({view:"admin",category:null,pillar:null,pillarFilter:null,query:"",group:null,expanded:{},selectedId:null}); }
+  openAdmin(){ this.setState({view:"admin",category:null,pillar:null,pillarFilter:null,query:"",group:null,expanded:{},selectedId:null,roleList:false}); }
   startNew(){ this.setState({adminTab:"reportes",editing:"new",draft:{title:"",desc:"",embedUrl:"",source:"powerbi",cat:"recurrentes",pillar:"todos",freq:"mensual",owner:"",sensitive:false}}); }
   startEdit(id){
     const r=this.REPORTS.find(x=>x.id===id); if(!r) return;
@@ -802,6 +864,8 @@ class Component extends DCLogic {
     let mode = "search";
     if(q){
       list = list.filter(r=> (r.title+" "+r.desc).toLowerCase().includes(q));
+    } else if(this.state.roleList){
+      mode = "role"; if(this.state.rol) list = list.filter(r=> (r.roles||[]).indexOf(this.state.rol)>=0);
     } else if(this.state.pillar){
       mode = "pillar"; list = list.filter(r=> r.pillar===this.state.pillar || r.pillar==="todos");
     } else if(this.state.category){
@@ -819,7 +883,7 @@ class Component extends DCLogic {
     return {
       id:r.id, title:r.title, desc:r.desc, sensitive:r.sensitive,
       color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg, pillarLabel:p.label,
-      freqLabel:this.freqLabel(r.freq), updatedLabel:this.updatedLabel(r.days),
+      freqLabel:this.freqLabel(r.freq), updatedLabel:this.schedLabel(r.freq), owner:r.owner||"",
       accessLabel: isExt? "SharePoint" : (isHtml? "Interactivo" : (isEmbed? "Incrustado" : "Power BI")),
       accessColor: isEmbed? p.fg : "var(--text-muted)",
       accessIconEl: this.icon((isEmbed&&!isExt)?"embed":"external",14, isEmbed?p.color:"var(--text-muted)"),
@@ -876,7 +940,14 @@ class Component extends DCLogic {
       go: ()=>{ this.setState({menuOpen:false}); if(n.type==="home") this.goHome(); else if(n.type==="group") this.openGroup(n.id); else this.openCategory(n.id); },
     });
     const navItems = [];
-    this.NAV.forEach(n=>{
+    this.NAV.forEach(n0=>{
+      let n = n0;
+      if(n.type==="cat" && countFor(n.id)===0) return;
+      if(n.type==="group"){
+        const kids = (n.children||[]).filter(cid=> cid==="pilares"? this.REPORTS.length>0 : countFor(cid)>0);
+        if(!kids.length) return;
+        n = { ...n, children: kids };
+      }
       const open = n.type==="group" ? !!s.expanded[n.id] : false;
       navItems.push(makeRow({ ...n, _open:open }, isActive(n.id,n.type), 0));
       if(n.type==="group" && n.children && open){
@@ -894,22 +965,48 @@ class Component extends DCLogic {
     adminRow.style += ";margin-top:10px";
     navItems.push(adminRow);
 
-    // home data — tarjetas de nivel superior
-    const categories = this.NAV.filter(n=>n.type!=="home").map(n=>{
+    // home data — tarjetas de nivel superior (solo apartados con contenido)
+    const categories = [];
+    this.NAV.filter(n=>n.type!=="home").forEach(n=>{
       if(n.type==="group"){
-        const g=this.GROUPS[n.id]; const p=this.pinfo(g.pillar); const nch=g.children.length;
-        return { label:g.label, desc:g.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(g.icon,24,p.fg),
-          meta:(nch+" apartado"+(nch>1?"s":"")+" →"), open:()=>this.openGroup(n.id) };
+        const g=this.GROUPS[n.id];
+        const kids=g.children.filter(cid=> cid==="pilares"? this.REPORTS.length>0 : countFor(cid)>0);
+        if(!kids.length) return;
+        const p=this.pinfo(g.pillar);
+        categories.push({ label:g.label, desc:g.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(g.icon,24,p.fg),
+          meta:(kids.length+" apartado"+(kids.length>1?"s":"")+" →"), open:()=>this.openGroup(n.id) });
+        return;
       }
+      if(countFor(n.id)===0) return;
       const c=this.catInfo(n.id); const p=this.pinfo(c.pillar);
-      return { label:c.label, desc:c.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(c.icon,24,p.fg),
-        meta:(countFor(n.id)+" reportes →"), open:()=>this.openCategory(n.id) };
+      categories.push({ label:c.label, desc:c.desc, color:p.color, tint:p.tint, fg:p.fg, iconEl:this.icon(c.icon,24,p.fg),
+        meta:(countFor(n.id)+" reportes →"), open:()=>this.openCategory(n.id) });
     });
     const pillars = this.PILLARS.map(p=>{ const cnt=this.REPORTS.filter(r=>r.pillar===p.key||r.pillar==="todos").length; return {
       key:p.key, label:p.label, desc:p.desc, color:p.color, tint:p.tint, tintStrong:p.tintStrong, fg:p.fg,
       count:cnt, countLabel: cnt+" reportes", open: ()=> this.openPillar(p.key),
     };});
-    const recientes = this.REPORTS.slice().sort((a,b)=>a.days-b.days).slice(0,4).map(r=>this.decorate(r));
+    // hero + rol
+    const rol = s.rol;
+    const rInfo = rol? this.roleInfo(rol) : null;
+    const now = new Date();
+    const dias=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+    const meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+    const hoyL = dias[now.getDay()]+" "+now.getDate()+" de "+meses[now.getMonth()];
+    const hora = now.getHours();
+    const saludo = (hora<12? "Buenos días" : (hora<19? "Buenas tardes" : "Buenas noches"))+" 👋";
+    const fraseDia = this.FRASES[(now.getDate()+now.getMonth())%this.FRASES.length];
+    const roleChips = this.ROLES_DIR.map(rd=>{
+      const act = rol===rd.id;
+      return {
+        label: rd.label,
+        iconEl: React.createElement("img",{src:rd.spot,alt:"",style:{width:20,height:20,objectFit:"contain",flex:"none"}}),
+        style: "display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 14px;font:700 12.5px var(--font-sans);font-family:inherit;cursor:pointer;border:1.5px solid "+(act?"var(--brand)":"rgba(20,20,20,.12)")+";background:"+(act?"var(--educacion-50)":"#fff")+";color:"+(act?"var(--brand-strong)":"var(--text-body)"),
+        pick: ()=>this.pickRole(rd.id),
+      };
+    });
+    const roleMatches = rol? this.REPORTS.filter(r=>(r.roles||[]).indexOf(rol)>=0) : [];
+    const recientes = (rol? roleMatches.slice(0,8) : this.REPORTS.slice().sort((a,b)=>a.days-b.days).slice(0,4)).map(r=>this.decorate(r));
 
     // list
     const {list, mode} = this.computeList();
@@ -917,6 +1014,10 @@ class Component extends DCLogic {
     if(s.query && s.query.trim()){
       listTitle="Resultados de búsqueda"; listDesc='Para "'+s.query.trim()+'" · '+list.length+" reporte(s)";
       listIconEl=this.icon("search",26,"var(--brand-strong)");
+    } else if(mode==="role"){
+      listTitle = rInfo? ("Para ti · "+rInfo.label) : "Todos los reportes";
+      listDesc = rInfo? rInfo.desc : "Todos los reportes del directorio, en un solo listado.";
+      listIconEl=this.icon("list",26,"var(--brand-strong)");
     } else if(mode==="pillar"){
       const p=this.pinfo(s.pillar); listTitle=p.label; listDesc="Reportes del pilar · "+p.desc;
       listTint=p.tint; listFg=p.fg; listIconEl=this.icon("layers",26,p.fg);
@@ -943,7 +1044,7 @@ class Component extends DCLogic {
       if(g){
         const gp=this.pinfo(g.pillar);
         groupTitle=g.label; groupDesc=g.desc; groupTint=gp.tint; groupFg=gp.fg; groupIconEl=this.icon(g.icon,26,gp.fg);
-        groupChildren = g.children.map(cid=>{
+        groupChildren = g.children.filter(cid=> cid==="pilares"? this.REPORTS.length>0 : countFor(cid)>0).map(cid=>{
           if(cid==="pilares"){ const p=this.pinfo("espiritu");
             return {label:"Reportes por pilar", desc:"Identifica huecos y enfoca estrategias por pilar.", color:p.color,tint:p.tint,fg:p.fg, iconEl:this.icon("layers",24,p.fg), meta:countFor("pilares")+" reportes →", open:()=>this.openCategory("pilares")}; }
           const c=this.catInfo(cid); const p=this.pinfo(c.pillar);
@@ -974,7 +1075,7 @@ class Component extends DCLogic {
         srcBadge: sr.source==="sharepoint"? "S" : (isHtml? "H" : "P"),
         srcLine: (sr.source==="sharepoint"? "SharePoint" : (isHtml? "Página HTML" : "Power BI"))+" · Plan 20·40",
         color:p.color, fg:p.fg, pillarLabel:p.label,
-        freqLabel:this.freqLabel(sr.freq), updatedLabel:this.updatedLabel(sr.days), owner:sr.owner,
+        freqLabel:this.freqLabel(sr.freq), updatedLabel:this.schedLabel(sr.freq), owner:sr.owner,
         accessLabel: isExt? "SharePoint (sesión institucional)" : (isHtml? "Página interactiva (HTML)" : (isEmbed? "Incrustado (embed seguro)" : "Enlace a Power BI")),
         accessColor: isEmbed? p.fg : "var(--text-body)",
         accessIconEl: this.icon(isEmbed?"embed":"external",15, isEmbed?p.color:"var(--text-body)"),
@@ -1090,10 +1191,21 @@ class Component extends DCLogic {
       menuIcon: this.icon("menu",20),
       headerStyle: "height:"+(mob?"58px":"66px")+";flex:none;border-bottom:1px solid var(--border-subtle);background:#fff;display:flex;align-items:center;gap:"+(mob?"10px":"16px")+";padding:0 "+(mob?"12px":"28px"),
       contentStyle: "flex:1;overflow:auto;padding:"+(mob?"18px 14px 50px":"30px 32px 60px"),
-      heroStyle: "background:var(--brand);border-radius:"+(mob?"18px":"22px")+";padding:"+(mob?"24px 20px 26px":"34px 38px")+";color:#fff;position:relative;overflow:hidden",
-      heroTextStyle: "position:relative;max-width:"+(mob?"100%":"62%"),
-      heroTitleStyle: "font:800 "+(mob?"25px":"32px")+"/1.15 var(--font-sans);letter-spacing:-0.02em;margin:0 0 12px",
-      statsRowStyle: "position:relative;display:flex;flex-wrap:wrap;gap:"+(mob?"14px 18px":"30px")+";margin-top:"+(mob?"20px":"24px"),
+      heroStyle: "position:relative;overflow:hidden;background:#FFF6DE;border-radius:"+(mob?"18px":"22px")+";padding:"+(mob?"20px 18px":"22px 26px")+";display:grid;grid-template-columns:"+(mob?"1fr":"minmax(0,1.1fr) minmax(280px,1fr) auto")+";gap:"+(mob?"16px":"22px")+";align-items:center",
+      heroTitleStyle: "margin:0;font:800 "+(mob?"24px":"28px")+"/1.15 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)",
+      heroIluStyle: mob? "display:none" : "width:150px;height:auto;object-fit:contain;position:relative",
+      hoyL, saludo, fraseDia,
+      heroCardTitle: rInfo? ("Reportes para ti · "+rInfo.label) : "Todo el Plan en un solo lugar",
+      heroCardSub: rInfo? rInfo.desc : "Elige tu rol aquí abajo y te mostramos primero lo tuyo.",
+      heroCtaLabel: rInfo? "Ver mis reportes →" : "Ver todos los reportes →",
+      heroCta: ()=>this.openRole(),
+      heroCta2: ()=>this.openCategory("pilares"),
+      roleChips,
+      rolePrompt: rInfo? ("Estás viendo el inicio como: "+rInfo.label) : "¿Cómo usas el Plan?",
+      featTitle: rInfo? "Para ti" : "Destacados",
+      hasRole: !!rInfo,
+      roleChipIcon: React.createElement("img",{src:(rInfo? rInfo.spot : "assets/spot/stars.png"),alt:"",style:{width:22,height:22,objectFit:"contain",flex:"none"}}),
+      roleChipLabel: rInfo? rInfo.label : "Elegir mi rol",
       drawerStyle: "position:fixed;top:0;right:0;height:100vh;width:"+(mob?"100vw":"min(560px,92vw)")+";background:var(--bg-app);box-shadow:-12px 0 40px rgba(0,0,0,.18);z-index:41;display:flex;flex-direction:column;animation:drwIn .26s cubic-bezier(.2,.8,.2,1)",
       maxWrapStyle: "position:fixed;inset:0;background:rgba(20,20,20,.78);z-index:60;display:flex;flex-direction:column;animation:scrimIn .2s ease;padding:"+(mob?"0":"28px"),
       maxHeadStyle: "display:flex;align-items:center;flex-wrap:wrap;gap:"+(mob?"8px 10px":"12px")+";margin-bottom:"+(mob?"0":"16px")+";color:#fff;padding:"+(mob?"10px 12px":"0"),
