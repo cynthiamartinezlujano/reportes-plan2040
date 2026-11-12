@@ -212,11 +212,12 @@
           </div>
 
           <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:22px">
-            <span style="font:600 12px var(--font-sans);color:var(--text-faint);margin-right:2px">Pilar:</span>
-            <button onClick="{{ clearPillarFilter }}" style="{{ allFilterStyle }}">Todos</button>
-            <sc-for list="{{ pillarFilters }}" as="pf" hint-placeholder-count="5">
-              <button onClick="{{ pf.toggle }}" style="{{ pf.style }}"><span style="width:9px;height:9px;border-radius:50%;background:{{ pf.color }}"></span>{{ pf.label }}</button>
-            </sc-for>
+            <span style="font:600 12px var(--font-sans);color:var(--text-faint);margin-right:2px">Ordenar por:</span>
+            <select value="{{ ordenVal }}" onChange="{{ setOrden }}" style="height:36px;border:1px solid var(--border-subtle);border-radius:9px;padding:0 10px;font:600 12.5px var(--font-sans);color:var(--text-body);background:#fff;cursor:pointer;outline:none">
+              <option value="recientes">Más recientes</option>
+              <option value="nombre">Nombre (A–Z)</option>
+              <option value="frecuencia">Frecuencia</option>
+            </select>
             <span style="flex:1"></span>
             <span style="display:inline-flex;gap:6px">
               <button onClick="{{ setVistaTarjetas }}" title="Vista de tarjetas" style="{{ vtGridStyle }}">{{ gridIcon }}</button>
@@ -237,9 +238,9 @@
                       </div>
                       <div style="font:400 12.5px var(--font-sans);color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.desc }}</div>
                     </div>
+                    <span style="flex:none;font:500 12px var(--font-sans);color:var(--text-muted);text-align:right">{{ r.updatedLabel }}</span>
                     <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}">
                       <span style="flex:none;font:500 12px var(--font-sans);color:var(--text-muted);background:var(--ink-100);border-radius:7px;padding:3px 8px">{{ r.freqLabel }}</span>
-                      <span style="flex:none;font:500 12px var(--font-sans);color:var(--text-muted)">{{ r.updatedLabel }}</span>
                       <span style="flex:none;font:500 12px var(--font-sans);color:var(--text-faint)">{{ r.owner }}</span>
                     </sc-if>
                     {{ rowChevron }}
@@ -541,6 +542,7 @@ class Component extends DCLogic {
       roleList: false,
       view: "home",        // home | pillars | list
       vista: (function(){ try { return window.localStorage.getItem("p2040_dir_vista") || "tarjetas"; } catch(e){ return "tarjetas"; } })(),
+      orden: (function(){ try { return window.localStorage.getItem("p2040_dir_orden") || "recientes"; } catch(e){ return "recientes"; } })(),
       category: null,
       pillar: null,        // pillar view key
       pillarFilter: null,  // chip filter inside a list
@@ -843,6 +845,7 @@ class Component extends DCLogic {
   closeMax(){ this.setState({maximizedId:null}); }
   onSearch(ev){ this.setState({query:ev.target.value}); }
   setVista(v){ try{ window.localStorage.setItem("p2040_dir_vista", v); }catch(e){} this.setState({vista:v}); }
+  setOrden(ev){ const v=ev.target.value; try{ window.localStorage.setItem("p2040_dir_orden", v); }catch(e){} this.setState({orden:v}); }
   vtBtn(active){
     return "width:34px;height:34px;border-radius:9px;border:1px solid "+(active?"var(--brand)":"var(--border-subtle)")+";background:"+(active?"var(--educacion-50)":"#fff")+";color:"+(active?"var(--brand-strong)":"var(--text-muted)")+";cursor:pointer;display:inline-flex;align-items:center;justify-content:center";
   }
@@ -901,6 +904,13 @@ class Component extends DCLogic {
       mode = "category"; list = list.filter(r=> r.cat===this.state.category);
     }
     if(this.state.pillarFilter){ list = list.filter(r=> r.pillar===this.state.pillarFilter); }
+    // orden elegido por quien consulta
+    const orden = this.state.orden || "recientes";
+    const F = window.P2040_FECHAS || {};
+    list = list.slice();
+    if(orden==="nombre"){ list.sort((a,b)=> a.title.localeCompare(b.title,"es")); }
+    else if(orden==="frecuencia"){ const o={continuo:0,semanal:1,mensual:2,anual:3}; list.sort((a,b)=> ((o[a.freq]!=null?o[a.freq]:9)-(o[b.freq]!=null?o[b.freq]:9)) || a.title.localeCompare(b.title,"es")); }
+    else { list.sort((a,b)=> (F[b.id]||"").localeCompare(F[a.id]||"")); }
     return {list, mode};
   }
 
@@ -1242,6 +1252,7 @@ class Component extends DCLogic {
       groupTitle, groupDesc, groupIconEl, groupTint, groupFg, groupChildren,
       pillarFilters, allFilterStyle, clearPillarFilter: ()=> this.setState({pillarFilter:null}),
       listRows: s.vista==="lista", listCards: s.vista!=="lista",
+      ordenVal: s.orden, setOrden: (ev)=>this.setOrden(ev),
       setVistaTarjetas: ()=> this.setVista("tarjetas"),
       setVistaLista: ()=> this.setVista("lista"),
       vtGridStyle: this.vtBtn(s.vista!=="lista"), vtRowsStyle: this.vtBtn(s.vista==="lista"),
