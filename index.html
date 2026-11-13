@@ -448,6 +448,9 @@
             <sc-if value="{{ sel.hasEmbed }}" hint-placeholder-val="{{ false }}">
               <button onClick="{{ sel.maximize }}" title="Ver en grande" style="position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(20,20,20,.72);color:#fff;border:0;border-radius:9px;padding:7px 11px;font:700 11.5px var(--font-sans);cursor:pointer">{{ expandIcon }} Ampliar</button>
             </sc-if>
+            <sc-if value="{{ sel.showLoginHint }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ openSelUrl }}" role="button" style="position:absolute;left:10px;bottom:10px;right:10px;background:rgba(255,255,255,.95);border:1px solid var(--educacion-100);border-radius:10px;padding:9px 12px;font:600 11.5px/1.45 var(--font-sans);color:var(--text-body);cursor:pointer;box-shadow:0 2px 8px rgba(20,20,20,.08)">💡 ¿Se ve en blanco o con error? Da clic aquí para abrirlo en SharePoint e iniciar sesión una vez; después los reportes se verán directo en el portal.</div>
+            </sc-if>
             <sc-if value="{{ sel.showLockOverlay }}" hint-placeholder-val="{{ false }}">
               <div style="position:absolute;inset:0;background:rgba(20,20,20,.5);backdrop-filter:blur(2px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;text-align:center;padding:20px">
                 <span style="display:flex">{{ lockIconLg }}</span>
@@ -469,7 +472,7 @@
           <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" block="{{ true }}" onClick="{{ cta }}" hint-size="100%,46px">{{ sel.ctaLabel }}</x-import>
         </div>
         <sc-if value="{{ sel.hasEmbed }}" hint-placeholder-val="{{ false }}">
-          <button onClick="{{ openMaxUrl }}" style="margin-top:10px;width:100%;height:44px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 14px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px" style-hover="{{ iconBtnHover }}">{{ extIcon }} {{ sel.openLabel }}</button>
+          <button onClick="{{ openSelUrl }}" style="margin-top:10px;width:100%;height:44px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 14px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px" style-hover="{{ iconBtnHover }}">{{ extIcon }} {{ sel.openLabel }}</button>
         </sc-if>
         <p style="font:400 12px/1.5 var(--font-sans);color:var(--text-faint);margin:14px 0 0;display:flex;gap:7px;align-items:flex-start">{{ infoIcon }}<span>{{ sel.accessHelp }}</span></p>
       </div>
@@ -1139,6 +1142,7 @@ class Component extends DCLogic {
             ? React.createElement("img",{src:this.thumbSrc(sr),alt:sr.title,style:{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top left"}})
             : this.thumbEl(sr.thumb, p)),
         showLockOverlay: sr.sensitive && !sr.embedUrl,
+        showLoginHint: sr.source==="sharepoint" && !!sr.embedUrl && !isExt,
         openUrl: sr.embedUrl || null,
         hasEmbed: !!sr.embedUrl && !isExt,
         isHtml: isHtml,
@@ -1322,6 +1326,7 @@ class Component extends DCLogic {
       closeReport: ()=>this.closeReport(),
       cta: ()=>{ if(!sel) return; if(sel.hasEmbed){ sel.maximize(); } else if(sel.openUrl){ window.open(sel.openUrl,"_blank","noopener"); } },
       openMaxUrl: ()=>{ if(mx && mx.openUrl) window.open(mx.openUrl,"_blank","noopener"); },
+      openSelUrl: ()=>{ if(sel && sel.openUrl) window.open(sel.openUrl,"_blank","noopener"); },
       goHelp: ()=>this.setState({showRequest:true}),
       showRequest: !!s.showRequest,
       closeRequest: ()=>this.setState({showRequest:false}),
