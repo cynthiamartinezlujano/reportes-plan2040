@@ -2,7 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Portal de Reportes · Plan 20·40</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="assets/app/icon-180.png">
@@ -34,6 +36,7 @@
     @keyframes menuIn{from{transform:translateX(-100%)}to{transform:none}}
     @keyframes scrimIn{from{opacity:0}to{opacity:1}}
     @keyframes popIn{from{transform:translateY(6px);opacity:0}to{transform:none;opacity:1}}
+    @media (max-width:760px){ .hero-stars{display:none} }
   </style>
 </helmet>
 
@@ -89,14 +92,15 @@
 
   <main style="flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0">
     <header style="{{ headerStyle }}">
-      <sc-if value="{{ isMobileV }}" hint-placeholder-val="{{ false }}"><button onClick="{{ openMenu }}" title="Menú" style="width:42px;height:42px;flex:none;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-body);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ menuIcon }}</button></sc-if>
+      <sc-if value="{{ isMobileV }}" hint-placeholder-val="{{ false }}"><img src="assets/logo-color.svg" alt="Plan 20·40" onClick="{{ goHome }}" style="height:28px;width:auto;flex:none;cursor:pointer"></sc-if>
       <div style="position:relative;flex:1;max-width:520px">
         <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-faint);display:flex">{{ searchIcon }}</span>
         <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Buscar reportes, indicadores, diagnósticos…" style="width:100%;height:42px;border:1px solid var(--border-subtle);border-radius:999px;padding:0 16px 0 42px;font:400 14.5px var(--font-sans);background:var(--ink-50);outline:none;color:var(--text-body)" style-focus="{{ searchFocus }}">
       </div>
       <div style="flex:1"></div>
       <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><button title="Notificaciones" style="width:42px;height:42px;border:1px solid var(--border-subtle);border-radius:12px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative" style-hover="{{ iconBtnHover }}">{{ bellIcon }}<span style="position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:var(--brand);border:2px solid #fff"></span></button></sc-if>
-      <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" onClick="{{ goHelp }}" hint-size="150px,42px">+ Solicitar reporte</x-import>
+      <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" onClick="{{ goHelp }}" hint-size="150px,42px">+ Solicitar reporte</x-import></sc-if>
+      <sc-if value="{{ isMobileV }}" hint-placeholder-val="{{ false }}"><button onClick="{{ goHelp }}" title="Solicitar reporte" style="width:42px;height:42px;flex:none;border:0;border-radius:50%;background:var(--brand);color:#fff;font:400 24px/1 var(--font-sans);cursor:pointer;box-shadow:0 4px 12px rgba(232,25,87,.3)">+</button></sc-if>
     </header>
 
     <div class="dr-scroll" style="{{ contentStyle }}">
@@ -105,7 +109,7 @@
       <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:32px;max-width:1180px">
           <section style="{{ heroStyle }}">
-            <img src="assets/spot/stars.png" alt="" style="position:absolute;top:14px;right:150px;width:28px;height:28px;object-fit:contain;transform:rotate(-14deg);pointer-events:none">
+            <img src="assets/spot/stars.png" alt="" class="hero-stars" style="position:absolute;top:14px;right:150px;width:28px;height:28px;object-fit:contain;transform:rotate(-14deg);pointer-events:none">
             <div style="min-width:0;position:relative">
               <div style="font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:4px">{{ hoyL }}</div>
               <h1 style="{{ heroTitleStyle }}">{{ saludo }}</h1>
@@ -410,6 +414,15 @@
 
     </div>
   </main>
+
+  <!-- TAB BAR MÓVIL -->
+  <sc-if value="{{ isMobileV }}" hint-placeholder-val="{{ false }}">
+    <nav style="{{ tabbarStyle }}">
+      <sc-for list="{{ tabItems }}" as="t" hint-placeholder-count="5">
+        <button onClick="{{ t.go }}" style="{{ t.style }}">{{ t.iconEl }}<span style="{{ t.lblStyle }}">{{ t.label }}</span></button>
+      </sc-for>
+    </nav>
+  </sc-if>
 
   <!-- DETALLE / EMBED -->
   <sc-if value="{{ selected }}" hint-placeholder-val="{{ false }}">
@@ -1231,7 +1244,24 @@ class Component extends DCLogic {
       closeMenu: ()=>this.setState({menuOpen:false}),
       menuIcon: this.icon("menu",20),
       headerStyle: "height:"+(mob?"58px":"66px")+";flex:none;border-bottom:1px solid var(--border-subtle);background:#fff;display:flex;align-items:center;gap:"+(mob?"10px":"16px")+";padding:0 "+(mob?"12px":"28px"),
-      contentStyle: "flex:1;overflow:auto;padding:"+(mob?"18px 14px 50px":"30px 32px 60px"),
+      contentStyle: "flex:1;overflow:auto;padding:"+(mob?"18px 14px calc(104px + env(safe-area-inset-bottom))":"30px 32px 60px"),
+      tabbarStyle: "position:fixed;left:0;right:0;bottom:0;z-index:39;background:#fff;border-top:1px solid var(--border-subtle);box-shadow:0 -4px 16px rgba(20,20,20,.05);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 4px calc(8px + env(safe-area-inset-bottom))",
+      tabItems: !mob? [] : (function(self){
+        const defs = [
+          {key:"home",   label:"Inicio",   icon:"spot:house",       on: s.view==="home" && !s.query.trim(),  go: ()=>self.goHome()},
+          {key:"reun",   label:"Reuniones",icon:"spot:message",     on: s.view==="list" && s.category==="reuniones",   go: ()=>self.openCategory("reuniones")},
+          {key:"pano",   label:"Panorama", icon:"spot:stars",       on: s.view==="list" && s.category==="recurrentes", go: ()=>self.openCategory("recurrentes")},
+          {key:"visit",  label:"Visitas",  icon:"spot:paper-plane", on: (s.view==="group" && s.group==="visitas") || (s.view==="list" && !!s.category && self.childParent[s.category]==="visitas"), go: ()=>self.openGroup("visitas")},
+          {key:"mas",    label:"Más",      icon:"menu",             on: false, go: ()=>self.setState({menuOpen:true})},
+        ];
+        return defs.map(d=>({
+          label: d.label,
+          iconEl: self.icon(d.icon, 22, d.on? "var(--brand-strong)":"var(--text-muted)"),
+          style: "border:0;background:transparent;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 4px;cursor:pointer;border-radius:12px",
+          lblStyle: "font:"+(d.on?"800":"600")+" 10px var(--font-sans);color:"+(d.on?"var(--brand-strong)":"var(--text-muted)"),
+          go: d.go,
+        }));
+      })(this),
       heroStyle: "position:relative;overflow:hidden;background:#FFF6DE;border-radius:"+(mob?"18px":"22px")+";padding:"+(mob?"20px 18px":"22px 26px")+";display:grid;grid-template-columns:"+(mob?"1fr":"minmax(0,1.1fr) minmax(280px,1fr) auto")+";gap:"+(mob?"16px":"22px")+";align-items:center",
       heroTitleStyle: "margin:0;font:800 "+(mob?"24px":"28px")+"/1.15 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)",
       heroIluStyle: mob? "display:none" : "width:150px;height:auto;object-fit:contain;position:relative",
