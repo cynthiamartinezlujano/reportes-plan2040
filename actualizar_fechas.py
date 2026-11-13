@@ -35,7 +35,8 @@ ARCHIVOS = {
     "r43": f"{RCH}/Descargas Maestros/Descargas_Maestros.html",
     "r44": f"{AP}/Reporte Mensual/Reporte_Mensual_actual.html",
     "r45": f"{AP}/Diagnóstico y perfilamiento/Situaciones Críticas · Histórico.html",
-    "r49": f"{RCH}/Transiciones Escolares/Transiciones_Escolares.html",
+    "r49": f"{AP}/Educación/Transiciones Escolares/Transiciones_Escolares.html",
+    "r50": f"{AP}/Educación/Rezago Educativo/Rezago_Educativo.html",
 }
 
 
