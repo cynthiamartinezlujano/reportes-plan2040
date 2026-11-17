@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Plan de Visitas · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/document.png" alt="">
+    <div class="mini">Visitas · Plan del mes</div>
+    <h1>Manual del Plan de Visitas</h1>
+    <p>A quién le toca visita cada mes, de qué tipo y con qué guía: cómo se decide el esquema de cada familia y cómo usar los filtros, las listas y el historial.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#esquemas">2 · Cada cuándo se visita</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#numeros">4 · Los números de arriba</a>
+    <a href="#familias">5 · Las familias</a>
+    <a href="#listas">6 · Listas, Excel e historial</a>
+    <a href="#faq">7 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Es el <b>plan operativo del mes</b>: a qué familias le toca visita, de qué tipo y con qué guía, y cuáles descansan. Hay un plan por mes (en el portal están los más recientes). Sirve a cada guía para organizar su mes y a coordinación para ver la carga de trabajo.</p>
+  <p>Se arma al inicio del mes con los datos del CRM; la fecha está en el encabezado («Corte de datos»).</p>
+
+  <h2 id="esquemas"><span class="num">2</span>Cada cuándo se visita a cada familia</h2>
+  <table class="tabla">
+    <thead><tr><th>Frecuencia</th><th>A quién aplica</th><th>Cómo se visita</th></tr></thead>
+    <tbody>
+      <tr><td>Mensual</td><td>Familias con niños pequeños (menores de 7 años) o recién integrados.</td><td class="quien">Visita personalizada en casa, todos los meses.</td></tr>
+      <tr><td>Bimestral</td><td>Familias cuyos niños P2040 tienen todos 7 años o más y ya tienen antigüedad en el Plan.</td><td class="quien">Un mes sí y otro no, según su grupo: <b>A</b> o <b>B</b>. El encabezado dice qué grupo toca este mes.</td></tr>
+      <tr><td>Ejido regular</td><td>Ejidos con más de 15 niños P2040.</td><td class="quien">Una <b>convocatoria grupal</b> en la localidad y, además, visitas en casa para las familias del <b>tercio</b> que toca (T1, T2 o T3).</td></tr>
+      <tr><td>Mensual (ejido baja población)</td><td>Ejidos con 15 niños P2040 o menos.</td><td class="quien">Visita personalizada en casa, todos los meses.</td></tr>
+      <tr><td>Mensual (embarazada sin P2040)</td><td>Mamás embarazadas sin niños P2040.</td><td class="quien">Acompañamiento en casa, todos los meses.</td></tr>
+    </tbody>
+  </table>
+  <div class="nota">💡 «Descansan» no es un pendiente: son familias bimestrales del otro grupo, a las que este mes no les toca visita.</div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el plan</h2>
+  <figure><img src="img/plan-general.jpg" alt="Encabezado, números y filtros del Plan de Visitas"><figcaption>El encabezado, los números del mes y los filtros. Captura con números de ejemplo.</figcaption></figure>
+  <ol class="call">
+    <li><div><b>Responsable, Zona y Localidad</b>: elige una guía, Cuatro Ciénegas cabecera, Cuatro Ciénegas ejidos o Independencia, y una localidad.</div></li>
+    <li><div><b>Acción para este mes</b>: todas, solo las que se visitan o solo las que descansan.</div></li>
+    <li><div><b>Frecuencia y Grupo</b>: filtra por esquema (bimestral A/B, tercios de ejido T1–T3 o mensuales).</div></li>
+    <li><div><b>Tipo de familia, Miembros y Generación</b>: familias con P2040, solo con embarazadas o mixtas; cuántos niños P2040 tiene la familia; y su generación.</div></li>
+    <li><div><b>Reglas</b>: actívalas para ver solo las familias 🚨 urgentes, con ⚠️ indicadores pendientes o 👥 con dos responsables.</div></li>
+    <li><div><b>Buscar</b> por familia o niño, y <b>Limpiar filtros</b> para volver a todo.</div></li>
+  </ol>
+
+  <h2 id="numeros"><span class="num">4</span>Los números de arriba</h2>
+  <table class="tabla">
+    <thead><tr><th>Número</th><th>Qué es</th></tr></thead>
+    <tbody>
+      <tr><td>Niños P2040 · embarazadas · familias</td><td>Cuántos hay con los filtros que tengas puestos.</td></tr>
+      <tr><td>✅ Familias a visitar</td><td>Las que tienen al menos una visita programada este mes.</td></tr>
+      <tr><td>🏠 Visitas personalizadas</td><td>Las visitas en casa del mes.</td></tr>
+      <tr><td>📣 Convocatoria grupal</td><td>Familias de ejido que se citan en grupo, y en cuántos ejidos.</td></tr>
+      <tr><td>💤 Descansan</td><td>Bimestrales del otro grupo, sin visita este mes.</td></tr>
+      <tr><td>🚨 Urgentes</td><td>Familias en las que ningún miembro tuvo visita localizada el mes pasado.</td></tr>
+      <tr><td>⚠️ Indicadores pendientes</td><td>Familias con algún pendiente: niños sin estudiar, sin sueño registrado o mamá menor de edad.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="familias"><span class="num">5</span>Las familias</h2>
+  <ul>
+    <li>Abajo, las familias se agrupan <b>por tipo de visita</b> (personalizadas en casa, convocatorias grupales y las que descansan) o <b>por esquema</b>. <b>Expandir todo / Contraer todo</b> abre o cierra los grupos.</li>
+    <li>Cada familia muestra su guía, cuántos niños P2040 tiene, sus marcas (urgente, bimestral, pendientes) y, al abrirla, su ubicación, los motivos de su esquema y los pendientes.</li>
+    <li>Si la familia tiene niños de dos guías, el plan la asigna a una sola y lo indica con 👥.</li>
+  </ul>
+
+  <h2 id="listas"><span class="num">6</span>Listas, Excel e historial</h2>
+  <ul>
+    <li><b>🖨 Generar listados del mes</b> abre las hojas imprimibles por guía con el mismo plan, sin tener que subir ninguna base.</li>
+    <li><b>⬇ Excel</b> descarga las familias con los filtros que tengas.</li>
+    <li><b>📋 Ver historial de visitas</b>, en cada familia, muestra sus visitas de meses anteriores: fecha, tipo, guía y si se localizó.</li>
+  </ul>
+  <div class="nota">🔒 El plan, el Excel y las listas traen nombres y direcciones de las familias: úsalos solo dentro del equipo.</div>
+
+  <h2 id="faq"><span class="num">7</span>Preguntas frecuentes</h2>
+  <details><summary>Una familia que se visitó el mes pasado sale como urgente, ¿por qué?</summary><p>Urgente quiere decir que ningún miembro tuvo una visita <b>localizada</b>. Si la visita fue «no localizada», o se capturó después del corte, la familia sigue como urgente.</p></details>
+  <details><summary>¿Puedo visitar a una familia que descansa?</summary><p>Sí, pero no cuenta en los indicadores del mes: los bimestrales que no tocaban quedan fuera de la base de Visitas del Reporte Mensual y de los KPIs de Guías.</p></details>
+  <details><summary>¿Por qué hay planes de varios meses en el portal?</summary><p>Para consultar lo que se planeó en meses anteriores. El que se trabaja es el del mes en curso.</p></details>
+
+  <footer>Plan 20·40 · Manual del Plan de Visitas · Aplica a los planes de todos los meses. ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

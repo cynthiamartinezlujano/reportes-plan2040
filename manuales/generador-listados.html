@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Generador de Listados · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/stars.png" alt="">
+    <div class="mini">Visitas · Herramientas</div>
+    <h1>Manual del Generador de Listados por Guía</h1>
+    <p>Cómo armar e imprimir la lista de visitas de cada guía: qué base subir, qué decides en cada uno de los 7 pasos y cómo imprimir.</p>
+  </section>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#base">2 · Antes de empezar: la base</a>
+    <a href="#pasos">3 · Los 7 pasos</a>
+    <a href="#imprimir">4 · Imprimir</a>
+    <a href="#faq">5 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Arma e imprime <b>la lista de visitas de cada guía</b>, con los datos que tú elijas: indicadores pendientes, cumpleaños, tema de formación del mes y un recado de qué hacer en cada visita. Sale una lista por guía, cada una en hojas separadas.</p>
+  <p>Hay dos tipos de lista: <b>Niños Plan 20·40</b> (visita mensual) y <b>Mamás embarazadas</b> (control prenatal: ultrasonido, consultas, análisis y fecha estimada).</p>
+
+  <h2 id="base"><span class="num">2</span>Antes de empezar: la base de datos</h2>
+  <figure><img style="max-width:520px;margin:0 auto" src="img/listados-carga.jpg" alt="Pantalla para cargar la base del Generador de Listados"><figcaption>La pantalla para cargar la base.</figcaption></figure>
+  <ol class="call">
+    <li><div>Elige el tipo de lista: <b>Niños Plan 20·40</b> o <b>Mamás embarazadas</b>.</div></li>
+    <li><div>Si no tienes la base, da clic en <b>Abrir el reporte en Power BI</b>, pon el cursor sobre la tabla, da clic en los tres puntitos <b>⋯</b>, elige <b>Exportar datos</b> y guarda el archivo (.xlsx).</div></li>
+    <li><div>Sube la <b>base de niños</b> (.xlsx o .csv, un renglón por niño). Si también subes la de <b>mamás embarazadas</b> (opcional), al final de la lista de cada guía se anexan las embarazadas que acompaña.</div></li>
+    <li><div>Da clic en <b>Cargar y configurar</b>.</div></li>
+  </ol>
+  <div class="nota">💡 La lista sale con los datos de la base que subiste: si la base es vieja, la lista también. Descarga siempre la más reciente.</div>
+
+  <h2 id="pasos"><span class="num">3</span>Los 7 pasos</h2>
+  <table class="tabla">
+    <thead><tr><th>Paso</th><th>Qué decides</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Comunidad y guías</td><td>De qué comunidad son las listas y de qué guías. Todas vienen palomeadas; el numerito dice cuántos niños visita cada una.</td></tr>
+      <tr><td>2 · Información de cada lista</td><td>Qué datos de cada niño lleva la lista, organizados por pilar. Cada bloque tiene «Todos / Ninguno». En la hoja impresa los nombres se abrevian para que quepan.</td></tr>
+      <tr><td>3 · Pendientes y cumpleaños</td><td>Qué pendientes contar arriba de cada lista (por ejemplo, cuántos niños no tienen acta). En la tabla, esas celdas se pintan de rosa. Los cumpleañeros del mes se marcan con 🎂.</td></tr>
+      <tr><td>4 · Temas de formación</td><td>El tema del mes de cada carpeta formativa. La columna «Tema de formación» sale con el color de su carpeta.</td></tr>
+      <tr><td>5 · Comentarios</td><td>La columna que le dice a la guía qué hacer en la visita: en blanco para escribir a mano, o llena con recados automáticos (de cumpleaños o de cada pendiente).</td></tr>
+      <tr><td>6 · Encabezado y orden</td><td>El título del documento, el mes de las visitas (con él se calculan los cumpleaños) y en qué orden van los niños. Ya viene propuesto: localidad, apellido y edad.</td></tr>
+      <tr><td>7 · Impresión</td><td>Papel (carta, oficio o A4), orientación, tamaño de letra y espacio entre filas.</td></tr>
+    </tbody>
+  </table>
+  <div class="nota">📌 En el paso 4: <b>1° Prees</b> es para quienes cumplen 3 años este año (o tienen 4–5 y no estudian) y <b>1° Prim</b> para quienes cumplen 6 este año (o son mayores y no estudian).</div>
+
+  <h2 id="imprimir"><span class="num">4</span>Imprimir</h2>
+  <ul>
+    <li><b>Imprimir / PDF</b> genera todas las listas: cada guía empieza en hoja nueva y sus páginas van numeradas (1/5, 2/5…).</li>
+    <li>Si elegiste muchos campos, usa <b>oficio horizontal</b> y letra chica.</li>
+  </ul>
+  <div class="nota">🔒 Las listas traen nombres y datos de los niños: entrégalas solo a la guía que corresponde y no las dejes a la vista.</div>
+
+  <h2 id="faq"><span class="num">5</span>Preguntas frecuentes</h2>
+  <details><summary>¿Es lo mismo que «Generar listados del mes» del Plan de Visitas?</summary><p>Es la misma herramienta. Desde el Plan de Visitas ya viene cargada con las familias del plan de ese mes; aquí la armas con la base que tú subes.</p></details>
+  <details><summary>Me falta una guía en el paso 1</summary><p>La base solo trae a las guías que tienen niños asignados. Si falta alguna, revisa que la base sea la más reciente y que la guía tenga niños como responsable en el CRM.</p></details>
+  <details><summary>Se ve muy apretada la hoja</summary><p>Quita campos en el paso 2, cambia a oficio horizontal o sube el espacio entre filas en el paso 7.</p></details>
+
+  <footer>Plan 20·40 · Manual del Generador de Listados · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

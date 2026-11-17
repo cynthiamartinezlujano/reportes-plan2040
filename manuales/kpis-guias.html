@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · KPIs de Guías · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/clock.png" alt="">
+    <div class="mini">Visitas · Operación</div>
+    <h1>Manual de los KPIs de Guías</h1>
+    <p>Los tres KPIs de cada guía contra la meta del 90 %: cómo se calcula cada uno, la diferencia entre medir por familia o por niño y cómo usar el detalle.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b> y cambian el nombre de cada guía por «Guía 1, Guía 2…»: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#kpis">4 · Los tres KPIs</a>
+    <a href="#familia-nino">5 · Familia o niño</a>
+    <a href="#detalle">6 · Por guía y detalle</a>
+    <a href="#faq">7 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Mide a cada guía con <b>tres KPIs contra la meta del 90 %</b>: que visite a sus familias, que registre la visita completa en el CRM y que imparta formación. Sirve para la evaluación mensual y para saber, guía por guía, qué familias o qué datos le faltan.</p>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>Visitas, temas de formación y datos de la familia.</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana el CRM se baja a las bases «maestros».</span></div>
+    <div class="paso"><span class="n">3</span><b>Misma base que el Mensual</b><span>Niños P2040 activos al último corte del mes, cada uno con su guía responsable.</span></div>
+    <div class="paso"><span class="n">4</span><b>Reporte</b><span>El mes en curso se recalcula con cada corte; los meses cerrados ya no cambian.</span></div>
+  </div>
+  <div class="nota">💡 Una familia es de una guía si tiene al menos un niño suyo. Por eso las familias de cada guía cuadran con «Visitas por guía · Familias» del Reporte Mensual.</div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <figure><img src="img/kpis-general.jpg" alt="Encabezado, KPIs y tabla por guía"><figcaption>Los controles, los tres KPIs y la tabla por guía. Los nombres se cambiaron por «Guía 1, Guía 2…». Captura con números de ejemplo.</figcaption></figure>
+  <ol class="call">
+    <li><div><b>Mes</b>: elige el mes. El que dice «(en curso)» todavía se mueve.</div></li>
+    <li><div><b>Comunidad</b>: Todas, Cuatro Ciénegas o Independencia.</div></li>
+    <li><div><b>Medir por</b>: Familia o Niño (más abajo se explica la diferencia).</div></li>
+    <li><div><b>El renglón gris</b> dice de qué corte salen los datos, cuántas familias y guías entran y cuántas bimestrales quedaron fuera de la base.</div></li>
+  </ol>
+
+  <h2 id="kpis"><span class="num">4</span>Los tres KPIs</h2>
+  <div class="semaforo">
+    <span><i style="background:#3F8F5A"></i>✓ Cumple: 90 % o más</span>
+    <span><i style="background:#E8962E"></i>◐ Cerca: 75 a 89 %</span>
+    <span><i style="background:#D63A44"></i>✗ Lejos: menos de 75 %</span>
+  </div>
+  <table class="tabla">
+    <thead><tr><th>KPI</th><th>Cuenta a…</th><th>De…</th></tr></thead>
+    <tbody>
+      <tr><td>% de visitas</td><td>Familias (o niños) con visita localizada en el mes: presencial, telefónica o registro de nacido o pre-nacido, hasta la fecha de corte.</td><td class="quien">La base de la guía, sin las bimestrales que no tocaban ese mes.</td></tr>
+      <tr><td>% registro completo en CRM</td><td>Familias visitadas cuyo registro trae los 10 campos completos.</td><td class="quien">Las familias visitadas de la guía.</td></tr>
+      <tr><td>% formación</td><td>Familias visitadas con al menos un niño que recibió formación en el mes (él o su familia tuvo una visita localizada con tema).</td><td class="quien">Las familias visitadas de la guía.</td></tr>
+    </tbody>
+  </table>
+  <h3>Los 10 campos del registro completo</h3>
+  <p><b>Sueño</b>, <b>Aviso de privacidad</b> (estatus «Completo») y <b>Teléfono</b> se buscan en cualquier miembro de la familia. Los otros siete salen de la última visita localizada del mes: <b>Tipo de visita</b>, <b>Comentario</b>, <b>Tema de formación</b>, <b>Carpeta de formación</b>, <b>Compromiso actual</b>, <b>Cumplimiento del compromiso</b> y <b>Compromiso anterior</b>.</p>
+  <figure><img src="img/kpis-campos.jpg" alt="Gráfica de qué campo frena el registro completo"><figcaption>«¿Qué campo frena el registro completo?»: qué porcentaje de las familias visitadas tiene cada campo. Captura con números de ejemplo.</figcaption></figure>
+  <div class="nota">💡 <b>Compromiso anterior</b> no es un campo propio del CRM: se da por completo si la familia tiene una visita previa con compromiso capturado. En su primera visita no aplica y cuenta como completo.</div>
+  <div class="nota">💡 <b>Formación</b> mide que el tema se impartió. El CRM todavía no registra la participación por escrito, así que el KPI no puede medirla.</div>
+
+  <h2 id="familia-nino"><span class="num">5</span>Medir por familia o por niño</h2>
+  <table class="tabla">
+    <thead><tr><th>Vista</th><th>Cómo cuenta</th></tr></thead>
+    <tbody>
+      <tr><td>Niño</td><td class="quien">Cada niño P2040 por separado. Es el mismo cálculo que el indicador de Visitas del Reporte Mensual.</td></tr>
+      <tr><td>Familia</td><td class="quien">La familia completa: cuenta como visitada solo si <b>todos</b> sus niños P2040 de esa guía tuvieron visita localizada. Una familia con un niño visitado y otro no cuenta como no visitada.</td></tr>
+    </tbody>
+  </table>
+  <div class="ojo" style="background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:12px 0">👀 La vista Familia es más estricta que la gráfica de familias del Mensual, que da por visitada a la familia con que un solo niño tenga visita.</div>
+  <p><b>💤 Bimestrales fuera de base</b>: misma regla del Mensual. En octubre de 2026 salieron todas las familias bimestrales; desde noviembre, solo las que el Plan del Mes no programa ese mes. Si alguna se visitó de todos modos, aparece marcada en el detalle de su guía, pero no cuenta.</p>
+
+  <h2 id="detalle"><span class="num">6</span>La tabla por guía y su detalle</h2>
+  <ul>
+    <li>Un renglón por guía con sus familias en base, visitadas, bimestrales fuera y sus tres porcentajes con el símbolo del semáforo.</li>
+    <li>Da clic en un encabezado para <b>ordenar</b> la tabla (otro clic invierte el orden).</li>
+    <li>En <b>Detalle por guía</b>, al desplegar a una guía ves quiénes le faltan: familias o niños <b>sin visita completa</b> (con ✗ en el niño que falta), <b>visitadas con registro incompleto</b> (con el campo que falta) y las bimestrales fuera de base.</li>
+  </ul>
+  <div class="nota">💡 Con pocas familias, una sola cambia mucho el porcentaje: lee con cuidado el de las guías con base chica.</div>
+
+  <h2 id="faq"><span class="num">7</span>Preguntas frecuentes</h2>
+  <details><summary>¿Por qué en la vista Familia el % de visitas es más bajo?</summary><p>Porque basta con que un niño de la familia no tenga visita para que toda la familia cuente como no visitada.</p></details>
+  <details><summary>¿Una familia puede aparecer con dos guías?</summary><p>Sí, en los pocos casos en que la familia tiene niños de dos guías: cuenta para cada una con sus propios niños.</p></details>
+  <details><summary>¿Por qué cambian los números del mes en curso?</summary><p>Porque se recalculan con cada descarga semanal del CRM. Cuando el mes cierra, sus números ya no cambian.</p></details>
+
+  <footer>Plan 20·40 · Manual de los KPIs de Guías · Usa la misma base que el Reporte Mensual: consulta <a href="reporte-mensual.html#indicadores" style="color:var(--brand-strong)">su manual</a>. ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

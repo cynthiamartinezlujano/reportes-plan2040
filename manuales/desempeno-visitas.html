@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Desempeño de Visitas · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/clock.png" alt="">
+    <div class="mini">Visitas · Operación</div>
+    <h1>Manual del Desempeño de Visitas</h1>
+    <p>Cómo trabajan las guías: cuántas visitas hacen, cuándo, qué tan rápido las registran y cómo se comparan las comunidades.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b> y cambian el nombre de cada guía por «Guía 1, Guía 2…»: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#medidas">3 · Las medidas clave</a>
+    <a href="#pestanas">4 · Recorrido por pestañas</a>
+    <a href="#faq">5 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Muestra <b>cómo trabajan las guías</b>: cuántas visitas hacen, qué días y semanas, qué tan rápido las registran en el CRM y cómo se comparan las dos comunidades. Sirve para planear la operación (qué días rinden más, dónde hay rezago de captura) y para dar seguimiento al cierre de visitas del mes.</p>
+  <p>Cuenta <b>solo visitas presenciales y telefónicas</b>, desde enero de 2025 hasta el último dato disponible.</p>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>La guía registra cada visita con su fecha, tipo y si la persona fue localizada.</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana el CRM se baja a la base de visitas.</span></div>
+    <div class="paso"><span class="n">3</span><b>Cálculo</b><span>Se cuentan visitas por día, semana, mes, guía y comunidad, y los días entre la visita y su registro.</span></div>
+    <div class="paso"><span class="n">4</span><b>Reporte</b><span>El encabezado dice la fecha de la última visita que trae la base.</span></div>
+  </div>
+
+  <h2 id="medidas"><span class="num">3</span>Las medidas clave</h2>
+  <table class="tabla">
+    <thead><tr><th>Medida</th><th>Qué quiere decir</th></tr></thead>
+    <tbody>
+      <tr><td>Visitas</td><td>Número de visitas presenciales y telefónicas registradas en el periodo y con los filtros elegidos.</td></tr>
+      <tr><td>Presenciales</td><td>Qué parte de esas visitas fue en persona (el resto son telefónicas).</td></tr>
+      <tr><td>Prom. visitas/mes</td><td>Visitas promedio por mes en que la guía tuvo actividad.</td></tr>
+      <tr><td>Captura mismo día</td><td>Porcentaje de visitas que se registraron en el CRM el mismo día en que se hicieron.</td></tr>
+      <tr><td>Desfase mediano</td><td>Los días que normalmente pasan entre la visita y su registro. La mitad de las visitas se captura en ese tiempo o menos.</td></tr>
+      <tr><td>Cobertura</td><td>En «Mes en curso»: porcentaje de niños P2040 activos que ya tuvieron una visita localizada en el mes. La meta es 100 %.</td></tr>
+    </tbody>
+  </table>
+  <div class="nota">💡 <b>Capturar tarde no es visitar menos</b>, pero retrasa todos los reportes: lo que no está en el CRM el día de la descarga no aparece hasta la semana siguiente.</div>
+
+  <h2 id="pestanas"><span class="num">4</span>Recorrido por pestañas</h2>
+  <p class="sub">Da clic en una pestaña para ver qué responde y qué mirar primero.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-conc">Conclusiones</a><a class="fondo" href="#t-mes">Mes en curso</a><a class="fondo" href="#t-res">Resumen</a>
+    <a href="#t-comp">Comparativa de Guías</a><a href="#t-cc">CC vs CI</a>
+  </div>
+
+  <details class="tab" id="t-conc">
+    <summary>Conclusiones<span class="badge">a fondo</span><span class="q">¿Qué dice el reporte, en palabras?</span></summary>
+  <figure><img src="img/desempeno-conclusiones.jpg" alt="Pestaña Conclusiones del Desempeño de Visitas"><figcaption>Las conclusiones automáticas. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Hallazgos escritos solos, sobre todo el periodo: el <b>día</b> y la <b>semana del mes</b> con más visitas, la <b>guía más productiva</b>, la <b>brecha</b> entre guías, la <b>disciplina de captura</b>, la comparación entre <b>comunidades</b> y qué parte de las visitas encontró a la persona (<b>localización</b>).</li>
+      <li>Es la pestaña para leer primero y llevar a una reunión.</li>
+    </ul>
+    <div class="ojo">👀 «Guías activas» son las que tienen un mínimo de visitas en el periodo. Las que casi no registran visitas se mencionan aparte para que no distorsionen el promedio.</div>
+  </details>
+
+  <details class="tab" id="t-mes">
+    <summary>Mes en curso<span class="badge">a fondo</span><span class="q">¿Cuántos niños llevamos visitados este mes?</span></summary>
+  <figure><img src="img/desempeno-mes.jpg" alt="Pestaña Mes en curso del Desempeño de Visitas"><figcaption>Filtros, avance del mes y niños nuevos por semana. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Arriba eliges <b>mes</b>, <b>comunidad</b> y, en Cuatro Ciénegas, <b>zona</b> (cabecera o ejidos).</li>
+      <li>Cuatro números: niños P2040 activos, ya visitados, cobertura y pendientes. Cuenta las visitas presenciales y telefónicas en las que se localizó a la persona.</li>
+      <li><b>Cierre de visitas</b>: la cobertura acumulada semana a semana, por comunidad, contra la meta del 100 %.</li>
+      <li><b>Niños visitados por semana</b>: cuántos niños se cubrieron por primera vez en cada semana del mes.</li>
+      <li>Más abajo, <b>Avance por guía</b>: una barra por guía (verde, visitados; gris, pendientes), con las de menor avance primero.</li>
+    </ul>
+    <div class="ojo">👀 Aquí la base son todos los niños P2040 activos de cada guía. En el Reporte Mensual, Visitas no cuenta a las familias bimestrales que no tocaban ese mes, así que los porcentajes pueden no coincidir.</div>
+  </details>
+
+  <details class="tab" id="t-res">
+    <summary>Resumen<span class="badge">a fondo</span><span class="q">¿Cuándo se visita más y qué tan rápido se captura?</span></summary>
+  <figure><img src="img/desempeno-resumen.jpg" alt="Pestaña Resumen del Desempeño de Visitas"><figcaption>Filtros, números clave y tendencias. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Filtros: comunidad, guía, mes, si la persona fue localizada, zona y si la tendencia va <b>por mes o por semana</b>.</li>
+      <li><b>Tendencia de visitas</b>, presenciales y telefónicas.</li>
+      <li><b>Por día de la semana</b>, <b>por semana del mes</b> y <b>por día del mes</b>: para ver en qué momentos se concentra el trabajo.</li>
+      <li><b>Día de visita vs día de captura</b>: cuántas visitas se registraron el mismo día, a 1–3 días, a 4–7 días, y así.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-comp">
+    <summary>Comparativa de Guías<span class="q">¿Cómo se compara cada guía con las demás?</span></summary>
+  <figure><img src="img/desempeno-comparativa.jpg" alt="Pestaña Comparativa de Guías"><figcaption>El ranking y el selector para comparar guías. Los nombres se cambiaron por «Guía 1, Guía 2…». Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li><b>Ranking</b> de guías por total de visitas, con el color de su comunidad.</li>
+      <li><b>Comparar guías</b>: toca hasta 6 nombres para ver su tendencia mensual y en qué días de la semana visitan.</li>
+      <li><b>Productividad vs disciplina de captura</b>: cada burbuja es una guía; más a la derecha, más visitas por mes; más arriba, más visitas capturadas el mismo día.</li>
+    </ul>
+    <div class="ojo">👀 Una guía que entró hace poco tiene menos visitas totales aunque trabaje igual: para comparar, usa el promedio por mes activo, no el total.</div>
+  </details>
+
+  <details class="tab" id="t-cc">
+    <summary>CC vs CI<span class="q">¿Cómo se comparan Cuatro Ciénegas e Independencia?</span></summary>
+  <figure><img src="img/desempeno-ccci.jpg" alt="Pestaña CC vs CI"><figcaption>Las dos comunidades lado a lado. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Los números clave de cada comunidad, uno al lado del otro.</li>
+      <li>La tendencia mensual de cada una y, en porcentaje interno de cada comunidad, el día de la semana, la semana del mes y la disciplina de captura.</li>
+    </ul>
+    <div class="ojo">👀 Las gráficas en porcentaje interno comparan la forma de trabajar, no el tamaño: Cuatro Ciénegas tiene más guías y más familias, así que en totales siempre será mayor.</div>
+  </details>
+
+  <h2 id="faq"><span class="num">5</span>Preguntas frecuentes</h2>
+  <details><summary>¿Por qué una guía aparece dos veces?</summary><p>Porque su nombre está escrito de dos formas en el CRM (con o sin acento, o con mayúsculas). Suma las dos y avísale a Análisis para unificarlo.</p></details>
+  <details><summary>¿Por qué no coincide con el Reporte Mensual?</summary><p>Este reporte cuenta visitas (una familia visitada dos veces son dos visitas) y, en Mes en curso, usa como base a todos los niños activos. El Mensual cuenta niños y no incluye a los bimestrales que no tocaban ese mes.</p></details>
+  <details><summary>¿Entran los registros de nacido o los seguimientos?</summary><p>No: este reporte solo cuenta visitas presenciales y telefónicas.</p></details>
+
+  <footer>Plan 20·40 · Manual del Desempeño de Visitas · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

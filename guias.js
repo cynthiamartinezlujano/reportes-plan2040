@@ -11,6 +11,7 @@
       { t: "Saca tus listas", d: "«Generar listados del mes» abre el generador para imprimir una lista por guía; «Excel» descarga lo que tengas filtrado; «Ver historial de visitas» muestra qué se hizo en meses anteriores." },
     ],
     ojo: "«Descansan» no es un pendiente: son familias a las que, por su esquema, no les toca visita este mes.",
+    manual: "manuales/plan-visitas.html",
   };
 
   window.P2040_GUIAS = {
@@ -88,6 +89,7 @@
         { t: "Resumen, Comparativa y CC vs CI", d: "Tendencias por día, semana y mes; el ranking y la comparación entre guías; y las mismas gráficas lado a lado por comunidad. Filtra arriba por mes, comunidad y cabecera/ejidos." },
       ],
       ojo: "«Disciplina de captura» compara el día de la visita contra el día en que se registró: capturar tarde no es visitar menos, pero retrasa los reportes. Si una guía aparece dos veces en la lista (con o sin acento o mayúsculas), suma ambas.",
+      manual: "manuales/desempeno-visitas.html",
     },
     r46: planMes,
     r47: planMes,
@@ -100,15 +102,17 @@
         { t: "Detalle por guía", d: "Al desplegar a una guía ves quiénes le faltan: familias o niños sin visita y visitados con registro incompleto." },
       ],
       ojo: "Por familia es más estricto: una familia cuenta como visitada solo si TODOS sus P2040 tuvieron visita. Formación se mide por las visitas con tema registrado.",
+      manual: "manuales/kpis-guias.html",
     },
     r30: {
       resumen: "Arma e imprime la lista de visitas de cada guía, con la información que tú elijas.",
       puntos: [
-        { t: "Carga la base", d: "Sube la base de datos (.xlsx o .csv) y, si quieres marcar a las mamás embarazadas, también su base (opcional). Luego «Cargar y configurar»." },
+        { t: "Elige la lista y carga la base", d: "Primero elige «Niños Plan 20·40» o «Mamás embarazadas». Luego sube la base exportada de Power BI (.xlsx o .csv) y, si quieres anexar a las mamás embarazadas, también su base (opcional). Después, «Cargar y configurar»." },
         { t: "Sigue los 7 pasos", d: "Comunidad y guías → qué columnas lleva cada lista → pendientes y cumpleaños → temas de formación → comentarios → encabezado y orden → impresión (papel, orientación, tamaño de letra)." },
         { t: "Imprime", d: "«Imprimir / PDF» genera una lista por guía, cada una en hojas separadas." },
       ],
       ojo: "La lista sale con los datos de la base que cargaste: si la base es vieja, la lista también. Usa siempre la más reciente.",
+      manual: "manuales/generador-listados.html",
     },
 
     // ── Acompañamiento ────────────────────────────────────────────────────
