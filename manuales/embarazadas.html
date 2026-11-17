@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Acompañamiento a Embarazadas · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/family.png" alt="">
+    <div class="mini">Acompañamiento</div>
+    <h1>Manual de Acompañamiento a Embarazadas</h1>
+    <p>Cómo dar seguimiento a las mamás embarazadas: qué quiere decir cada estado, cómo se calcula el riesgo y cómo usar los pendientes de la semana.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#estados">4 · Embarazada o postparto</a>
+    <a href="#riesgo">5 · El riesgo calculado</a>
+    <a href="#vistas">6 · Las tres vistas</a>
+    <a href="#faq">7 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Da seguimiento a <b>las mamás embarazadas y en postparto</b>: cuántas hay, qué riesgo tiene cada una, qué falta capturar y quiénes están por dar a luz. Su vista principal es una lista de acción: <b>qué hacer esta semana</b>.</p>
+  <div class="nota">🔒 Es información sensible y de uso interno del equipo operativo. En el portal solo se ven conteos; los nombres solo aparecen dentro del reporte.</div>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>La guía marca el perfil como Embarazada y llena la ficha prenatal (valoración clínica, control, hábitos, entorno).</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana se baja el CRM; el corte aparece en el encabezado (por ejemplo, «Corte 2026-W47»).</span></div>
+    <div class="paso"><span class="n">3</span><b>Cálculo de riesgo</b><span>Con la ficha prenatal se revisan los factores de riesgo de cada mamá.</span></div>
+    <div class="paso"><span class="n">4</span><b>Reporte</b><span>Arma el resumen, la lista de embarazadas y los pendientes de la semana.</span></div>
+  </div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <ol class="call">
+    <li><div>Al abrir, <b>elige la comunidad</b>: Cuatro Ciénegas, Independencia o <b>Coordinación</b> (las dos juntas). <b>⇄ Cambiar comunidad</b>, arriba a la derecha, te regresa a elegir.</div></li>
+    <li><div>Tres vistas: <b>📊 Resumen</b>, <b>🤰 Embarazadas</b> y <b>✅ Qué hacer esta semana</b> (con el número de pendientes).</div></li>
+    <li><div>En los factores de riesgo y en los pendientes, <b>da clic</b> para ver a las mamás que están detrás de cada número.</div></li>
+  </ol>
+
+  <h2 id="estados"><span class="num">4</span>Embarazada o postparto</h2>
+  <table class="tabla">
+    <thead><tr><th>Estado</th><th>Quién entra</th></tr></thead>
+    <tbody>
+      <tr><td>Embarazada</td><td>Mamás con el perfil marcado como embarazada y el embarazo vigente.</td></tr>
+      <tr><td>Postparto</td><td>Mamás que la guía marcó como POSTP, o cuya fecha estimada de nacimiento (FPP) pasó hace más de 2 semanas. Su perfil sigue como embarazada y <b>hay que actualizarlo</b>.</td></tr>
+    </tbody>
+  </table>
+  <p><b>Próximas a dar a luz</b> son las embarazadas a 4 semanas o menos de su fecha estimada de nacimiento.</p>
+
+  <h2 id="riesgo"><span class="num">5</span>El riesgo calculado</h2>
+  <div class="semaforo">
+    <span><i style="background:#D63A44"></i>Riesgo alto</span>
+    <span><i style="background:#E8962E"></i>Riesgo medio</span>
+    <span><i style="background:#3F8F5A"></i>Sin factores</span>
+    <span><i style="background:#BDBDBD"></i>Sin ficha prenatal</span>
+  </div>
+  <ul>
+    <li><b>Riesgo alto</b>: tiene al menos un factor de riesgo alto (en rojo en el resumen).</li>
+    <li><b>Riesgo medio</b>: tiene factores de riesgo medio (en amarillo), pero ninguno alto.</li>
+    <li><b>Sin factores</b>: tiene ficha prenatal y no aparece ningún factor.</li>
+    <li><b>Sin ficha prenatal</b>: no tiene la valoración clínica capturada, así que el riesgo no se puede calcular.</li>
+  </ul>
+  <p>Los factores se agrupan en seis temas: <b>salud clínica</b> (glucosa, presión arterial, IMC, enfermedades), <b>control prenatal</b> (consultas según el trimestre), <b>edad</b> de la mamá, <b>hábitos y nutrición</b> (tabaco, alcohol, suplementación), <b>protección</b> y <b>entorno social</b> (escolaridad, empleo, seguro médico, si el embarazo fue planeado).</p>
+  <div class="ojo" style="background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:12px 0">👀 «Sin ficha prenatal» <b>no quiere decir sin riesgo</b>: quiere decir que falta la valoración. Por eso llenar la ficha es el primer pendiente de la semana.</div>
+
+  <h2 id="vistas"><span class="num">6</span>Las tres vistas</h2>
+  <p class="sub">Da clic en una vista para ver qué responde y qué mirar primero.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-res">Resumen</a><a href="#t-emb">Embarazadas</a><a class="fondo" href="#t-pend">Qué hacer esta semana</a>
+  </div>
+
+  <details class="tab" id="t-res">
+    <summary>📊 Resumen<span class="badge">a fondo</span><span class="q">¿Cómo estamos en embarazadas?</span></summary>
+  <figure><img src="img/embarazadas-resumen.jpg" alt="Vista Resumen de Acompañamiento a Embarazadas"><figcaption>Los conteos, el riesgo calculado y los factores de riesgo por tema. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Arriba: mamás en el tablero, embarazadas vigentes, postparto, próximas a dar a luz y cuántas tienen ficha prenatal.</li>
+      <li><b>Riesgo calculado</b> de las embarazadas vigentes y un adelanto de <b>qué hacer esta semana</b>.</li>
+      <li><b>Factores de riesgo, por tema</b>: cuántas mamás tienen cada factor. Da clic en uno para ver a esas mamás.</li>
+      <li>Hasta abajo, los mismos conteos <b>por comunidad</b>.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-emb">
+    <summary>🤰 Embarazadas<span class="q">¿Quiénes son y cómo va cada una?</span></summary>
+    <ul>
+      <li>La lista de mamás, con filtros por comunidad, zona, localidad, estado (embarazada o postparto), riesgo, si la familia tiene niños P2040 o es <b>primeriza</b>, y si tiene visitas, casos o programas.</li>
+      <li>Al dar clic en un nombre se abre su ficha: datos del embarazo, factores de riesgo, fechas por actualizar y su acompañamiento.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-pend">
+    <summary>✅ Qué hacer esta semana<span class="badge">a fondo</span><span class="q">¿Qué tiene que hacer cada guía esta semana?</span></summary>
+  <figure><img src="img/embarazadas-pendientes.jpg" alt="Vista Qué hacer esta semana"><figcaption>Los tres pendientes de la semana. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li><b>📝 Llenar ficha prenatal</b>: embarazadas sin valoración clínica. En la siguiente visita hay que capturar presión arterial, glucometría, antecedentes, hábitos y suplementación.</li>
+      <li><b>🔒 Cerrar embarazos en el módulo</b>: embarazos que siguen abiertos aunque ya no deberían (mamá inactiva, ya sin marca de embarazo, marcada POSTP o con la FPP vencida).</li>
+      <li><b>🍼 Próximas a dar a luz</b>: visitarlas antes del parto y confirmar lugar de parto, acompañante y contacto de emergencia.</li>
+      <li>Más abajo, <b>Pendientes por guía</b> (clic en una guía para ver solo los suyos) y la lista de cada pendiente. Filtra por comunidad o guía y usa <b>⬇ Exportar pendientes a Excel</b> para bajarla.</li>
+    </ul>
+    <div class="ojo">👀 Para cerrar un embarazo: perfil → Datos personales → Salud → Más acciones → Cerrar embarazo. <b>Primero cierra el embarazo y después quita la marca de Embarazada</b>: si la quitas antes, la sección desaparece del perfil y el embarazo se queda abierto.</div>
+  </details>
+
+  <h2 id="faq"><span class="num">7</span>Preguntas frecuentes</h2>
+  <details><summary>Una mamá ya tuvo a su bebé y sigue como embarazada</summary><p>Hay que cerrar su embarazo en el módulo de Salud y después quitar la marca de Embarazada. Mientras tanto aparece como postparto y en el pendiente «Cerrar embarazos».</p></details>
+  <details><summary>¿Por qué el Excel no trae todos los factores?</summary><p>Los factores del tema <b>protección</b> solo se ven en el tablero; no salen en el Excel, para cuidar a las mamás.</p></details>
+  <details><summary>¿Qué es una primeriza?</summary><p>En este reporte, una mamá embarazada sin niños P2040 en su familia.</p></details>
+
+  <footer>Plan 20·40 · Manual de Acompañamiento a Embarazadas · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

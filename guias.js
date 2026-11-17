@@ -124,6 +124,7 @@
         { t: "Qué hacer esta semana", d: "La lista de acción: llenar fichas prenatales, cerrar embarazos que siguen abiertos aunque ya nació el bebé, y visitar a quienes están a 4 semanas o menos de dar a luz. «Exportar pendientes a Excel» la baja." },
       ],
       ojo: "«Sin ficha prenatal» no significa sin riesgo: significa que falta la valoración clínica. Para cerrar un embarazo en el CRM: perfil → Datos personales → Salud → Más acciones → Cerrar embarazo.",
+      manual: "manuales/embarazadas.html",
     },
     r31: {
       resumen: "La formación que dan las guías: a cuántas familias llega, qué temas y si va acorde a la edad.",
@@ -132,7 +133,8 @@
         { t: "Mes o año", d: "Puedes ver el mes de cierre o el acumulado del año. Filtra por comunidad, localidad, guía o pilar." },
         { t: "¿La carpeta correspondió a la edad?", d: "La sección 2 muestra, mes a mes, si el tema dado coincide con la edad del niño, y qué carpetas se salen más de rango." },
       ],
-      ojo: "Una familia con varios P2040 cuenta una vez en «familias alcanzadas», aunque reciba varias carpetas.",
+      ojo: "Una familia con varios P2040 cuenta una vez en «familias alcanzadas», aunque reciba varias carpetas. El reporte muestra el último mes cerrado, no el mes en curso.",
+      manual: "manuales/formacion.html",
     },
 
     // ── Para guías ────────────────────────────────────────────────────────
