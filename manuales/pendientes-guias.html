@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Pendientes por Guía · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/book.png" alt="">
+    <div class="mini">Equipo de guías</div>
+    <h1>Manual de Pendientes por Guía</h1>
+    <p>Para guías y coordinadoras: cómo leer el avance de los expedientes, qué quiere decir cada chip y cómo usar el perfil de un rubro, el Excel y el mensaje de WhatsApp.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b> con guías («Guía 1, Guía 2…»), niños y familias inventados: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#equipo">4 · El resumen del equipo</a>
+    <a href="#rubros">5 · Cumplimiento por rubro</a>
+    <a href="#guias">6 · Tus guías</a>
+    <a href="#guia">7 · Los niños de una guía</a>
+    <a href="#pestanas">8 · Las tres pestañas</a>
+    <a href="#excel">9 · Excel y WhatsApp</a>
+    <a href="#faq">10 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Es la vista para <b>las guías y sus coordinadoras</b>: eligen su comunidad y ven qué tan completo está el <b>expediente</b> de cada niño, guía por guía, y <b>qué le falta a cada uno</b> para la próxima visita.</p>
+  <p>El expediente tiene dos partes:</p>
+  <ul>
+    <li><b>🎯 Metas</b>: las metas oficiales del Tablero de Metas (sueño, registro civil, escolaridad, seguro médico, vacunas, nutrición, sacramentos, consagración, visita y formación).</li>
+    <li><b>📄 Documentos</b>: los archivos que hay que subir al CRM (foto del niño, CURP, acta, aviso de privacidad, foto de la ubicación, constancias…).</li>
+  </ul>
+  <p>Está hecho para usarse también en el celular.</p>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>La guía registra visitas y datos del niño y sube sus documentos.</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana el CRM se baja a las bases «maestros».</span></div>
+    <div class="paso"><span class="n">3</span><b>Mismas reglas que los oficiales</b><span>Metas = Tablero de Metas. Documentos = regla «aplica» del CRM, igual que Pendientes por Niño.</span></div>
+    <div class="paso"><span class="n">4</span><b>Reporte</b><span>Debajo del nombre del equipo dice «datos al…»: la fecha de corte.</span></div>
+  </div>
+  <div class="nota">💡 Las <b>metas</b> usan las reglas del Reporte Mensual, igual que el One Page y el Tablero de Metas:
+    <ul>
+      <li>escolaridad preescolar (3 a 5 años) y primaria (6 a 11 años), con la regla de la SEP;</li>
+      <li>vacunación según los Lineamientos 2026;</li>
+      <li>nutrición con la Cartilla Nacional;</li>
+      <li>sacramentos = Bautismo y 1ª Comunión;</li>
+      <li>consagración = al menos una, Sagrado Corazón o Virgen de Guadalupe.</li>
+    </ul>
+    Cuentan los niños P2040 activos.</div>
+  <div class="nota">👀 <b>En Independencia se suma la cinta MUAC</b>. Es un indicador <b>operativo</b> de las guías, no una meta del Tablero, y lleva la marca <b>OPERATIVO</b>. Toca medir:
+    <ul>
+      <li>de 2 meses a 1 año, cada mes;</li>
+      <li>de 13 meses a 2 años, cada 3 meses;</li>
+      <li>de 2 años en adelante, cada 6 meses.</li>
+    </ul>
+    Como la cinta ya dice cuándo le toca medirse a cada niño, en Independencia no aparece «Medición nutricional al día». Por eso el % de metas de Independencia puede ser un poco distinto al del Tablero.</div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <figure><img style="max-width:760px;margin:0 auto" src="img/pguias-inicio.jpg" alt="Pantalla para elegir la comunidad en Pendientes por Guía"><figcaption>Al abrir, eliges tu comunidad. Captura con números de ejemplo.</figcaption></figure>
+  <ol class="call">
+    <li><div><b>Elige tu comunidad</b>: Cuatro Ciénegas o Independencia. Cada tarjeta dice cuántas guías y niños tiene.</div></li>
+    <li><div>Arriba están las pestañas <b>🎯 Indicadores · 🧺 Todo · 📄 Documentos</b>. El reporte siempre abre en <b>Todo</b>. Más abajo se explica cada pestaña: <a href="#pestanas">las tres pestañas</a>.</div></li>
+    <li><div>Con el botón <b>📍 de la comunidad</b>, arriba a la derecha, regresas a elegir comunidad.</div></li>
+    <li><div>Toca <b>una guía</b> para ver a sus niños, o toca <b>un rubro</b> (una barra) para ver su perfil. Con <b>← Volver</b> regresas al equipo.</div></li>
+  </ol>
+
+  <h2 id="equipo"><span class="num">4</span>El resumen del equipo</h2>
+  <figure><img src="img/pguias-equipo.jpg" alt="Resumen del equipo en Pendientes por Guía"><figcaption>A la izquierda el avance del equipo; a la derecha el cumplimiento por rubro. Captura con números de ejemplo.</figcaption></figure>
+  <ul>
+    <li><b>Los dos anillos</b>:
+      <ul>
+        <li><b>Metas</b> es el promedio del Tablero: un parcial vale medio punto, y «no aplica» y «sin medición» no cuentan.</li>
+        <li><b>Documentos</b> es la parte de los archivos que ya está completa.</li>
+      </ul>
+      El color del anillo es verde desde 90 %, azul de 70 % a 89 % y ámbar por debajo de 70 %.</li>
+    <li><b>Las frases</b> dicen:
+      <ul>
+        <li>cuántos niños ya tienen todo;</li>
+        <li>cuántos están casi listos;</li>
+        <li>la <b>mayor oportunidad</b>: el rubro con más niños por completar, y hasta dónde subiría el avance si se completara;</li>
+        <li>cuántos niños faltan por visitar este mes.</li>
+      </ul></li>
+    <li><b>Los cuatro cuadros</b> reparten a los niños según cuántas cosas les faltan. El corte de cada cuadro cambia con la pestaña:</li>
+  </ul>
+  <table class="tabla">
+    <thead><tr><th>Pestaña</th><th>Completos</th><th>Casi listos</th><th>A medio camino</th><th>Más pendientes</th></tr></thead>
+    <tbody>
+      <tr><td>🧺 Todo</td><td>No le falta nada</td><td>1 a 3 cosas</td><td>4 a 6</td><td>7 o más</td></tr>
+      <tr><td>🎯 Indicadores</td><td>Todas sus metas</td><td>Le falta 1</td><td>Le faltan 2</td><td>3 o más</td></tr>
+      <tr><td>📄 Documentos</td><td>Todos sus documentos</td><td>1 a 2</td><td>3 a 4</td><td>5 o más</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="rubros"><span class="num">5</span>Cumplimiento por rubro y su perfil</h2>
+  <ul>
+    <li>Cada barra es un <b>rubro</b>: una meta o un documento. Dice, <b>de los niños a los que les aplica, cuántos ya lo tienen</b>. La meta de todos es 100 %.</li>
+    <li>Primero van los indicadores y después los documentos. En cada grupo, <b>arriba va lo que más impulso necesita</b>. <b>Ver todos</b> abre los demás rubros.</li>
+    <li>El ícono de cada rubro es su pilar.</li>
+    <li>El color de la barra: <b>verde</b> = 100 %, <b>azul</b> = 80 % a 99 %, <b>amarillo</b> = 50 % a 79 %, <b>gris</b> = menos de 50 %.</li>
+  </ul>
+  <figure><img src="img/pguias-perfil.jpg" alt="Perfil de un rubro en Pendientes por Guía"><figcaption>El perfil de Vacunas: cómo va el equipo, cómo va cada guía y qué niños faltan. Guías y niños inventados. Captura con números de ejemplo.</figcaption></figure>
+  <p>En el resumen del equipo, <b>al tocar un rubro se abre su perfil</b>:</p>
+  <ul>
+    <li><b>Cumplimiento en el equipo</b>: cuántos niños ya lo tienen, cuántos faltan, entre cuántas guías, y dónde hay más por completar.</li>
+    <li><b>Por guía</b>: una barra por guía. Al tocar una se abre esa guía, con su lista filtrada a ese rubro.</li>
+    <li><b>Niños por completar</b>: la tabla de quién falta, agrupada por guía, con <b>qué le falta</b> exactamente (por ejemplo, las dosis por aplicar) y si ya se visitó este mes.</li>
+    <li><b>⬇️ Lista en Excel</b> descarga esa tabla.</li>
+  </ul>
+  <p>Dentro de una guía, tocar una barra <b>filtra su lista</b> a los niños que aún no tienen ese rubro.</p>
+
+  <h2 id="guias"><span class="num">6</span>Tus guías</h2>
+  <figure><img src="img/pguias-guias.jpg" alt="Tarjetas de guías en Pendientes por Guía"><figcaption>Una tarjeta por guía. Los nombres se cambiaron por «Guía 1, Guía 2…». Captura con números de ejemplo.</figcaption></figure>
+  <ul>
+    <li>Cada tarjeta trae los dos anillos de la guía (metas y documentos) y cuántos niños tiene. También dice cuántos están <b>completos o casi</b>.</li>
+    <li>La barra reparte a sus niños en los cuatro grupos: completos, casi listos, a medio camino y más pendientes.</li>
+    <li>Abajo viene su <b>mayor oportunidad</b>: el rubro con más niños por completar.</li>
+    <li><b>A–Z</b> ordena por nombre. <b>Quién necesita apoyo</b> pone primero a las que van más atrás; en Todo se fija en el más bajo de sus dos porcentajes.</li>
+    <li><b>⬇️ Lista del equipo en Excel</b> descarga a todos los niños del equipo con sus pendientes.</li>
+  </ul>
+
+  <h2 id="guia"><span class="num">7</span>Los niños de una guía</h2>
+  <figure><img src="img/pguias-guia.jpg" alt="Detalle de una guía en Pendientes por Guía"><figcaption>Al tocar una guía: su resumen y la lista de sus niños con lo que le falta a cada uno. Guías y niños inventados. Captura con números de ejemplo.</figcaption></figure>
+  <p>Arriba ves el mismo resumen que el del equipo, pero solo con sus niños. Debajo está la tabla <b>Sus niños</b>, con estas columnas:</p>
+  <ul>
+    <li><b>Niño</b>: nombre y edad.</li>
+    <li><b>Familia</b>, <b>ID</b> del CRM y <b>Localidad · colonia</b>.</li>
+    <li><b>Visita</b>: <b>Por visitar</b>, <b>✓ Visitado</b> este mes o <b>🌙 Descansa</b>. «Descansa» es una familia bimestral a la que no le toca visita este mes.</li>
+    <li><b>🎯 Metas e indicadores</b> y <b>📄 Documentos por subir</b>: un chip por cada cosa que le falta. <b>✓ Al día</b> quiere decir que no le falta nada de esa parte.</li>
+  </ul>
+  <p>Hay tres tipos de chip:</p>
+  <ul>
+    <li><b>En la visita</b>: metas que hay que platicar o revisar con la familia.</li>
+    <li><b>Mes pasado</b>: «Sin visita» o «Sin formación» en el mes cerrado. Tienen otro color.</li>
+    <li><b>Por subir</b>: documentos que faltan en el CRM.</li>
+  </ul>
+  <table class="tabla">
+    <thead><tr><th>Chip</th><th>Qué le falta</th></tr></thead>
+    <tbody>
+      <tr><td>Mi sueño · Registro civil</td><td>Las metas de Sueño y Registro Civil del Tablero.</td></tr>
+      <tr><td>Preescolar · Primaria</td><td>Escolaridad. Aplica de 3 a 5 años (preescolar) y de 6 a 11 años (primaria).</td></tr>
+      <tr><td>Seguro médico</td><td>Derechohabiencia o seguro público.</td></tr>
+      <tr><td>Vacunas</td><td>Esquema al corriente según los Lineamientos 2026. El detalle dice qué dosis faltan.</td></tr>
+      <tr><td>Medir peso y talla</td><td>No tiene medición nutricional vigente. No aparece en Independencia, donde la cinta MUAC ya dice cuándo le toca medirse.</td></tr>
+      <tr><td>Nutrición en seguimiento</td><td>Su medición está fuera de rango: no está en verde.</td></tr>
+      <tr><td>Sacramentos</td><td>Bautismo y 1ª Comunión. El detalle dice cuál falta.</td></tr>
+      <tr><td>Consagración</td><td>Al menos una: Sagrado Corazón o Virgen de Guadalupe.</td></tr>
+      <tr><td>Cinta MUAC <small>OPERATIVO</small></td><td>Solo en Independencia. Ya le toca medirse con la cinta.</td></tr>
+      <tr><td>Sin visita · Sin formación (mes pasado)</td><td>No tuvo visita o formación en el mes cerrado.</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li><b>Toca el nombre</b> (o «detalle») para ver qué le falta exactamente: dosis, sacramento, días desde la última cinta… También salen su generación, su ID y el teléfono de la familia.</li>
+    <li><b>Buscar</b> filtra por niño, familia, localidad o colonia.</li>
+    <li><b>Para ordenar, toca el encabezado</b> de una columna; tócalo otra vez para invertir el orden. Al ordenar por Familia, los niños se agrupan por familia. En el celular hay un selector «Ordenar».</li>
+    <li>Al abrir, la lista va <b>por visitar primero</b> y luego por localidad, colonia y familia, para armar la ruta.</li>
+  </ul>
+  <div class="nota">🔒 La lista y el detalle traen nombres y teléfonos de niños y familias: compártelos solo con la guía que corresponde.</div>
+
+  <h2 id="pestanas"><span class="num">8</span>Las tres pestañas</h2>
+  <p class="sub">Las tres usan las mismas guías y los mismos niños; cambia qué parte del expediente se cuenta. Da clic en una para ver qué responde.</p>
+  <div class="tabs-idx">
+    <a href="#t-todo">🧺 Todo</a><a class="fondo" href="#t-ind">🎯 Indicadores</a><a href="#t-doc">📄 Documentos</a>
+  </div>
+
+  <details class="tab" id="t-todo">
+    <summary>🧺 Todo<span class="q">¿Qué le falta a cada niño, metas y documentos juntos?</span></summary>
+    <ul>
+      <li>Es la pestaña con la que abre el reporte. Sirve para <b>preparar la visita</b>: en un solo lugar sale lo que hay que revisar con la familia y lo que hay que subir al CRM.</li>
+      <li>Se ven los dos anillos (metas y documentos) y los rubros de las dos partes.</li>
+      <li>Un niño cuenta como <b>completo</b> solo si tiene todas sus metas y todos sus documentos.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-ind">
+    <summary>🎯 Indicadores<span class="badge">a fondo</span><span class="q">¿Cómo van las metas del Tablero?</span></summary>
+  <figure><img src="img/pguias-indicadores.jpg" alt="Pestaña Indicadores de Pendientes por Guía"><figcaption>La pestaña Indicadores en Independencia, con la cinta MUAC. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Solo cuenta las <b>metas</b>. El anillo es el promedio del Tablero de Metas.</li>
+      <li>Trae todas las metas: sueño, registro civil, escolaridad (preescolar y primaria por separado), seguro médico, vacunas, nutrición, sacramentos, consagración, y la visita y formación del mes cerrado.</li>
+      <li>En Independencia se suma la <b>cinta MUAC</b>.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-doc">
+    <summary>📄 Documentos<span class="q">¿Qué archivos faltan por subir al CRM?</span></summary>
+    <ul>
+      <li>Solo cuenta los <b>documentos</b>. El anillo es la parte de los archivos que ya está completa.</li>
+      <li>Un documento aplica según la regla del CRM, igual que en <a href="pendientes-nino.html">Pendientes por Niño</a>. Por ejemplo, las constancias de sacramentos solo aplican a quien corresponde.</li>
+      <li>La foto de la cartilla sale de las cartillas subidas al CRM.</li>
+    </ul>
+  </details>
+
+  <h2 id="excel"><span class="num">9</span>Excel y WhatsApp</h2>
+  <ul>
+    <li><b>Excel</b> en tres niveles:
+      <ul>
+        <li><b>⬇️ Lista del equipo en Excel</b>: todos los niños de la comunidad.</li>
+        <li><b>⬇️ Descargar en Excel</b> dentro de una guía: sus niños, con el filtro o la búsqueda que tengas.</li>
+        <li><b>⬇️ Lista en Excel</b> en el perfil de un rubro: los niños que lo deben.</li>
+      </ul></li>
+    <li>El Excel de una guía o del equipo <b>trae siempre las dos partes</b>, metas y documentos, aunque estés en otra pestaña. Incluye guía, familia, localidad, colonia, teléfono, niño, edad, visita del mes, qué documentos y qué metas le faltan, sus porcentajes, la cinta MUAC y el detalle.</li>
+    <li><b>📲 Copiar mensaje para WhatsApp</b>, dentro de una guía, copia un mensaje listo para pegar. Lleva:
+      <ul>
+        <li>cómo van sus niños;</li>
+        <li>su mayor oportunidad y cuánto subiría su avance;</li>
+        <li>la lista de sus niños casi listos, con lo que le falta a cada uno;</li>
+        <li>los rubros que ya tiene al 100 %;</li>
+        <li>los tres rubros donde más puede avanzar.</li>
+      </ul></li>
+  </ul>
+  <div class="nota">🔒 El Excel y el mensaje de WhatsApp traen nombres de niños, y el Excel también teléfonos. Úsalos solo dentro del equipo y manda a cada guía solo lo suyo.</div>
+
+  <h2 id="faq"><span class="num">10</span>Preguntas frecuentes</h2>
+  <details><summary>¿Por qué casi ningún niño sale «completo»?</summary><p>En «Todo», un niño cuenta como completo solo si tiene todas sus metas y todos sus documentos. Para ver cada parte por separado, cambia a la pestaña Indicadores o a Documentos.</p></details>
+  <details><summary>Subí un documento y sigue como pendiente</summary><p>El reporte se actualiza con la descarga semanal del CRM, así que aparecerá completo en el siguiente corte. Revisa también que se haya subido en el campo correcto del perfil.</p></details>
+  <details><summary>¿Por qué el % de metas de Independencia no es igual al del Tablero?</summary><p>Porque en Independencia se suma la cinta MUAC, que es un indicador operativo de las guías y no está en el Tablero. En Cuatro Ciénegas las metas son las mismas que en el Tablero.</p></details>
+  <details><summary>¿Qué quiere decir «🌙 Descansa»?</summary><p>Que la familia es bimestral y este mes no le toca visita. No cuenta como pendiente de visita.</p></details>
+  <details><summary>¿En qué se distingue de Pendientes por Niño?</summary><p>Usan las mismas reglas. <a href="pendientes-nino.html">Pendientes por Niño</a> es la vista general con filtros, para cerrar capturas por documento o por indicador. Este reporte está pensado para que cada guía y su coordinadora vean a sus niños, uno por uno, con lo que le falta a cada uno.</p></details>
+
+  <footer>Plan 20·40 · Manual de Pendientes por Guía · Usa las mismas reglas que el Tablero de Metas y que <a href="pendientes-nino.html" style="color:var(--brand-strong)">Pendientes por Niño</a>. ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

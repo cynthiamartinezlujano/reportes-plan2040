@@ -114,6 +114,16 @@
       ojo: "Mismas cifras que el Reporte Mensual: no cuenta a los bimestrales que descansan. En el mes en curso la etiqueta compara contra el ritmo esperado a la fecha, no contra la meta final.",
       manual: "manuales/avance-visitas-guias.html",
     },
+    r53: {
+      resumen: "Para guías y coordinadoras: qué tan completo va el expediente de cada niño (metas y documentos) y qué le falta para la próxima visita.",
+      puntos: [
+        { t: "Elige tu comunidad y la pestaña", d: "Abre en «Todo» (metas y documentos juntos); «Indicadores» cuenta solo las metas del Tablero y «Documentos» solo los archivos por subir al CRM." },
+        { t: "Resumen y rubros", d: "Los anillos dicen cómo va el equipo; las barras, de los niños a los que les aplica cada rubro, cuántos ya lo tienen (meta 100 %). Toca un rubro para ver cómo va cada guía y qué niños faltan." },
+        { t: "Toca a una guía", d: "Ves a sus niños con un chip por cada cosa que les falta, ordenados para la visita. Toca un nombre para el detalle; hay Excel y un mensaje listo para WhatsApp." },
+      ],
+      ojo: "Mismas reglas que el Tablero de Metas y Pendientes por Niño. En Independencia se suma la cinta MUAC (indicador operativo), por eso su % de metas puede diferir un poco del Tablero.",
+      manual: "manuales/pendientes-guias.html",
+    },
     r30: {
       resumen: "Arma e imprime la lista de visitas de cada guía, con la información que tú elijas.",
       puntos: [
