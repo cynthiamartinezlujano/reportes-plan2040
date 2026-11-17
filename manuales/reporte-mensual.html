@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Reporte Mensual · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/message.png" alt="">
+    <div class="mini">Reuniones de seguimiento</div>
+    <h1>Manual del Reporte Mensual</h1>
+    <p>Qué mide el Reporte Mensual, de dónde salen sus números y cómo leer cada indicador, explicado para quien lo abre por primera vez.</p>
+  </section>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#tarjetas">4 · Las tarjetas</a>
+    <a href="#indicadores">5 · Los 12 indicadores</a>
+    <a href="#generacion">6 · Por generación</a>
+    <a href="#faq">7 · Preguntas frecuentes</a>
+    <a href="#glosario">8 · Glosario</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Es la foto completa del Plan al cierre de cada mes: <b>qué porcentaje de los niños P2040 cumple cada indicador</b> de los cinco pilares (acompañamiento, familia, educación, salud y espiritualidad). Se revisa en la reunión mensual para ver qué mejoró, qué empeoró y dónde enfocar el siguiente mes.</p>
+  <p>Este manual se centra en la pestaña <b>Indicadores</b>, la que más se usa. Las demás pestañas (Beneficiarios, Acompañamiento, Formación, Educación, Salud, Familia y Espiritualidad) abren cada tema con más detalle.</p>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <p class="sub">Todo sale del CRM, lo que capturan las guías en cada visita.</p>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>Las guías registran visitas, datos de la familia, escuela, salud y sacramentos.</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana se descarga todo el CRM a unas bases llamadas «maestros».</span></div>
+    <div class="paso"><span class="n">3</span><b>Corte del mes</b><span>Para cada mes se toma la última descarga semanal del mes: ese es su «corte».</span></div>
+    <div class="paso"><span class="n">4</span><b>Reporte</b><span>Con ese corte se calculan los indicadores y se publica el reporte en el portal.</span></div>
+  </div>
+  <div class="nota">💡 <b>Si un dato está mal en el reporte, casi siempre está mal o incompleto en el CRM.</b> La corrección se hace en el CRM y aparece en el reporte con la siguiente actualización. Los mismos cálculos alimentan al One Page, al Tablero de Metas y al Reporte Semanal, así que los cuatro coinciden.</div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <figure>
+    <img src="img/mensual-controles.jpg" alt="Encabezado del Reporte Mensual con los controles de mes, comunidad, pestañas y vista">
+    <figcaption>El encabezado del reporte con todos sus controles.</figcaption>
+  </figure>
+  <ol class="call">
+    <li><div><b>El renglón gris bajo el título</b> dice qué estás viendo: el mes, la fecha de corte, la comunidad y cuándo se generó.</div></li>
+    <li><div><b>Todas · Cuatro Ciénegas · Independencia</b>: elige la comunidad. Todo el reporte se recalcula.</div></li>
+    <li><div><b>Ene … Nov</b>: elige el mes. El mes con <b>*</b> es el que va en curso (todavía no cierra).</div></li>
+    <li><div><b>Las pestañas</b> (Indicadores, Beneficiarios, Acompañamiento…) cambian de tema.</div></li>
+    <li><div><b>Vista compacta / amplia</b>: la compacta es la de la reunión; la amplia agrega las barras de cada mes para ver la tendencia.</div></li>
+    <li><div><b>Descargar PDF</b> baja el reporte en PDF, para mandarlo o imprimirlo.</div></li>
+  </ol>
+
+  <h2 id="tarjetas"><span class="num">4</span>Cómo se lee una tarjeta</h2>
+  <figure>
+    <img src="img/mensual-indicadores.jpg" alt="Tarjetas de indicadores agrupadas por pilar">
+    <figcaption>Cada renglón es un pilar y cada tarjeta un indicador.</figcaption>
+  </figure>
+  <figure>
+    <img src="img/mensual-tarjeta.jpg" alt="Detalle de tres tarjetas del pilar de acompañamiento">
+    <figcaption>Ejemplo: tarjetas del pilar Acompañamiento.</figcaption>
+  </figure>
+  <ol class="call">
+    <li><div><b>El porcentaje grande</b> es el resultado del mes: de cada 100 niños que deberían cumplir, cuántos cumplen.</div></li>
+    <li><div><b>El puntito de color</b> es el semáforo (verde, ámbar o rojo, ver abajo).</div></li>
+    <li><div><b>La etiqueta con flechita</b> compara contra el mes anterior en <b>puntos porcentuales (pp)</b>: «▲ 3.0 pp» quiere decir que subió 3 puntos, por ejemplo de 83.3 % a 86.3 %.</div></li>
+    <li><div><b>La ⭐</b> marca los indicadores que reportamos oficialmente. Las tarjetas con <b>borde punteado</b> son solo de referencia.</div></li>
+    <li><div><b>Al dar clic en una tarjeta</b> se abre su historia mes por mes.</div></li>
+  </ol>
+  <div class="semaforo">
+    <span><i style="background:#2e9e4f"></i>Verde · 90 % o más</span>
+    <span><i style="background:#e5a100"></i>Ámbar · de 60 % a menos de 90 %</span>
+    <span><i style="background:#d63a3a"></i>Rojo · menos de 60 %</span>
+  </div>
+
+  <h2 id="indicadores"><span class="num">5</span>Los 12 indicadores, en palabras sencillas</h2>
+  <p class="sub">Cada indicador es una división: <b>quiénes cumplen</b> entre <b>quiénes deberían cumplir</b>. La columna de la derecha dice quiénes entran en la cuenta.</p>
+  <table class="tabla">
+    <thead><tr><th>Indicador</th><th>Qué mide</th><th>Quiénes entran en la cuenta</th></tr></thead>
+    <tbody>
+      <tr class="pilar"><td colspan="3">Acompañamiento</td></tr>
+      <tr><td>Visitas del mes</td><td>Niños que tuvieron una visita formativa en el mes.</td><td class="quien">Niños de familias que se visitan cada mes. Las familias bimestrales no entran (desde octubre 2026; antes contaban todos).</td></tr>
+      <tr><td>Acompañamiento del mes</td><td>Niños que recibieron cualquier atención en el mes: visita, seguimiento, caso, programa o medición de nutrición.</td><td class="quien">Todos los niños P2040 activos.</td></tr>
+      <tr><td>Formación del mes</td><td>Niños que recibieron un tema de formación en el mes, ellos o su familia, durante una visita.</td><td class="quien">Todos los niños P2040 activos.</td></tr>
+      <tr class="pilar"><td colspan="3">Familia</td></tr>
+      <tr><td>Sueño registrado</td><td>Niños con su «mi sueño» capturado en el CRM.</td><td class="quien">Todos los niños P2040 activos.</td></tr>
+      <tr><td>Registro civil</td><td>Niños registrados ante el registro civil.</td><td class="quien">Todos los niños P2040 activos.</td></tr>
+      <tr class="pilar"><td colspan="3">Educación</td></tr>
+      <tr><td>Escolaridad · Preescolar</td><td>Niños en edad de preescolar que están estudiando (cursando, preinscritos o confirmados).</td><td class="quien">Niños de 3 a 5 años cumplidos al 31 de diciembre del año en que empezó el ciclo (regla de la SEP).</td></tr>
+      <tr><td>Escolaridad · Primaria</td><td>Niños en edad de primaria que están estudiando.</td><td class="quien">Niños de 6 a 11 años, con la misma regla de la SEP.</td></tr>
+      <tr class="pilar"><td colspan="3">Salud</td></tr>
+      <tr><td>Derechohabiencia</td><td>Niños que tienen seguro médico.</td><td class="quien">Todos los niños P2040 activos.</td></tr>
+      <tr><td>Nutrición óptima</td><td>Niños en verde según la Cartilla Nacional de Salud.</td><td class="quien">Solo niños con una medición de peso y talla de los últimos 12 meses.</td></tr>
+      <tr><td>Esquema al corriente</td><td>Niños sin vacunas pendientes que todavía se puedan aplicar, según los Lineamientos 2026.</td><td class="quien">Todos los niños P2040 activos.</td></tr>
+      <tr class="pilar"><td colspan="3">Espiritualidad</td></tr>
+      <tr><td>Bautismo</td><td>Niños bautizados.</td><td class="quien">Niños P2040 activos católicos.</td></tr>
+      <tr><td>Primera comunión</td><td>Niños con primera comunión.</td><td class="quien">Niños católicos de 7 años o más.</td></tr>
+      <tr><td>Consagración</td><td>Niños con al menos una consagración (Sagrado Corazón o Virgen de Guadalupe).</td><td class="quien">Niños P2040 activos católicos.</td></tr>
+    </tbody>
+  </table>
+  <div class="nota">💡 <b>«Esquema completo»</b>, la tarjeta punteada en Salud, es solo de referencia: cuenta únicamente a los niños con todas sus vacunas. El indicador oficial es <b>«Esquema al corriente»</b>, que no castiga las dosis que por la edad del niño ya no se pueden aplicar.</div>
+
+  <h2 id="generacion"><span class="num">6</span>La tabla por generación</h2>
+  <figure>
+    <img src="img/mensual-generacion.jpg" alt="Tabla de reflexión por generación con los indicadores por fila y las generaciones por columna">
+    <figcaption>«Reflexión por generación»: ¿cumplimos cada indicador a la edad que corresponde?</figcaption>
+  </figure>
+  <p>Debajo de las tarjetas está esta tabla. Cada <b>renglón</b> es un indicador y cada <b>columna</b> una generación: niños de los mismos ciclos, es decir, de la misma edad. La 1ª es la más grande y la 11ª la más pequeña (la numeración es la de Cuatro Ciénegas).</p>
+  <p>Sirve para ver <b>en qué edad se cae un indicador</b>. Por ejemplo, si Nutrición óptima está en verde en las generaciones grandes y en rojo en las pequeñas, el foco está en los más chiquitos. Los colores usan el mismo semáforo, y al pasar el cursor sobre una celda ves cuántos niños cumplen de cuántos.</p>
+  <p>Un guion «—» quiere decir que ese indicador no aplica a esa edad (por ejemplo, primera comunión en niños menores de 7 años).</p>
+
+  <h2 id="faq"><span class="num">7</span>Preguntas frecuentes</h2>
+  <details><summary>¿Por qué el mes en curso cambia de un día para otro?</summary><p>Porque todavía no cierra: muestra la descarga más reciente del CRM, y cada semana entran visitas y capturas nuevas. El número final queda al cierre del mes.</p></details>
+  <details><summary>¿Por qué «Visitas» no cuenta a todos los niños?</summary><p>Desde octubre 2026 se mide contra las familias que se visitan cada mes. Las familias bimestrales se visitan un mes sí y otro no, así que contarlas haría ver como pendiente algo que no tocaba.</p></details>
+  <details><summary>¿Qué quiere decir «pp»?</summary><p>Puntos porcentuales: la diferencia directa entre dos porcentajes. Si un indicador pasa de 80 % a 85 %, subió 5 pp.</p></details>
+  <details><summary>¿Por qué un indicador bajó si trabajamos igual?</summary><p>Revisa dos cosas: si entraron niños nuevos al padrón (el denominador crece y el porcentaje baja aunque nadie haya dejado de cumplir) y si faltan capturas en el CRM. El reporte refleja lo que está capturado.</p></details>
+  <details><summary>¿Coincide con el One Page y el Tablero de Metas?</summary><p>Sí: los cuatro reportes (Mensual, Semanal, One Page y Tablero de Metas) usan exactamente las mismas reglas. Si ves una diferencia, revisa que estés comparando el mismo mes y la misma comunidad.</p></details>
+
+  <h2 id="glosario"><span class="num">8</span>Glosario</h2>
+  <div class="card">
+    <dl class="glosario">
+      <dt>P2040</dt><dd>Niño o niña del Plan 20·40, la población principal que se acompaña.</dd>
+      <dt>Activo</dt><dd>Niño con estatus activo en el CRM a la fecha del corte. Los inactivos no entran en las cuentas.</dd>
+      <dt>Corte</dt><dd>La descarga del CRM con la que se calcula un mes; la del último día del mes es el «cierre».</dd>
+      <dt>Familia mensual / bimestral</dt><dd>Según su esquema, una familia se visita cada mes o cada dos meses.</dd>
+      <dt>Generación</dt><dd>Grupo de niños nacidos en los mismos ciclos; agrupa por edad.</dd>
+      <dt>pp</dt><dd>Puntos porcentuales: diferencia directa entre dos porcentajes.</dd>
+      <dt>Denominador</dt><dd>Los que «deberían cumplir»: el número de abajo en la división.</dd>
+    </dl>
+  </div>
+
+  <footer>Plan 20·40 · Manual del Reporte Mensual · Las definiciones vienen del mismo programa que genera el reporte, así que siempre corresponden a lo que ves en pantalla. ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+</body>
+</html>

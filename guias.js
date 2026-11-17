@@ -33,6 +33,7 @@
         { t: "Compacta o amplia", d: "La vista compacta es para la reunión; la amplia muestra el detalle de cada indicador. «Descargar PDF» guarda la vista actual." },
       ],
       ojo: "El mes con * es el mes en curso: muestra el último corte disponible, no el cierre.",
+      manual: "manuales/reporte-mensual.html",
     },
 
     // ── Panorama del Plan ─────────────────────────────────────────────────

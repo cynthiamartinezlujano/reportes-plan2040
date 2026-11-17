@@ -441,7 +441,7 @@
   <!-- VENTANA DEL REPORTE -->
   <sc-if value="{{ selected }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ closeReport }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);animation:scrimIn .2s ease;z-index:40"></div>
-    <div style="{{ winStyle }}">
+    <div style="{{ winWrapStyle }}"><div style="{{ winStyle }}">
       <div style="{{ winHeadStyle }}">
         <span style="width:11px;height:11px;border-radius:50%;background:{{ sel.color }};flex:none"></span>
         <div style="min-width:0;flex:1">
@@ -453,6 +453,9 @@
       </div>
       <div style="{{ winBodyStyle }}">
         <div style="{{ winFrameStyle }}">{{ sel.embedEl }}
+          <sc-if value="{{ sel.hasEmbed }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ sel.maximize }}" title="Ver el reporte en grande" style="position:absolute;top:12px;right:12px;display:inline-flex;align-items:center;gap:7px;background:var(--brand);color:#fff;border:0;border-radius:999px;padding:9px 16px;font:800 12.5px var(--font-sans);cursor:pointer;box-shadow:0 6px 16px rgba(232,25,87,.3)">{{ expandIcon }} Ampliar reporte</button>
+          </sc-if>
           <sc-if value="{{ sel.showLoginHint }}" hint-placeholder-val="{{ false }}">
             <div onClick="{{ openSelUrl }}" role="button" style="position:absolute;left:12px;bottom:12px;max-width:440px;background:rgba(255,255,255,.96);border:1px solid var(--educacion-100);border-radius:10px;padding:9px 12px;font:600 11.5px/1.45 var(--font-sans);color:var(--text-body);cursor:pointer;box-shadow:0 2px 8px rgba(20,20,20,.08)">💡 ¿Se ve en blanco o con error? Da clic aquí para abrirlo en SharePoint e iniciar sesión una vez; después los reportes se verán directo en el portal.</div>
           </sc-if>
@@ -485,6 +488,9 @@
                   <sc-if value="{{ sel.guiaTieneOjo }}" hint-placeholder-val="{{ false }}">
                     <div style="background:#fff;border-radius:10px;padding:9px 12px;font:600 12px/1.5 var(--font-sans);color:#8a5a00">👀 {{ sel.guiaOjo }}</div>
                   </sc-if>
+                  <sc-if value="{{ sel.hasManual }}" hint-placeholder-val="{{ false }}">
+                    <button onClick="{{ openManual }}" style="align-self:flex-start;border:0;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#fff;font:800 12.5px var(--font-sans);padding:9px 16px;border-radius:999px">Ver manual completo →</button>
+                  </sc-if>
                 </div>
               </sc-if>
             </div>
@@ -496,7 +502,7 @@
           <p style="font:400 11.5px/1.5 var(--font-sans);color:var(--text-faint);margin:0;display:flex;gap:7px;align-items:flex-start">{{ infoIcon }}<span>{{ sel.accessHelp }}</span></p>
         </aside>
       </div>
-    </div>
+    </div></div>
   </sc-if>
 
   <!-- EDITOR DE REPORTE (admin) -->
@@ -586,7 +592,7 @@ class Component extends DCLogic {
       view: "home",        // home | pillars | list
       vista: (function(){ try { return window.localStorage.getItem("p2040_dir_vista") || "tarjetas"; } catch(e){ return "tarjetas"; } })(),
       orden: (function(){ try { return window.localStorage.getItem("p2040_dir_orden") || "recientes"; } catch(e){ return "recientes"; } })(),
-      guiaAbierta: true,
+      guiaAbierta: false,
       sesionLista: (function(){ try { return window.localStorage.getItem("p2040_dir_sesion")==="1"; } catch(e){ return false; } })(),
       category: null,
       pillar: null,        // pillar view key
@@ -1177,6 +1183,7 @@ class Component extends DCLogic {
         isExtView: isExt && !!sr.embedUrl,
         hasGuia: !!G, guiaResumen: G? G.resumen : "", guiaPuntos: G? (G.puntos||[]) : [],
         guiaTieneOjo: !!(G && G.ojo), guiaOjo: G? (G.ojo||"") : "",
+        hasManual: !!(G && G.manual), manualUrl: G? (G.manual||"") : "",
         openUrl: sr.shareUrl || sr.embedUrl || null,
         hasEmbed: !!sr.embedUrl && !isExt,
         isHtml: isHtml,
@@ -1318,14 +1325,14 @@ class Component extends DCLogic {
       hasRole: !!rInfo,
       roleChipIcon: React.createElement("img",{src:(rInfo? rInfo.spot : "assets/spot/stars.png"),alt:"",style:{width:22,height:22,objectFit:"contain",flex:"none"}}),
       roleChipLabel: rInfo? rInfo.label : "Elegir mi rol",
-      winStyle: mob? "position:fixed;inset:0;z-index:41;background:var(--bg-app);display:flex;flex-direction:column;overflow:hidden;animation:popIn .22s ease"
-                    : "position:fixed;inset:24px;z-index:41;background:var(--bg-app);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;animation:popIn .22s ease",
+      winWrapStyle: "position:fixed;inset:0;z-index:41;display:flex;pointer-events:none;"+(mob?"":"align-items:center;justify-content:center;padding:24px"),
+      winStyle: "pointer-events:auto;background:var(--bg-app);display:flex;flex-direction:column;overflow:hidden;animation:popIn .22s ease;"+(mob?"width:100%;height:100%":"width:min(1080px,100%);max-height:100%;border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.35)"),
       winHeadStyle: "flex:none;display:flex;align-items:center;gap:12px;background:#fff;border-bottom:1px solid var(--border-subtle);padding:"+(mob?"calc(12px + env(safe-area-inset-top)) 14px 12px":"14px 20px"),
       winBodyStyle: mob? "flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:12px 12px calc(18px + env(safe-area-inset-bottom))"
-                        : "flex:1;min-height:0;display:flex;gap:16px;padding:16px",
-      winFrameStyle: "position:relative;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;"+(mob?"flex:none;height:46vh":"flex:1;min-width:0"),
+                        : "flex:1;min-height:0;display:flex;align-items:flex-start;gap:16px;padding:16px",
+      winFrameStyle: "position:relative;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;"+(mob?"flex:none;height:42vh":"flex:1;min-width:0;height:430px"),
       winSideStyle: mob? "flex:none;display:flex;flex-direction:column;gap:12px"
-                        : "width:340px;flex:none;overflow:auto;display:flex;flex-direction:column;gap:14px;padding-right:2px",
+                        : "width:340px;flex:none;max-height:calc(100vh - 150px);overflow:auto;display:flex;flex-direction:column;gap:14px;padding-right:2px",
       maxWrapStyle: "position:fixed;inset:0;background:rgba(20,20,20,.78);z-index:60;display:flex;flex-direction:column;animation:scrimIn .2s ease;padding:"+(mob?"0":"28px"),
       maxHeadStyle: "display:flex;align-items:center;flex-wrap:wrap;gap:"+(mob?"8px 10px":"12px")+";margin-bottom:"+(mob?"0":"16px")+";color:#fff;padding:"+(mob?"10px 12px":"0"),
       maxFrameStyle: "flex:1;background:#fff;border-radius:"+(mob?"0":"14px")+";overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)",
@@ -1372,6 +1379,7 @@ class Component extends DCLogic {
       openMaxUrl: ()=>{ if(mx && mx.openUrl) window.open(mx.openUrl,"_blank","noopener"); },
       openSelUrl: ()=>{ if(sel && sel.openUrl) window.open(sel.openUrl,"_blank","noopener"); },
       toggleGuia: ()=>this.setState(st=>({guiaAbierta: !st.guiaAbierta})),
+      openManual: ()=>{ if(sel && sel.manualUrl) window.open(sel.manualUrl,"_blank","noopener"); },
       guiaAbierta: !!s.guiaAbierta,
       guiaChevron: this.icon("chevron",16,"#8a6a10"),
       guiaChevStyle: "display:flex;flex:none;transition:transform .18s ease;transform:"+(s.guiaAbierta?"rotate(90deg)":"none"),
