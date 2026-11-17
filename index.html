@@ -13,6 +13,7 @@
 <meta name="theme-color" content="#FFF6DE">
 <script src="./support.js"></script>
 <script src="./fechas.js"></script>
+<script src="./guias.js"></script>
 </head>
 <body>
 <x-dc>
@@ -437,57 +438,63 @@
     </nav>
   </sc-if>
 
-  <!-- DETALLE / EMBED -->
+  <!-- VENTANA DEL REPORTE -->
   <sc-if value="{{ selected }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closeReport }}" style="position:fixed;inset:0;background:rgba(20,20,20,.45);animation:scrimIn .2s ease;z-index:40"></div>
-    <div style="{{ drawerStyle }}">
-      <div style="flex:none;padding:18px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border-subtle);background:#fff">
-        <span style="display:inline-flex;align-items:center;gap:6px;font:700 12px var(--font-sans);color:{{ sel.fg }}"><span style="width:10px;height:10px;border-radius:50%;background:{{ sel.color }}"></span>{{ sel.pillarLabel }}</span>
-        <div style="flex:1"></div>
-        <button onClick="{{ closeReport }}" style="width:36px;height:36px;border:1px solid var(--border-subtle);border-radius:10px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ xIcon }}</button>
+    <div onClick="{{ closeReport }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);animation:scrimIn .2s ease;z-index:40"></div>
+    <div style="{{ winStyle }}">
+      <div style="{{ winHeadStyle }}">
+        <span style="width:11px;height:11px;border-radius:50%;background:{{ sel.color }};flex:none"></span>
+        <div style="min-width:0;flex:1">
+          <div style="font:800 17px/1.25 var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ sel.title }}</div>
+          <div style="font:500 12px var(--font-sans);color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ sel.pillarLabel }} · {{ sel.freqLabel }} · {{ sel.updatedLabel }}</div>
+        </div>
+        <sc-if value="{{ notMobileV }}" hint-placeholder-val="{{ true }}"><button onClick="{{ openSelUrl }}" style="flex:none;height:38px;padding:0 16px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 13px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;gap:7px" style-hover="{{ iconBtnHover }}">{{ extIcon }} {{ sel.openLabel }}</button></sc-if>
+        <button onClick="{{ closeReport }}" title="Cerrar" style="flex:none;width:38px;height:38px;border:1px solid var(--border-subtle);border-radius:10px;background:#fff;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{{ iconBtnHover }}">{{ xIcon }}</button>
       </div>
-      <div class="dr-scroll" style="flex:1;overflow:auto;padding:22px">
-        <h2 style="font:800 22px/1.2 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong);margin:0 0 8px">{{ sel.title }}</h2>
-        <p style="font:400 14.5px/1.6 var(--font-sans);color:var(--text-body);margin:0 0 20px">{{ sel.desc }}</p>
-
-        <div style="border:1px solid var(--border-subtle);border-radius:16px;overflow:hidden;background:#fff;margin-bottom:20px">
-          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border-subtle);background:var(--ink-50)">
-            <span style="width:18px;height:18px;border-radius:5px;background:var(--pillar-juventud);display:flex;align-items:center;justify-content:center;font:800 11px var(--font-sans);color:#5c4500">{{ sel.srcBadge }}</span>
-            <span style="font:600 12.5px var(--font-sans);color:var(--text-muted)">{{ sel.srcLine }}</span>
-            <span style="flex:1"></span>
-            <span style="font:500 11px var(--font-sans);color:var(--text-faint)">{{ sel.embedNote }}</span>
+      <div style="{{ winBodyStyle }}">
+        <div style="{{ winFrameStyle }}">{{ sel.embedEl }}
+          <sc-if value="{{ sel.showLoginHint }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ openSelUrl }}" role="button" style="position:absolute;left:12px;bottom:12px;max-width:440px;background:rgba(255,255,255,.96);border:1px solid var(--educacion-100);border-radius:10px;padding:9px 12px;font:600 11.5px/1.45 var(--font-sans);color:var(--text-body);cursor:pointer;box-shadow:0 2px 8px rgba(20,20,20,.08)">💡 ¿Se ve en blanco o con error? Da clic aquí para abrirlo en SharePoint e iniciar sesión una vez; después los reportes se verán directo en el portal.</div>
+          </sc-if>
+          <sc-if value="{{ sel.isExtView }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:18px;background:linear-gradient(rgba(20,20,20,0) 35%,rgba(20,20,20,.55))">
+              <button onClick="{{ openSelUrl }}" style="border:0;border-radius:999px;background:var(--brand);color:#fff;font:800 14px var(--font-sans);padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(232,25,87,.35)">{{ extIcon }} Abrir reporte</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ sel.showLockOverlay }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;background:rgba(20,20,20,.5);backdrop-filter:blur(2px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;text-align:center;padding:20px">
+              <span style="display:flex">{{ lockIconLg }}</span>
+              <div style="font:700 14px var(--font-sans)">Reporte con datos sensibles</div>
+            </div>
+          </sc-if>
+        </div>
+        <aside class="dr-scroll" style="{{ winSideStyle }}">
+          <p style="font:400 13.5px/1.6 var(--font-sans);color:var(--text-body);margin:0">{{ sel.desc }}</p>
+          <sc-if value="{{ sel.hasGuia }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#FFF6DE;border:1px solid #FDE9AE;border-radius:14px;overflow:hidden;flex:none">
+              <button onClick="{{ toggleGuia }}" style="width:100%;border:0;background:transparent;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:10px;padding:12px 14px;text-align:left">
+                <img src="assets/spot/book.png" alt="" style="width:26px;height:26px;object-fit:contain;flex:none">
+                <span style="flex:1;min-width:0"><span style="display:block;font:800 13.5px var(--font-sans);color:var(--text-strong)">Cómo leer este reporte</span><span style="display:block;font:400 12px/1.4 var(--font-sans);color:#8a6a10;margin-top:1px">{{ sel.guiaResumen }}</span></span>
+                <span style="{{ guiaChevStyle }}">{{ guiaChevron }}</span>
+              </button>
+              <sc-if value="{{ guiaAbierta }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:2px 16px 14px;display:flex;flex-direction:column;gap:11px">
+                  <sc-for list="{{ sel.guiaPuntos }}" as="g" hint-placeholder-count="3">
+                    <div><div style="font:700 12.5px var(--font-sans);color:var(--text-strong)">{{ g.t }}</div><div style="font:400 12.5px/1.55 var(--font-sans);color:var(--text-body);margin-top:2px">{{ g.d }}</div></div>
+                  </sc-for>
+                  <sc-if value="{{ sel.guiaTieneOjo }}" hint-placeholder-val="{{ false }}">
+                    <div style="background:#fff;border-radius:10px;padding:9px 12px;font:600 12px/1.5 var(--font-sans);color:#8a5a00">👀 {{ sel.guiaOjo }}</div>
+                  </sc-if>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:none">
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:11px 13px"><div style="font:600 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px">Responsable</div><div style="font:700 13px var(--font-sans);color:var(--text-strong)">{{ sel.owner }}</div></div>
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:11px 13px"><div style="font:600 10.5px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px">Frecuencia</div><div style="font:700 13px var(--font-sans);color:var(--text-strong)">{{ sel.freqLabel }}</div></div>
           </div>
-          <div style="position:relative;height:300px;background:var(--ink-100)">{{ sel.embedEl }}
-            <sc-if value="{{ sel.hasEmbed }}" hint-placeholder-val="{{ false }}">
-              <button onClick="{{ sel.maximize }}" title="Ver en grande" style="position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(20,20,20,.72);color:#fff;border:0;border-radius:9px;padding:7px 11px;font:700 11.5px var(--font-sans);cursor:pointer">{{ expandIcon }} Ampliar</button>
-            </sc-if>
-            <sc-if value="{{ sel.showLoginHint }}" hint-placeholder-val="{{ false }}">
-              <div onClick="{{ openSelUrl }}" role="button" style="position:absolute;left:10px;bottom:10px;right:10px;background:rgba(255,255,255,.95);border:1px solid var(--educacion-100);border-radius:10px;padding:9px 12px;font:600 11.5px/1.45 var(--font-sans);color:var(--text-body);cursor:pointer;box-shadow:0 2px 8px rgba(20,20,20,.08)">💡 ¿Se ve en blanco o con error? Da clic aquí para abrirlo en SharePoint e iniciar sesión una vez; después los reportes se verán directo en el portal.</div>
-            </sc-if>
-            <sc-if value="{{ sel.showLockOverlay }}" hint-placeholder-val="{{ false }}">
-              <div style="position:absolute;inset:0;background:rgba(20,20,20,.5);backdrop-filter:blur(2px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;text-align:center;padding:20px">
-                <span style="display:flex">{{ lockIconLg }}</span>
-                <div style="font:700 14px var(--font-sans)">Reporte con datos sensibles</div>
-                <div style="font:400 12.5px/1.5 var(--font-sans);opacity:.9;max-width:30ch">Se mostrará tras validar tu sesión y permisos en Power BI.</div>
-              </div>
-            </sc-if>
-          </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px">
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Frecuencia</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.freqLabel }}</div></div>
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Actualización</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.updatedLabel }}</div></div>
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Responsable</div><div style="font:700 14px var(--font-sans);color:var(--text-strong)">{{ sel.owner }}</div></div>
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:13px 15px"><div style="font:600 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px">Acceso</div><div style="font:700 14px var(--font-sans);color:{{ sel.accessColor }};display:flex;align-items:center;gap:6px">{{ sel.accessIconEl }}{{ sel.accessLabel }}</div></div>
-        </div>
-
-        <div style="display:flex;gap:10px">
-          <x-import component-from-global-scope="Plan2040DesignSystem_08da0c.Button" variant="primary" size="md" block="{{ true }}" onClick="{{ cta }}" hint-size="100%,46px">{{ sel.ctaLabel }}</x-import>
-        </div>
-        <sc-if value="{{ sel.hasEmbed }}" hint-placeholder-val="{{ false }}">
-          <button onClick="{{ openSelUrl }}" style="margin-top:10px;width:100%;height:44px;border:1px solid var(--border-default);border-radius:999px;background:#fff;color:var(--text-body);font:600 14px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px" style-hover="{{ iconBtnHover }}">{{ extIcon }} {{ sel.openLabel }}</button>
-        </sc-if>
-        <p style="font:400 12px/1.5 var(--font-sans);color:var(--text-faint);margin:14px 0 0;display:flex;gap:7px;align-items:flex-start">{{ infoIcon }}<span>{{ sel.accessHelp }}</span></p>
+          <p style="font:400 11.5px/1.5 var(--font-sans);color:var(--text-faint);margin:0;display:flex;gap:7px;align-items:flex-start">{{ infoIcon }}<span>{{ sel.accessHelp }}</span></p>
+        </aside>
       </div>
     </div>
   </sc-if>
@@ -579,6 +586,7 @@ class Component extends DCLogic {
       view: "home",        // home | pillars | list
       vista: (function(){ try { return window.localStorage.getItem("p2040_dir_vista") || "tarjetas"; } catch(e){ return "tarjetas"; } })(),
       orden: (function(){ try { return window.localStorage.getItem("p2040_dir_orden") || "recientes"; } catch(e){ return "recientes"; } })(),
+      guiaAbierta: true,
       sesionLista: (function(){ try { return window.localStorage.getItem("p2040_dir_sesion")==="1"; } catch(e){ return false; } })(),
       category: null,
       pillar: null,        // pillar view key
@@ -1147,6 +1155,7 @@ class Component extends DCLogic {
     // selected
     let sel=null;
     const sr = this.REPORTS.find(r=>r.id===s.selectedId);
+    const G = sr ? (window.P2040_GUIAS||{})[sr.id] : null;
     if(sr){
       const p=this.pinfo(sr.pillar); const isEmbed=sr.access==="embed"; const isHtml=sr.source==="html"; const isExt=sr.source==="sharepoint" && (this.embedBloqueado() || !/embed\.aspx/i.test(sr.embedUrl||""));
       sel = {
@@ -1165,6 +1174,9 @@ class Component extends DCLogic {
             : this.thumbEl(sr.thumb, p)),
         showLockOverlay: sr.sensitive && !sr.embedUrl,
         showLoginHint: sr.source==="sharepoint" && !!sr.embedUrl && !isExt,
+        isExtView: isExt && !!sr.embedUrl,
+        hasGuia: !!G, guiaResumen: G? G.resumen : "", guiaPuntos: G? (G.puntos||[]) : [],
+        guiaTieneOjo: !!(G && G.ojo), guiaOjo: G? (G.ojo||"") : "",
         openUrl: sr.shareUrl || sr.embedUrl || null,
         hasEmbed: !!sr.embedUrl && !isExt,
         isHtml: isHtml,
@@ -1306,7 +1318,14 @@ class Component extends DCLogic {
       hasRole: !!rInfo,
       roleChipIcon: React.createElement("img",{src:(rInfo? rInfo.spot : "assets/spot/stars.png"),alt:"",style:{width:22,height:22,objectFit:"contain",flex:"none"}}),
       roleChipLabel: rInfo? rInfo.label : "Elegir mi rol",
-      drawerStyle: "position:fixed;top:0;right:0;height:100vh;width:"+(mob?"100vw":"min(560px,92vw)")+";background:var(--bg-app);box-shadow:-12px 0 40px rgba(0,0,0,.18);z-index:41;display:flex;flex-direction:column;animation:drwIn .26s cubic-bezier(.2,.8,.2,1)",
+      winStyle: mob? "position:fixed;inset:0;z-index:41;background:var(--bg-app);display:flex;flex-direction:column;overflow:hidden;animation:popIn .22s ease"
+                    : "position:fixed;inset:24px;z-index:41;background:var(--bg-app);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;animation:popIn .22s ease",
+      winHeadStyle: "flex:none;display:flex;align-items:center;gap:12px;background:#fff;border-bottom:1px solid var(--border-subtle);padding:"+(mob?"calc(12px + env(safe-area-inset-top)) 14px 12px":"14px 20px"),
+      winBodyStyle: mob? "flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:12px 12px calc(18px + env(safe-area-inset-bottom))"
+                        : "flex:1;min-height:0;display:flex;gap:16px;padding:16px",
+      winFrameStyle: "position:relative;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;"+(mob?"flex:none;height:46vh":"flex:1;min-width:0"),
+      winSideStyle: mob? "flex:none;display:flex;flex-direction:column;gap:12px"
+                        : "width:340px;flex:none;overflow:auto;display:flex;flex-direction:column;gap:14px;padding-right:2px",
       maxWrapStyle: "position:fixed;inset:0;background:rgba(20,20,20,.78);z-index:60;display:flex;flex-direction:column;animation:scrimIn .2s ease;padding:"+(mob?"0":"28px"),
       maxHeadStyle: "display:flex;align-items:center;flex-wrap:wrap;gap:"+(mob?"8px 10px":"12px")+";margin-bottom:"+(mob?"0":"16px")+";color:#fff;padding:"+(mob?"10px 12px":"0"),
       maxFrameStyle: "flex:1;background:#fff;border-radius:"+(mob?"0":"14px")+";overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)",
@@ -1352,6 +1371,10 @@ class Component extends DCLogic {
       cta: ()=>{ if(!sel) return; if(sel.hasEmbed){ sel.maximize(); } else if(sel.openUrl){ window.open(sel.openUrl,"_blank","noopener"); } },
       openMaxUrl: ()=>{ if(mx && mx.openUrl) window.open(mx.openUrl,"_blank","noopener"); },
       openSelUrl: ()=>{ if(sel && sel.openUrl) window.open(sel.openUrl,"_blank","noopener"); },
+      toggleGuia: ()=>this.setState(st=>({guiaAbierta: !st.guiaAbierta})),
+      guiaAbierta: !!s.guiaAbierta,
+      guiaChevron: this.icon("chevron",16,"#8a6a10"),
+      guiaChevStyle: "display:flex;flex:none;transition:transform .18s ease;transform:"+(s.guiaAbierta?"rotate(90deg)":"none"),
       goHelp: ()=>this.setState({showRequest:true}),
       showRequest: !!s.showRequest,
       closeRequest: ()=>this.setState({showRequest:false}),
