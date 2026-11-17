@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Pendientes por Niño · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/house.png" alt="">
+    <div class="mini">Para guías</div>
+    <h1>Manual de Pendientes por Niño</h1>
+    <p>Qué documentos e indicadores le faltan a cada niño: cómo leer cada tarjeta, qué quiere decir «aplica» y cómo descargar las listas.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#aplica">4 · Pendientes y «aplica»</a>
+    <a href="#vistas">5 · Las tres vistas</a>
+    <a href="#excel">6 · Las descargas</a>
+    <a href="#faq">7 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Dice <b>qué documentos e indicadores le faltan a cada niño P2040</b>, para cerrar capturas y preparar las visitas. De cada pendiente sale la lista de niños que lo deben, lista para descargar en Excel.</p>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>La guía sube documentos (fotos, actas, constancias) y llena los datos del niño.</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana el CRM se baja a las bases de personas, documentos y cartillas.</span></div>
+    <div class="paso"><span class="n">3</span><b>Revisión niño por niño</b><span>Para cada niño P2040 activo se revisa qué documento le aplica y si ya lo tiene, y cómo va en cada indicador.</span></div>
+    <div class="paso"><span class="n">4</span><b>Reporte</b><span>Arriba a la derecha dice la semana de corte.</span></div>
+  </div>
+  <div class="nota">💡 Los <b>indicadores</b> usan la misma lógica que el One Page y el Tablero de Metas: vacunación según el esquema oficial, nutrición con la Cartilla Nacional y medición de los últimos 12 meses, y sacramentos históricos.</div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <figure><img src="img/pendientes-archivos.jpg" alt="Filtros y vista Archivos de Pendientes por Niño"><figcaption>Los filtros y la vista Archivos. Captura con números de ejemplo.</figcaption></figure>
+  <ol class="call">
+    <li><div><b>Comunidad, Guía y Localidad</b>: los filtros aplican a los conteos, a las listas y a las descargas. A la derecha ves cuántos niños quedan en el filtro.</div></li>
+    <li><div><b>📁 Archivos · 🎯 Indicadores · 🧒 Por niño</b>: las tres formas de ver los pendientes.</div></li>
+    <li><div>En cada tarjeta, <b>Ver lista</b> abre a los niños que lo deben y <b>⬇ Excel</b> la descarga.</div></li>
+  </ol>
+
+  <h2 id="aplica"><span class="num">4</span>Cómo leer una tarjeta: pendientes y «aplica»</h2>
+  <ul>
+    <li><b>«N pendientes de M que aplican»</b>: de los niños a los que les corresponde ese documento o indicador, cuántos todavía no lo tienen. El porcentaje es la parte pendiente.</li>
+    <li>Un documento <b>aplica</b> según la regla del CRM: por ejemplo, las constancias de sacramentos solo aplican a quien corresponde, y el comprobante de grado escolar a quien estudia.</li>
+    <li><b>«Cargados sin que aplique (revisar captura)»</b>: documentos que se subieron a niños a los que no les corresponde. Casi siempre es un dato mal capturado en el perfil.</li>
+    <li>En los indicadores, <b>parciales</b> son niños que van a medias (por ejemplo, con algunas vacunas o con un solo sacramento) y <b>no les aplica</b> son los que quedan fuera por edad o religión.</li>
+  </ul>
+
+  <h2 id="vistas"><span class="num">5</span>Las tres vistas</h2>
+  <p class="sub">Da clic en una vista para ver qué responde y qué mirar primero.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-arch">📁 Archivos</a><a class="fondo" href="#t-ind">🎯 Indicadores</a><a href="#t-nino">🧒 Por niño</a>
+  </div>
+
+  <details class="tab" id="t-arch">
+    <summary>📁 Archivos<span class="badge">a fondo</span><span class="q">¿Qué documentos faltan por subir?</span></summary>
+    <ul>
+      <li>Una tarjeta por documento, agrupadas: <b>identidad</b> (fotografía, CURP, acta de nacimiento, INE), <b>acompañamiento</b> (aviso de privacidad firmado, foto de la ubicación), <b>salud</b> (foto de la cartilla de vacunación), <b>escolar</b> (consentimiento SEP, comprobante de grado) y <b>sacramentos</b> (constancias).</li>
+      <li>La foto de la cartilla sale de las cartillas subidas al CRM, no del campo de documentos.</li>
+      <li>En el comprobante de grado escolar, un niño puede deber más de un grado.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-ind">
+    <summary>🎯 Indicadores<span class="badge">a fondo</span><span class="q">¿En qué indicadores está pendiente cada niño?</span></summary>
+  <figure><img src="img/pendientes-indicadores.jpg" alt="Vista Indicadores de Pendientes por Niño"><figcaption>La vista Indicadores, por pilar. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Los indicadores del Plan agrupados por pilar: <b>familia</b> (sueño, registro civil), <b>educación</b> (escolaridad), <b>salud</b> (derechohabiencia, vacunación, nutrición óptima), <b>espiritualidad</b> (sacramentos, consagración) y <b>acompañamiento</b> (visita y formación del mes cerrado).</li>
+      <li>Hasta abajo, <b>mes en curso (informativo)</b>: visita y formación del mes que va corriendo. Es normal que estén altos al inicio del mes.</li>
+    </ul>
+    <div class="ojo">👀 En Nutrición, «sin medición vigente» también cuenta como pendiente: hay que medir al niño, porque su última medición tiene más de 12 meses.</div>
+  </details>
+
+  <details class="tab" id="t-nino">
+    <summary>🧒 Por niño<span class="q">¿Qué le falta a cada niño, todo junto?</span></summary>
+    <ul>
+      <li>Una fila por niño, ordenada por total de pendientes: edad, guía, localidad, teléfono, cuántos archivos y cuántos indicadores le faltan.</li>
+      <li>Al dar clic en un niño se abre su ficha con todo lo que le falta. Es la vista para preparar la visita.</li>
+      <li><b>⬇ Excel · resumen por niño</b> descarga la tabla completa.</li>
+    </ul>
+  </details>
+
+  <h2 id="excel"><span class="num">6</span>Las descargas</h2>
+  <ul>
+    <li><b>⬇ Excel</b> en cada tarjeta, o <b>⬇ Excel de esta lista</b> dentro de una lista: los niños que deben ese pendiente, con edad, sexo, comunidad, localidad, colonia, teléfono, guía, estatus y qué falta.</li>
+    <li><b>⬇ Excel · todos los pendientes</b>: todo de una vez, con los filtros que tengas.</li>
+  </ul>
+  <div class="nota">🔒 Las listas traen nombres y teléfonos de los niños y sus familias: úsalas solo dentro del equipo y no las reenvíes.</div>
+
+  <h2 id="faq"><span class="num">7</span>Preguntas frecuentes</h2>
+  <details><summary>Subí un documento y sigue como pendiente</summary><p>El reporte se actualiza con la descarga semanal del CRM: aparecerá como completo en el siguiente corte. Revisa también que se haya subido en el campo correcto del perfil.</p></details>
+  <details><summary>¿Qué hago con «cargados sin que aplique»?</summary><p>Revisa el perfil del niño: casi siempre falta un dato (religión, si estudia, edad) que hace que el documento sí le aplique, o el documento se subió al niño equivocado.</p></details>
+  <details><summary>¿Coincide con el Tablero de Metas?</summary><p>Sí: los indicadores usan la misma lógica. Aquí se ven como pendientes (lo que falta) y en el Tablero como cumplimiento (lo que ya está).</p></details>
+
+  <footer>Plan 20·40 · Manual de Pendientes por Niño · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

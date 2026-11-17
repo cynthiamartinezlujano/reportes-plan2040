@@ -104,6 +104,16 @@
       ojo: "Por familia es más estricto: una familia cuenta como visitada solo si TODOS sus P2040 tuvieron visita. Formación se mide por las visitas con tema registrado.",
       manual: "manuales/kpis-guias.html",
     },
+    r52: {
+      resumen: "Para coordinadoras: cómo va cada guía con las visitas del mes y a quién le falta visitar.",
+      puntos: [
+        { t: "Elige tu comunidad y el mes", d: "Cuatro Ciénegas o Independencia. Arriba ves cuántos niños lleva visitados el equipo, cuántas visitas faltan para el 90 % y cuántas por día hábil." },
+        { t: "Tus guías", d: "Una tarjeta por guía con su % de niños visitados y una etiqueta: buen ritmo, en camino o le vendría bien un empujón. «Quién necesita apoyo» las ordena de la que va más atrás a la que va mejor." },
+        { t: "Toca a una guía", d: "Ves sus niños, familias y embarazadas por visitar, y puedes copiar un mensaje de ánimo para WhatsApp. «Lista del equipo en Excel» baja a todos los que faltan." },
+      ],
+      ojo: "Mismas cifras que el Reporte Mensual: no cuenta a los bimestrales que descansan. En el mes en curso la etiqueta compara contra el ritmo esperado a la fecha, no contra la meta final.",
+      manual: "manuales/avance-visitas-guias.html",
+    },
     r30: {
       resumen: "Arma e imprime la lista de visitas de cada guía, con la información que tú elijas.",
       puntos: [
@@ -146,6 +156,7 @@
         { t: "Por niño", d: "Muestra todo lo que le falta a cada niño en un solo lugar: útil para preparar la visita." },
       ],
       ojo: "Cada lista se descarga en Excel con edad, comunidad, teléfono, guía y qué falta. «Excel · todos los pendientes» baja todo de una vez.",
+      manual: "manuales/pendientes-nino.html",
     },
 
     // ── Reportes por pilar · Salud ────────────────────────────────────────
