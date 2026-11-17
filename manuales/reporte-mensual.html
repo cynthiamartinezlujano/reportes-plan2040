@@ -54,6 +54,15 @@
   .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
   .tabla .quien{color:var(--text-muted);font-size:12.5px}
   .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
   details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
   details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
   details summary::-webkit-details-marker{display:none}
@@ -91,8 +100,9 @@
     <a href="#tarjetas">4 · Las tarjetas</a>
     <a href="#indicadores">5 · Los 12 indicadores</a>
     <a href="#generacion">6 · Por generación</a>
-    <a href="#faq">7 · Preguntas frecuentes</a>
-    <a href="#glosario">8 · Glosario</a>
+    <a href="#pestanas">7 · Recorrido por pestañas</a>
+    <a href="#faq">8 · Preguntas frecuentes</a>
+    <a href="#glosario">9 · Glosario</a>
   </nav>
 
   <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
@@ -181,14 +191,104 @@
   <p>Sirve para ver <b>en qué edad se cae un indicador</b>. Por ejemplo, si Nutrición óptima está en verde en las generaciones grandes y en rojo en las pequeñas, el foco está en los más chiquitos. Los colores usan el mismo semáforo, y al pasar el cursor sobre una celda ves cuántos niños cumplen de cuántos.</p>
   <p>Un guion «—» quiere decir que ese indicador no aplica a esa edad (por ejemplo, primera comunión en niños menores de 7 años).</p>
 
-  <h2 id="faq"><span class="num">7</span>Preguntas frecuentes</h2>
+  <h2 id="pestanas"><span class="num">7</span>Recorrido por pestañas</h2>
+  <p class="sub">Cada pestaña abre un tema a fondo. Da clic en una para ver qué responde y qué mirar primero. Las marcadas <b>a fondo</b> son las que se revisan en la reunión.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-benef">Beneficiarios</a><a class="fondo" href="#t-acomp">Acompañamiento</a><a class="fondo" href="#t-salud">Salud</a>
+    <a href="#t-form">Formación</a><a href="#t-edu">Educación</a><a href="#t-fam">Familia</a><a href="#t-esp">Espiritualidad</a>
+  </div>
+
+  <details class="tab" id="t-benef">
+    <summary>Beneficiarios<span class="badge">a fondo</span><span class="q">¿Cuántas personas acompañamos, cuántas se han ido y por qué?</span></summary>
+    <figure><img src="img/mensual-beneficiarios.jpg" alt="Pestaña Beneficiarios del Reporte Mensual"><figcaption>La pestaña Beneficiarios.</figcaption></figure>
+    <h3>Qué mirar primero</h3>
+    <ul>
+      <li><b>P2040 activos</b>: cuántos niños acompaña hoy el Plan, cuántos están «en observación» y en cuántas familias viven.</li>
+      <li><b>P2040 inactivos acumulados</b>: todos los niños que han dejado el Plan a lo largo del tiempo, con su motivo (emigración, baja voluntaria, no localizado…) en la gráfica de abajo.</li>
+      <li><b>Personas activas</b>: todas las personas registradas en el CRM, separadas por tipo de perfil (P2040, C2040, F2040, R2040, E2040).</li>
+      <li><b>% población acompañada</b>: personas activas entre los habitantes de las dos comunidades según el INEGI.</li>
+      <li><b>% aceptación del Plan</b>: de las familias a las que se les ofreció el Plan, cuántas siguen. Se calcula como activos entre activos + bajas voluntarias + no localizados + sin motivo.</li>
+      <li><b>Casos activos</b> y <b>mamás embarazadas</b> (embarazadas y en postparto, y cuántas tuvieron visita o seguimiento en el mes).</li>
+    </ul>
+    <p>El botón <b>«¿Qué pasó este mes?»</b>, junto a «Resumen», muestra los movimientos del mes.</p>
+    <div class="ojo">👀 Los inactivos son <b>acumulados</b> (histórico), no solo del mes. Y la aceptación no cuenta como rechazo a quien emigró o falleció: solo bajas voluntarias, no localizados y sin motivo.</div>
+  </details>
+
+  <details class="tab" id="t-acomp">
+    <summary>Acompañamiento<span class="badge">a fondo</span><span class="q">¿A cuántos niños acompañamos en el mes, y cómo?</span></summary>
+    <figure><img src="img/mensual-acompanamiento.jpg" alt="Pestaña Acompañamiento del Reporte Mensual"><figcaption>La pestaña Acompañamiento, en su vista Resumen.</figcaption></figure>
+    <h3>Qué mirar primero</h3>
+    <ul>
+      <li><b>Población objetivo</b>: los niños a los que tocaba atender este mes. Son todos los activos menos los de familias bimestrales que ese mes no tenían visita.</li>
+      <li><b>Los tres indicadores</b>: niños acompañados (por cualquier medio), niños con visita formativa, y otros acompañamientos sin visita (seguimiento, caso, programa o medición).</li>
+      <li><b>¿Cómo se acompañó a los niños?</b>: cuántos niños recibieron cada medio (visitas, medición de nutrición, seguimientos, programas) y cuántos medios tuvo cada niño. Los de «0 medios» son los que no recibieron nada en el mes.</li>
+      <li><b>Visitas, Casos y Programas</b>: tres tarjetas de resumen. «Ver detalle →» abre su subpestaña (también arriba: Resumen, Visitas, Casos, Programas). Ahí están las sesiones de visita, los niños pendientes de visita, los casos nuevos y finalizados, y las asistencias a programas.</li>
+    </ul>
+    <div class="ojo">👀 Algunos indicadores aparecen dos veces: <b>Objetivo</b> mide contra los niños a los que tocaba atender y <b>Total</b> contra todos los activos. La ⭐ marca el que se reporta. El aviso «+84 acompañados fuera del objetivo» son niños bimestrales atendidos aunque no les tocaba.</div>
+  </details>
+
+  <details class="tab" id="t-salud">
+    <summary>Salud<span class="badge">a fondo</span><span class="q">¿Tienen los niños seguro médico, buena nutrición y vacunas al día?</span></summary>
+    <figure><img src="img/mensual-salud.jpg" alt="Pestaña Salud del Reporte Mensual"><figcaption>La pestaña Salud, en su vista Resumen.</figcaption></figure>
+    <h3>Qué mirar primero</h3>
+    <ul>
+      <li><b>Los tres indicadores ⭐</b>: derechohabiencia (seguro médico), nutrición óptima y esquema de vacunación al corriente.</li>
+      <li><b>Seguro médico</b>: cuántos lo tienen y de qué institución (INSABI, IMSS, ISSSTE…). Las etiquetas «REVISAR DATO» son capturas que hay que corregir.</li>
+      <li><b>Estado nutricional</b>: niños en óptimo, en amarillo (vigilancia), en rojo (atención) y sin medición vigente.</li>
+      <li><b>Vacunación</b>: si la cartilla está vigente (cargada en los últimos 12 meses), no vigente o sin cargar, y si el esquema está al corriente.</li>
+      <li>Las subpestañas (Seguimiento Nutricional, Seguro Médico, Cartillas y Esquema de Vacunación) llevan a las listas y al detalle de cada tema.</li>
+    </ul>
+    <h3>La comparación con el promedio nacional</h3>
+    <figure><img src="img/mensual-salud-benchmark.jpg" alt="Tabla de comparación de salud contra el promedio nacional"><figcaption>Abajo de la pestaña: el Plan contra el promedio nacional (INEGI y ENSANUT).</figcaption></figure>
+    <p>Compara al Plan contra fuentes oficiales: derechohabiencia contra el INEGI y esquema completo y cartilla contra la ENSANUT, en las mismas edades. La columna «Diferencia» dice cuántos puntos estamos arriba o abajo.</p>
+    <div class="ojo">👀 Nutrición óptima marca <b>62.3 %</b> en la tarjeta y <b>50 %</b> en la gráfica, y las dos están bien: el indicador solo cuenta a los niños con medición vigente, y la gráfica reparte a todos los niños, incluidos los que no tienen medición.</div>
+  </details>
+
+  <details class="tab" id="t-form">
+    <summary>Formación<span class="q">¿Cuántos niños y familias recibieron formación, y de qué temas?</span></summary>
+    <ul>
+      <li><b>Formación del mes ⭐</b>: niños que recibieron un tema, ellos o su familia. Junto: temas dados, familias y personas alcanzadas, y cuántas guías dieron formación.</li>
+      <li><b>Temas más frecuentes</b>, con el color de su carpeta por edad, y el <b>pilar del mes</b>: qué pilar se trabajó más en las sesiones.</li>
+    </ul>
+    <div class="ojo">👀 Para el detalle por guía, por localidad y si la carpeta correspondió a la edad, abre el reporte <b>Formación · Reporte mensual</b> del apartado Acompañamiento.</div>
+  </details>
+
+  <details class="tab" id="t-edu">
+    <summary>Educación<span class="q">¿Están estudiando los niños en edad escolar?</span></summary>
+    <ul>
+      <li><b>Población objetivo</b>: niños en edad de preescolar y primaria (regla SEP), y qué porcentaje estudia algún grado.</li>
+      <li>Escolaridad · Preescolar y · Primaria ⭐, con barras por generación. Da clic en una generación para filtrar toda la página a ella.</li>
+      <li>Subpestañas: Escolaridad, Estimulación Oportuna, Rochat · Prepa Abierta, Preinscripciones y Firmas SEP.</li>
+    </ul>
+    <div class="ojo">👀 «Estudiando» incluye a los niños preinscritos o confirmados, no solo a los que ya cursan.</div>
+  </details>
+
+  <details class="tab" id="t-fam">
+    <summary>Familia<span class="q">¿Tienen los niños su sueño y su registro civil?</span></summary>
+    <ul>
+      <li>Total de familias y cuántos niños faltan por relacionar con su familia en el CRM.</li>
+      <li>Sueño registrado ⭐ y registro civil ⭐, con los niños sin registro civil por generación.</li>
+      <li>El estado civil de los padres. Subpestañas: Sueño y Registro Civil.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-esp">
+    <summary>Espiritualidad<span class="q">¿Cómo van los sacramentos y las consagraciones?</span></summary>
+    <ul>
+      <li><b>Población objetivo</b>: los niños católicos, y los de 7 años o más para la primera comunión.</li>
+      <li>Bautismo ⭐, primera comunión ⭐ y consagración ⭐ (al menos una: Sagrado Corazón o Virgen de Guadalupe), y la religión de los niños acompañados.</li>
+      <li>La subpestaña «Por generación» muestra cada sacramento por edad.</li>
+    </ul>
+  </details>
+
+  <h2 id="faq"><span class="num">8</span>Preguntas frecuentes</h2>
   <details><summary>¿Por qué el mes en curso cambia de un día para otro?</summary><p>Porque todavía no cierra: muestra la descarga más reciente del CRM, y cada semana entran visitas y capturas nuevas. El número final queda al cierre del mes.</p></details>
   <details><summary>¿Por qué «Visitas» no cuenta a todos los niños?</summary><p>Desde octubre 2026 se mide contra las familias que se visitan cada mes. Las familias bimestrales se visitan un mes sí y otro no, así que contarlas haría ver como pendiente algo que no tocaba.</p></details>
   <details><summary>¿Qué quiere decir «pp»?</summary><p>Puntos porcentuales: la diferencia directa entre dos porcentajes. Si un indicador pasa de 80 % a 85 %, subió 5 pp.</p></details>
   <details><summary>¿Por qué un indicador bajó si trabajamos igual?</summary><p>Revisa dos cosas: si entraron niños nuevos al padrón (el denominador crece y el porcentaje baja aunque nadie haya dejado de cumplir) y si faltan capturas en el CRM. El reporte refleja lo que está capturado.</p></details>
   <details><summary>¿Coincide con el One Page y el Tablero de Metas?</summary><p>Sí: los cuatro reportes (Mensual, Semanal, One Page y Tablero de Metas) usan exactamente las mismas reglas. Si ves una diferencia, revisa que estés comparando el mismo mes y la misma comunidad.</p></details>
 
-  <h2 id="glosario"><span class="num">8</span>Glosario</h2>
+  <h2 id="glosario"><span class="num">9</span>Glosario</h2>
   <div class="card">
     <dl class="glosario">
       <dt>P2040</dt><dd>Niño o niña del Plan 20·40, la población principal que se acompaña.</dd>
@@ -203,5 +303,14 @@
 
   <footer>Plan 20·40 · Manual del Reporte Mensual · Las definiciones vienen del mismo programa que genera el reporte, así que siempre corresponden a lo que ves en pantalla. ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
 </div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
 </body>
 </html>

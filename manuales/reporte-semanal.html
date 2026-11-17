@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Reporte Semanal · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/message.png" alt="">
+    <div class="mini">Reuniones de seguimiento</div>
+    <h1>Manual del Reporte Semanal</h1>
+    <p>Cómo va el mes en curso, semana a semana, contra el cierre del mes anterior: qué mide, de dónde salen sus números y cómo leerlo sin confundirse.</p>
+  </section>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#dos-tipos">4 · Dos tipos de indicador</a>
+    <a href="#pestanas">5 · Recorrido por pestañas</a>
+    <a href="#faq">6 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>El Mensual dice cómo cerró el mes; el Semanal dice <b>cómo va el mes mientras sucede</b>. Sirve para darse cuenta a tiempo, a mitad del mes, de si vamos más lento que el mes pasado y corregir antes del cierre.</p>
+  <p>Usa <b>exactamente las mismas reglas que el Reporte Mensual</b>, así que al final del mes sus números coinciden con el cierre.</p>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>Las guías registran visitas, datos de la familia y del niño.</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana se descarga el CRM a las bases «maestros».</span></div>
+    <div class="paso"><span class="n">3</span><b>Corte de la semana</b><span>Cada semana se compara contra la anterior y contra el cierre del mes pasado.</span></div>
+    <div class="paso"><span class="n">4</span><b>Reporte</b><span>Se publica en el portal con la fecha de corte en el encabezado.</span></div>
+  </div>
+  <div class="nota">💡 Las semanas van de <b>lunes a domingo, recortadas al mes</b>. Por eso la primera y la última semana pueden ser más cortas o más largas (por ejemplo, «Sem 1 · 1–8 nov»).</div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <figure>
+    <img src="img/semanal-beneficiarios.jpg" alt="Encabezado y pestaña Beneficiarios del Reporte Semanal">
+    <figcaption>El encabezado con sus controles y la pestaña Beneficiarios.</figcaption>
+  </figure>
+  <ol class="call">
+    <li><div><b>El renglón bajo el título</b> dice la semana, la fecha de corte, si la semana va en curso y desde qué cierre se compara.</div></li>
+    <li><div><b>Todas · Cuatro Ciénegas · Independencia</b>: elige la comunidad.</div></li>
+    <li><div><b>Sem 1, Sem 2…</b>: elige la semana. La que tiene <b>*</b> va en curso y sus números todavía van a subir.</div></li>
+    <li><div><b>Las pestañas</b>: Beneficiarios, Resumen de la semana, Visitas, Embarazadas, Casos y Programas.</div></li>
+  </ol>
+
+  <h2 id="dos-tipos"><span class="num">4</span>Lo más importante: dos tipos de indicador</h2>
+  <p>El Semanal maneja dos clases de indicadores que se leen distinto. Entender esto evita casi todas las confusiones.</p>
+  <table class="tabla">
+    <thead><tr><th>Tipo</th><th>Cuáles son</th><th>Cómo se leen</th></tr></thead>
+    <tbody>
+      <tr><td>Del mes</td><td>Visitas, Acompañamiento y Formación del mes.</td><td class="quien"><b>Empiezan en cero cada mes</b> y suben conforme pasa el mes. Por eso al día 5 se ven bajos aunque todo vaya bien. Se comparan contra el <b>mismo día del mes anterior</b> («vs oct al día 15»).</td></tr>
+      <tr><td>De estado</td><td>Sueño, registro civil, escolaridad, derechohabiencia, nutrición, vacunas, bautismo, primera comunión y consagración.</td><td class="quien"><b>No se reinician</b>: son una situación que el niño tiene o no tiene. Se comparan contra el <b>cierre del mes anterior</b> para ver cuántos niños ganaron o perdieron.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="pestanas"><span class="num">5</span>Recorrido por pestañas</h2>
+  <p class="sub">Da clic en una pestaña para ver qué responde y qué mirar primero.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-benef">Beneficiarios</a><a class="fondo" href="#t-res">Resumen de la semana</a><a class="fondo" href="#t-vis">Visitas</a>
+    <a href="#t-emb">Embarazadas</a><a href="#t-casos">Casos</a><a href="#t-prog">Programas</a>
+  </div>
+
+  <details class="tab" id="t-benef">
+    <summary>Beneficiarios<span class="badge">a fondo</span><span class="q">¿Cuántos niños P2040 tenemos esta semana y quién entró o salió?</span></summary>
+    <ul>
+      <li><b>Niños P2040 activos ⭐ y familias</b> al corte, contra la semana anterior.</li>
+      <li><b>Movimientos de la semana</b>: altas, reactivados, inactivados, defunciones y pasados a observación. «Toda la población» suma también a los demás perfiles (familiares, etc.).</li>
+      <li><b>Motivos de inactivación</b>: por qué salieron los niños de la semana.</li>
+      <li>Más abajo están el detalle de cada movimiento, niño por niño, y las personas activas por tipo de perfil.</li>
+    </ul>
+    <div class="ojo">👀 Si los activos bajan, revisa primero los motivos: «sin motivo capturado» es un pendiente de captura, no una baja confirmada.</div>
+  </details>
+
+  <details class="tab" id="t-res">
+    <summary>Resumen de la semana<span class="badge">a fondo</span><span class="q">¿Cómo va el mes comparado con el mes pasado al mismo día?</span></summary>
+    <figure><img src="img/semanal-resumen.jpg" alt="Pestaña Resumen de la semana del Reporte Semanal"><figcaption>Punto de partida, los tres indicadores del mes y su avance día a día.</figcaption></figure>
+    <ul>
+      <li><b>Punto de partida → acumulado</b>: arriba ves desde qué cierre se compara y hasta qué día va el acumulado del mes.</li>
+      <li><b>Visitas, Acompañamiento y Formación del mes ⭐</b>: el porcentaje acumulado, cuánto sumó esta semana y la comparación contra el mes anterior al mismo día. También el cierre del mes anterior como referencia.</li>
+      <li><b>¿Cómo va el mes?</b>: las líneas del mes actual contra el anterior, día a día. Si la línea de este mes va por debajo, vamos más lento.</li>
+      <li><b>Lo que sumó cada semana</b>: cuántos niños nuevos aportó cada semana a cada indicador.</li>
+    </ul>
+    <h3>Indicadores de estado</h3>
+    <figure><img src="img/semanal-estado.jpg" alt="Tabla de indicadores de estado contra el cierre del mes anterior"><figcaption>Los indicadores de estado contra el cierre del mes anterior.</figcaption></figure>
+    <p>Esta tabla compara los indicadores de estado contra el cierre. «Cambio en niños» dice cuántos ganaron y cuántos perdieron (por ejemplo «+46 / −23»). El botón «Solo esta semana» compara solo contra la semana anterior, y al dar clic en un indicador ves quién lo ganó, quién lo perdió y quién sigue pendiente.</p>
+    <div class="ojo">👀 No te alarmes si Visitas marca 25 % a mitad de mes: compáralo contra el mes pasado <b>al mismo día</b>, no contra el cierre.</div>
+  </details>
+
+  <details class="tab" id="t-vis">
+    <summary>Visitas<span class="badge">a fondo</span><span class="q">¿Cuántos niños llevamos visitados y cuántos faltan?</span></summary>
+    <figure><img src="img/semanal-visitas.jpg" alt="Pestaña Visitas del Reporte Semanal"><figcaption>La pestaña Visitas.</figcaption></figure>
+    <ul>
+      <li><b>% de niños con visita formativa ⭐</b>: niños de familias mensuales visitados en el mes. Debajo, «De dónde sale la base» explica la cuenta: todos los P2040 menos los bimestrales que el Plan del Mes no programa ese mes.</li>
+      <li><b>Visitas registradas en la semana</b> (localizadas y no localizadas), niños visitados, <b>nuevos en el mes</b> (su primera visita del mes cayó en esta semana) y <b>pendientes</b>.</li>
+      <li><b>Visitas por día y tipo</b>: presencial, telefónica, registro de nacido y no localizadas.</li>
+      <li><b>Por guía</b>: el avance de cada guía en el mes y en la semana. Da clic en el nombre de una guía para filtrar toda la página a ella. Hasta abajo está la lista de niños pendientes de visita.</li>
+    </ul>
+    <div class="ojo">👀 «Visitas registradas» cuenta visitas y «niños visitados» cuenta niños: una visita a una familia puede cubrir a varios niños, y una no localizada no cuenta como visita formativa.</div>
+  </details>
+
+  <details class="tab" id="t-emb">
+    <summary>Embarazadas<span class="q">¿Cómo están las mamás embarazadas y qué hay que hacer esta semana?</span></summary>
+    <ul>
+      <li>Mamás en el tablero: embarazadas vigentes (y cuántas primerizas), en postparto, próximas a dar a luz y con ficha prenatal.</li>
+      <li><b>Riesgo calculado</b> con la ficha prenatal: alto, medio, sin factores o sin ficha.</li>
+      <li><b>Qué hacer esta semana</b>: llenar fichas prenatales, cerrar embarazos que siguen abiertos y visitar a quienes están por dar a luz. Más abajo, los factores de riesgo por tema.</li>
+    </ul>
+    <div class="ojo">👀 «Sin ficha prenatal» quiere decir que no se puede evaluar el riesgo, no que no haya riesgo.</div>
+  </details>
+
+  <details class="tab" id="t-casos">
+    <summary>Casos<span class="q">¿Cuántos casos hay abiertos y qué tan viejos son?</span></summary>
+    <ul>
+      <li>Casos activos al corte, por estatus (en proceso, pendiente, monitoreo), y los abiertos y cerrados en la semana.</li>
+      <li>Casos por pilar, por categoría y por antigüedad, y la lista de casos activos.</li>
+    </ul>
+    <div class="ojo">👀 Los seguimientos no tienen fecha de realización en el CRM, por eso no se cuentan por semana.</div>
+  </details>
+
+  <details class="tab" id="t-prog">
+    <summary>Programas<span class="q">¿Qué programas tuvieron actividad y a cuántos niños llegaron?</span></summary>
+    <ul>
+      <li>Programas con actividad (PIN, Cinta MUAC y Jornada de peso y talla), asistencias, personas atendidas y niños P2040 alcanzados.</li>
+      <li>El resumen por programa y, abajo, el detalle de cada uno.</li>
+    </ul>
+    <div class="ojo">👀 En PIN cada consulta con la nutrióloga es una sesión; en Cinta MUAC y Jornada de peso y talla, una «sesión» es un día con mediciones y una «asistencia» es un niño medido.</div>
+  </details>
+
+  <h2 id="faq"><span class="num">6</span>Preguntas frecuentes</h2>
+  <details><summary>¿Por qué no coincide con el Mensual?</summary><p>A mitad de mes el Semanal muestra un acumulado parcial y el Mensual el último corte disponible. Al cierre del mes coinciden, porque usan las mismas reglas.</p></details>
+  <details><summary>¿Por qué la semana en curso tiene casi todo en cero?</summary><p>Porque acaba de empezar. Para leer una semana completa elige la anterior (la que no tiene *).</p></details>
+  <details><summary>¿Qué es «vs oct al día 15»?</summary><p>La comparación contra el mes anterior en el mismo punto del mes. Es la comparación justa para los indicadores del mes, que empiezan en cero cada mes.</p></details>
+  <details><summary>¿Qué quiere decir «pp»?</summary><p>Puntos porcentuales: la diferencia directa entre dos porcentajes. De 80 % a 85 % son 5 pp.</p></details>
+
+  <footer>Plan 20·40 · Manual del Reporte Semanal · Las reglas son las mismas del Reporte Mensual: consulta <a href="reporte-mensual.html#indicadores" style="color:var(--brand-strong)">su manual</a> para la definición de cada indicador. ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

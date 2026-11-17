@@ -22,7 +22,8 @@
         { t: "Empieza por Beneficiarios", d: "Niños P2040 activos y familias al corte, contra la semana anterior. Si hay una baja, revisa abajo los movimientos (altas, reactivados, inactivados, defunciones) y sus motivos." },
         { t: "Luego recorre las pestañas", d: "Resumen de la semana, Visitas, Embarazadas, Casos y Programas: cada una muestra la misma semana desde su tema." },
       ],
-      ojo: "La semana marcada con * va en curso: sus números todavía van a subir. No la compares como si estuviera cerrada.",
+      ojo: "Visitas, Acompañamiento y Formación empiezan en cero cada mes: compáralos contra el mes pasado al mismo día, no contra el cierre. La semana con * va en curso.",
+      manual: "manuales/reporte-semanal.html",
     },
     r44: {
       resumen: "El panorama integral del Plan mes por mes: indicadores por pilar, beneficiarios y avance.",
