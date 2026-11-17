@@ -46,6 +46,7 @@
         { t: "Para compartir", d: "«PDF ejecutivo» arma una versión de una página lista para enviar o imprimir." },
       ],
       ojo: "La última columna dice «corte», no «cierre»: es el mes en curso y todavía puede moverse. Las reglas de cálculo son las mismas del Reporte Mensual (están en «¿Cómo se calculan los indicadores?» al final).",
+      manual: "manuales/one-page.html",
     },
     r29: {
       resumen: "Qué porcentaje de los niños cumple cada meta del Plan, por comunidad, guía y niño.",
@@ -54,7 +55,8 @@
         { t: "Elige comunidad", d: "Todas, Cuatro Ciénegas o Independencia. Arriba verás cuántos niños atendidos entran en el cálculo y el promedio general." },
         { t: "Antes de concluir", d: "Abre «¿Cómo se calcula cada meta?»: ahí está quién entra al denominador y qué cuenta como cumplido." },
       ],
-      ojo: "El promedio general resume todas las metas juntas: una meta muy baja se esconde detrás de otras altas. Revisa el tablero meta por meta.",
+      ojo: "Semáforo: verde 85 % o más, amarillo 60–84 %, rojo menos de 60 %. El promedio general resume todas las metas juntas: una meta muy baja se esconde detrás de otras altas, así que revisa el tablero meta por meta.",
+      manual: "manuales/tablero-metas.html",
     },
     r35: {
       resumen: "Quién entró y quién salió del padrón P2040 en el mes, y por qué.",
@@ -63,7 +65,8 @@
         { t: "Filtra", d: "Comunidad, mes analizado, guía, localidad o búsqueda por nombre. «Descargar Excel» baja la lista filtrada." },
         { t: "Lee los motivos", d: "En bajas: voluntaria, emigración, no localizado, defunción, etc. En altas: nuevo registro, reactivado o reclasificado." },
       ],
-      ojo: "«Sin motivo capturado» y «Desapareció del corte» son pendientes de captura, no bajas reales: hay que revisarlos con la guía. Un «Reclasificado a F2040» tampoco es una pérdida: el niño sigue en el Plan con otro perfil.",
+      ojo: "«Sin motivo capturado» y «Desapareció del corte» (el registro ya no vino en la descarga) son pendientes de revisar con la guía, no bajas confirmadas. Un «Reclasificado a F2040» tampoco es una pérdida: el niño sigue en el Plan con otro perfil.",
+      manual: "manuales/altas-bajas.html",
     },
     r43: {
       resumen: "Para bajar las bases maestras del CRM a Excel, filtradas a tu medida.",
@@ -72,7 +75,8 @@
         { t: "Filtra y escoge columnas", d: "«＋ Filtro por columna» acota los renglones; «Columnas visibles» decide qué campos se descargan." },
         { t: "Descarga", d: "«Excel (vista filtrada)» baja solo lo que ves; «Excel (toda la comunidad)» baja la base completa." },
       ],
-      ojo: "Son datos personales de las familias: descarga solo lo necesario y no los reenvíes fuera del equipo. «Modo prueba» usa datos ficticios, para practicar.",
+      ojo: "Son datos personales de las familias: descarga solo lo necesario y no los reenvíes fuera del equipo. «Modo prueba» no es para practicar: muestra solo los registros de prueba que quedaron en el CRM (PRUEBA, EXAGONO, TEST…). Para trabajar, usa «Datos reales».",
+      manual: "manuales/descargas-maestros.html",
     },
 
     // ── Visitas ───────────────────────────────────────────────────────────

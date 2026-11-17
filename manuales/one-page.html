@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · One Page · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/stars.png" alt="">
+    <div class="mini">Panorama del Plan</div>
+    <h1>Manual del One Page · Indicadores por Pilar</h1>
+    <p>Todos los indicadores del Plan en una sola hoja, mes por mes: qué mide cada renglón, de dónde salen los números y cómo leerlo.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#celda">4 · Cómo leer una celda</a>
+    <a href="#indicadores">5 · Los indicadores</a>
+    <a href="#faq">6 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>El One Page pone <b>todos los indicadores del Plan en una sola hoja, mes por mes</b>, desde el cierre del año pasado hasta el mes en curso. De un vistazo ves si cada indicador sube, baja o se mantiene a lo largo del año.</p>
+  <p>Es la vista para dirección y para presentar: el <a href="reporte-mensual.html" style="color:var(--brand-strong)">Reporte Mensual</a> explica un mes a fondo; el One Page pone todos los meses lado a lado.</p>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>Las guías registran visitas, datos de la familia y del niño.</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana el CRM se baja a las bases «maestros»: Personas, Visitas, Casos y Programas.</span></div>
+    <div class="paso"><span class="n">3</span><b>Corte de cada mes</b><span>Se toma la foto del cierre de cada mes. El mes en curso usa el último corte disponible.</span></div>
+    <div class="paso"><span class="n">4</span><b>One Page</b><span>Se regenera con cada actualización y siempre muestra el mes en curso.</span></div>
+  </div>
+  <div class="nota">💡 <b>Una sola fuente de verdad:</b> desde noviembre de 2026, el One Page, el Tablero de Metas y el Reporte Semanal miden con <b>las mismas reglas del Reporte Mensual</b>. Por eso el cierre de un mes debe dar lo mismo en todos.</div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <figure>
+    <img src="img/onepage-tabla.jpg" alt="Encabezado, filtros y tabla del One Page">
+    <figcaption>El encabezado, los filtros y la tabla. Captura con números de ejemplo.</figcaption>
+  </figure>
+  <ol class="call">
+    <li><div><b>El renglón bajo el título</b> dice qué población se mide (niños P2040 activos), cuál es el último corte disponible y cuándo se generó el reporte.</div></li>
+    <li><div><b>Comunidad</b>: Todas, Cuatro Ciénegas (CC) o Independencia (CI).</div></li>
+    <li><div><b>Generación</b>: filtra a los niños de una generación (1ª, 2ª…). Cada comunidad empieza a contar distinto: en CC la 1ª generación arranca en el ciclo 15-16 y en CI en el 18-19.</div></li>
+    <li><div><b>Responsable</b>: filtra a los niños de una guía. Se usa la guía responsable que tenía cada niño al corte de cada mes.</div></li>
+    <li><div><b>Limpiar filtros</b> regresa a la vista completa y <b>PDF ejecutivo</b> arma una versión de una página, lista para enviar o imprimir.</div></li>
+    <li><div>Al final hay dos desplegables: <b>«¿Cómo se calculan los indicadores?»</b> y <b>«¿Cómo se calcula la Nutrición Óptima?»</b>, con las reglas completas.</div></li>
+  </ol>
+
+  <h2 id="celda"><span class="num">4</span>Cómo leer una celda</h2>
+  <figure>
+    <img src="img/onepage-fila.jpg" alt="Encabezado de columnas y primeros renglones del One Page">
+    <figcaption>Cada columna es un mes y cada renglón un indicador. Captura con números de ejemplo.</figcaption>
+  </figure>
+  <ul>
+    <li><b>El número grande</b> es el porcentaje del indicador; debajo, en chiquito, está la cuenta: <b>numerador / denominador</b> (cuántos niños lo cumplen de cuántos les aplica).</li>
+    <li>En <b>Población</b> no hay porcentaje: son conteos de niños P2040 activos y de familias (con los niños por familia).</li>
+    <li><b>La primera columna</b> (Dic 2025, «cierre 31-dic») es el punto de partida del año. Las siguientes son el <b>cierre</b> de cada mes.</li>
+    <li><b>La última columna</b> dice «corte», no «cierre»: es el mes en curso y todavía se va a mover.</li>
+    <li><b>★</b> marca los indicadores oficiales. Los demás son de referencia.</li>
+    <li><b>«› ver detalle»</b> (en Acompañamiento del mes y Nutrición óptima) abre la lista de niños detrás del indicador, con liga a la ficha de cada uno.</li>
+    <li><b>«—»</b> quiere decir que no hay dato: el export de visitas todavía no cubría ese mes, o con esos filtros no queda nadie en el denominador.</li>
+  </ul>
+  <div class="nota">👀 Visitas, Acompañamiento y Formación <b>empiezan en cero cada mes</b>. Por eso en la columna del mes en curso se ven bajos aunque todo vaya bien: compáralos contra el cierre del mes anterior solo cuando el mes termine.</div>
+
+  <h2 id="indicadores"><span class="num">5</span>Los indicadores, pilar por pilar</h2>
+  <p class="sub">Qué cuenta cada renglón. El numerador es quién cumple; el denominador, a quién le aplica.</p>
+  <table class="tabla">
+    <thead><tr><th>Indicador</th><th>Cuenta a…</th><th>De…</th></tr></thead>
+    <tbody>
+      <tr class="pilar"><td colspan="3">Población</td></tr>
+      <tr><td>P2040 activos</td><td colspan="2">Niños P2040 con estatus Activo al corte del mes.</td></tr>
+      <tr><td>Familias P2040</td><td colspan="2">Familias nucleares con al menos un niño P2040 activo al corte.</td></tr>
+      <tr class="pilar"><td colspan="3">Acompañamiento</td></tr>
+      <tr><td>Visitas del mes ★</td><td>Niños con visita formativa localizada en el mes.</td><td class="quien">Niños de familias mensuales: salen las bimestrales que no tocaban ese mes (desde noviembre de 2026 sigue al Plan del Mes). Hasta septiembre de 2026 la base era el total de niños.</td></tr>
+      <tr><td>Acompañamiento del mes ★</td><td>Niños con visita, seguimiento, caso, programa o medición de nutrición en el mes.</td><td class="quien">P2040 activos.</td></tr>
+      <tr><td>Formación del mes ★</td><td>Niños que recibieron formación en el mes, ellos o su familia (visita localizada con tema).</td><td class="quien">P2040 activos.</td></tr>
+      <tr><td>Aviso de privacidad</td><td>Aviso firmado (estatus «Completo»). Solo de referencia, no es indicador oficial.</td><td class="quien">P2040 activos.</td></tr>
+      <tr class="pilar"><td colspan="3">Familia</td></tr>
+      <tr><td>Sueño registrado ★</td><td>Con «Mi sueño» capturado.</td><td class="quien">P2040 activos.</td></tr>
+      <tr><td>Registro civil ★</td><td>Con registro civil (Sí).</td><td class="quien">P2040 activos.</td></tr>
+      <tr class="pilar"><td colspan="3">Educación</td></tr>
+      <tr><td>Escolaridad · Preescolar ★</td><td>Estudiando: cursando, preinscrito o confirmado, en cualquier nivel.</td><td class="quien">P2040 activos de 3 a 5 años cumplidos al 31 de diciembre del año en que empezó el ciclo (regla SEP).</td></tr>
+      <tr><td>Escolaridad · Primaria ★</td><td>Estudiando: cursando, preinscrito o confirmado, en cualquier nivel.</td><td class="quien">P2040 activos de 6 a 11 años, con la misma regla SEP.</td></tr>
+      <tr class="pilar"><td colspan="3">Salud</td></tr>
+      <tr><td>Derechohabiencia ★</td><td>Con seguro médico.</td><td class="quien">P2040 activos.</td></tr>
+      <tr><td>Nutrición óptima ★</td><td>En verde según la Cartilla Nacional de Salud.</td><td class="quien">P2040 con medición vigente (de los últimos 12 meses).</td></tr>
+      <tr><td>Esquema al corriente ★</td><td>Sin dosis pendientes que todavía se puedan aplicar, según los Lineamientos 2026.</td><td class="quien">P2040 activos. Es la misma regla del reporte «Vacunas vs Lineamientos», donde está el detalle vacuna por vacuna.</td></tr>
+      <tr class="pilar"><td colspan="3">Espiritualidad · solo católicos</td></tr>
+      <tr><td>Bautismo ★</td><td>Bautizados.</td><td class="quien">P2040 activos católicos.</td></tr>
+      <tr><td>Primera comunión ★</td><td>Con primera comunión.</td><td class="quien">P2040 activos católicos de 7 años o más.</td></tr>
+      <tr><td>Consagración ★</td><td>Con al menos una consagración: Sagrado Corazón o Virgen de Guadalupe.</td><td class="quien">P2040 activos católicos.</td></tr>
+    </tbody>
+  </table>
+  <h3>Cómo se decide la Nutrición óptima</h3>
+  <ul>
+    <li><b>Peso y talla mandan.</b> Si el niño tiene peso y talla del mismo día, se clasifica con la Cartilla Nacional de Salud: peso y talla por edad hasta los 5 años, e IMC de los 5½ años en adelante.</li>
+    <li><b>La cinta MUAC es solo de respaldo</b>: se usa únicamente si no hay peso y talla, porque es una prueba rápida, no un diagnóstico.</li>
+    <li><b>La medición vale 12 meses.</b> Si la última tiene más de un año, el niño sale del denominador hasta que se le vuelva a medir.</li>
+    <li>Está en verde solo si peso (o IMC) y talla están en verde. Si cualquiera cae en amarillo o rojo, queda fuera de rango.</li>
+  </ul>
+  <div class="nota">💡 Los indicadores de espiritualidad son <b>históricos</b>: una vez que el sacramento o la consagración quedó registrado en algún corte, el niño conserva el «Sí» aunque después el dato se borre en el CRM.</div>
+
+  <h2 id="faq"><span class="num">6</span>Preguntas frecuentes</h2>
+  <details><summary>¿Por qué la última columna se ve tan baja?</summary><p>Porque es el mes en curso: muestra el último corte, no el cierre. Los indicadores del mes (Visitas, Acompañamiento y Formación) empiezan en cero cada mes y van subiendo.</p></details>
+  <details><summary>¿Coincide con el Reporte Mensual?</summary><p>Sí: usan las mismas reglas, así que el cierre de cada mes debe dar lo mismo. Si ves una diferencia, revisa que tengas los mismos filtros (comunidad, generación) y avísale a Análisis.</p></details>
+  <details><summary>¿Por qué Visitas cambió de base a mitad del año?</summary><p>Hasta septiembre de 2026 se dividía entre todos los niños. Después salen de la base las familias bimestrales que no tocaban ese mes, para no contar como pendientes a quienes no estaban programados.</p></details>
+  <details><summary>¿Por qué un filtro de guía no da lo mismo que su lista actual?</summary><p>Porque el filtro Responsable usa la guía que tenía cada niño al corte de cada mes. Si un niño cambió de guía, en los meses anteriores aparece con la guía de entonces.</p></details>
+  <details><summary>¿Qué significa «—»?</summary><p>Que no hay dato para esa celda: el export de visitas todavía no cubría ese mes, o con los filtros elegidos no queda nadie en el denominador.</p></details>
+
+  <footer>Plan 20·40 · Manual del One Page · Las reglas son las mismas del Reporte Mensual: consulta <a href="reporte-mensual.html#indicadores" style="color:var(--brand-strong)">su manual</a> para el detalle de cada indicador. ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

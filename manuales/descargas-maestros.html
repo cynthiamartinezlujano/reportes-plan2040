@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Descargas de Maestros · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/stars.png" alt="">
+    <div class="mini">Panorama del Plan</div>
+    <h1>Manual de Descargas de Maestros</h1>
+    <p>Cómo bajar a Excel las bases del CRM que alimentan los reportes: qué trae cada base, cómo filtrarla y cómo cuidarla.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#bases">4 · Las 13 bases</a>
+    <a href="#filtrar">5 · Ver, filtrar y descargar</a>
+    <a href="#prueba">6 · Datos reales y modo prueba</a>
+    <a href="#cuidados">7 · Cuidados y preguntas</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Es el lugar para <b>bajar a Excel las bases «maestros» del CRM</b>: las mismas tablas que alimentan todos los reportes del portal. Sirve para hacer un análisis propio, revisar la captura o sacar una lista que ningún reporte trae.</p>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Captura en el CRM</b><span>Todo lo que registran las guías y el equipo.</span></div>
+    <div class="paso"><span class="n">2</span><b>Descarga semanal</b><span>Cada semana se baja el CRM completo.</span></div>
+    <div class="paso"><span class="n">3</span><b>Bases maestros</b><span>Se ordena en 13 bases, separadas por comunidad.</span></div>
+    <div class="paso"><span class="n">4</span><b>Este portal</b><span>Arriba a la derecha dice la fecha de los datos («Datos al…»).</span></div>
+  </div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte</h2>
+  <figure>
+    <img src="img/descargas-general.jpg" alt="Pantalla principal de Descargas de Maestros en modo prueba">
+    <figcaption>La pantalla principal, en modo prueba. Captura con números de ejemplo.</figcaption>
+  </figure>
+  <ol class="call">
+    <li><div><b>Elige la comunidad</b>: Cuatrociénegas o Independencia. Solo verás y descargarás registros de esa comunidad; con <b>Cambiar</b>, en la barra de arriba, eliges otra.</div></li>
+    <li><div><b>Datos reales · Modo prueba</b>: los datos operativos o solo los registros de prueba (más abajo se explica).</div></li>
+    <li><div><b>Encabezados de los Excel</b>: en español, o los nombres originales del CRM (en inglés).</div></li>
+    <li><div><b>Cada tarjeta es una base</b>: qué trae, cuántas filas y columnas tiene y cuándo se actualizó. <b>Ver y filtrar</b> la abre en pantalla y <b>⬇ Excel</b> la baja completa.</div></li>
+  </ol>
+
+  <h2 id="bases"><span class="num">4</span>Las 13 bases</h2>
+  <table class="tabla">
+    <thead><tr><th>Base</th><th>Qué trae</th></tr></thead>
+    <tbody>
+      <tr><td>Personas</td><td>La foto semanal de todas las personas del CRM, activas e inactivas: datos generales, estatus, vacunación, documentos y más.</td></tr>
+      <tr><td>Visitas</td><td>Las visitas del año en curso, presenciales y telefónicas: guía, tema, compromiso, horarios y GPS.</td></tr>
+      <tr><td>Familias</td><td>Las familias nucleares, con su ancla P2040, comunidad y conteos.</td></tr>
+      <tr><td>Relaciones</td><td>Las relaciones familiares declaradas entre personas: mamá, hijo(a), cónyuge, etc.</td></tr>
+      <tr><td>Nutrición</td><td>El histórico de mediciones: peso, talla, MUAC, puntajes Z y semáforo.</td></tr>
+      <tr><td>Cartillas</td><td>Las cartillas de vacunación subidas al CRM (foto), por persona, con su fecha.</td></tr>
+      <tr><td>Casos</td><td>Los casos de las dos comunidades, con su clasificación, estatus y seguimiento.</td></tr>
+      <tr><td>Apoyos</td><td>Los apoyos entregados a familias y personas: tipo, fecha y detalle.</td></tr>
+      <tr><td>Programas</td><td>Las asistencias de cada persona a sesiones de programas y formación.</td></tr>
+      <tr><td>Programas Evaluaciones</td><td>Las evaluaciones y calificaciones de los programas de formación.</td></tr>
+      <tr><td>Documentos</td><td>El estatus de cada documento por persona: qué hay y qué falta.</td></tr>
+      <tr><td>Archivos</td><td>Los archivos subidos por persona, una fila por persona.</td></tr>
+      <tr><td>Cambios Perfil</td><td>La bitácora de cambios al perfil de las personas: campo modificado, valor anterior y nuevo, quién y cuándo.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="filtrar"><span class="num">5</span>Ver, filtrar y descargar</h2>
+  <p>Al dar clic en <b>Ver y filtrar</b> se abre la base en pantalla, por páginas (<b>‹ Anterior · Siguiente ›</b>).</p>
+  <ol class="call">
+    <li><div><b>＋ Filtro por columna</b>: elige una columna y un valor para quedarte solo con los renglones que te sirven. <b>Aplicar</b> lo guarda; puedes sumar varios filtros.</div></li>
+    <li><div><b>Columnas visibles</b>: marca solo los campos que necesitas (<b>Todas</b> o <b>Ninguna</b> para empezar rápido) y da <b>Listo</b>.</div></li>
+    <li><div><b>⬇ Excel (vista filtrada)</b> baja solo lo que ves, con tus filtros y columnas. <b>⬇ Excel (toda la comunidad)</b> baja la base completa.</div></li>
+    <li><div><b>← Todas las bases</b> te regresa a las tarjetas.</div></li>
+  </ol>
+
+  <h2 id="prueba"><span class="num">6</span>Datos reales y modo prueba</h2>
+  <p><b>Datos reales</b> es la información operativa y es lo que debes usar casi siempre.</p>
+  <p><b>Modo prueba</b> muestra <b>únicamente los registros de prueba</b>: perfiles con PRUEBA, EXAGONO, CLAUDE o TEST en el nombre, perfiles internos de prueba y lo que el sistema ya tenía marcado como prueba. Sirve para revisar qué registros de prueba quedaron en cada base; ninguno de ellos entra en los reportes.</p>
+  <div class="nota">💡 Si ves una barra naranja arriba, estás en modo prueba. Cambia a «Datos reales» para trabajar con la información del Plan.</div>
+
+  <h2 id="cuidados"><span class="num">7</span>Cuidados y preguntas frecuentes</h2>
+  <div class="nota">🔒 Las bases traen <b>datos personales de las familias y de menores</b>. Descarga solo lo que necesites, no las reenvíes fuera del equipo y borra los archivos cuando ya no los uses.</div>
+  <details><summary>¿Por qué mi cuenta no da lo mismo que un reporte?</summary><p>Las bases traen todo: activos e inactivos, todos los perfiles y todas las fechas. Los reportes aplican reglas (por ejemplo, solo niños P2040 activos al corte). Para comparar, filtra igual que el reporte o pregúntale a Análisis la regla exacta.</p></details>
+  <details><summary>¿De qué fecha son los datos?</summary><p>De la última descarga semanal del CRM: la fecha está arriba a la derecha («Datos al…») y en cada tarjeta («actualizado…»). Lo que se capturó después aparecerá en la siguiente actualización.</p></details>
+  <details><summary>¿Encabezados en español u originales?</summary><p>En español es más fácil de leer. Los originales son los nombres de los campos del CRM; úsalos si vas a cruzar la base con otro archivo que los use.</p></details>
+
+  <footer>Plan 20·40 · Manual de Descargas de Maestros · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>
