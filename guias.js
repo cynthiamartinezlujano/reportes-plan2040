@@ -147,7 +147,7 @@
       manual: "manuales/formacion.html",
     },
 
-    // ── Para guías ────────────────────────────────────────────────────────
+    // ── Equipo de guías ────────────────────────────────────────────────────────
     r42: {
       resumen: "Qué documentos e indicadores le faltan a cada niño, para cerrar capturas.",
       puntos: [
