@@ -73,6 +73,7 @@
   dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
   dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
   footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
   @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
   @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
 </style>
@@ -92,6 +93,9 @@
     <h1>Manual del Reporte Semanal</h1>
     <p>Cómo va el mes en curso, semana a semana, contra el cierre del mes anterior: qué mide, de dónde salen sus números y cómo leerlo sin confundirse.</p>
   </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
 
   <nav class="indice">
     <a href="#para-que">1 · Para qué sirve</a>
@@ -117,8 +121,8 @@
 
   <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
   <figure>
-    <img src="img/semanal-beneficiarios.jpg" alt="Encabezado y pestaña Beneficiarios del Reporte Semanal">
-    <figcaption>El encabezado con sus controles y la pestaña Beneficiarios.</figcaption>
+    <img src="img/semanal-beneficiarios.jpg?v=2" alt="Encabezado y pestaña Beneficiarios del Reporte Semanal">
+    <figcaption>El encabezado con sus controles y la pestaña Beneficiarios. Captura con números de ejemplo.</figcaption>
   </figure>
   <ol class="call">
     <li><div><b>El renglón bajo el título</b> dice la semana, la fecha de corte, si la semana va en curso y desde qué cierre se compara.</div></li>
@@ -157,7 +161,7 @@
 
   <details class="tab" id="t-res">
     <summary>Resumen de la semana<span class="badge">a fondo</span><span class="q">¿Cómo va el mes comparado con el mes pasado al mismo día?</span></summary>
-    <figure><img src="img/semanal-resumen.jpg" alt="Pestaña Resumen de la semana del Reporte Semanal"><figcaption>Punto de partida, los tres indicadores del mes y su avance día a día.</figcaption></figure>
+    <figure><img src="img/semanal-resumen.jpg?v=2" alt="Pestaña Resumen de la semana del Reporte Semanal"><figcaption>Punto de partida, los tres indicadores del mes y su avance día a día. Captura con números de ejemplo.</figcaption></figure>
     <ul>
       <li><b>Punto de partida → acumulado</b>: arriba ves desde qué cierre se compara y hasta qué día va el acumulado del mes.</li>
       <li><b>Visitas, Acompañamiento y Formación del mes ⭐</b>: el porcentaje acumulado, cuánto sumó esta semana y la comparación contra el mes anterior al mismo día. También el cierre del mes anterior como referencia.</li>
@@ -165,14 +169,14 @@
       <li><b>Lo que sumó cada semana</b>: cuántos niños nuevos aportó cada semana a cada indicador.</li>
     </ul>
     <h3>Indicadores de estado</h3>
-    <figure><img src="img/semanal-estado.jpg" alt="Tabla de indicadores de estado contra el cierre del mes anterior"><figcaption>Los indicadores de estado contra el cierre del mes anterior.</figcaption></figure>
-    <p>Esta tabla compara los indicadores de estado contra el cierre. «Cambio en niños» dice cuántos ganaron y cuántos perdieron (por ejemplo «+46 / −23»). El botón «Solo esta semana» compara solo contra la semana anterior, y al dar clic en un indicador ves quién lo ganó, quién lo perdió y quién sigue pendiente.</p>
+    <figure><img src="img/semanal-estado.jpg?v=2" alt="Tabla de indicadores de estado contra el cierre del mes anterior"><figcaption>Los indicadores de estado contra el cierre del mes anterior. Captura con números de ejemplo.</figcaption></figure>
+    <p>Esta tabla compara los indicadores de estado contra el cierre. «Cambio en niños» dice cuántos ganaron y cuántos perdieron (por ejemplo, «+12 / −5» quiere decir que 12 niños lo ganaron y 5 lo perdieron). El botón «Solo esta semana» compara solo contra la semana anterior, y al dar clic en un indicador ves quién lo ganó, quién lo perdió y quién sigue pendiente.</p>
     <div class="ojo">👀 No te alarmes si Visitas marca 25 % a mitad de mes: compáralo contra el mes pasado <b>al mismo día</b>, no contra el cierre.</div>
   </details>
 
   <details class="tab" id="t-vis">
     <summary>Visitas<span class="badge">a fondo</span><span class="q">¿Cuántos niños llevamos visitados y cuántos faltan?</span></summary>
-    <figure><img src="img/semanal-visitas.jpg" alt="Pestaña Visitas del Reporte Semanal"><figcaption>La pestaña Visitas.</figcaption></figure>
+    <figure><img src="img/semanal-visitas.jpg?v=2" alt="Pestaña Visitas del Reporte Semanal"><figcaption>La pestaña Visitas. Captura con números de ejemplo.</figcaption></figure>
     <ul>
       <li><b>% de niños con visita formativa ⭐</b>: niños de familias mensuales visitados en el mes. Debajo, «De dónde sale la base» explica la cuenta: todos los P2040 menos los bimestrales que el Plan del Mes no programa ese mes.</li>
       <li><b>Visitas registradas en la semana</b> (localizadas y no localizadas), niños visitados, <b>nuevos en el mes</b> (su primera visita del mes cayó en esta semana) y <b>pendientes</b>.</li>

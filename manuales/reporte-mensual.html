@@ -73,6 +73,7 @@
   dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
   dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
   footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
   @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
   @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
 </style>
@@ -92,6 +93,9 @@
     <h1>Manual del Reporte Mensual</h1>
     <p>Qué mide el Reporte Mensual, de dónde salen sus números y cómo leer cada indicador, explicado para quien lo abre por primera vez.</p>
   </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
 
   <nav class="indice">
     <a href="#para-que">1 · Para qué sirve</a>
@@ -121,8 +125,8 @@
 
   <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
   <figure>
-    <img src="img/mensual-controles.jpg" alt="Encabezado del Reporte Mensual con los controles de mes, comunidad, pestañas y vista">
-    <figcaption>El encabezado del reporte con todos sus controles.</figcaption>
+    <img src="img/mensual-controles.jpg?v=2" alt="Encabezado del Reporte Mensual con los controles de mes, comunidad, pestañas y vista">
+    <figcaption>El encabezado del reporte con todos sus controles. Captura con números de ejemplo.</figcaption>
   </figure>
   <ol class="call">
     <li><div><b>El renglón gris bajo el título</b> dice qué estás viendo: el mes, la fecha de corte, la comunidad y cuándo se generó.</div></li>
@@ -135,12 +139,12 @@
 
   <h2 id="tarjetas"><span class="num">4</span>Cómo se lee una tarjeta</h2>
   <figure>
-    <img src="img/mensual-indicadores.jpg" alt="Tarjetas de indicadores agrupadas por pilar">
-    <figcaption>Cada renglón es un pilar y cada tarjeta un indicador.</figcaption>
+    <img src="img/mensual-indicadores.jpg?v=2" alt="Tarjetas de indicadores agrupadas por pilar">
+    <figcaption>Cada renglón es un pilar y cada tarjeta un indicador. Captura con números de ejemplo.</figcaption>
   </figure>
   <figure>
-    <img src="img/mensual-tarjeta.jpg" alt="Detalle de tres tarjetas del pilar de acompañamiento">
-    <figcaption>Ejemplo: tarjetas del pilar Acompañamiento.</figcaption>
+    <img src="img/mensual-tarjeta.jpg?v=2" alt="Detalle de tres tarjetas del pilar de acompañamiento">
+    <figcaption>Ejemplo: tarjetas del pilar Acompañamiento. Captura con números de ejemplo.</figcaption>
   </figure>
   <ol class="call">
     <li><div><b>El porcentaje grande</b> es el resultado del mes: de cada 100 niños que deberían cumplir, cuántos cumplen.</div></li>
@@ -184,8 +188,8 @@
 
   <h2 id="generacion"><span class="num">6</span>La tabla por generación</h2>
   <figure>
-    <img src="img/mensual-generacion.jpg" alt="Tabla de reflexión por generación con los indicadores por fila y las generaciones por columna">
-    <figcaption>«Reflexión por generación»: ¿cumplimos cada indicador a la edad que corresponde?</figcaption>
+    <img src="img/mensual-generacion.jpg?v=2" alt="Tabla de reflexión por generación con los indicadores por fila y las generaciones por columna">
+    <figcaption>«Reflexión por generación»: ¿cumplimos cada indicador a la edad que corresponde? Captura con números de ejemplo.</figcaption>
   </figure>
   <p>Debajo de las tarjetas está esta tabla. Cada <b>renglón</b> es un indicador y cada <b>columna</b> una generación: niños de los mismos ciclos, es decir, de la misma edad. La 1ª es la más grande y la 11ª la más pequeña (la numeración es la de Cuatro Ciénegas).</p>
   <p>Sirve para ver <b>en qué edad se cae un indicador</b>. Por ejemplo, si Nutrición óptima está en verde en las generaciones grandes y en rojo en las pequeñas, el foco está en los más chiquitos. Los colores usan el mismo semáforo, y al pasar el cursor sobre una celda ves cuántos niños cumplen de cuántos.</p>
@@ -200,7 +204,7 @@
 
   <details class="tab" id="t-benef">
     <summary>Beneficiarios<span class="badge">a fondo</span><span class="q">¿Cuántas personas acompañamos, cuántas se han ido y por qué?</span></summary>
-    <figure><img src="img/mensual-beneficiarios.jpg" alt="Pestaña Beneficiarios del Reporte Mensual"><figcaption>La pestaña Beneficiarios.</figcaption></figure>
+    <figure><img src="img/mensual-beneficiarios.jpg?v=2" alt="Pestaña Beneficiarios del Reporte Mensual"><figcaption>La pestaña Beneficiarios. Captura con números de ejemplo.</figcaption></figure>
     <h3>Qué mirar primero</h3>
     <ul>
       <li><b>P2040 activos</b>: cuántos niños acompaña hoy el Plan, cuántos están «en observación» y en cuántas familias viven.</li>
@@ -216,7 +220,7 @@
 
   <details class="tab" id="t-acomp">
     <summary>Acompañamiento<span class="badge">a fondo</span><span class="q">¿A cuántos niños acompañamos en el mes, y cómo?</span></summary>
-    <figure><img src="img/mensual-acompanamiento.jpg" alt="Pestaña Acompañamiento del Reporte Mensual"><figcaption>La pestaña Acompañamiento, en su vista Resumen.</figcaption></figure>
+    <figure><img src="img/mensual-acompanamiento.jpg?v=2" alt="Pestaña Acompañamiento del Reporte Mensual"><figcaption>La pestaña Acompañamiento, en su vista Resumen. Captura con números de ejemplo.</figcaption></figure>
     <h3>Qué mirar primero</h3>
     <ul>
       <li><b>Población objetivo</b>: los niños a los que tocaba atender este mes. Son todos los activos menos los de familias bimestrales que ese mes no tenían visita.</li>
@@ -224,12 +228,12 @@
       <li><b>¿Cómo se acompañó a los niños?</b>: cuántos niños recibieron cada medio (visitas, medición de nutrición, seguimientos, programas) y cuántos medios tuvo cada niño. Los de «0 medios» son los que no recibieron nada en el mes.</li>
       <li><b>Visitas, Casos y Programas</b>: tres tarjetas de resumen. «Ver detalle →» abre su subpestaña (también arriba: Resumen, Visitas, Casos, Programas). Ahí están las sesiones de visita, los niños pendientes de visita, los casos nuevos y finalizados, y las asistencias a programas.</li>
     </ul>
-    <div class="ojo">👀 Algunos indicadores aparecen dos veces: <b>Objetivo</b> mide contra los niños a los que tocaba atender y <b>Total</b> contra todos los activos. La ⭐ marca el que se reporta. El aviso «+84 acompañados fuera del objetivo» son niños bimestrales atendidos aunque no les tocaba.</div>
+    <div class="ojo">👀 Algunos indicadores aparecen dos veces: <b>Objetivo</b> mide contra los niños a los que tocaba atender y <b>Total</b> contra todos los activos. La ⭐ marca el que se reporta. El aviso «+N acompañados fuera del objetivo» son niños bimestrales atendidos aunque no les tocaba.</div>
   </details>
 
   <details class="tab" id="t-salud">
     <summary>Salud<span class="badge">a fondo</span><span class="q">¿Tienen los niños seguro médico, buena nutrición y vacunas al día?</span></summary>
-    <figure><img src="img/mensual-salud.jpg" alt="Pestaña Salud del Reporte Mensual"><figcaption>La pestaña Salud, en su vista Resumen.</figcaption></figure>
+    <figure><img src="img/mensual-salud.jpg?v=2" alt="Pestaña Salud del Reporte Mensual"><figcaption>La pestaña Salud, en su vista Resumen. Captura con números de ejemplo.</figcaption></figure>
     <h3>Qué mirar primero</h3>
     <ul>
       <li><b>Los tres indicadores ⭐</b>: derechohabiencia (seguro médico), nutrición óptima y esquema de vacunación al corriente.</li>
@@ -239,9 +243,9 @@
       <li>Las subpestañas (Seguimiento Nutricional, Seguro Médico, Cartillas y Esquema de Vacunación) llevan a las listas y al detalle de cada tema.</li>
     </ul>
     <h3>La comparación con el promedio nacional</h3>
-    <figure><img src="img/mensual-salud-benchmark.jpg" alt="Tabla de comparación de salud contra el promedio nacional"><figcaption>Abajo de la pestaña: el Plan contra el promedio nacional (INEGI y ENSANUT).</figcaption></figure>
+    <figure><img src="img/mensual-salud-benchmark.jpg?v=2" alt="Tabla de comparación de salud contra el promedio nacional"><figcaption>Abajo de la pestaña: el Plan contra el promedio nacional (INEGI y ENSANUT). Captura con números de ejemplo.</figcaption></figure>
     <p>Compara al Plan contra fuentes oficiales: derechohabiencia contra el INEGI y esquema completo y cartilla contra la ENSANUT, en las mismas edades. La columna «Diferencia» dice cuántos puntos estamos arriba o abajo.</p>
-    <div class="ojo">👀 Nutrición óptima marca <b>62.3 %</b> en la tarjeta y <b>50 %</b> en la gráfica, y las dos están bien: el indicador solo cuenta a los niños con medición vigente, y la gráfica reparte a todos los niños, incluidos los que no tienen medición.</div>
+    <div class="ojo">👀 Nutrición óptima puede marcar un porcentaje en la tarjeta y otro distinto en la gráfica, y los dos están bien: el indicador solo cuenta a los niños con medición vigente, y la gráfica reparte a todos los niños, incluidos los que no tienen medición.</div>
   </details>
 
   <details class="tab" id="t-form">
