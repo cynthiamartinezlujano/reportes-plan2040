@@ -39,6 +39,7 @@ ARCHIVOS = {
     "r50": f"{AP}/Educación/Rezago Educativo/Rezago_Educativo.html",
     "r51": f"{AP}/KPIs Guías/KPIs_Guias.html",
     "r52": f"{AP}/Avance Visitas por Guía/Avance_Visitas_Guias.html",
+    "r53": f"{AP}/Pendientes por Guía/Pendientes_por_Guia.html",
 }
 
 
