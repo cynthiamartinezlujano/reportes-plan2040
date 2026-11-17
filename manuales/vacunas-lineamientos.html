@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Vacunas vs Lineamientos 2026 · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/heart-pulse.png" alt="">
+    <div class="mini">Reportes por pilar · Salud</div>
+    <h1>Manual de Vacunas vs Lineamientos 2026</h1>
+    <p>La vacunación vacuna por vacuna con los Lineamientos 2026: qué es aplicada, pendiente y no aplicada, cómo moverte por el reporte y qué cambia contra el cálculo anterior.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b> y cambian el nombre de cada guía por «Guía 1, Guía 2…»: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#clasifica">2 · Cómo se clasifica cada vacuna</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#pestanas">4 · Las pestañas</a>
+    <a href="#cambia">5 · Qué cambia contra el cálculo anterior</a>
+    <a href="#faq">6 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Mide <b>la vacunación vacuna por vacuna con los Lineamientos 2026</b>: de los niños a los que ya les toca cada vacuna, cuántos la tienen, a cuántos todavía se les puede poner y a cuántos ya no.</p>
+  <div class="nota">💡 El indicador <b>Esquema al corriente</b> del Reporte Mensual, del One Page y del Tablero de Metas usa la regla de este reporte. Aquí está el detalle vacuna por vacuna.</div>
+
+  <h2 id="clasifica"><span class="num">2</span>Cómo se clasifica cada vacuna</h2>
+  <p>La <b>base</b> de cada vacuna son los niños P2040 activos que ya cumplieron la edad recomendada para ponérsela (edad en meses cumplidos al corte).</p>
+  <table class="tabla">
+    <thead><tr><th>Estado</th><th>Qué quiere decir</th></tr></thead>
+    <tbody>
+      <tr><td>Aplicada</td><td>Registrada en el CRM (Sí o con fecha).</td></tr>
+      <tr><td>Pendiente</td><td>Falta, pero el niño sigue dentro de la edad máxima de los Lineamientos: todavía se puede aplicar.</td></tr>
+      <tr><td>No aplicada</td><td>Falta y el niño ya pasó la edad máxima: ya no se puede aplicar.</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>Una vacuna <b>cancelada</b> en el CRM cuenta como no puesta (pendiente o no aplicada según la edad). Si otra columna de la misma vacuna sí está aplicada, gana la aplicada.</li>
+    <li><b>Esquema completo</b>: tiene todas las dosis que le tocan. <b>Esquema al corriente</b>: no tiene ninguna pendiente; las no aplicadas ya no cuentan en contra, porque no se pueden poner.</li>
+    <li>Hexavalente y pentavalente se toman como equivalentes; rotavirus son 2 dosis en cualquiera de sus columnas; la 2ª de SRP cuenta capturada a los 18 meses o a los 6 años.</li>
+  </ul>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <figure><img src="img/vacunas-tendencia.jpg" alt="Filtros y tendencia general de Vacunas vs Lineamientos"><figcaption>Los filtros y la tendencia mes a mes de cada vacuna. Captura con números de ejemplo.</figcaption></figure>
+  <ol class="call">
+    <li><div><b>Corte</b>: el mes (Ene…Nov). <b>Comunidad</b>: todas, Cuatro Ciénegas o Independencia. <b>Edad desde / hasta</b>: el rango de edad. <b>Limpiar filtros</b> regresa a todo.</div></li>
+    <li><div>El renglón gris dice el corte, cuántos niños entran y qué edades estás viendo.</div></li>
+    <li><div><b>Ver por</b>: <b>Dosis</b> (porcentaje sobre las dosis que les tocan) o <b>Esquemas (niños)</b> (porcentaje de niños).</div></li>
+  </ol>
+
+  <h2 id="pestanas"><span class="num">4</span>Las pestañas</h2>
+  <p class="sub">Da clic en una pestaña para ver qué responde y qué mirar primero.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-res">Resumen</a><a class="fondo" href="#t-ind">Indicadores</a>
+  </div>
+
+  <details class="tab" id="t-res">
+    <summary>Resumen<span class="badge">a fondo</span><span class="q">¿Cómo va cada vacuna mes a mes, por guía y por generación?</span></summary>
+    <ul>
+      <li><b>Tendencia general</b>: una gráfica por vacuna con el cierre de cada mes (aplicada, pendiente y no aplicada). Pasa el cursor para ver los valores y da clic en una vacuna para ver a los niños con faltantes.</li>
+      <li><b>Detalle por guía</b> y <b>Detalle por generación</b>: por cada grupo, cuántos niños, qué parte tiene esquema completo y al corriente, y el reparto de las dosis. Puedes elegir una vacuna, ordenar (menor % primero, A–Z, más niños) y exportar a Excel. Clic en una fila para ver a sus niños.</li>
+    </ul>
+  <figure><img src="img/vacunas-guias.jpg" alt="Detalle por guía de Vacunas vs Lineamientos"><figcaption>El detalle por guía. Los nombres se cambiaron por «Guía 1, Guía 2…». Captura con números de ejemplo.</figcaption></figure>
+  </details>
+
+  <details class="tab" id="t-ind">
+    <summary>Indicadores<span class="badge">a fondo</span><span class="q">¿Cuántas dosis se aplicaron, faltan o ya no se pueden poner?</span></summary>
+  <figure><img src="img/vacunas-indicadores.jpg" alt="Pestaña Indicadores, por dosis"><figcaption>Indicadores por dosis: una fila por vacuna. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li><b>Por dosis</b>: dosis que les tocan, aplicadas, pendientes y no aplicadas; y una fila por vacuna con su edad recomendada, su edad máxima, su base, sus tres porcentajes y cuántas faltantes estaban canceladas.</li>
+      <li><b>Por esquema</b>: los niños, uno por uno, con su esquema completo o al corriente y qué les falta.</li>
+    </ul>
+    <div class="ojo">👀 Las tres cifras de cada vacuna (aplicada, pendiente y no aplicada) suman 100 % sobre su base.</div>
+  </details>
+
+  <h2 id="cambia"><span class="num">5</span>Qué cambia contra el cálculo anterior</h2>
+  <ul>
+    <li><b>Hepatitis B al nacer y rotavirus</b>: antes, pasada su ventana (7 días y 8 meses), salían de la base. Aquí se quedan y, si no se aplicaron, cuentan como no aplicadas. Por eso su base es mucho mayor.</li>
+    <li><b>Cancelada</b>: antes contaba como cubierta; aquí cuenta como no puesta. De ahí sale casi toda la diferencia en las demás vacunas.</li>
+    <li>Una columna que no existía en la descarga de ese mes antes se daba por cubierta; aquí se deja fuera de la base.</li>
+  </ul>
+  <h3>Lo que el CRM no permite medir</h3>
+  <p>Los intervalos mínimos entre dosis (casi ninguna vacuna trae fecha), la influenza anual (el CRM solo tiene las dosis de 6 y 7 meses) y las vacunas de varicela y hepatitis A (no hay columnas en el CRM).</p>
+
+  <h2 id="faq"><span class="num">6</span>Preguntas frecuentes</h2>
+  <details><summary>¿Por qué no coincide con lo que reportábamos antes?</summary><p>Por las reglas de «Qué cambia contra el cálculo anterior»: sobre todo, las canceladas ya no cuentan como cubiertas y hepatitis B y rotavirus ya no salen de la base.</p></details>
+  <details><summary>¿Qué es mejor ver: esquema completo o al corriente?</summary><p>Al corriente dice si se puede hacer algo hoy: un niño al corriente no tiene ninguna vacuna que todavía se le pueda poner. Completo dice si tiene absolutamente todas.</p></details>
+
+  <footer>Plan 20·40 · Manual de Vacunas vs Lineamientos 2026 · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

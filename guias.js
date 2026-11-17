@@ -168,6 +168,7 @@
         { t: "Filtros", d: "En «Filtros» acotas el periodo, el programa, la racha de meses seguidos medidos y la guía." },
       ],
       ojo: "«Racha» son los meses seguidos con medición PIN: una racha corta puede ser un niño que dejó de asistir. Si un término no te queda claro, la pestaña Definiciones lo explica.",
+      manual: "manuales/seguimiento-nutricional.html",
     },
     r36: {
       resumen: "Las cartillas de vacunación de Independencia: cuáles se subieron, cuáles faltan y cuáles corregir.",
@@ -177,6 +178,7 @@
         { t: "Estados de la cartilla", d: "Completa, parcial, ilegible, «no es cartilla» o con alerta. Las marcas de corrección dicen qué hacer: capturar vacunas, verificar o revisar." },
       ],
       ojo: "Este reporte es solo de Independencia.",
+      manual: "manuales/cartillas-vacunacion.html",
     },
     r41: {
       resumen: "La cobertura de vacunación con los lineamientos 2026, vacuna por vacuna.",
@@ -186,6 +188,7 @@
         { t: "Pestañas", d: "Resumen, Indicadores, Tendencia general, Detalle por guía y Detalle por generación." },
       ],
       ojo: "Son lineamientos preliminares 2026: los números pueden diferir del indicador oficial. Al final, «Reglas de cálculo» y «Reglas que se conservan del oficial» explican las diferencias.",
+      manual: "manuales/vacunas-lineamientos.html",
     },
 
     // ── Reportes por pilar · Educación ────────────────────────────────────
@@ -197,6 +200,7 @@
         { t: "Avance por guía", d: "Muestra cuántos niños de cada guía ya tienen preinscripción, para priorizar visitas antes de las fechas de inscripción." },
       ],
       ojo: "«Sin escuela registrada» puede ser falta de captura en el CRM, no necesariamente un niño fuera de la escuela: confírmalo en la visita.",
+      manual: "manuales/transiciones-inscripciones.html",
     },
     r50: {
       resumen: "Si cada niño cursa el grado que le toca por su edad, y qué grados no cursó.",
@@ -206,6 +210,7 @@
         { t: "Datos por actualizar", d: "Niños con datos escolares viejos o incompletos: son la lista para corregir en las visitas." },
       ],
       ojo: "Solo es rezago confirmado si el grado se actualizó este ciclo; lo demás es «por confirmar». Filtra con «Grado actualizado este ciclo» antes de sacar conclusiones.",
+      manual: "manuales/rezago-educativo.html",
     },
 
     // ── Análisis y diagnósticos ───────────────────────────────────────────

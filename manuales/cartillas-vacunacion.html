@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Cartillas de Vacunación · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/heart-pulse.png" alt="">
+    <div class="mini">Reportes por pilar · Salud</div>
+    <h1>Manual de Cartillas de Vacunación</h1>
+    <p>Las fotos de las cartillas de vacunación de Independencia: cuáles se subieron, cuáles faltan, cuáles hay que actualizar y cuáles corregir.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#vigencia">2 · Cartilla vigente o por actualizar</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#pestanas">4 · Las cuatro pestañas</a>
+    <a href="#faq">5 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Da seguimiento a <b>las fotos de las cartillas de vacunación de Independencia</b>: cuántos niños ya tienen su cartilla en el CRM, a quién le falta subirla, cuáles ya hay que actualizar y en cuáles lo capturado no coincide con la cartilla.</p>
+
+  <h2 id="vigencia"><span class="num">2</span>Cartilla vigente o por actualizar</h2>
+  <p>Una cartilla deja de estar <b>vigente</b> cuando el niño cruza un hito del esquema de vacunación después de la fecha de su última cartilla. Los hitos son: <b>2, 4, 6, 7, 12 y 18 meses, 4 y 6 años</b>. Es la misma regla del reporte anterior en Power BI.</p>
+  <ul>
+    <li><b>Última cartilla</b>: la fecha del documento si el nombre del archivo la trae; si no, la fecha en que se subió.</li>
+    <li><b>Por antigüedad</b>: fotos que no se pudieron fechar (del mecanismo anterior); se marcan por actualizar según cuánto tiempo tienen.</li>
+  </ul>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <figure><img src="img/cartillas-resumen.jpg" alt="Encabezado, pestañas y resumen del reporte de Cartillas"><figcaption>Las pestañas, los filtros y el resumen. Captura con números de ejemplo.</figcaption></figure>
+  <ol class="call">
+    <li><div><b>Generación, Guía, Localidad y Mes</b> filtran todo; <b>Buscar</b> encuentra a un niño por ID o nombre.</div></li>
+    <li><div>El <b>resumen</b>: niños activos, con cartilla, con cartilla vigente, por actualizar, sin cartilla, y cuántas fotos de cartilla hay en el CRM (fotos, no niños).</div></li>
+    <li><div>Cada pestaña tiene <b>⬇ Descargar Excel</b> con la lista que estás viendo.</div></li>
+  </ol>
+
+  <h2 id="pestanas"><span class="num">4</span>Las cuatro pestañas</h2>
+  <p class="sub">Da clic en una pestaña para ver qué responde y qué mirar primero.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-sub">Subidas por mes</a><a href="#t-pend">Pendientes de carga</a><a href="#t-act">Por actualizar</a><a class="fondo" href="#t-corr">Corrección de captura</a>
+  </div>
+
+  <details class="tab" id="t-sub">
+    <summary>Subidas por mes<span class="badge">a fondo</span><span class="q">¿Cuántas cartillas se subieron cada mes?</span></summary>
+    <ul>
+      <li>El resumen de arriba y <b>niños por mes</b>: cuántos niños tuvieron una cartilla subida en cada mes.</li>
+      <li>A la derecha, los niños con cartilla subida en los <b>últimos 7 o 30 días</b>.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-pend">
+    <summary>Pendientes de carga<span class="q">¿Quién no tiene cartilla en el CRM?</span></summary>
+    <p>La lista de niños sin ninguna cartilla subida, con su edad, generación, guía y localidad. Es la lista para pedir la foto en la siguiente visita.</p>
+  </details>
+
+  <details class="tab" id="t-act">
+    <summary>Por actualizar<span class="q">¿Qué cartillas ya están viejas?</span></summary>
+    <p>Los niños con cartilla que ya no está vigente, agrupados por cuánto tiempo lleva vencida, con el motivo (el hito que cruzaron desde la última cartilla). El filtro de Mes no aplica en esta pestaña.</p>
+  </details>
+
+  <details class="tab" id="t-corr">
+    <summary>Corrección de captura<span class="badge">a fondo</span><span class="q">¿En qué niños la cartilla no coincide con el CRM?</span></summary>
+  <figure><img src="img/cartillas-correccion.jpg" alt="Pestaña Corrección de captura"><figcaption>Los filtros y los conteos de la auditoría. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Resultado de una <b>auditoría</b>: se leyó cada cartilla y se comparó con las vacunas capturadas en el CRM.</li>
+      <li><b>Acción por hacer</b>: capturar vacunas (están en la cartilla pero no en el CRM), cancelada — revisar, o verificar.</li>
+      <li><b>Lectura</b> de la foto: completa, parcial o ilegible. <b>Categoría</b>: alerta, no es cartilla, esquema incompleto, legibilidad dudosa, formato hexa/penta o al corriente.</li>
+      <li>En la lista, cada niño trae qué vacunas capturar (con la fecha de la cartilla) y la observación de la auditoría.</li>
+    </ul>
+    <div class="ojo">👀 Esta pestaña muestra la auditoría tal como se hizo en su fecha (aparece en la tarjeta de niños auditados): si ya se corrigió algo en el CRM, puede seguir apareciendo aquí.</div>
+  </details>
+
+  <h2 id="faq"><span class="num">5</span>Preguntas frecuentes</h2>
+  <details><summary>Subí la cartilla y sigue como pendiente</summary><p>El reporte se actualiza con la descarga semanal del CRM: aparecerá en el siguiente corte.</p></details>
+  <details><summary>¿Por qué una cartilla de hace poco ya está por actualizar?</summary><p>Porque desde esa fecha el niño cruzó un hito del esquema (por ejemplo, cumplió 6 meses) y le tocaban vacunas nuevas.</p></details>
+  <details><summary>¿Hay algo parecido para Cuatro Ciénegas?</summary><p>Este reporte es solo de Independencia. La cobertura de vacunación de las dos comunidades está en «Vacunas vs Lineamientos 2026».</p></details>
+
+  <footer>Plan 20·40 · Manual de Cartillas de Vacunación · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

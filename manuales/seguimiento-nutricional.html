@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Seguimiento Nutricional · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/heart-pulse.png" alt="">
+    <div class="mini">Reportes por pilar · Salud</div>
+    <h1>Manual del Seguimiento Nutricional</h1>
+    <p>El seguimiento nutricional de los niños de Independencia: quién se mide, cada cuándo, con qué tipo de medición y cómo sale.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b> y cambian el nombre de cada guía por «Guía 1, Guía 2…»: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#origen">2 · De dónde viene</a>
+    <a href="#mediciones">3 · Dos tipos de medición</a>
+    <a href="#moverse">4 · Cómo moverte</a>
+    <a href="#pestanas">5 · Recorrido por pestañas</a>
+    <a href="#faq">6 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Muestra <b>el seguimiento nutricional de los niños de Independencia</b>: quién está en el programa de la nutrióloga (PIN), quién solo tiene la cinta de brazo de la guía, quién no tiene ninguna medición, cada cuándo se les mide y qué diagnóstico tienen.</p>
+  <p>Sirve para saber a quién falta medir y quién está dejando de asistir a sus consultas.</p>
+  <div class="nota">💡 No es el indicador <b>Nutrición óptima</b> del Reporte Mensual: aquel dice cuántos niños están en verde según la Cartilla Nacional; este dice cómo va el <b>seguimiento</b> (quién se mide y con qué constancia).</div>
+
+  <h2 id="origen"><span class="num">2</span>¿De dónde viene la información?</h2>
+  <div class="flujo">
+    <div class="paso"><span class="n">1</span><b>Medición</b><span>La nutrióloga mide peso y talla en consulta; la guía mide la cinta de brazo en la visita.</span></div>
+    <div class="paso"><span class="n">2</span><b>Captura en el CRM</b><span>Cada medición queda registrada con su fecha.</span></div>
+    <div class="paso"><span class="n">3</span><b>Descarga semanal</b><span>El CRM se baja a las bases de nutrición y personas.</span></div>
+    <div class="paso"><span class="n">4</span><b>Reporte</b><span>Niños P2040 activos de Independencia, sin perfiles de prueba, con su historial desde octubre de 2024.</span></div>
+  </div>
+
+  <h2 id="mediciones"><span class="num">3</span>Dos tipos de medición</h2>
+  <table class="tabla">
+    <thead><tr><th>Medición</th><th>Quién la hace</th><th>Qué da</th></tr></thead>
+    <tbody>
+      <tr><td>PIN (Programa de Intervención Nutricional)</td><td>La nutrióloga, en consulta: peso y talla.</td><td class="quien">Un diagnóstico (DX): adecuado, desnutrición, sobrepeso u obesidad.</td></tr>
+      <tr><td>Cinta MUAC</td><td>La guía, en su visita: cinta en el brazo, sin peso ni talla.</td><td class="quien">Un semáforo. Es un tamizaje: sirve para detectar, no para diagnosticar.</td></tr>
+    </tbody>
+  </table>
+  <p>Con eso, cada niño cae en uno de tres grupos que suman el 100 %: <b>en programa PIN</b> (al menos una medición con peso y talla), <b>solo cinta MUAC</b> o <b>sin ninguna medición</b>.</p>
+  <p><b>Permanencia en PIN</b>: para cada niño en PIN se cuenta su racha más larga de <b>meses seguidos</b> con medición PIN, en todo su historial. Un mes sin peso y talla corta la racha. Las categorías son 6+ seguidos, 3 a 5 seguidos, 2 seguidos y única ocasión.</p>
+
+  <h2 id="moverse"><span class="num">4</span>Cómo moverte en el reporte</h2>
+  <ol class="call">
+    <li><div><b>▸ Filtros</b> abre los filtros: <b>Medidos en</b> (todos, 2026 o 2025), <b>Programa</b> (en PIN, solo MUAC, sin medición), <b>Racha</b>, el campo <b>Programa de intervención</b> de la ficha (sí, no, sin capturar) y <b>Guía</b>.</div></li>
+    <li><div>Arriba a la derecha dice cuántos niños quedan con los filtros.</div></li>
+    <li><div>Las pestañas: Resumen, Actividad por mes / semana, Por niño, Por guía y localidad, y Definiciones.</div></li>
+  </ol>
+  <div class="nota">💡 El filtro <b>Medidos en</b> solo cambia el grupo de cada niño (PIN, solo MUAC o sin medición) y a quién se lista. Los meses, las rachas, el diagnóstico y el semáforo siempre son del historial completo.</div>
+
+  <h2 id="pestanas"><span class="num">5</span>Recorrido por pestañas</h2>
+  <p class="sub">Da clic en una pestaña para ver qué responde y qué mirar primero.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-res">Resumen</a><a class="fondo" href="#t-act">Actividad por mes / semana</a><a href="#t-nino">Por niño</a><a class="fondo" href="#t-guia">Por guía y localidad</a><a href="#t-def">Definiciones</a>
+  </div>
+
+  <details class="tab" id="t-res">
+    <summary>Resumen<span class="badge">a fondo</span><span class="q">¿Qué seguimiento tienen los niños?</span></summary>
+  <figure><img src="img/nutricion-resumen.jpg" alt="Pestaña Resumen del Seguimiento Nutricional"><figcaption>Los tres grupos, la permanencia en PIN y los diagnósticos. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li><b>¿Qué seguimiento tienen?</b>: los niños activos y cuántos están en PIN, solo con cinta MUAC o sin medición. Da clic en una tarjeta para ver a esos niños.</li>
+      <li><b>Permanencia en PIN</b>: cuántos niños tienen rachas de 6+, 3 a 5, 2 meses seguidos o una sola ocasión, y cuántos siguen en PIN hoy.</li>
+      <li><b>Niños medidos por mes</b> (PIN y solo MUAC) y <b>racha máxima histórica</b>.</li>
+      <li>El <b>último diagnóstico de la nutrióloga</b> y el <b>semáforo MUAC más reciente</b>.</li>
+    </ul>
+    <div class="ojo">👀 Una racha corta puede ser un niño que dejó de ir a consulta: revisa «Única ocasión» y «2 seguidos» para saber a quién buscar.</div>
+  </details>
+
+  <details class="tab" id="t-act">
+    <summary>Actividad por mes / semana<span class="badge">a fondo</span><span class="q">¿Qué se midió en un mes o en una semana?</span></summary>
+  <figure><img src="img/nutricion-actividad.jpg" alt="Pestaña Actividad por mes o semana"><figcaption>La actividad de un mes, por semana y por guía. Los nombres se cambiaron por «Guía 1, Guía 2…». Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Elige <b>Mes</b> o <b>Semana</b> (de lunes a domingo) y el periodo.</li>
+      <li>Niños medidos, consultas PIN, niños con consulta PIN, cintas MUAC y niños con cinta.</li>
+      <li>El detalle por semana (clic en una barra para ver a los niños), el diagnóstico de las consultas PIN y el semáforo de las cintas.</li>
+      <li><b>Cintas MUAC por guía</b> y <b>consultas PIN por guía del niño</b>. Las cintas se cuentan por la guía de cada niño, aunque las capture la nutrióloga.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-nino">
+    <summary>Por niño<span class="q">¿Cómo ha sido el seguimiento de cada niño?</span></summary>
+    <ul>
+      <li>Una fila por niño: su grupo, su permanencia, el campo «programa de intervención», una <b>línea de tiempo</b> de sus meses (con PIN, solo MUAC o sin medición), su último diagnóstico y su último semáforo.</li>
+      <li>Da clic en un niño para ver todas sus mediciones. «Descargar Excel» baja la lista.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-guia">
+    <summary>Por guía y localidad<span class="badge">a fondo</span><span class="q">¿Qué guía o localidad tiene más niños sin seguimiento?</span></summary>
+  <figure><img src="img/nutricion-guias.jpg" alt="Pestaña Por guía y localidad"><figcaption>La cobertura por guía. Los nombres se cambiaron por «Guía 1, Guía 2…». Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li><b>Cobertura por guía</b>: cada barra reparte a los niños de la guía por permanencia en PIN, solo MUAC y sin medición, con el porcentaje que está en PIN.</li>
+      <li>La tabla con los mismos números y, más abajo, la <b>cobertura por localidad</b>.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-def">
+    <summary>Definiciones<span class="q">¿Qué quiere decir cada término?</span></summary>
+    <p>Explica PIN, solo MUAC, sin medición, la permanencia, el universo y el filtro de periodo. El campo «programa de intervención» de la ficha no se usa para decidir el grupo porque se captura a mano y puede no estar al día; se muestra aparte para poder cotejarlo.</p>
+  </details>
+
+  <h2 id="faq"><span class="num">6</span>Preguntas frecuentes</h2>
+  <details><summary>¿Por qué es solo de Independencia?</summary><p>Así se construyó: sigue a los niños P2040 de Independencia. Si hace falta uno igual para Cuatro Ciénegas, pídelo con «+ Solicitar reporte» en el portal.</p></details>
+  <details><summary>Un niño tiene «Sí» en programa de intervención pero sale sin PIN</summary><p>El grupo se decide por las mediciones, no por ese campo. Si no tiene ninguna consulta con peso y talla, no está en PIN aunque la ficha diga que sí: revisa la captura.</p></details>
+  <details><summary>¿La cinta MUAC sirve para el diagnóstico?</summary><p>No. Es un tamizaje para detectar a quién hay que medir con peso y talla.</p></details>
+
+  <footer>Plan 20·40 · Manual del Seguimiento Nutricional · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>

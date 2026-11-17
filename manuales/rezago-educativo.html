@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Rezago Educativo · Plan 20·40</title>
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/app/icon-512.png">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/fonts.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/colors.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/typography.css">
+<link rel="stylesheet" href="../_ds/plan-20-40-sistema-de-dise-o-apr-08da0c0a-c85c-419c-a45f-a79962e0af47/tokens/base.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--font-sans),"Sora",system-ui,sans-serif;color:var(--text-body);background:var(--bg-app);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 70px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  header.top img{height:34px;width:auto}
+  header.top .tag{font:700 11px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+  header.top a{margin-left:auto;font:700 13px var(--font-sans);color:var(--brand-strong);text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:#FFF6DE;border-radius:22px;padding:28px 30px;margin-bottom:10px}
+  .hero .mini{font:800 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:#A87400;margin-bottom:6px}
+  .hero h1{margin:0 0 10px;font:800 clamp(26px,4.5vw,34px)/1.12 var(--font-sans);letter-spacing:-0.02em;color:var(--text-strong)}
+  .hero p{margin:0;font:400 15.5px/1.6 var(--font-sans);color:rgba(20,20,20,.68);max-width:58ch}
+  .hero img.spot{position:absolute;right:28px;top:26px;width:64px}
+  nav.indice{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  nav.indice a{font:700 12.5px var(--font-sans);color:var(--text-body);text-decoration:none;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px}
+  h2{font:800 21px var(--font-sans);letter-spacing:-0.01em;color:var(--text-strong);margin:42px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+  h2 .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 14px/30px var(--font-sans);text-align:center}
+  h3{font:800 15.5px var(--font-sans);color:var(--text-strong);margin:22px 0 6px}
+  p{margin:0 0 12px}
+  .sub{font:400 14.5px var(--font-sans);color:var(--text-muted);margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--border-subtle);border-radius:16px;padding:18px 20px}
+  figure{margin:14px 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border-subtle);box-shadow:0 2px 10px rgba(20,20,20,.06)}
+  figcaption{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted);margin-top:8px}
+  .flujo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+  .paso{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:14px;position:relative}
+  .paso b{display:block;font:800 13.5px var(--font-sans);color:var(--text-strong);margin-bottom:4px}
+  .paso span{font:400 12.5px/1.5 var(--font-sans);color:var(--text-muted)}
+  .paso .n{position:absolute;top:-10px;left:14px;background:var(--brand);color:#fff;font:800 11px var(--font-sans);border-radius:999px;padding:2px 9px}
+  ol.call{margin:0;padding:0;list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:10px}
+  ol.call li{counter-increment:c;display:flex;gap:12px;align-items:flex-start;font:400 14px/1.55 var(--font-sans)}
+  ol.call li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--educacion-50);color:var(--brand-strong);font:800 12.5px/26px var(--font-sans);text-align:center;margin-top:1px}
+  ol.call b{color:var(--text-strong)}
+  .semaforo{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+  .semaforo span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:6px 12px;font:600 13px var(--font-sans)}
+  .semaforo i{width:10px;height:10px;border-radius:50%;display:block}
+  .tabla{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;font-size:13.5px}
+  .tabla th{background:var(--ink-50);text-align:left;font:700 11px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:10px 14px;border-bottom:1px solid var(--border-subtle)}
+  .tabla td{padding:11px 14px;border-bottom:1px solid var(--border-subtle);vertical-align:top;line-height:1.5}
+  .tabla tr:last-child td{border-bottom:0}
+  .tabla td:first-child{font-weight:700;color:var(--text-strong);white-space:nowrap}
+  .tabla tr.pilar td{background:var(--ink-50);font:800 11.5px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:8px 14px}
+  .tabla .quien{color:var(--text-muted);font-size:12.5px}
+  .nota{background:var(--educacion-50);border:1px solid var(--educacion-100);border-radius:14px;padding:14px 18px;font:400 13.5px/1.6 var(--font-sans);margin:14px 0}
+  .tabs-idx{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+  .tabs-idx a{font:700 12.5px var(--font-sans);text-decoration:none;color:var(--text-body);background:#FFF6DE;border:1px solid #FDE9AE;border-radius:999px;padding:6px 13px}
+  .tabs-idx a.fondo{background:var(--educacion-50);border-color:var(--educacion-100);color:var(--brand-strong)}
+  details.tab{padding:4px 20px;margin-bottom:12px;scroll-margin-top:16px}
+  details.tab summary{font-size:15.5px}
+  details.tab summary .q{display:block;font:400 13px/1.45 var(--font-sans);color:var(--text-muted);margin:3px 0 0 22px}
+  details.tab summary .badge{font:800 10px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;background:var(--educacion-50);color:var(--brand-strong);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  details.tab ul{margin:4px 0 12px;padding-left:20px} details.tab li{font-size:14px;margin-bottom:6px}
+  details.tab .ojo{background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:6px 0 14px}
+  details{background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+  details summary{cursor:pointer;font:700 14.5px var(--font-sans);color:var(--text-strong);padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋ ";color:var(--brand-strong)}
+  details[open] summary::before{content:"－ "}
+  details p{font-size:14px;color:var(--text-body)}
+  dl.glosario{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+  dl.glosario dt{font:800 13.5px var(--font-sans);color:var(--text-strong)}
+  dl.glosario dd{margin:0;font:400 13.5px/1.55 var(--font-sans)}
+  footer{margin-top:46px;border-top:1px solid var(--border-subtle);padding-top:16px;font:400 12.5px var(--font-sans);color:var(--text-faint)}
+  .ejemplo{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px dashed var(--border-subtle);border-radius:14px;padding:12px 16px;font:400 13px/1.55 var(--font-sans);color:var(--text-muted);margin:10px 0 4px}
+  @media (max-width:700px){ .flujo{grid-template-columns:1fr 1fr} .hero img.spot{display:none} dl.glosario{grid-template-columns:1fr} .tabla td:first-child{white-space:normal} }
+  @media print{ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} nav.indice,header.top a{display:none} h2{break-after:avoid} figure,.card,details,.paso{break-inside:avoid} details{display:block} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../assets/logo-color.svg" alt="Plan 20·40">
+    <span class="tag">Portal de Reportes · Manual del reporte</span>
+    <a href="../">← Volver al portal</a>
+  </header>
+
+  <section class="hero">
+    <img class="spot" src="../assets/spot/graduation-cap.png" alt="">
+    <div class="mini">Reportes por pilar · Educación</div>
+    <h1>Manual de Rezago Educativo</h1>
+    <p>Si cada niño cursa el grado que le toca por su edad y qué grados no cursó: cómo se calcula, qué quiere decir «por confirmar» y cómo usar las listas.</p>
+  </section>
+
+  <div class="ejemplo">🔒 <span>Las capturas de este manual usan <b>números de ejemplo</b>: sirven para ubicar cada parte del reporte, no son los datos reales. Los datos reales solo se ven dentro del reporte, con tu sesión institucional.</span></div>
+
+  <nav class="indice">
+    <a href="#para-que">1 · Para qué sirve</a>
+    <a href="#calculo">2 · Cómo se calcula</a>
+    <a href="#moverse">3 · Cómo moverte</a>
+    <a href="#vistas">4 · Las tres vistas</a>
+    <a href="#faq">5 · Preguntas frecuentes</a>
+  </nav>
+
+  <h2 id="para-que"><span class="num">1</span>¿Para qué sirve?</h2>
+  <p>Es un primer paso hacia el tema de aprendizaje: dice <b>qué niños van atrasados respecto a su edad</b> y <b>qué niños tienen grados que nunca cursaron</b>, aunque hoy vayan en su grado. Esos huecos pueden señalar dónde hace falta apoyo.</p>
+  <p>Cuenta a los niños P2040 activos con un grado marcado «Cursando» en el CRM.</p>
+
+  <h2 id="calculo"><span class="num">2</span>Cómo se calcula</h2>
+  <ul>
+    <li><b>Grado que le toca</b> = edad SEP (cumplida al 31 de diciembre del año en que inició el ciclo) menos 3: con 3 años le toca 1º de preescolar; con 6, 1º de primaria.</li>
+    <li><b>Confirmado</b>: algún grado del niño se editó en el CRM desde el 1 de agosto de 2026. <b>Por confirmar</b>: su grado no se ha tocado este ciclo y puede no estar actualizado.</li>
+    <li><b>Trayectoria</b>: cada grado anterior al que cursa es <b>cursado</b> (dice Completado), <b>hueco</b> (dice No, Sin estudios o está vacío) o <b>por actualizar</b> (sigue como Confirmado, Preinscrito o Cursando: no es hueco, falta marcarlo Completado).</li>
+  </ul>
+  <div class="ojo" style="background:#FFF6DE;border-radius:10px;padding:10px 14px;font:600 13px/1.55 var(--font-sans);color:#8a5a00;margin:12px 0">👀 Solo es rezago confirmado si el grado se actualizó este ciclo. Antes de sacar conclusiones, filtra la lista con «Grado actualizado este ciclo».</div>
+
+  <h2 id="moverse"><span class="num">3</span>Cómo moverte en el reporte</h2>
+  <ol class="call">
+    <li><div><b>Comunidad, Guía, Localidad y Grado actual</b> filtran todo; a la derecha ves cuántos niños están cursando con esos filtros.</div></li>
+    <li><div>Tres vistas: <b>1 · ¿Cursa el grado que le toca?</b>, <b>2 · Huecos en su trayectoria</b> y <b>Datos por actualizar</b>.</div></li>
+    <li><div>Cada vista termina con la lista de niños, que puedes filtrar (todos, grado actualizado este ciclo o por confirmar) y bajar con <b>⬇ Excel de esta lista</b>.</div></li>
+  </ol>
+
+  <h2 id="vistas"><span class="num">4</span>Las tres vistas</h2>
+  <p class="sub">Da clic en una vista para ver qué responde y qué mirar primero.</p>
+  <div class="tabs-idx">
+    <a class="fondo" href="#t-grado">1 · ¿Cursa el grado que le toca?</a><a class="fondo" href="#t-huecos">2 · Huecos en su trayectoria</a><a href="#t-datos">Datos por actualizar</a>
+  </div>
+
+  <details class="tab" id="t-grado">
+    <summary>1 · ¿Cursa el grado que le toca?<span class="badge">a fondo</span><span class="q">¿Cuántos niños van en su grado, atrasados o adelantados?</span></summary>
+  <figure><img src="img/rezago-grado.jpg" alt="Vista Cursa el grado que le toca"><figcaption>El reparto de los niños y la tabla por grado. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Cuatro tarjetas: <b>en su grado</b>, <b>un grado abajo</b>, <b>dos o más abajo</b> y <b>adelantado</b>. En las de «abajo» se separan confirmados y por confirmar.</li>
+      <li><b>Por grado que cursan</b>: de cada grado, cuántos niños van en el que les toca y cuántos no.</li>
+      <li>En la lista, cada niño trae el grado que cursa, el que le toca, su situación y su trayectoria grado por grado.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-huecos">
+    <summary>2 · Huecos en su trayectoria<span class="badge">a fondo</span><span class="q">¿Qué grados no cursaron?</span></summary>
+  <figure><img src="img/rezago-huecos.jpg" alt="Vista Huecos en su trayectoria"><figcaption>Los tipos de hueco y los años de preescolar. Captura con números de ejemplo.</figcaption></figure>
+    <ul>
+      <li>Cuántos niños tienen un <b>hueco en primaria</b> o no cursaron <b>1º, 2º o 3º de preescolar</b>. No cursar 1º de preescolar es muy común: muchos entraron directo a 2º.</li>
+      <li><b>Años de preescolar</b> de los niños que ya están en primaria: 3, 2, 1, sin preescolar o por confirmar.</li>
+    </ul>
+  </details>
+
+  <details class="tab" id="t-datos">
+    <summary>Datos por actualizar<span class="q">¿Qué grados hay que marcar como Completado?</span></summary>
+    <p>Los niños con algún grado anterior que sigue como Confirmado, Preinscrito o Cursando. No son huecos: es un dato por cambiar a Completado en el CRM. Arriba ves cuántos tiene cada guía, para repartir la corrección.</p>
+  </details>
+
+  <h2 id="faq"><span class="num">5</span>Preguntas frecuentes</h2>
+  <details><summary>Un niño sale «un grado abajo» pero sí va en su grado</summary><p>Probablemente su grado no se ha actualizado este ciclo (aparece «por confirmar»). Actualiza el grado en el CRM y en el siguiente corte saldrá bien.</p></details>
+  <details><summary>¿Un hueco quiere decir que el niño no aprendió algo?</summary><p>No directamente: dice que no cursó ese grado según el CRM. Es una señal para revisar con la familia, no un diagnóstico de aprendizaje.</p></details>
+  <details><summary>¿En qué se diferencia de Transiciones e Inscripciones?</summary><p>Rezago mira el ciclo actual y la trayectoria hacia atrás; Transiciones mira el próximo ciclo y su inscripción.</p></details>
+
+  <footer>Plan 20·40 · Manual de Rezago Educativo · ¿Algo no está claro? Usa «+ Solicitar reporte» en el portal o escríbele a Análisis.</footer>
+</div>
+<script>
+  // Los botones del índice abren el bloque plegable al que apuntan
+  function abrirDestino() {
+    var d = document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", abrirDestino);
+  abrirDestino();
+</script>
+</body>
+</html>
