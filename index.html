@@ -1404,7 +1404,7 @@ class Component extends DCLogic {
 /* Descargas de Excel desde los reportes. SharePoint muestra los HTML dentro de un marco
    que no permite descargar archivos; el reporte le pasa el archivo al portal (que sí puede)
    con postMessage. Solo se aceptan mensajes de marcos que estén DENTRO de los reportes
-   abiertos en este portal, solo archivos .xlsx y de tamaño razonable. */
+   abiertos en este portal, solo archivos .xlsx de hasta 150 MB. */
 (function(){
   function vieneDeUnReporte(src){
     const marcos = Array.prototype.slice.call(document.querySelectorAll("iframe"));
@@ -1424,7 +1424,7 @@ class Component extends DCLogic {
     const nombre = String(d.nombre||"").replace(/[\\/:*?"<>|]+/g,"-").slice(0,150);
     if(!/\.xlsx$/i.test(nombre)) return;
     const bytes = d.bytes instanceof ArrayBuffer? new Uint8Array(d.bytes) : d.bytes;
-    if(!(bytes instanceof Uint8Array) || bytes.length>25e6) return;
+    if(!(bytes instanceof Uint8Array) || bytes.length>150e6) return;
     const url = URL.createObjectURL(new Blob([bytes], {type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}));
     const a = document.createElement("a"); a.href=url; a.download=nombre; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
