@@ -1400,5 +1400,37 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script>
+/* Descargas de Excel desde los reportes. SharePoint muestra los HTML dentro de un marco
+   que no permite descargar archivos; el reporte le pasa el archivo al portal (que sí puede)
+   con postMessage. Solo se aceptan mensajes de marcos que estén DENTRO de los reportes
+   abiertos en este portal, solo archivos .xlsx y de tamaño razonable. */
+(function(){
+  function vieneDeUnReporte(src){
+    const marcos = Array.prototype.slice.call(document.querySelectorAll("iframe"));
+    let w = src;
+    for(let i=0; i<6 && w; i++){
+      if(marcos.some(function(f){ return f.contentWindow===w; })) return true;
+      let p; try{ p = w.parent; }catch(e){ return false; }
+      if(!p || p===w) return false;
+      w = p;
+    }
+    return false;
+  }
+  window.addEventListener("message", function(e){
+    const d = e.data;
+    if(!d || d.tipo!=="p2040-descarga") return;
+    if(!e.source || !vieneDeUnReporte(e.source)) return;
+    const nombre = String(d.nombre||"").replace(/[\\/:*?"<>|]+/g,"-").slice(0,150);
+    if(!/\.xlsx$/i.test(nombre)) return;
+    const bytes = d.bytes instanceof ArrayBuffer? new Uint8Array(d.bytes) : d.bytes;
+    if(!(bytes instanceof Uint8Array) || bytes.length>25e6) return;
+    const url = URL.createObjectURL(new Blob([bytes], {type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}));
+    const a = document.createElement("a"); a.href=url; a.download=nombre; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+    try{ e.source.postMessage({tipo:"p2040-descarga-ok", id:d.id}, "*"); }catch(err){}
+  });
+})();
+</script>
 </body>
 </html>
